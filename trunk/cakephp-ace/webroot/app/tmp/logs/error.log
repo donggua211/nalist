@@ -1,0 +1,53 @@
+2013-09-27 18:18:09 Error: [MissingControllerException] Controller class DocController could not be found.
+Exception Attributes: array (
+  'class' => 'DocController',
+  'plugin' => NULL,
+)
+Request URL: /doc
+Stack Trace:
+#0 /www/cakephp.zhaoyuan.com/webroot/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-09-27 18:18:11 Error: [MissingActionException] Action DocsController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'DocsController',
+  'action' => 'index',
+)
+Request URL: /docs
+Stack Trace:
+#0 /www/cakephp.zhaoyuan.com/webroot/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /www/cakephp.zhaoyuan.com/webroot/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(DocsController), Object(CakeRequest), Object(CakeResponse))
+#2 /www/cakephp.zhaoyuan.com/webroot/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-09-27 18:33:25 Error: [MissingActionException] Action DocCatsController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'DocCatsController',
+  'action' => 'index',
+)
+Request URL: /doc_cats
+Stack Trace:
+#0 /www/cakephp.zhaoyuan.com/webroot/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /www/cakephp.zhaoyuan.com/webroot/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(DocCatsController), Object(CakeRequest), Object(CakeResponse))
+#2 /www/cakephp.zhaoyuan.com/webroot/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-09-30 06:48:02 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [1049] Unknown database \'affiliate\'',
+  'enabled' => true,
+)
+Request URL: /product/centos6.4/cakephp-ace/trunk/webroot/
+Stack Trace:
+#0 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\lib\Cake\Model\Datasource\DboSource.php(262): Mysql->connect()
+#1 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\lib\Cake\Model\ConnectionManager.php(107): DboSource->__construct(Array)
+#2 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\lib\Cake\Model\Model.php(3288): ConnectionManager::getDataSource('default')
+#3 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\lib\Cake\Model\Model.php(1107): Model->setDataSource('default')
+#4 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\lib\Cake\Model\Model.php(3310): Model->setSource('docs')
+#5 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\lib\Cake\Model\Model.php(2750): Model->getDataSource()
+#6 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\lib\Cake\Model\Model.php(2722): Model->_readDataSource('all', Array)
+#7 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\app\Controller\EntryController.php(43): Model->find('all')
+#8 [internal function]: EntryController->index()
+#9 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(EntryController), Array)
+#10 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(EntryController), Object(CakeRequest), Object(CakeResponse))
+#12 D:\www\product\centos6.4\cakephp-ace\trunk\webroot\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
