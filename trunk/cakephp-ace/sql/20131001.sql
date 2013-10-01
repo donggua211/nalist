@@ -1,25 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 3.4.10.1
 -- http://www.phpmyadmin.net
 --
--- 主机: localhost
--- 生成日期: 2013 年 09 月 30 日 22:17
--- 服务器版本: 5.6.12-log
--- PHP 版本: 5.4.12
+-- Host: localhost
+-- Generation Time: Sep 30, 2013 at 06:41 PM
+-- Server version: 5.5.20
+-- PHP Version: 5.3.10
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- 数据库: `affiliate`
+-- Database: `affiliate`
 --
-CREATE DATABASE IF NOT EXISTS `affiliate` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `affiliate`;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `docs`
+-- Table structure for table `docs`
 --
 
 DROP TABLE IF EXISTS `docs`;
@@ -33,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `docs` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `docs`
+-- Dumping data for table `docs`
 --
 
 INSERT INTO `docs` (`id`, `name`, `description`, `created`, `modified`) VALUES
@@ -43,7 +41,7 @@ INSERT INTO `docs` (`id`, `name`, `description`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `docs_doc_cats`
+-- Table structure for table `docs_doc_cats`
 --
 
 DROP TABLE IF EXISTS `docs_doc_cats`;
@@ -56,18 +54,10 @@ CREATE TABLE IF NOT EXISTS `docs_doc_cats` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
---
--- 转存表中的数据 `docs_doc_cats`
---
-
-INSERT INTO `docs_doc_cats` (`id`, `doc_id`, `doc_cat_id`, `created`, `modified`) VALUES
-(1, 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 2, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
--- 表的结构 `docs_features`
+-- Table structure for table `docs_features`
 --
 
 DROP TABLE IF EXISTS `docs_features`;
@@ -81,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `docs_features` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `docs_features`
+-- Dumping data for table `docs_features`
 --
 
 INSERT INTO `docs_features` (`id`, `doc_id`, `feature_id`, `created`, `modified`) VALUES
@@ -91,7 +81,7 @@ INSERT INTO `docs_features` (`id`, `doc_id`, `feature_id`, `created`, `modified`
 -- --------------------------------------------------------
 
 --
--- 表的结构 `doc_cats`
+-- Table structure for table `doc_cats`
 --
 
 DROP TABLE IF EXISTS `doc_cats`;
@@ -105,21 +95,23 @@ CREATE TABLE IF NOT EXISTS `doc_cats` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- 转存表中的数据 `doc_cats`
+-- Dumping data for table `doc_cats`
 --
 
 INSERT INTO `doc_cats` (`id`, `parent_id`, `lft`, `rght`, `name`, `description`, `created`, `modified`) VALUES
-(1, NULL, 0, 0, 'mainte', 'This is the mainte site.\r\nhttps://secure.a-c-engine.com/mainte/', '2013-09-27 23:40:38', '2013-09-28 17:20:15'),
-(2, NULL, 0, 0, 'card_mainte', 'card mainte site for admin\r\nhttps://secure.a-c-engine.com/sites/card_mainte/', '2013-09-27 23:49:27', '2013-09-28 17:19:46'),
-(3, NULL, 0, 0, 'affiliate management site', 'Affiliate management site.\r\nhttps://secure.a-c-engine.com/sites/affid/user/', '2013-09-28 17:19:04', '2013-09-28 17:19:04');
+(12, 9, 2, 3, 'sub-mainte', 'sub-mainte', '2013-09-30 17:54:54', '2013-09-30 17:54:54'),
+(11, NULL, 7, 8, 'affiliate management site', 'Affiliate management site. https://secure.a-c-engine.com/sites/affid/user/ ', '2013-09-30 17:54:35', '2013-09-30 17:54:35'),
+(9, NULL, 1, 6, 'mainte', 'This is the mainte site.\r\nhttps://secure.a-c-engine.com/mainte/', '2013-09-30 17:54:06', '2013-09-30 17:54:06'),
+(10, NULL, 9, 10, 'card_mainte', 'card mainte site for admin.\r\nhttps://secure.a-c-engine.com/sites/card_mainte/ ', '2013-09-30 17:54:22', '2013-09-30 17:54:42'),
+(13, 9, 4, 5, 'sub-mainte2', 'sub-mainte2', '2013-09-30 17:56:30', '2013-09-30 17:56:30');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `features`
+-- Table structure for table `features`
 --
 
 DROP TABLE IF EXISTS `features`;
@@ -133,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `features` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `features`
+-- Dumping data for table `features`
 --
 
 INSERT INTO `features` (`id`, `name`, `descrition`, `created`, `modified`) VALUES
@@ -143,7 +135,7 @@ INSERT INTO `features` (`id`, `name`, `descrition`, `created`, `modified`) VALUE
 -- --------------------------------------------------------
 
 --
--- 表的结构 `features_feature_cats`
+-- Table structure for table `features_feature_cats`
 --
 
 DROP TABLE IF EXISTS `features_feature_cats`;
@@ -157,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `features_feature_cats` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `features_feature_cats`
+-- Dumping data for table `features_feature_cats`
 --
 
 INSERT INTO `features_feature_cats` (`id`, `feature_id`, `feature_cat_id`, `created`, `modified`) VALUES
@@ -167,7 +159,7 @@ INSERT INTO `features_feature_cats` (`id`, `feature_id`, `feature_cat_id`, `crea
 -- --------------------------------------------------------
 
 --
--- 表的结构 `feature_cats`
+-- Table structure for table `feature_cats`
 --
 
 DROP TABLE IF EXISTS `feature_cats`;
@@ -184,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `feature_cats` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `feature_cats`
+-- Dumping data for table `feature_cats`
 --
 
 INSERT INTO `feature_cats` (`id`, `parent_id`, `lft`, `rght`, `name`, `description`, `created`, `modified`) VALUES

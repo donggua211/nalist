@@ -39,10 +39,10 @@ class EntryController extends AppController {
  */
 	public function index() {
 	
-		$this->loadModel('Doc');
-		$docsList = $this->Doc->find('all');
+		$this->loadModel('DocCat');
+		$docsList = $this->DocCat->generateTreeList(null, null, null, '---');
 		
-		pr($docsList);
+        debug($docsList);
 		
 	}
 }
