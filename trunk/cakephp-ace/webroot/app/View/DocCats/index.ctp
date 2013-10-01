@@ -8,7 +8,7 @@
 		<th>modified</th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php echo $this->Cat->listDocCats($docCats, $docCatsTree); ?>
+	<?php echo $this->Cat->listDocCats($docCats); ?>
 	</table>
 </div>
 <div class="actions">

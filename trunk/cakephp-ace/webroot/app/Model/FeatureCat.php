@@ -14,7 +14,7 @@ class FeatureCat extends AppModel {
  */
 	public $displayField = 'name';
 	
-	public $actsAs = array('Tree');
+	public $actsAs = array('TreePlus');
 	public $order = "id";
 
 /**

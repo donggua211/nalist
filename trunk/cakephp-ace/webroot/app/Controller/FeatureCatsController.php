@@ -16,9 +16,7 @@ class FeatureCatsController extends AppController {
 	public function index() {
 		$this->helpers[] = 'Cat';
 		$this->FeatureCat->recursive = 0;
-		$this->set('featureCats', $this->FeatureCat->find('threaded'));
-		
-		$this->set('featureCatsTree', $this->FeatureCat->generateTreeList(null, null, null, '--'));
+		$this->set('featureCats', $this->FeatureCat->generateTreePlusList());
 	}
 
 /**

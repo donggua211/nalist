@@ -6,11 +6,20 @@ App::uses('AppHelper', 'View/Helper');
 class CatHelper extends AppHelper {
 	public $helpers = array('Html', 'Form');
 	
-    public function listDocCats($docCats, $docCatsTree) {
+    public function listDocCats($docCats) {
         
 		foreach ($docCats as $docCat) {
 			echo '<tr>
-				<td>'.($docCat['DocCat']['parent_id'] > 0 ? '└' : '').h($docCatsTree[$docCat['DocCat']['id']]).'&nbsp;</td>
+				<td>';
+			
+			for($i = 1; $i < $docCat['DocCat']['depth']; $i ++) {
+				echo '&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+			if($docCat['DocCat']['depth'] > 1) {
+				echo '└─';
+			}
+			
+			echo h($docCat['DocCat']['name']).'</td>
 				<td>'.h($docCat['DocCat']['description']).'&nbsp;</td>
 				<td>'.h($docCat['DocCat']['created']).'&nbsp;</td>
 				<td>'.h($docCat['DocCat']['modified']).'&nbsp;</td>
@@ -23,16 +32,24 @@ class CatHelper extends AppHelper {
 			
 			if(isset($docCat['children']) && !empty($docCat['children'])) {
 				$this->level ++;
-				$this->listDocCats($docCat['children'], $docCatsTree);
+				$this->listDocCats($docCat['children']);
 			}
 		}
     }
 	
-    public function listFeatureCats($featureCats, $featureCatsTree) {
+    public function listFeatureCats($featureCats) {
         
 		foreach ($featureCats as $featureCat) {
 			echo '<tr>
-				<td>'.($featureCat['FeatureCat']['parent_id'] > 0 ? '└' : '').h($featureCatsTree[$featureCat['FeatureCat']['id']]).'&nbsp;</td>
+				<td>';
+			for($i = 1; $i < $featureCat['FeatureCat']['depth']; $i ++) {
+				echo '&nbsp;&nbsp;&nbsp;&nbsp;';
+			}
+			if($featureCat['FeatureCat']['depth'] > 1) {
+				echo '└─';
+			}
+			
+			echo h($featureCat['FeatureCat']['name']).'</td>
 				<td>'.h($featureCat['FeatureCat']['description']).'&nbsp;</td>
 				<td>'.h($featureCat['FeatureCat']['created']).'&nbsp;</td>
 				<td>'.h($featureCat['FeatureCat']['modified']).'&nbsp;</td>
@@ -45,7 +62,7 @@ class CatHelper extends AppHelper {
 			
 			if(isset($featureCat['children']) && !empty($featureCat['children'])) {
 				$this->level ++;
-				$this->listfeatureCats($featureCat['children'], $featureCatsTree);
+				$this->listfeatureCats($featureCat['children']);
 			}
 		}
     }

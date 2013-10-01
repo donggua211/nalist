@@ -8,7 +8,7 @@
 		<th>modified</th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php echo $this->Cat->listFeatureCats($featureCats, $featureCatsTree); ?>
+	<?php echo $this->Cat->listFeatureCats($featureCats); ?>
 	</table>
 </div>
 <div class="actions">

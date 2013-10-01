@@ -16,9 +16,7 @@ class DocCatsController extends AppController {
 	public function index() {
 		$this->helpers[] = 'Cat';
 		$this->DocCat->recursive = 0;
-		$this->set('docCats', $this->DocCat->find('threaded'));
-		
-		$this->set('docCatsTree', $this->DocCat->generateTreeList(null, null, null, '--'));
+		$this->set('docCats', $this->DocCat->generateTreePlusList());
 	}
 
 /**
