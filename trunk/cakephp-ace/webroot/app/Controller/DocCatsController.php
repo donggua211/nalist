@@ -14,8 +14,11 @@ class DocCatsController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->FeatureCat->recursive = 0;
+		$this->helpers[] = 'Cat';
+		$this->DocCat->recursive = 0;
 		$this->set('docCats', $this->DocCat->find('threaded'));
+		
+		$this->set('docCatsTree', $this->DocCat->generateTreeList(null, null, null, '--'));
 	}
 
 /**
@@ -49,9 +52,9 @@ class DocCatsController extends AppController {
 			}
 		}
 		$docs = $this->DocCat->Doc->find('list');
-		$docsList = $this->DocCat->generateTreeList(null, null, null, '---');
+		$docCatsList = $this->DocCat->generateTreeList(null, null, null, '---');
 		$this->set(compact('docs'));
-		$this->set(compact('docsList'));
+		$this->set(compact('docCatsList'));
 	}
 
 /**
@@ -78,8 +81,8 @@ class DocCatsController extends AppController {
 		}
 		$docs = $this->DocCat->Doc->find('list');
 		$this->set(compact('docs'));
-		$docsList = $this->DocCat->generateTreeList(null, null, null, '---');
-		$this->set(compact('docsList'));
+		$docCatsList = $this->DocCat->generateTreeList(null, null, null, '---');
+		$this->set(compact('docCatsList'));
 	}
 
 /**

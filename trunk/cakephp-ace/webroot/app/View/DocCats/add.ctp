@@ -7,7 +7,7 @@
 		echo $this->Form->input('description');
 		echo $this->Form->input('Doc');
 		echo $this->Form->input('parent_id', array(
-			'options' => $docsList,
+			'options' => $docCatsList,
 			'empty' => 'Set as top'
 		));
 	?>

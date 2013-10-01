@@ -14,8 +14,11 @@ class FeatureCatsController extends AppController {
  * @return void
  */
 	public function index() {
+		$this->helpers[] = 'Cat';
 		$this->FeatureCat->recursive = 0;
-		$this->set('featureCats', $this->Paginator->paginate());
+		$this->set('featureCats', $this->FeatureCat->find('threaded'));
+		
+		$this->set('featureCatsTree', $this->FeatureCat->generateTreeList(null, null, null, '--'));
 	}
 
 /**
@@ -49,7 +52,9 @@ class FeatureCatsController extends AppController {
 			}
 		}
 		$features = $this->FeatureCat->Feature->find('list');
+		$featureCatsList = $this->FeatureCat->generateTreeList(null, null, null, '---');
 		$this->set(compact('features'));
+		$this->set(compact('featureCatsList'));
 	}
 
 /**
@@ -75,7 +80,9 @@ class FeatureCatsController extends AppController {
 			$this->request->data = $this->FeatureCat->find('first', $options);
 		}
 		$features = $this->FeatureCat->Feature->find('list');
+		$featureCatsList = $this->FeatureCat->generateTreeList(null, null, null, '---');
 		$this->set(compact('features'));
+		$this->set(compact('featureCatsList'));
 	}
 
 /**
