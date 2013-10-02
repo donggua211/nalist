@@ -52,7 +52,9 @@ Cache::config('default', array('engine' => 'File'));
  * ));
  *
  */
-
+App::build(array(
+	'Controller'                => array(APP . 'Controller' . DS . 'mainte/'),
+));
 /**
  * Custom Inflector rules, can be set to correctly pluralize or singularize table, model, controller names or whatever other
  * string is passed to the inflection functions

@@ -12,13 +12,14 @@ class TreePlusBehavior extends TreeBehavior {
 		return $list;
 	}
 	
-	private function _generateDepth(Model $Model, &$list) {
+	private function _generateDepth(Model $Model, &$list, $depth = 0) {
 		$alias = $Model->alias;
+		$depth ++;
 		foreach($list as $key => &$val) {
-			$val[$alias]['depth'] = count($this->getPath($Model, $val[$alias]['id'], array('id')));
+			$val[$alias]['depth'] = $depth;
 			
 			if(isset($val['children']) && !empty($val['children'])) {
-				$this->_generateDepth($Model, $val['children']);
+				$this->_generateDepth($Model, $val['children'], $depth);
 			}
 		}
 	}

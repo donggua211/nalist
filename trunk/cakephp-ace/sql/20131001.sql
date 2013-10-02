@@ -1,25 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 3.4.10.1
 -- http://www.phpmyadmin.net
 --
--- 主机: localhost
--- 生成日期: 2013 年 10 月 01 日 07:13
--- 服务器版本: 5.6.12-log
--- PHP 版本: 5.4.12
+-- Host: localhost
+-- Generation Time: Oct 01, 2013 at 06:18 PM
+-- Server version: 5.5.20
+-- PHP Version: 5.3.10
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- 数据库: `affiliate`
+-- Database: `affiliate`
 --
-CREATE DATABASE IF NOT EXISTS `affiliate` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `affiliate`;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `docs`
+-- Table structure for table `docs`
 --
 
 DROP TABLE IF EXISTS `docs`;
@@ -33,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `docs` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `docs`
+-- Dumping data for table `docs`
 --
 
 INSERT INTO `docs` (`id`, `name`, `description`, `created`, `modified`) VALUES
@@ -43,7 +41,7 @@ INSERT INTO `docs` (`id`, `name`, `description`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `docs_doc_cats`
+-- Table structure for table `docs_doc_cats`
 --
 
 DROP TABLE IF EXISTS `docs_doc_cats`;
@@ -59,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `docs_doc_cats` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `docs_features`
+-- Table structure for table `docs_features`
 --
 
 DROP TABLE IF EXISTS `docs_features`;
@@ -73,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `docs_features` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `docs_features`
+-- Dumping data for table `docs_features`
 --
 
 INSERT INTO `docs_features` (`id`, `doc_id`, `feature_id`, `created`, `modified`) VALUES
@@ -83,7 +81,7 @@ INSERT INTO `docs_features` (`id`, `doc_id`, `feature_id`, `created`, `modified`
 -- --------------------------------------------------------
 
 --
--- 表的结构 `doc_cats`
+-- Table structure for table `doc_cats`
 --
 
 DROP TABLE IF EXISTS `doc_cats`;
@@ -100,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `doc_cats` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
--- 转存表中的数据 `doc_cats`
+-- Dumping data for table `doc_cats`
 --
 
 INSERT INTO `doc_cats` (`id`, `parent_id`, `lft`, `rght`, `name`, `description`, `created`, `modified`) VALUES
@@ -114,7 +112,7 @@ INSERT INTO `doc_cats` (`id`, `parent_id`, `lft`, `rght`, `name`, `description`,
 -- --------------------------------------------------------
 
 --
--- 表的结构 `features`
+-- Table structure for table `features`
 --
 
 DROP TABLE IF EXISTS `features`;
@@ -128,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `features` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `features`
+-- Dumping data for table `features`
 --
 
 INSERT INTO `features` (`id`, `name`, `descrition`, `created`, `modified`) VALUES
@@ -138,7 +136,7 @@ INSERT INTO `features` (`id`, `name`, `descrition`, `created`, `modified`) VALUE
 -- --------------------------------------------------------
 
 --
--- 表的结构 `features_feature_cats`
+-- Table structure for table `features_feature_cats`
 --
 
 DROP TABLE IF EXISTS `features_feature_cats`;
@@ -154,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `features_feature_cats` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `feature_cats`
+-- Table structure for table `feature_cats`
 --
 
 DROP TABLE IF EXISTS `feature_cats`;
@@ -171,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `feature_cats` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- 转存表中的数据 `feature_cats`
+-- Dumping data for table `feature_cats`
 --
 
 INSERT INTO `feature_cats` (`id`, `parent_id`, `lft`, `rght`, `name`, `description`, `created`, `modified`) VALUES
