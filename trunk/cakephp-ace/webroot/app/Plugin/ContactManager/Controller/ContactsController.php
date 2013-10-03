@@ -13,4 +13,9 @@ class ContactsController extends ContactManagerAppController {
  */
 	public $scaffold;
 
+	public $uses = array('ContactManager.Contact');
+	
+	public function index() {
+	//...
+	}
 }
