@@ -1,5 +1,6 @@
 <?php
 
+App::uses('AuthComponent', 'Controller/Component');
 class BrwPanelComponent extends Component{
 
 	public $controller;
