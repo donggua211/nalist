@@ -5,11 +5,12 @@ App::uses('AppController', 'Controller');
 class AdminAppController extends AppController {
 	public $components = array(
         'Session',
+		'Acl',
         'Auth' => array(
             'loginAction' => array('plugin' => 'admin', 'controller' => 'users', 'action' => 'login'),
             'loginRedirect' => array('plugin' => 'admin', 'controller' => 'entry', 'action' => 'index'),
             'logoutRedirect' => array('plugin' => 'admin', 'controller' => 'entry', 'action' => 'index'),
-			'authorize' => array('Controller'),
+			'authorize' => array('Actions' => array('actionPath' => 'controllers')),
         ),
     );
 
