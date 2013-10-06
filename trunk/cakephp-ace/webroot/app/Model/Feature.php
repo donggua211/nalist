@@ -78,5 +78,4 @@ class Feature extends AppModel {
 			'finderQuery' => '',
 		)
 	);
-
 }

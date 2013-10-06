@@ -78,5 +78,4 @@ class Doc extends AppModel {
 			'finderQuery' => '',
 		)
 	);
-
 }

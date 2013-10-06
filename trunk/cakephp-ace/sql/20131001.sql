@@ -1,77 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 02, 2013 at 06:34 PM
--- Server version: 5.5.20
--- PHP Version: 5.3.10
+-- Generation Time: Oct 06, 2013 at 07:21 AM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
 -- Database: `affiliate`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `brw_files`
---
-
-DROP TABLE IF EXISTS `brw_files`;
-CREATE TABLE IF NOT EXISTS `brw_files` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `record_id` int(10) unsigned NOT NULL,
-  `model` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `category_code` char(10) COLLATE utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `category_code` (`category_code`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `brw_images`
---
-
-DROP TABLE IF EXISTS `brw_images`;
-CREATE TABLE IF NOT EXISTS `brw_images` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `record_id` int(10) unsigned NOT NULL,
-  `model` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `category_code` char(10) COLLATE utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `category_code` (`category_code`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `brw_users`
---
-
-DROP TABLE IF EXISTS `brw_users`;
-CREATE TABLE IF NOT EXISTS `brw_users` (
-  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `root` tinyint(1) NOT NULL DEFAULT '1',
-  `last_login` datetime NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+CREATE DATABASE IF NOT EXISTS `affiliate` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `affiliate`;
 
 -- --------------------------------------------------------
 
@@ -83,6 +26,7 @@ DROP TABLE IF EXISTS `docs`;
 CREATE TABLE IF NOT EXISTS `docs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `description` text NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
@@ -93,9 +37,9 @@ CREATE TABLE IF NOT EXISTS `docs` (
 -- Dumping data for table `docs`
 --
 
-INSERT INTO `docs` (`id`, `name`, `description`, `created`, `modified`) VALUES
-(1, 'index.php', 'This is the index of project.', '2013-09-27 23:36:39', '2013-09-27 23:52:17'),
-(2, 'logout.php', 'User logout', '2013-09-27 23:54:39', '2013-09-27 23:54:39');
+INSERT INTO `docs` (`id`, `name`, `user_id`, `description`, `created`, `modified`) VALUES
+(1, 'index.php', 1, 'This is the index of project.', '2013-09-27 23:36:39', '2013-09-27 23:52:17'),
+(2, 'logout.php', 1, 'User logout', '2013-09-27 23:54:39', '2013-09-27 23:54:39');
 
 -- --------------------------------------------------------
 
@@ -177,6 +121,7 @@ INSERT INTO `doc_cats` (`id`, `parent_id`, `lft`, `rght`, `name`, `description`,
 DROP TABLE IF EXISTS `features`;
 CREATE TABLE IF NOT EXISTS `features` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `descrition` text NOT NULL,
   `created` datetime NOT NULL,
@@ -188,9 +133,9 @@ CREATE TABLE IF NOT EXISTS `features` (
 -- Dumping data for table `features`
 --
 
-INSERT INTO `features` (`id`, `name`, `descrition`, `created`, `modified`) VALUES
-(1, 'User Login', 'Allowed users to login the system', '2013-09-27 23:51:25', '2013-09-27 23:51:25'),
-(2, 'User logout', 'User log out the system', '2013-09-27 23:55:28', '2013-09-27 23:55:28');
+INSERT INTO `features` (`id`, `user_id`, `name`, `descrition`, `created`, `modified`) VALUES
+(1, 1, 'User Login', 'Allowed users to login the system', '2013-09-27 23:51:25', '2013-09-27 23:51:25'),
+(2, 1, 'User logout', 'User log out the system', '2013-09-27 23:55:28', '2013-09-27 23:55:28');
 
 -- --------------------------------------------------------
 
@@ -241,51 +186,24 @@ INSERT INTO `feature_cats` (`id`, `parent_id`, `lft`, `rght`, `name`, `descripti
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groups`
---
-
-DROP TABLE IF EXISTS `groups`;
-CREATE TABLE IF NOT EXISTS `groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `groups`
---
-
-INSERT INTO `groups` (`id`, `name`, `created`, `modified`) VALUES
-(1, 'administrators', '2012-07-05 17:16:24', '2012-07-05 17:16:24'),
-(2, 'managers', '2012-07-05 17:16:34', '2012-07-05 17:16:34'),
-(3, 'users', '2012-07-05 17:16:45', '2012-07-05 17:16:45');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(40) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `first_name` varchar(40) DEFAULT NULL,
-  `middle_name` varchar(40) DEFAULT NULL,
-  `last_name` varchar(40) DEFAULT NULL,
-  `group_id` int(4) DEFAULT '4',
-  `is_active` tinyint(1) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `role` varchar(20) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `first_name`, `middle_name`, `last_name`, `group_id`, `is_active`, `created_date`, `timestamp`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.com', 'Admin', '', '', 1, 1, NULL, '0000-00-00 00:00:00');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `created`, `modified`) VALUES
+(1, 'admin', 'admin@admin.com', '481ee05bdd0c5a69f11740063e47dc044eca2ec9', 'admin', '2013-10-05 07:53:39', '2013-10-05 07:53:39');
