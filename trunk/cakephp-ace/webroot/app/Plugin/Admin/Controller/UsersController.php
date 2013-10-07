@@ -27,6 +27,8 @@ class UsersController extends AdminAppController {
 			}
 			$this->Session->setFlash(__('Invalid username or password, try again'));
 		}
+		
+		$this->layout = 'login';
 	}
 
 	public function logout() {

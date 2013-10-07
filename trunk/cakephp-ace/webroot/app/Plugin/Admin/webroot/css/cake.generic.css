@@ -114,20 +114,19 @@ p {
 }
 
 /** containers **/
-div.form,
-div.index,
-div.view {
+div.main-content {
 	float:right;
 	width:76%;
 	border-left:1px solid #666;
 	padding:10px 2%;
+	min-height: 680px;
 }
-div.actions {
+div.main-menu {
 	float:left;
 	width:16%;
 	padding:10px 1.5%;
 }
-div.actions h3 {
+div.main-menu h3 {
 	padding-top:0;
 	color:#777;
 }
@@ -489,27 +488,30 @@ p.error em {
 	color: #fff;
 }
 
-/**  Actions  **/
-.actions ul {
+/**  main-menu  **/
+.main-menu ul {
 	margin: 0;
 	padding: 0;
 }
-.actions li {
+.main-menu li {
 	margin:0 0 0.5em 0;
 	list-style-type: none;
 	white-space: nowrap;
 	padding: 0;
 }
-.actions ul li a {
+.main-menu ul li a {
 	font-weight: normal;
 	display: block;
 	clear: both;
 }
+.main-menu .sub-menu ul {
+	margin-left:30px;
+}
 
 /* Buttons and button links */
 input[type=submit],
-.actions ul li a,
-.actions a {
+.main-menu ul li a,
+.main-menu a {
 	font-weight:normal;
 	padding: 4px 8px;
 	background: #dcdcdc;
@@ -533,15 +535,15 @@ input[type=submit],
 	-webkit-user-select: none;
 	user-select: none;
 }
-.actions ul li a:hover,
-.actions a:hover {
+.main-menu ul li a:hover,
+.main-menu a:hover {
 	background: #ededed;
 	border-color: #acacac;
 	text-decoration: none;
 }
 input[type=submit]:active,
-.actions ul li a:active,
-.actions a:active {
+.main-menu ul li a:active,
+.main-menu a:active {
 	background: #eee;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#dfdfdf), to(#eee));
 	background-image: -webkit-linear-gradient(top, #dfdfdf, #eee);

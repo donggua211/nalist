@@ -28,17 +28,6 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Feature Cat'), array('action' => 'edit', $featureCat['FeatureCat']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Feature Cat'), array('action' => 'delete', $featureCat['FeatureCat']['id']), null, __('Are you sure you want to delete # %s?', $featureCat['FeatureCat']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Feature Cats'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Feature Cat'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Features'), array('controller' => 'features', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Feature'), array('controller' => 'features', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 <div class="related">
 	<h3><?php echo __('Related Features'); ?></h3>
 	<?php if (!empty($featureCat['Feature'])): ?>

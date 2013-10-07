@@ -1,102 +1,118 @@
 <?php
 /**
- * Default Layout
  *
  * PHP 5
  *
- * Licensed under The MIT License
- * Redistributions of files must retain the below copyright notice.
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
- * @author     Yusuf Abdulla Shunan <shunan@maldicore.com>
- * @copyright  Copyright 2012, Maldicore Group Pvt Ltd. (http://maldicore.com)
- * @license    MIT License (http://www.opensource.org/licenses/mit-license.php)
- * @since      CakePHP(tm) v 2.1.1
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.View.Layouts
+ * @since         CakePHP(tm) v 0.10.0.1076
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title><?php echo isset($pluralHumanName) ? str_replace('Admin ', '', $pluralHumanName) . ' - ' : '' ?><?php echo __('Admin'); ?></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php echo $this->Html->css('/Admin/css/bootstrap-wysihtml5-0.0.2'); ?>
-        <?php echo $this->Html->css('/Admin/css/datepicker'); ?>
-        <?php echo $this->Html->css('/Admin/css/styles'); ?>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>        
-        <?php //echo $this->Html->script('/Admin/js/advanced'); ?>
-        <?php echo $this->Html->script('/Admin/js/wysihtml5-0.3.0_rc2'); ?>
-        <?php echo $this->Html->script('/Admin/js/bootstrap.min'); ?>
-        <?php echo $this->Html->script('/Admin/js/bootstrap-wysihtml5-0.0.2'); ?>
-        <?php echo $this->Html->script('/Admin/js/bootstrap-datepicker'); ?>
-        <?php echo $this->Html->script('/Admin/js/jquery.dataTables'); ?>
-        <?php echo $this->Html->script('/Admin/js/scripts'); ?>
-        <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        <?php echo $this->Html->meta('icon'); ?>
-    </head>
-    <body>
-        <div class="navbar navbar">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <?php echo $this->Html->link(__('Admin'), array('plugin' => 'admin', 'controller' => 'entry', 'action' => 'index'), array('class' => 'brand')); ?>
-                    <div class="nav-collapse">
-                        <?php if (isset($navbar)): ?>
-                        <?php $menuItem = 0; ?>
-                            <ul class="nav">
-                                <?php foreach ($navbar as $nav): ?>
-                                <?php 
-                                    if($menuItem == 7){
-                                 ?>
-                                 <ul class="nav nav-tabs">
-                                  <li class="dropdown">
-                                    <a class="dropdown-toggle"
-                                       data-toggle="dropdown"
-                                       href="#">
-                                        More
-                                        <b class="caret"></b>
-                                      </a>
-                                    <ul class="dropdown-menu">
-                                    <li<?php echo $nav['url']['controller'] == $this->request['controller'] ? ' class="active"' : ''; ?>><?php echo $this->Html->link($nav['title'], $nav['url']); ?></li>
-                                <?php } else { ?>
-                                    <li<?php echo $nav['url']['controller'] == $this->request['controller'] ? ' class="active"' : ''; ?>><?php echo $this->Html->link($nav['title'], $nav['url']); ?></li>
-                                <?php } ?>
-                                <?php $menuItem += 1; ?>
-                                <?php endforeach; ?>
-                                <?php 
-                                    if($menuItem>7){
-                                 ?>
-                                    </ul>
-                                  </li>
-                                </ul>
-                                <?php } ?>
-                            </ul>
-                        <?php endif; ?>
-                    </div>
-                    <div class="nav-collapse pull-right">
-                        <ul class="nav">
-                            <li><?php echo $this->Html->link(__('Visit Site'), '/'); ?></li>
-                            <li><?php echo $this->Html->link(__('Logout'), array('plugin' => 'admin', 'controller' => 'Users', 'action' => 'logout')); ?></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <?php echo $this->fetch('content'); ?>
-            </div>
-            <hr>
-            <div class="row-fluid">
-                <?php //echo str_replace('class="cake-sql-log"', 'class="table table-bordered table-striped"', $this->element('sql_dump')); ?>
-                <?php // debug($this); ?>
-                <p style="text-align:center;">Powered by: <a href="#">CakePHP Admin Plugin</a></p>
-            </div>
-        </div>
-    </body>
+<head>
+	<?php echo $this->Html->charset(); ?>
+	<title>
+		<?php echo $title_for_layout; ?>
+	</title>
+	<?php
+		echo $this->Html->meta('icon');
+
+		echo $this->Html->css('Admin.cake.generic');
+
+		echo $this->fetch('meta');
+		echo $this->fetch('css');
+		echo $this->fetch('script');
+	?>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1>Affiliate File-Function Relationship Tool</h1>
+		</div>
+		<div id="content">
+			<div class="main-menu">
+				<h3><?php echo __('Menu'); ?></h3>
+				<ul>
+					<li><?php echo $this->Html->link(__('Log Out'), array('controller' => 'users', 'action' => 'logout')); ?></li>
+					
+					<li><?php echo $this->Html->link(__('Files'), array('controller' => 'docs', 'action' => 'index')); ?></li>
+					<li class="sub-menu">
+						<ul>
+							<li><?php echo $this->Html->link(__('Files List'), array('controller' => 'docs', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New File'), array('controller' => 'docs', 'action' => 'add')); ?> </li>
+						
+							<li><?php echo $this->Html->link(__('File Category'), array('controller' => 'doc_cats', 'action' => 'index')); ?></li>
+							<li class="sub-menu">
+								<ul>
+									<li><?php echo $this->Html->link(__('File Category List'), array('controller' => 'doc_cats', 'action' => 'index')); ?> </li>
+									<li><?php echo $this->Html->link(__('New File Category'), array('controller' => 'doc_cats', 'action' => 'add')); ?> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					
+					<li><?php echo $this->Html->link(__('Functions'), array('controller' => 'features', 'action' => 'index')); ?></li>
+					<li class="sub-menu">
+						<ul>
+							<li><?php echo $this->Html->link(__('Functions List'), array('controller' => 'features', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New Function'), array('controller' => 'features', 'action' => 'add')); ?> </li>
+						
+							<li><?php echo $this->Html->link(__('Function Category'), array('controller' => 'feature_cats', 'action' => 'index')); ?></li>
+							<li class="sub-menu">
+								<ul>
+									<li><?php echo $this->Html->link(__('Function Category List'), array('controller' => 'feature_cats', 'action' => 'index')); ?> </li>
+									<li><?php echo $this->Html->link(__('New Function Category'), array('controller' => 'feature_cats', 'action' => 'add')); ?> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					
+					<li><?php echo $this->Html->link(__('Users'), array('controller' => 'users', 'action' => 'index')); ?></li>
+					<li class="sub-menu">
+						<ul>
+							<li><?php echo $this->Html->link(__('Users List'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New user'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+						
+							<li><?php echo $this->Html->link(__('Groups'), array('controller' => 'groups', 'action' => 'index')); ?></li>
+							<li class="sub-menu">
+								<ul>
+									<li><?php echo $this->Html->link(__('Groups List'), array('controller' => 'groups', 'action' => 'index')); ?> </li>
+									<li><?php echo $this->Html->link(__('New group'), array('controller' => 'groups', 'action' => 'add')); ?> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+			
+			<div class="main-content">
+				<?php echo $this->Session->flash(); ?>
+				<?php echo $this->fetch('content'); ?>
+			</div>
+			
+			
+		</div>
+		<div id="footer">
+			Powered by Cakephp, Author: <?php echo $this->Html->link(
+					'Kevin',
+					'http://donggua211.emma-paipai.com/',
+					array('target' => '_blank', 'escape' => false)
+				);
+			?>
+		</div>
+	</div>
+	<?php echo $this->element('sql_dump'); ?>
+</body>
 </html>

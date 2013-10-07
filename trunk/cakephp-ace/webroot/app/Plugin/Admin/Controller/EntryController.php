@@ -16,10 +16,5 @@ class EntryController extends AdminAppController {
  *	or MissingViewException in debug mode.
  */
 	public function index() {
-		
-		$this->layout = 'Admin.default';
-		
-		echo 'admin.index';
-		
 	}
 }

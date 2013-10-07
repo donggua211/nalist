@@ -28,17 +28,6 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Doc Cat'), array('action' => 'edit', $docCat['DocCat']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Doc Cat'), array('action' => 'delete', $docCat['DocCat']['id']), null, __('Are you sure you want to delete # %s?', $docCat['DocCat']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Doc Cats'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Doc Cat'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Docs'), array('controller' => 'docs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Doc'), array('controller' => 'docs', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 <div class="related">
 	<h3><?php echo __('Related Docs'); ?></h3>
 	<?php if (!empty($docCat['Doc'])): ?>

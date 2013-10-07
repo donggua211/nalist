@@ -11,14 +11,3 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Features'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Docs'), array('controller' => 'docs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Doc'), array('controller' => 'docs', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Feature Cats'), array('controller' => 'feature_cats', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Feature Cat'), array('controller' => 'feature_cats', 'action' => 'add')); ?> </li>
-	</ul>
-</div>

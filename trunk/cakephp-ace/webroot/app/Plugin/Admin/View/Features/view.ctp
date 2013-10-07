@@ -28,19 +28,6 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Feature'), array('action' => 'edit', $feature['Feature']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Feature'), array('action' => 'delete', $feature['Feature']['id']), null, __('Are you sure you want to delete # %s?', $feature['Feature']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Features'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Feature'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Docs'), array('controller' => 'docs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Doc'), array('controller' => 'docs', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Feature Cats'), array('controller' => 'feature_cats', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Feature Cat'), array('controller' => 'feature_cats', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 <div class="related">
 	<h3><?php echo __('Related Docs'); ?></h3>
 	<?php if (!empty($feature['Doc'])): ?>
