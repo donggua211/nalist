@@ -1,20 +1,18 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 3.4.10.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 07, 2013 at 06:58 AM
--- Server version: 5.6.12-log
--- PHP Version: 5.4.12
+-- Generation Time: Oct 07, 2013 at 06:23 PM
+-- Server version: 5.5.20
+-- PHP Version: 5.3.10
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
 -- Database: `affiliate`
 --
-CREATE DATABASE IF NOT EXISTS `affiliate` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `affiliate`;
 
 -- --------------------------------------------------------
 
@@ -112,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `aros` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `aros`
@@ -176,15 +174,16 @@ CREATE TABLE IF NOT EXISTS `docs` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `docs`
 --
 
 INSERT INTO `docs` (`id`, `name`, `user_id`, `description`, `created`, `modified`) VALUES
-(1, 'index.php', 1, 'This is the index of project.', '2013-09-27 23:36:39', '2013-09-27 23:52:17'),
-(2, 'logout.php', 1, 'User logout', '2013-09-27 23:54:39', '2013-09-27 23:54:39');
+(1, 'regist.php', 1, 'The regist.php is the key payment file!', '2013-10-07 17:40:47', '2013-10-07 17:40:47'),
+(2, 'dbquery.php', 1, 'Database operation class', '2013-10-07 17:50:53', '2013-10-07 17:50:53'),
+(3, 'affiliate_auto_ppc.php', 1, 'Affiliate auto PPC calculate script, will run at the first day of every month.', '2013-10-07 17:53:31', '2013-10-07 17:53:31');
 
 -- --------------------------------------------------------
 
@@ -200,7 +199,16 @@ CREATE TABLE IF NOT EXISTS `docs_doc_cats` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `docs_doc_cats`
+--
+
+INSERT INTO `docs_doc_cats` (`id`, `doc_id`, `doc_cat_id`, `created`, `modified`) VALUES
+(1, 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 2, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 3, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -216,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `docs_features` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `docs_features`
@@ -224,7 +232,8 @@ CREATE TABLE IF NOT EXISTS `docs_features` (
 
 INSERT INTO `docs_features` (`id`, `doc_id`, `feature_id`, `created`, `modified`) VALUES
 (1, 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 2, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(2, 1, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 3, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -239,23 +248,20 @@ CREATE TABLE IF NOT EXISTS `doc_cats` (
   `lft` int(11) NOT NULL,
   `rght` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `dir` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `doc_cats`
 --
 
-INSERT INTO `doc_cats` (`id`, `parent_id`, `lft`, `rght`, `name`, `description`, `created`, `modified`) VALUES
-(12, 9, 2, 5, 'sub-mainte', 'sub-mainte', '2013-09-30 17:54:54', '2013-09-30 17:54:54'),
-(11, NULL, 9, 10, 'affiliate management site', 'Affiliate management site. https://secure.a-c-engine.com/sites/affid/user/ ', '2013-09-30 17:54:35', '2013-09-30 17:54:35'),
-(9, NULL, 1, 8, 'mainte', 'This is the mainte site.\r\nhttps://secure.a-c-engine.com/mainte/', '2013-09-30 17:54:06', '2013-09-30 17:54:06'),
-(10, NULL, 11, 12, 'card_mainte', 'card mainte site for admin.\r\nhttps://secure.a-c-engine.com/sites/card_mainte/ ', '2013-09-30 17:54:22', '2013-09-30 17:54:42'),
-(13, 9, 6, 7, 'sub-mainte2', 'sub-mainte2', '2013-09-30 17:56:30', '2013-09-30 17:56:30'),
-(14, 12, 3, 4, 'sub-sub-mainte1', 'sub-sub-mainte1', '2013-10-01 06:42:24', '2013-10-01 06:42:24');
+INSERT INTO `doc_cats` (`id`, `parent_id`, `lft`, `rght`, `name`, `dir`, `description`, `created`, `modified`) VALUES
+(1, NULL, 1, 2, 'inc', '/usr/local/lib/inc/', 'lib DIR', '2013-10-07 17:36:55', '2013-10-07 17:36:55'),
+(2, NULL, 3, 4, 'mainte', 'secure.a-c-engine.com/mainte', 'The mainte site', '2013-10-07 18:01:35', '2013-10-07 18:01:35');
 
 -- --------------------------------------------------------
 
@@ -272,15 +278,16 @@ CREATE TABLE IF NOT EXISTS `features` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `features`
 --
 
 INSERT INTO `features` (`id`, `user_id`, `name`, `descrition`, `created`, `modified`) VALUES
-(1, 1, 'User Login', 'Allowed users to login the system', '2013-09-27 23:51:25', '2013-09-27 23:51:25'),
-(2, 1, 'User logout', 'User log out the system', '2013-09-27 23:55:28', '2013-09-27 23:55:28');
+(1, 1, 'Check Black List', 'Check the email from black email list when user make a payament', '2013-10-07 18:05:50', '2013-10-07 18:05:50'),
+(2, 1, 'Check for duplicate charge', 'When user make a payment, check for the duplicate charge. If user has already payment with the same  card number in the same day, the payment will failed and set $result=''DP''.', '2013-10-07 18:10:48', '2013-10-07 18:10:48'),
+(3, 1, 'Calculte the PPC per month', 'Calculte the PPC per month', '2013-10-07 18:11:58', '2013-10-07 18:11:58');
 
 -- --------------------------------------------------------
 
@@ -296,7 +303,16 @@ CREATE TABLE IF NOT EXISTS `features_feature_cats` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `features_feature_cats`
+--
+
+INSERT INTO `features_feature_cats` (`id`, `feature_id`, `feature_cat_id`, `created`, `modified`) VALUES
+(1, 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 2, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 3, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -315,18 +331,15 @@ CREATE TABLE IF NOT EXISTS `feature_cats` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `feature_cats`
 --
 
 INSERT INTO `feature_cats` (`id`, `parent_id`, `lft`, `rght`, `name`, `description`, `created`, `modified`) VALUES
-(8, 6, 6, 7, 'sub-user12', 'sub-user12', '2013-10-01 07:11:29', '2013-10-01 07:11:29'),
-(7, 6, 4, 5, 'sub-user11', 'sub-user11', '2013-10-01 07:11:17', '2013-10-01 07:11:17'),
-(4, NULL, 2, 11, 'User', 'User', '2013-10-01 07:10:33', '2013-10-01 07:10:33'),
-(6, 4, 3, 8, 'sub-user1', 'sub-user1', '2013-10-01 07:11:07', '2013-10-01 07:11:07'),
-(9, 4, 9, 10, 'sub-user2', 'sub-user2', '2013-10-01 07:12:25', '2013-10-01 07:12:25');
+(1, NULL, 1, 2, 'Payment Gateway', 'Payment related functions', '2013-10-07 18:06:36', '2013-10-07 18:06:36'),
+(2, NULL, 3, 4, 'PPC', 'PPC is short for Pay per click.', '2013-10-07 18:11:37', '2013-10-07 18:11:37');
 
 -- --------------------------------------------------------
 
@@ -368,7 +381,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `users`

@@ -21,6 +21,7 @@ class CatHelper extends AppHelper {
 			
 			echo h($docCat['DocCat']['name']).'</td>
 				<td>'.h($docCat['DocCat']['description']).'&nbsp;</td>
+				<td>'.h($docCat['DocCat']['dir']).'&nbsp;</td>
 				<td>'.h($docCat['DocCat']['created']).'&nbsp;</td>
 				<td>'.h($docCat['DocCat']['modified']).'&nbsp;</td>
 				<td class="actions">

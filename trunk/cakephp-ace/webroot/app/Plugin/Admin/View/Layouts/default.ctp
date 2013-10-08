@@ -44,8 +44,6 @@
 			<div class="main-menu">
 				<h3><?php echo __('Menu'); ?></h3>
 				<ul>
-					<li><?php echo $this->Html->link(__('Log Out'), array('controller' => 'users', 'action' => 'logout')); ?></li>
-					
 					<li><?php echo $this->Html->link(__('Files'), array('controller' => 'docs', 'action' => 'index')); ?></li>
 					<li class="sub-menu">
 						<ul>
@@ -94,6 +92,7 @@
 						</ul>
 					</li>
 					
+					<li><?php echo $this->Html->link(__('Log Out'), array('controller' => 'users', 'action' => 'logout')); ?></li>
 				</ul>
 			</div>
 			
@@ -113,6 +112,6 @@
 			?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>

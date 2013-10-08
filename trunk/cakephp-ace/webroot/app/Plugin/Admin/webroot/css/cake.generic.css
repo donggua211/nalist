@@ -563,6 +563,7 @@ input[type=submit]:active,
 .related {
 	clear: both;
 	display: block;
+	margin: 30px 0;
 }
 
 /** Debugging **/

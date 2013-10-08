@@ -7,7 +7,6 @@ class DocsController extends AdminAppController {
  * @return void
  */
 	public function index() {
-		$this->Doc->recursive = 0;
 		$this->set('docs', $this->Paginator->paginate());
 	}
 
@@ -36,7 +35,7 @@ class DocsController extends AdminAppController {
 			 $this->request->data['Doc']['user_id'] = $this->Auth->user('id');
 			$this->Doc->create();
 			if ($this->Doc->save($this->request->data)) {
-				$this->Session->setFlash(__('The doc has been saved.'));
+				$this->Session->setFlash(__('The doc has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The doc could not be saved. Please, try again.'));

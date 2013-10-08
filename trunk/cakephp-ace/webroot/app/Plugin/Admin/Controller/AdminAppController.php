@@ -27,6 +27,6 @@ class AdminAppController extends AppController {
 		}
 
 		// Default deny
-		return false;
+		return true;
 	}
 }

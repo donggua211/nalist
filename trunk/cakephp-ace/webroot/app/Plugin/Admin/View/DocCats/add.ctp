@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
+		echo $this->Form->input('dir');
 		echo $this->Form->input('Doc');
 		echo $this->Form->input('parent_id', array(
 			'options' => $docCatsList,

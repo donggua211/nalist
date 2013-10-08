@@ -8,7 +8,7 @@ class DocCatsController extends AdminAppController {
  * @return void
  */
 	public function index() {
-		$this->helpers[] = 'Cat';
+		$this->helpers[] = 'Admin.Cat';
 		$this->DocCat->recursive = 0;
 		$this->set('docCats', $this->DocCat->generateTreePlusList());
 	}
@@ -37,7 +37,7 @@ class DocCatsController extends AdminAppController {
 		if ($this->request->is('post')) {
 			$this->DocCat->create();
 			if ($this->DocCat->save($this->request->data)) {
-				$this->Session->setFlash(__('The doc cat has been saved.'));
+				$this->Session->setFlash(__('The doc cat has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The doc cat could not be saved. Please, try again.'));

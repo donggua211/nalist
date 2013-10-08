@@ -37,7 +37,7 @@ class FeaturesController extends AdminAppController {
 			 $this->request->data['Feature']['user_id'] = $this->Auth->user('id');
 			$this->Feature->create();
 			if ($this->Feature->save($this->request->data)) {
-				$this->Session->setFlash(__('The feature has been saved.'));
+				$this->Session->setFlash(__('The feature has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The feature could not be saved. Please, try again.'));

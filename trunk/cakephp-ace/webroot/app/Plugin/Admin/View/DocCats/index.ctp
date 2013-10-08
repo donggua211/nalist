@@ -4,6 +4,7 @@
 	<tr>
 		<th>name</th>
 		<th>description</th>
+		<th>dir</th>
 		<th>created</th>
 		<th>modified</th>
 		<th class="actions"><?php echo __('Actions'); ?></th>

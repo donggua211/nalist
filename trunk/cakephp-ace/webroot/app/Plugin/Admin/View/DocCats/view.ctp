@@ -16,6 +16,11 @@
 			<?php echo h($docCat['DocCat']['description']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('DIR'); ?></dt>
+		<dd>
+			<?php echo h($docCat['DocCat']['dir']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
 			<?php echo h($docCat['DocCat']['created']); ?>

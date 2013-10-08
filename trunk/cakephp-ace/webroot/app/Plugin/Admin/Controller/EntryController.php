@@ -16,5 +16,10 @@ class EntryController extends AdminAppController {
  *	or MissingViewException in debug mode.
  */
 	public function index() {
+		$this->loadModel('Doc');
+		$this->set('docs', $this->Doc->find('all'));
+		
+        $this->loadModel('Feature');
+		$this->set('features', $this->Feature->find('all'));
 	}
 }
