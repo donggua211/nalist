@@ -38,11 +38,12 @@ class EntryController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	public function index() {
-	
-		$this->loadModel('DocCat');
-		$docsList = $this->DocCat->generateTreeList(null, null, null, '---');
+		$this->loadModel('Doc');
+		$this->set('docs', $this->Doc->find('all'));
 		
-        debug($docsList);
+        $this->loadModel('Feature');
+		$this->set('features', $this->Feature->find('all'));
+		
 		
 	}
 }
