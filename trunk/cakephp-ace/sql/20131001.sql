@@ -274,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `features` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `descrition` text NOT NULL,
+  `description` text NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -284,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `features` (
 -- Dumping data for table `features`
 --
 
-INSERT INTO `features` (`id`, `user_id`, `name`, `descrition`, `created`, `modified`) VALUES
+INSERT INTO `features` (`id`, `user_id`, `name`, `description`, `created`, `modified`) VALUES
 (1, 1, 'Check Black List', 'Check the email from black email list when user make a payament', '2013-10-07 18:05:50', '2013-10-07 18:05:50'),
 (2, 1, 'Check for duplicate charge', 'When user make a payment, check for the duplicate charge. If user has already payment with the same  card number in the same day, the payment will failed and set $result=''DP''.', '2013-10-07 18:10:48', '2013-10-07 18:10:48'),
 (3, 1, 'Calculte the PPC per month', 'Calculte the PPC per month', '2013-10-07 18:11:58', '2013-10-07 18:11:58');

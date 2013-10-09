@@ -39,11 +39,26 @@ class EntryController extends AppController {
  */
 	public function index() {
 		$this->loadModel('Doc');
-		$this->set('docs', $this->Doc->find('all'));
+		$this->Doc->recursive = 0;
+		$this->set('docs', $this->Paginator->paginate('Doc'));
 		
         $this->loadModel('Feature');
-		$this->set('features', $this->Feature->find('all'));
+		$this->Feature->recursive = 0;
+		$this->set('features', $this->Paginator->paginate('Feature'));
 		
 		
+	}
+	
+	public function search() {
+		$q = $this->request->query('q');
+		$this->set('q', $q);
+		
+		if(!empty($q)) {
+			$this->loadModel('Doc');
+			$this->set('docs', $this->Paginator->paginate('Doc', array("OR" => array('Doc.name LIKE' => '%'.$q.'%', 'Doc.description LIKE' => '%'.$q.'%'))));
+			
+			$this->loadModel('Feature');
+			$this->set('features', $this->Paginator->paginate('Feature', array("OR" => array('Feature.name LIKE' => '%'.$q.'%', 'Feature.description LIKE' => '%'.$q.'%'))));
+		}
 	}
 }

@@ -3,6 +3,9 @@
 App::uses('AppController', 'Controller');
 
 class AdminAppController extends AppController {
+	
+	public $theme = 'default';
+	
 	public $components = array(
         'Session',
 		'Acl',

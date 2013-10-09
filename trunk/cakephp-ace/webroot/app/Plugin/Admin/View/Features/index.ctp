@@ -4,7 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('descrition'); ?></th>
+			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -13,7 +13,7 @@
 	<tr>
 		<td><?php echo h($feature['Feature']['id']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['name']); ?>&nbsp;</td>
-		<td><?php echo h($feature['Feature']['descrition']); ?>&nbsp;</td>
+		<td><?php echo h($feature['Feature']['description']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['created']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['modified']); ?>&nbsp;</td>
 		<td class="actions">

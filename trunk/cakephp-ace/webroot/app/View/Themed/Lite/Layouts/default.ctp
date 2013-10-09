@@ -22,20 +22,26 @@
 
 				
 				<ul class="top-nav">
-					<li class="explore"><a href="/explore">Explore</a></li>
-					<li class="features"><a href="/features">Features</a></li>
-					<li class="enterprise"><a href="https://enterprise.github.com/">Enterprise</a></li>
-					<li class="blog"><a href="/blog">Blog</a></li>
-					<li class="blog"><a href="/blog">Blog</a></li>
-					<li class="blog"><a href="/blog">Blog</a></li>
+					<li><?php echo $this->Html->link('Home', '/'); ?></li>
+					<li><?php echo $this->Html->link('Files', array('controller' => 'docs', 'action' => 'index')); ?></li>
+					<li><?php echo $this->Html->link('Functions', array('controller' => 'features', 'action' => 'index')); ?></li>
+					<li><?php echo $this->Html->link('File Cats', array('controller' => 'doc_cats', 'action' => 'index')); ?></li>
+					<li><?php echo $this->Html->link('Function Cats', array('controller' => 'feature_cats', 'action' => 'index')); ?></li>
 				</ul>
 				
 				<div class="command-bar">
-					<form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get">
-
-						<input type="text" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off"
-						>
-					</form>
+					<?php 
+					echo $this->Form->create(array(
+						'url' => '/search',
+						'type' => 'get'
+					));
+					?>
+					<?php echo $this->Form->input('q', array(
+						'label' => false,
+						'placeholder' => 'Search for Docs or Functions',
+						'value' => isset($q) ? $q : '',
+					)); ?>
+					<?php echo $this->Form->end(); ?>
 				</div>
 				
 			</div>

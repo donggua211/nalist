@@ -78,7 +78,7 @@
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('User Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Descrition'); ?></th>
+		<th><?php echo __('description'); ?></th>
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
@@ -88,7 +88,7 @@
 			<td><?php echo $feature['id']; ?></td>
 			<td><?php echo $feature['user_id']; ?></td>
 			<td><?php echo $feature['name']; ?></td>
-			<td><?php echo $feature['descrition']; ?></td>
+			<td><?php echo $feature['description']; ?></td>
 			<td><?php echo $feature['created']; ?></td>
 			<td><?php echo $feature['modified']; ?></td>
 			<td class="actions">

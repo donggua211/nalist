@@ -61,7 +61,7 @@ class FeaturesController extends AdminAppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Feature->save($this->request->data)) {
-				$this->Session->setFlash(__('The feature has been saved.'));
+				$this->Session->setFlash(__('The feature has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The feature could not be saved. Please, try again.'));

@@ -30,7 +30,7 @@
 	<tr>
 			<th>id</th>
 			<th>name</th>
-			<th>descrition</th>
+			<th>description</th>
 			<th>created</th>
 			<th>modified</th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -39,7 +39,7 @@
 	<tr>
 		<td><?php echo h($feature['Feature']['id']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['name']); ?>&nbsp;</td>
-		<td><?php echo h($feature['Feature']['descrition']); ?>&nbsp;</td>
+		<td><?php echo h($feature['Feature']['description']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['created']); ?>&nbsp;</td>
 		<td><?php echo h($feature['Feature']['modified']); ?>&nbsp;</td>
 		<td class="actions">

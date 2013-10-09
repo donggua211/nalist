@@ -1,76 +1,37 @@
-<div class="featureCats view">
-<h2><?php echo __('Feature Cat'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($featureCat['FeatureCat']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($featureCat['FeatureCat']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Description'); ?></dt>
-		<dd>
-			<?php echo h($featureCat['FeatureCat']['description']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($featureCat['FeatureCat']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($featureCat['FeatureCat']['modified']); ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Feature Cat'), array('action' => 'edit', $featureCat['FeatureCat']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Feature Cat'), array('action' => 'delete', $featureCat['FeatureCat']['id']), null, __('Are you sure you want to delete # %s?', $featureCat['FeatureCat']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Feature Cats'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Feature Cat'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Features'), array('controller' => 'features', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Feature'), array('controller' => 'features', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Features'); ?></h3>
-	<?php if (!empty($featureCat['Feature'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Descrition'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($featureCat['Feature'] as $feature): ?>
-		<tr>
-			<td><?php echo $feature['id']; ?></td>
-			<td><?php echo $feature['name']; ?></td>
-			<td><?php echo $feature['descrition']; ?></td>
-			<td><?php echo $feature['created']; ?></td>
-			<td><?php echo $feature['modified']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'features', 'action' => 'view', $feature['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'features', 'action' => 'edit', $feature['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'features', 'action' => 'delete', $feature['id']), null, __('Are you sure you want to delete # %s?', $feature['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+<?php $this->Html->addCrumb('Function Categories', array('controller' => 'feature_cats', 'action' => 'index'));?>
+<?php $this->Html->addCrumb($featureCat['FeatureCat']['name']);?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Feature'), array('controller' => 'features', 'action' => 'add')); ?> </li>
+<div class="box box-small">
+	<div class="box-header">
+		<h3 class="box-title"><?php echo h($featureCat['FeatureCat']['name']); ?></h3>
+	</div>
+	<div class="box-body">
+		<ul class="repolist js-repo-list" data-filterable-for="your-repos-filter" data-filterable-type="substring">
+			<li class="public source clearfix"><div class="title"><?php echo __('Id'); ?>: </div><div class="content"><?php echo h($featureCat['FeatureCat']['id']); ?></div></li>
+			<li class="public source clearfix"><div class="title"><?php echo __('Name'); ?>: </div><div class="content"><?php echo h($featureCat['FeatureCat']['name']); ?></div></li>
+			<li class="public source clearfix"><div class="title"><?php echo __('Description'); ?>: </div><div class="content"><?php echo h($featureCat['FeatureCat']['description']); ?></div></li>
+			<li class="public source clearfix"><div class="title"><?php echo __('Created'); ?>: </div><div class="content"><?php echo h($featureCat['FeatureCat']['created']); ?></div></li>
+			<li class="public source clearfix"><div class="title"><?php echo __('Modified'); ?>: </div><div class="content"><?php echo h($featureCat['FeatureCat']['modified']); ?></div></li>
 		</ul>
+	</div>
+</div>
+
+<div class="box box-small">
+	<div class="box-header">
+		<h3 class="box-title">Functions</h3>
+	</div>
+	<div class="box-body">
+		<table class="files">
+			<tr>
+				<th>name</th>
+				<th>description</th>
+			</tr>
+			<?php foreach ($featureCat['Feature'] as $feature): ?>
+			<tr>
+				<td class="content"><?php echo $this->Html->link(h($feature['name']), array('controller' => 'docs', 'action' => 'view', $feature['id'])); ?></td>
+				<td class="message"><?php echo $feature['description']; ?></td>
+			</tr>
+		<?php endforeach; ?>
+		</table>
 	</div>
 </div>

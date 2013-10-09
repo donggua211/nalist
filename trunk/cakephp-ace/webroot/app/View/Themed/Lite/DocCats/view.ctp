@@ -1,76 +1,37 @@
-<div class="docCats view">
-<h2><?php echo __('Doc Cat'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($docCat['DocCat']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($docCat['DocCat']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Description'); ?></dt>
-		<dd>
-			<?php echo h($docCat['DocCat']['description']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($docCat['DocCat']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($docCat['DocCat']['modified']); ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Doc Cat'), array('action' => 'edit', $docCat['DocCat']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Doc Cat'), array('action' => 'delete', $docCat['DocCat']['id']), null, __('Are you sure you want to delete # %s?', $docCat['DocCat']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Doc Cats'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Doc Cat'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Docs'), array('controller' => 'docs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Doc'), array('controller' => 'docs', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Docs'); ?></h3>
-	<?php if (!empty($docCat['Doc'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Description'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($docCat['Doc'] as $doc): ?>
-		<tr>
-			<td><?php echo $doc['id']; ?></td>
-			<td><?php echo $doc['name']; ?></td>
-			<td><?php echo $doc['description']; ?></td>
-			<td><?php echo $doc['created']; ?></td>
-			<td><?php echo $doc['modified']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'docs', 'action' => 'view', $doc['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'docs', 'action' => 'edit', $doc['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'docs', 'action' => 'delete', $doc['id']), null, __('Are you sure you want to delete # %s?', $doc['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+<?php $this->Html->addCrumb('File Categories', array('controller' => 'doc_cats', 'action' => 'index'));?>
+<?php $this->Html->addCrumb($docCat['DocCat']['name']);?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Doc'), array('controller' => 'docs', 'action' => 'add')); ?> </li>
+<div class="box box-small">
+	<div class="box-header">
+		<h3 class="box-title"><?php echo h($docCat['DocCat']['name']); ?></h3>
+	</div>
+	<div class="box-body">
+		<ul class="repolist js-repo-list" data-filterable-for="your-repos-filter" data-filterable-type="substring">
+			<li class="public source clearfix"><div class="title"><?php echo __('Id'); ?>: </div><div class="content"><?php echo h($docCat['DocCat']['id']); ?></div></li>
+			<li class="public source clearfix"><div class="title"><?php echo __('Name'); ?>: </div><div class="content"><?php echo h($docCat['DocCat']['name']); ?></div></li>
+			<li class="public source clearfix"><div class="title"><?php echo __('Description'); ?>: </div><div class="content"><?php echo h($docCat['DocCat']['description']); ?></div></li>
+			<li class="public source clearfix"><div class="title"><?php echo __('Created'); ?>: </div><div class="content"><?php echo h($docCat['DocCat']['created']); ?></div></li>
+			<li class="public source clearfix"><div class="title"><?php echo __('Modified'); ?>: </div><div class="content"><?php echo h($docCat['DocCat']['modified']); ?></div></li>
 		</ul>
+	</div>
+</div>
+
+<div class="box box-small">
+	<div class="box-header">
+		<h3 class="box-title">Files</h3>
+	</div>
+	<div class="box-body">
+		<table class="files">
+			<tr>
+				<th>name</th>
+				<th>description</th>
+			</tr>
+			<?php foreach ($docCat['Doc'] as $doc): ?>
+			<tr>
+				<td class="content"><?php echo $this->Html->link(h($doc['name']), array('controller' => 'docs', 'action' => 'view', $doc['id'])); ?></td>
+				<td class="message"><?php echo $doc['description']; ?></td>
+			</tr>
+		<?php endforeach; ?>
+		</table>
 	</div>
 </div>

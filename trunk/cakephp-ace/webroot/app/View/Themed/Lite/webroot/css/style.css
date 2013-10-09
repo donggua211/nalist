@@ -3583,6 +3583,7 @@ table.capped-list.mini-icons .mini-icon {
     padding: 0 10px;
     line-height: 24px;
     box-shadow: none;
+	margin: 5px;
 }
 .minibutton:hover .octicon-device-desktop:before {
     background-position: -18px 0;
@@ -13848,13 +13849,21 @@ table.tag-list p a {
     color: #777;
 }
 .repolist>li {
+	clear: both;
     position: relative;
-    min-height: 66px;
-    padding-left: 35px;
-    padding-bottom: 20px;
-    margin: 0 0 20px;
+    padding: 5px;
     list-style: none;
     border-bottom: 1px solid #eee;
+}
+.repolist  .title{
+    float: left;
+	width: 100px;
+	margin-right:10px;
+	text-align: right;
+	font-weight: bold;
+}
+.repolist  .content{
+    float: left;
 }
 .repolist>li.simple {
     min-height: 0;
@@ -23037,7 +23046,7 @@ table.files {
     background: #f8f8f8;
 }
 table.files td {
-    padding: 7px 3px;
+    padding: 10px;
     border-top: 1px solid #eee;
 }
 table.files td.icon {
@@ -25351,4 +25360,9 @@ input.tree-finder-input, input.tree-finder-input:focus {
 #wiki-wrapper #files .file .data tr td.line_numbers {
     width: 1%;
     font-size: 12px;
+}
+
+.category li {
+    list-style-type: none;
+    margin: 0 4px 0 0;
 }

@@ -62,7 +62,7 @@ class FeatureCatsController extends AdminAppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->FeatureCat->save($this->request->data)) {
-				$this->Session->setFlash(__('The feature cat has been saved.'));
+				$this->Session->setFlash(__('The feature cat has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The feature cat could not be saved. Please, try again.'));

@@ -11,9 +11,9 @@
 			<?php echo h($feature['Feature']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Descrition'); ?></dt>
+		<dt><?php echo __('description'); ?></dt>
 		<dd>
-			<?php echo h($feature['Feature']['descrition']); ?>
+			<?php echo h($feature['Feature']['description']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>
