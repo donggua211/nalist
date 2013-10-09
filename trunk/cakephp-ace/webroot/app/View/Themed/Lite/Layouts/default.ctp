@@ -73,7 +73,7 @@
     <div class="container">
 		<div class="site-footer">
 			<ul class="site-footer-links right">
-			  <li><?php echo $this->Html->link('Home', '/'); ?></li>
+			  <li><?php echo $this->Html->link('Admin', array('plugin' => 'admin', 'controller' => 'entry', 'action' => 'index')); ?></li>
 
 			</ul>
 
@@ -83,6 +83,6 @@
 		</div><!-- /.site-footer -->
 	</div><!-- /.container -->
 	
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>
