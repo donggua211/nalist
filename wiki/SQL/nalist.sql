@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 10 月 14 日 07:04
+-- 生成日期: 2013 年 10 月 15 日 06:11
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -68,6 +68,51 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `categories_filters`
+--
+
+DROP TABLE IF EXISTS `categories_filters`;
+CREATE TABLE IF NOT EXISTS `categories_filters` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
+  `filter_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `filters`
+--
+
+DROP TABLE IF EXISTS `filters`;
+CREATE TABLE IF NOT EXISTS `filters` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(50) NOT NULL,
+  `title` varchar(150) NOT NULL,
+  `type` varchar(10) NOT NULL,
+  `rule` tinytext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `filter_options`
+--
+
+DROP TABLE IF EXISTS `filter_options`;
+CREATE TABLE IF NOT EXISTS `filter_options` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `filter_id` int(11) NOT NULL,
+  `key` varchar(100) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `groups`
 --
 
@@ -98,6 +143,21 @@ CREATE TABLE IF NOT EXISTS `info` (
   `status` tinyint(4) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `info_filters`
+--
+
+DROP TABLE IF EXISTS `info_filters`;
+CREATE TABLE IF NOT EXISTS `info_filters` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `info_id` int(11) NOT NULL,
+  `filter_id` int(11) NOT NULL,
+  `value` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
