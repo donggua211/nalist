@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 10 月 15 日 06:11
+-- 生成日期: 2013 年 10 月 16 日 06:32
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -179,6 +179,24 @@ CREATE TABLE IF NOT EXISTS `info_meta` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` char(40) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `user_logs`
 --
 
@@ -189,23 +207,5 @@ CREATE TABLE IF NOT EXISTS `user_logs` (
   `action` varchar(100) NOT NULL,
   `memo` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `uses`
---
-
-DROP TABLE IF EXISTS `uses`;
-CREATE TABLE IF NOT EXISTS `uses` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `group_id` int(11) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` char(40) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
