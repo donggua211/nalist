@@ -73,7 +73,7 @@ Cache::config('default', array('engine' => 'File'));
  */
 
 CakePlugin::load('DebugKit');
-
+CakePlugin::load('Admin', array('routes' => true));
 
  
 /**
