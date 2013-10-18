@@ -38,7 +38,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1>Affiliate File-Function Relationship Tool</h1>
+			<h1>Nalist Admin Panel</h1>
 		</div>
 		<div id="content">
 			<div class="main-menu">
@@ -92,7 +92,7 @@
 						</ul>
 					</li>
 					
-					<li><?php echo $this->Html->link(__('Log Out'), array('controller' => 'users', 'action' => 'logout')); ?></li>
+					<li><?php echo $this->Html->link(__('Log Out'), array('controller' => 'admin_users', 'action' => 'logout')); ?></li>
 				</ul>
 			</div>
 			

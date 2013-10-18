@@ -8,14 +8,15 @@ class AdminAppController extends AppController {
 	
 	public $components = array(
         'Session',
-		'Acl',
         'Auth' => array(
-            'loginAction' => array('plugin' => 'admin', 'controller' => 'users', 'action' => 'login'),
+            'loginAction' => array('plugin' => 'admin', 'controller' => 'admin_users', 'action' => 'login'),
             'loginRedirect' => array('plugin' => 'admin', 'controller' => 'entry', 'action' => 'index'),
-            'logoutRedirect' => array('plugin' => 'admin', 'controller' => 'entry', 'action' => 'index'),
-			'authorize' => array(
-                'Actions' => array('actionPath' => 'controllers')
+            'logoutRedirect' => array('plugin' => 'admin', 'controller' => 'admin_users', 'action' => 'login'),
+			'authenticate' => array(
+				'Form' => array(
+					'userModel' => 'AdminUser',
             )
+        )
         ),
     );
 

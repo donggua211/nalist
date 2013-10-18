@@ -4,7 +4,6 @@
  *
  */
 class AdminUser extends AdminAppModel {
-
 /**
  * Validation rules
  *
@@ -42,4 +41,11 @@ class AdminUser extends AdminAppModel {
 			),
 		),
 	);
+	
+	public function beforeSave($options = array()) {
+		if (isset($this->data[$this->alias]['password'])) {
+			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+		}
+		return true;
+	}
 }

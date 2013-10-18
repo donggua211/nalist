@@ -13,7 +13,12 @@ class AdminUsersController extends AdminAppController {
  * @var array
  */
 	public $components = array('Paginator');
-
+	
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow();
+		//$this->Auth->allow('add');
+	}
 /**
  * index method
  *
@@ -99,4 +104,22 @@ class AdminUsersController extends AdminAppController {
 			$this->Session->setFlash(__('The admin user could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+	public function login() {
+		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				return $this->redirect($this->Auth->redirect());
+			}
+			
+			print_r($this->Auth);
+			$this->Session->setFlash(__('Invalid username or password, try again'));
+		}
+		
+		$this->layout = 'login';
+	}
+
+	public function logout() {
+		return $this->redirect($this->Auth->logout());
+	}
+}

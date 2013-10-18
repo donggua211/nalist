@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 10 月 17 日 06:41
+-- 生成日期: 2013 年 10 月 18 日 06:35
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -15,24 +15,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `nalist` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `nalist`;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `acos`
---
-
-DROP TABLE IF EXISTS `acos`;
-CREATE TABLE IF NOT EXISTS `acos` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) DEFAULT NULL,
-  `model` varchar(255) DEFAULT '',
-  `foreign_key` int(10) unsigned DEFAULT NULL,
-  `alias` varchar(255) DEFAULT '',
-  `lft` int(10) DEFAULT NULL,
-  `rght` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=71 ;
 
 -- --------------------------------------------------------
 
@@ -49,7 +31,14 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `admin_users`
+--
+
+INSERT INTO `admin_users` (`id`, `username`, `password`, `email`, `created`, `modified`) VALUES
+(1, 'admin', '99d6267aad181f6b138b16537d7773778be741b5', 'donggua211@qq.com', '2013-10-17 23:14:39', '2013-10-17 23:14:39');
 
 -- --------------------------------------------------------
 
@@ -65,42 +54,6 @@ CREATE TABLE IF NOT EXISTS `areas` (
   `orderid` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `aros`
---
-
-DROP TABLE IF EXISTS `aros`;
-CREATE TABLE IF NOT EXISTS `aros` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) DEFAULT NULL,
-  `model` varchar(255) DEFAULT '',
-  `foreign_key` int(10) unsigned DEFAULT NULL,
-  `alias` varchar(255) DEFAULT '',
-  `lft` int(10) DEFAULT NULL,
-  `rght` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `aros_acos`
---
-
-DROP TABLE IF EXISTS `aros_acos`;
-CREATE TABLE IF NOT EXISTS `aros_acos` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `aro_id` int(10) unsigned NOT NULL,
-  `aco_id` int(10) unsigned NOT NULL,
-  `_create` char(2) NOT NULL DEFAULT '0',
-  `_read` char(2) NOT NULL DEFAULT '0',
-  `_update` char(2) NOT NULL DEFAULT '0',
-  `_delete` char(2) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
