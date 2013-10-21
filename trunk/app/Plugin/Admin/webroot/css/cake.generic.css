@@ -127,6 +127,7 @@ div.main-menu {
 	padding:10px 1.5%;
 }
 div.main-menu h3 {
+	margin: 10px 0;
 	padding-top:0;
 	color:#777;
 }

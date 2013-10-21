@@ -8,6 +8,8 @@
  */
 class User extends AdminAppModel {
 
+	var $displayField = 'User.username';
+	
 /**
  * Validation rules
  *

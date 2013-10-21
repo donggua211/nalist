@@ -1,23 +1,3 @@
-<?php
-/**
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,56 +22,55 @@
 		</div>
 		<div id="content">
 			<div class="main-menu">
-				<h3><?php echo __('Menu'); ?></h3>
+				<h3><?php echo __('User & Group'); ?></h3>
 				<ul>
-					<li><?php echo $this->Html->link(__('Files'), array('controller' => 'docs', 'action' => 'index')); ?></li>
+					<li><?php echo $this->Html->link(__('Users'), array('plugin' => 'admin', 'controller' => 'users', 'action' => 'index')); ?></li>
 					<li class="sub-menu">
 						<ul>
-							<li><?php echo $this->Html->link(__('Files List'), array('controller' => 'docs', 'action' => 'index')); ?> </li>
-							<li><?php echo $this->Html->link(__('New File'), array('controller' => 'docs', 'action' => 'add')); ?> </li>
-						
-							<li><?php echo $this->Html->link(__('File Category'), array('controller' => 'doc_cats', 'action' => 'index')); ?></li>
-							<li class="sub-menu">
-								<ul>
-									<li><?php echo $this->Html->link(__('File Category List'), array('controller' => 'doc_cats', 'action' => 'index')); ?> </li>
-									<li><?php echo $this->Html->link(__('New File Category'), array('controller' => 'doc_cats', 'action' => 'add')); ?> </li>
-								</ul>
-							</li>
+							<li><?php echo $this->Html->link(__('Users'), array('plugin' => 'admin', 'controller' => 'users', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New User'), array('plugin' => 'admin', 'controller' => 'users', 'action' => 'add')); ?> </li>
 						</ul>
 					</li>
 					
-					<li><?php echo $this->Html->link(__('Functions'), array('controller' => 'features', 'action' => 'index')); ?></li>
+					<li><?php echo $this->Html->link(__('Groups'), array('plugin' => 'admin', 'controller' => 'groups', 'action' => 'index')); ?></li>
 					<li class="sub-menu">
 						<ul>
-							<li><?php echo $this->Html->link(__('Functions List'), array('controller' => 'features', 'action' => 'index')); ?> </li>
-							<li><?php echo $this->Html->link(__('New Function'), array('controller' => 'features', 'action' => 'add')); ?> </li>
-						
-							<li><?php echo $this->Html->link(__('Function Category'), array('controller' => 'feature_cats', 'action' => 'index')); ?></li>
-							<li class="sub-menu">
-								<ul>
-									<li><?php echo $this->Html->link(__('Function Category List'), array('controller' => 'feature_cats', 'action' => 'index')); ?> </li>
-									<li><?php echo $this->Html->link(__('New Function Category'), array('controller' => 'feature_cats', 'action' => 'add')); ?> </li>
-								</ul>
-							</li>
+							<li><?php echo $this->Html->link(__('Groups'), array('plugin' => 'admin', 'controller' => 'groups', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New Group'), array('plugin' => 'admin', 'controller' => 'groups', 'action' => 'add')); ?> </li>
 						</ul>
 					</li>
-					
-					<li><?php echo $this->Html->link(__('Users'), array('controller' => 'users', 'action' => 'index')); ?></li>
+				</ul>
+				
+				<h3><?php echo __('Information'); ?></h3>
+				<ul>
+					<li><?php echo $this->Html->link(__('Information'), array('plugin' => 'admin', 'controller' => 'infos', 'action' => 'index')); ?></li>
 					<li class="sub-menu">
 						<ul>
-							<li><?php echo $this->Html->link(__('Users List'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-							<li><?php echo $this->Html->link(__('New user'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-						
-							<li><?php echo $this->Html->link(__('Groups'), array('controller' => 'groups', 'action' => 'index')); ?></li>
-							<li class="sub-menu">
-								<ul>
-									<li><?php echo $this->Html->link(__('Groups List'), array('controller' => 'groups', 'action' => 'index')); ?> </li>
-									<li><?php echo $this->Html->link(__('New group'), array('controller' => 'groups', 'action' => 'add')); ?> </li>
-								</ul>
-							</li>
+							<li><?php echo $this->Html->link(__('Information'), array('plugin' => 'admin', 'controller' => 'infos', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New information'), array('plugin' => 'admin', 'controller' => 'infos', 'action' => 'add')); ?> </li>
 						</ul>
 					</li>
-					
+				</ul>
+				<ul>
+					<li><?php echo $this->Html->link(__('Area'), array('plugin' => 'admin', 'controller' => 'areas', 'action' => 'index')); ?></li>
+					<li class="sub-menu">
+						<ul>
+							<li><?php echo $this->Html->link(__('Areas'), array('plugin' => 'admin', 'controller' => 'areas', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New area'), array('plugin' => 'admin', 'controller' => 'areas', 'action' => 'add')); ?> </li>
+						</ul>
+					</li>
+				</ul>
+				<ul>
+					<li><?php echo $this->Html->link(__('Category'), array('plugin' => 'admin', 'controller' => 'categories', 'action' => 'index')); ?></li>
+					<li class="sub-menu">
+						<ul>
+							<li><?php echo $this->Html->link(__('Categories'), array('plugin' => 'admin', 'controller' => 'categories', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New category'), array('plugin' => 'admin', 'controller' => 'categories', 'action' => 'add')); ?> </li>
+						</ul>
+					</li>
+				</ul>
+				
+				<ul>					
 					<li><?php echo $this->Html->link(__('Log Out'), array('controller' => 'admin_users', 'action' => 'logout')); ?></li>
 				</ul>
 			</div>

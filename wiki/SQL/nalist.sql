@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 10 月 18 日 06:35
+-- 生成日期: 2013 年 10 月 21 日 19:19
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -131,7 +131,14 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `groups`
+--
+
+INSERT INTO `groups` (`id`, `group_name`, `permission`, `created`, `modified`) VALUES
+(1, 'normal', 'all', '2013-10-19 00:45:34', '2013-10-19 00:46:09');
 
 -- --------------------------------------------------------
 
@@ -146,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `info` (
   `category_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `title` varchar(30) NOT NULL,
-  `description` mediumint(9) NOT NULL,
+  `description` mediumtext NOT NULL,
   `status` tinyint(4) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
@@ -199,7 +206,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `users`
+--
+
+INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `created`, `modified`) VALUES
+(1, 1, 'donggua211', 'woaibaicai', 'donggua211@qq.com', '2013-10-19 00:46:34', '2013-10-19 00:46:34');
 
 -- --------------------------------------------------------
 
