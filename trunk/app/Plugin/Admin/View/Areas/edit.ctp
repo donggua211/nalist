@@ -5,7 +5,10 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('areaname');
-		echo $this->Form->input('parentid');
+		echo $this->Form->input('parent_id', array(
+			'options' => $areasList,
+			'empty' => 'Set as top'
+		));
 		echo $this->Form->input('orderid');
 	?>
 	</fieldset>

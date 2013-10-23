@@ -6,6 +6,8 @@
  */
 class Area extends AdminAppModel {
 
+	public $displayField = 'areaname';
+	public $actsAs = array('Admin.TreePlus');
 /**
  * Validation rules
  *
@@ -22,7 +24,7 @@ class Area extends AdminAppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'parentid' => array(
+		'parent_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -53,7 +55,7 @@ class Area extends AdminAppModel {
  */
 	public $hasMany = array(
 		'Info' => array(
-			'className' => 'Info',
+			'className' => 'Admin.Info',
 			'foreignKey' => 'area_id',
 			'dependent' => false,
 			'conditions' => '',

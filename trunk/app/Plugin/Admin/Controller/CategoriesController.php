@@ -54,8 +54,10 @@ class CategoriesController extends AdminAppController {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}
 		}
+		$categoriesList = $this->Category->generateTreeList(null, null, null, '---');
 		$filters = $this->Category->Filter->find('list');
 		$this->set(compact('filters'));
+		$this->set(compact('categoriesList'));
 	}
 
 /**
@@ -80,8 +82,10 @@ class CategoriesController extends AdminAppController {
 			$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
 			$this->request->data = $this->Category->find('first', $options);
 		}
+		$categoriesList = $this->Category->generateTreeList(null, null, null, '---');
 		$filters = $this->Category->Filter->find('list');
 		$this->set(compact('filters'));
+		$this->set(compact('categoriesList'));
 	}
 
 /**

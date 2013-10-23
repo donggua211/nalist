@@ -4,7 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('areaname'); ?></th>
-			<th><?php echo $this->Paginator->sort('parentid'); ?></th>
+			<th><?php echo $this->Paginator->sort('parent_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('orderid'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
@@ -12,7 +12,7 @@
 	<tr>
 		<td><?php echo h($area['Area']['id']); ?>&nbsp;</td>
 		<td><?php echo h($area['Area']['areaname']); ?>&nbsp;</td>
-		<td><?php echo h($area['Area']['parentid']); ?>&nbsp;</td>
+		<td><?php echo h($area['Area']['parent_id']); ?>&nbsp;</td>
 		<td><?php echo h($area['Area']['orderid']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $area['Area']['id'])); ?>

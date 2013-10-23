@@ -64,7 +64,7 @@ class Info extends AdminAppModel {
 		),
 		'description' => array(
 			'numeric' => array(
-				'rule' => array('numeric'),
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -93,21 +93,21 @@ class Info extends AdminAppModel {
  */
 	public $belongsTo = array(
 		'Area' => array(
-			'className' => 'Area',
+			'className' => 'Admin.Area',
 			'foreignKey' => 'area_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Category' => array(
-			'className' => 'Category',
+			'className' => 'Admin.Category',
 			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'User' => array(
-			'className' => 'User',
+			'className' => 'Admin.User',
 			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
@@ -122,7 +122,7 @@ class Info extends AdminAppModel {
  */
 	public $hasAndBelongsToMany = array(
 		'Filter' => array(
-			'className' => 'Filter',
+			'className' => 'Admin.Filter',
 			'joinTable' => 'info_filters',
 			'foreignKey' => 'info_id',
 			'associationForeignKey' => 'filter_id',

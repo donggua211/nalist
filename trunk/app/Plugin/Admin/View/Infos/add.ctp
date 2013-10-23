@@ -3,8 +3,12 @@
 	<fieldset>
 		<legend><?php echo __('Add Info'); ?></legend>
 	<?php
-		echo $this->Form->input('area_id');
-		echo $this->Form->input('category_id');
+		echo $this->Form->input('area_id', array(
+			'options' => $areas
+		));
+		echo $this->Form->input('category_id', array(
+			'options' => $categories
+		));
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('title');
 		echo $this->Form->input('description');

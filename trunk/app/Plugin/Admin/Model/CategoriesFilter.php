@@ -44,14 +44,14 @@ class CategoriesFilter extends AdminAppModel {
  */
 	public $belongsTo = array(
 		'Category' => array(
-			'className' => 'Category',
+			'className' => 'Admin.Category',
 			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Filter' => array(
-			'className' => 'Filter',
+			'className' => 'Admin.Filter',
 			'foreignKey' => 'filter_id',
 			'conditions' => '',
 			'fields' => '',

@@ -54,14 +54,14 @@ class InfoFilter extends AdminAppModel {
  */
 	public $belongsTo = array(
 		'Info' => array(
-			'className' => 'Info',
+			'className' => 'Admin.Info',
 			'foreignKey' => 'info_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Filter' => array(
-			'className' => 'Filter',
+			'className' => 'Admin.Filter',
 			'foreignKey' => 'filter_id',
 			'conditions' => '',
 			'fields' => '',

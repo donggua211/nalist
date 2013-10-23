@@ -8,7 +8,7 @@
  */
 class User extends AdminAppModel {
 
-	var $displayField = 'User.username';
+	var $displayField = 'username';
 	
 /**
  * Validation rules
@@ -67,7 +67,7 @@ class User extends AdminAppModel {
  */
 	public $belongsTo = array(
 		'Group' => array(
-			'className' => 'Group',
+			'className' => 'Admin.Group',
 			'foreignKey' => 'group_id',
 			'conditions' => '',
 			'fields' => '',
@@ -82,7 +82,7 @@ class User extends AdminAppModel {
  */
 	public $hasMany = array(
 		'Info' => array(
-			'className' => 'Info',
+			'className' => 'Admin.Info',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -95,7 +95,7 @@ class User extends AdminAppModel {
 			'counterQuery' => ''
 		),
 		'UserLog' => array(
-			'className' => 'UserLog',
+			'className' => 'Admin.UserLog',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',

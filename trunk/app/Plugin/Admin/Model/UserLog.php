@@ -53,7 +53,7 @@ class UserLog extends AdminAppModel {
  */
 	public $belongsTo = array(
 		'User' => array(
-			'className' => 'User',
+			'className' => 'Admin.User',
 			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',

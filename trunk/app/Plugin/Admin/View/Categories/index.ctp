@@ -5,7 +5,7 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
-			<th><?php echo $this->Paginator->sort('parentid'); ?></th>
+			<th><?php echo $this->Paginator->sort('parent_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('lft'); ?></th>
 			<th><?php echo $this->Paginator->sort('rght'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -15,7 +15,7 @@
 		<td><?php echo h($category['Category']['id']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['name']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['description']); ?>&nbsp;</td>
-		<td><?php echo h($category['Category']['parentid']); ?>&nbsp;</td>
+		<td><?php echo h($category['Category']['parent_id']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['lft']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['rght']); ?>&nbsp;</td>
 		<td class="actions">
@@ -39,14 +39,4 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Category'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Infos'), array('controller' => 'infos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Info'), array('controller' => 'infos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Filters'), array('controller' => 'filters', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Filter'), array('controller' => 'filters', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

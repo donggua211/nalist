@@ -53,7 +53,7 @@ class FilterOption extends AdminAppModel {
  */
 	public $belongsTo = array(
 		'Filter' => array(
-			'className' => 'Filter',
+			'className' => 'Admin.Filter',
 			'foreignKey' => 'filter_id',
 			'conditions' => '',
 			'fields' => '',

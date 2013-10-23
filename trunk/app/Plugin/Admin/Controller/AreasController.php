@@ -54,6 +54,8 @@ class AreasController extends AdminAppController {
 				$this->Session->setFlash(__('The area could not be saved. Please, try again.'));
 			}
 		}
+		$areasList = $this->Area->generateTreeList(null, null, null, '---');
+		$this->set(compact('areasList'));
 	}
 
 /**
@@ -78,6 +80,8 @@ class AreasController extends AdminAppController {
 			$options = array('conditions' => array('Area.' . $this->Area->primaryKey => $id));
 			$this->request->data = $this->Area->find('first', $options);
 		}
+		$areasList = $this->Area->generateTreeList(null, null, null, '---');
+		$this->set(compact('areasList'));
 	}
 
 /**

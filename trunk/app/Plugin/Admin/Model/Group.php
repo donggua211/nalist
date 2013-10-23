@@ -6,6 +6,7 @@
  */
 class Group extends AdminAppModel {
 
+	public $displayField = 'group_name';
 /**
  * Validation rules
  *
@@ -43,7 +44,7 @@ class Group extends AdminAppModel {
  */
 	public $hasMany = array(
 		'User' => array(
-			'className' => 'User',
+			'className' => 'Admin.User',
 			'foreignKey' => 'group_id',
 			'dependent' => false,
 			'conditions' => '',

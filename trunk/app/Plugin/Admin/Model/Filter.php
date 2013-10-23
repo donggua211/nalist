@@ -65,7 +65,7 @@ class Filter extends AdminAppModel {
  */
 	public $hasMany = array(
 		'FilterOption' => array(
-			'className' => 'FilterOption',
+			'className' => 'Admin.FilterOption',
 			'foreignKey' => 'filter_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -87,7 +87,7 @@ class Filter extends AdminAppModel {
  */
 	public $hasAndBelongsToMany = array(
 		'Category' => array(
-			'className' => 'Category',
+			'className' => 'Admin.Category',
 			'joinTable' => 'categories_filters',
 			'foreignKey' => 'filter_id',
 			'associationForeignKey' => 'category_id',
@@ -100,7 +100,7 @@ class Filter extends AdminAppModel {
 			'finderQuery' => '',
 		),
 		'Info' => array(
-			'className' => 'Info',
+			'className' => 'Admin.Info',
 			'joinTable' => 'info_filters',
 			'foreignKey' => 'filter_id',
 			'associationForeignKey' => 'info_id',

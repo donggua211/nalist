@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 10 月 21 日 19:19
+-- 生成日期: 2013 年 10 月 23 日 06:23
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -50,10 +50,23 @@ DROP TABLE IF EXISTS `areas`;
 CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `areaname` varchar(50) NOT NULL,
-  `parentid` int(11) NOT NULL,
-  `orderid` int(11) NOT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `lft` int(11) NOT NULL,
+  `rght` int(11) NOT NULL,
+  `orderid` int(11) NOT NULL DEFAULT '100',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- 转存表中的数据 `areas`
+--
+
+INSERT INTO `areas` (`id`, `areaname`, `parent_id`, `lft`, `rght`, `orderid`) VALUES
+(1, 'California', NULL, 1, 10, 100),
+(2, 'los angeles', 1, 2, 9, 100),
+(3, 'westside-southbay', 2, 3, 4, 100),
+(4, 'SF valley', 2, 5, 6, 100),
+(5, 'central LA', 2, 7, 8, 100);
 
 -- --------------------------------------------------------
 
@@ -66,11 +79,26 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   `description` tinytext NOT NULL,
-  `parentid` int(11) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
   `lft` int(11) NOT NULL,
   `rght` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- 转存表中的数据 `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `description`, `parent_id`, `lft`, `rght`) VALUES
+(1, '????±??????ˉ', '????±??????ˉ', NULL, 1, 10),
+(2, '??′?§????', '??′?§????', 1, 2, 3),
+(3, '?±??§????', '?±??§????', 1, 4, 5),
+(4, '????§????', '????§????', 1, 6, 7),
+(5, '??-?§????/?—￥?§????', '??-?§????/?—￥?§????', 1, 8, 9),
+(6, '?…?è′1???è??', '?…?è′1???è??', NULL, 11, 18),
+(7, '?…¨è?????è??', '?…¨è?????è??', 6, 12, 13),
+(8, '?…?è?????è??', '?…?è?????è??', 6, 14, 15),
+(9, '???è?????', '???è?????', 6, 16, 17);
 
 -- --------------------------------------------------------
 
@@ -158,7 +186,14 @@ CREATE TABLE IF NOT EXISTS `info` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `info`
+--
+
+INSERT INTO `info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `description`, `status`, `created`, `modified`) VALUES
+(1, 3, 7, 1, '?′???‰?????°??o?…¨è?????è?? 1', '?′???‰?????°??o?…¨è?????è?? 1\r\n?′???‰?????°??o?…¨è?????è?? 1?′???‰?????°??o?…¨è?????è?? 1notempty', 1, '2013-10-22 23:22:58', '2013-10-22 23:23:08');
 
 -- --------------------------------------------------------
 

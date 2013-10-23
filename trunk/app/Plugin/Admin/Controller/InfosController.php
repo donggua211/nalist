@@ -54,8 +54,8 @@ class InfosController extends AdminAppController {
 				$this->Session->setFlash(__('The info could not be saved. Please, try again.'));
 			}
 		}
-		$areas = $this->Info->Area->find('list');
-		$categories = $this->Info->Category->find('list');
+		$areas = $this->Info->Area->generateTreeList(null, null, null, '---');
+		$categories = $this->Info->Category->generateTreeList(null, null, null, '---');
 		$users = $this->Info->User->find('list', array('fields' => array('User.id', 'User.username')));
 		$filters = $this->Info->Filter->find('list');
 		$this->set(compact('areas', 'categories', 'users', 'filters'));

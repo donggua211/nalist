@@ -53,7 +53,7 @@ class InfoMetum extends AdminAppModel {
  */
 	public $belongsTo = array(
 		'Info' => array(
-			'className' => 'Info',
+			'className' => 'Admin.Info',
 			'foreignKey' => 'info_id',
 			'conditions' => '',
 			'fields' => '',
