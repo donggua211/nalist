@@ -71,9 +71,10 @@ Cache::config('default', array('engine' => 'File'));
  * CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
-
 CakePlugin::load('DebugKit');
 CakePlugin::load('Admin', array('routes' => true));
+CakePlugin::load('GeoIp');
+
 
  
 /**
