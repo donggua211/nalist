@@ -28,21 +28,6 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Filter'), array('action' => 'edit', $filter['Filter']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Filter'), array('action' => 'delete', $filter['Filter']['id']), null, __('Are you sure you want to delete # %s?', $filter['Filter']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Filters'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Filter'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Filter Options'), array('controller' => 'filter_options', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Filter Option'), array('controller' => 'filter_options', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Infos'), array('controller' => 'infos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Info'), array('controller' => 'infos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 <div class="related">
 	<h3><?php echo __('Related Filter Options'); ?></h3>
 	<?php if (!empty($filter['FilterOption'])): ?>

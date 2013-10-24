@@ -69,6 +69,15 @@
 						</ul>
 					</li>
 				</ul>
+				<ul>
+					<li><?php echo $this->Html->link(__('Filter'), array('plugin' => 'admin', 'controller' => 'filters', 'action' => 'index')); ?></li>
+					<li class="sub-menu">
+						<ul>
+							<li><?php echo $this->Html->link(__('filters'), array('plugin' => 'admin', 'controller' => 'filters', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New filter'), array('plugin' => 'admin', 'controller' => 'filters', 'action' => 'add')); ?> </li>
+						</ul>
+					</li>
+				</ul>
 				
 				<ul>					
 					<li><?php echo $this->Html->link(__('Log Out'), array('controller' => 'admin_users', 'action' => 'logout')); ?></li>
