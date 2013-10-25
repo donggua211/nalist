@@ -22,6 +22,6 @@ class EntryController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	public function index() {
-		echo 'Hello';
+		
 	}
 }
