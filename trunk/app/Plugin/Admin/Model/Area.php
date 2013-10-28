@@ -7,7 +7,7 @@
 class Area extends AdminAppModel {
 
 	public $displayField = 'areaname';
-	public $actsAs = array('Admin.TreePlus');
+	public $actsAs = array('TreePlus');
 /**
  * Validation rules
  *
