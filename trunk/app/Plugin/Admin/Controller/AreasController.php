@@ -47,6 +47,11 @@ class AreasController extends AdminAppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Area->create();
+			
+			if($this->request->data('Area.display_order') <= 0 ) {
+				$this->request->data('Area.display_order', '100');
+			}
+			
 			if ($this->Area->save($this->request->data)) {
 				$this->Session->setFlash(__('The area has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -56,6 +61,9 @@ class AreasController extends AdminAppController {
 		}
 		$areasList = $this->Area->generateTreeList(null, null, null, '---');
 		$this->set(compact('areasList'));
+		
+		$enumOptions = $this->Area->enumOptions('type');
+		$this->set(compact('enumOptions'));
 	}
 
 /**
@@ -82,6 +90,9 @@ class AreasController extends AdminAppController {
 		}
 		$areasList = $this->Area->generateTreeList(null, null, null, '---');
 		$this->set(compact('areasList'));
+		
+		$enumOptions = $this->Area->enumOptions('type');
+		$this->set(compact('enumOptions'));
 	}
 
 /**

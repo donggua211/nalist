@@ -4,16 +4,22 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('areaname'); ?></th>
+			<th><?php echo $this->Paginator->sort('slug'); ?></th>
+			<th><?php echo $this->Paginator->sort('type'); ?></th>
 			<th><?php echo $this->Paginator->sort('parent_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('orderid'); ?></th>
+			<th><?php echo $this->Paginator->sort('level'); ?></th>
+			<th><?php echo $this->Paginator->sort('display_order'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($areas as $area): ?>
 	<tr>
 		<td><?php echo h($area['Area']['id']); ?>&nbsp;</td>
 		<td><?php echo h($area['Area']['areaname']); ?>&nbsp;</td>
+		<td><?php echo h($area['Area']['slug']); ?>&nbsp;</td>
+		<td><?php echo h($area['Area']['type']); ?>&nbsp;</td>
 		<td><?php echo h($area['Area']['parent_id']); ?>&nbsp;</td>
-		<td><?php echo h($area['Area']['orderid']); ?>&nbsp;</td>
+		<td><?php echo h($area['Area']['level']); ?>&nbsp;</td>
+		<td><?php echo h($area['Area']['display_order']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $area['Area']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $area['Area']['id'])); ?>

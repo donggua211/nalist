@@ -23,4 +23,14 @@ class TreePlusBehavior extends TreeBehavior {
 			}
 		}
 	}
+	
+	public function afterSave(Model $Model, $created, $options = array()) {
+		parent::afterSave($Model, $created, $options);
+		$id = $Model->getInsertID();
+		
+		return $Model->updateAll(
+			array('Area.level' => count($Model->getPath($id))),
+			array('Area.id' => $id)
+		);
+	}
 }

@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('areaname');
 		echo $this->Form->input('parentid');
-		echo $this->Form->input('orderid');
+		echo $this->Form->input('display_order');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

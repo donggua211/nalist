@@ -16,9 +16,9 @@
 			<?php echo h($area['Area']['parentid']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Orderid'); ?></dt>
+		<dt><?php echo __('Display order'); ?></dt>
 		<dd>
-			<?php echo h($area['Area']['orderid']); ?>
+			<?php echo h($area['Area']['display_order']); ?>
 			&nbsp;
 		</dd>
 	</dl>
