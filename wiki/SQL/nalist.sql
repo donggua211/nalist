@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 10 月 23 日 06:23
+-- 生成日期: 2013 年 11 月 02 日 07:23
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -50,23 +50,29 @@ DROP TABLE IF EXISTS `areas`;
 CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `areaname` varchar(50) NOT NULL,
+  `slug` varchar(50) NOT NULL,
+  `type` enum('state','county','city','town') NOT NULL,
   `parent_id` int(11) DEFAULT NULL,
   `lft` int(11) NOT NULL,
   `rght` int(11) NOT NULL,
-  `orderid` int(11) NOT NULL DEFAULT '100',
+  `level` tinyint(4) NOT NULL,
+  `display_order` int(11) NOT NULL DEFAULT '100',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- 转存表中的数据 `areas`
 --
 
-INSERT INTO `areas` (`id`, `areaname`, `parent_id`, `lft`, `rght`, `orderid`) VALUES
-(1, 'California', NULL, 1, 10, 100),
-(2, 'los angeles', 1, 2, 9, 100),
-(3, 'westside-southbay', 2, 3, 4, 100),
-(4, 'SF valley', 2, 5, 6, 100),
-(5, 'central LA', 2, 7, 8, 100);
+INSERT INTO `areas` (`id`, `areaname`, `slug`, `type`, `parent_id`, `lft`, `rght`, `level`, `display_order`) VALUES
+(1, 'California', 'ca', 'state', NULL, 1, 12, 1, 100),
+(2, 'los angeles', 'losangeles', 'county', 1, 2, 9, 2, 100),
+(3, 'Walnut', 'walnut', 'city', 2, 3, 4, 3, 100),
+(4, 'Rowland Height', 'rowlandheight', 'city', 2, 5, 6, 3, 100),
+(5, 'Diamond Bar', 'diamondbar', 'city', 2, 7, 8, 3, 100),
+(6, 'New York', 'ny', 'state', NULL, 13, 16, 1, 100),
+(7, 'walnut', 'walnut', 'city', 6, 14, 15, 2, 100),
+(8, 'Walnut', 'walnut', 'county', 1, 10, 11, 2, 100);
 
 -- --------------------------------------------------------
 
@@ -112,7 +118,14 @@ CREATE TABLE IF NOT EXISTS `categories_filters` (
   `category_id` int(11) NOT NULL,
   `filter_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `categories_filters`
+--
+
+INSERT INTO `categories_filters` (`id`, `category_id`, `filter_id`) VALUES
+(1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -125,10 +138,17 @@ CREATE TABLE IF NOT EXISTS `filters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `key` varchar(50) NOT NULL,
   `title` varchar(150) NOT NULL,
-  `type` varchar(10) NOT NULL,
+  `type` enum('select','radio','checkbox','input','') NOT NULL,
   `rule` tinytext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `filters`
+--
+
+INSERT INTO `filters` (`id`, `key`, `title`, `type`, `rule`) VALUES
+(1, 'hire_type', '??o?§??–1???', 'radio', '??′?￥—??o?§?,???é—′??o?§?,?o??????o?§?');
 
 -- --------------------------------------------------------
 

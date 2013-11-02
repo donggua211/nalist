@@ -10,59 +10,62 @@ class EntryController extends AppController {
 	//city
 	public $city = '';
 	
-	//Default List entry page. Will Check client IP.
+	//Default List entry page. Will Check client IP. If no ip match, will show cities list.
 	public function index() {
+		$geoIp = $this->_getGeo();
+		
+		//Will show city list, if can not get geoIP info
+		if($geoIp == false) {
+			return false;
+		}
+		
+		//If geoIp is not in US, show city list.
+		if($geoIp['country'] != 'us') {
+			return false;
+		}
+		
+		//Check geoIp from database.
 		$this->loadModel('Area');
-		$areasList = $this->Area->find('threaded', array(
-			'fields' => array('id', 'areaname', 'parent_id')
+		$areasList = $this->Area->find('all', array(
+			'fields' => array('id', 'slug'),
+			 'conditions' => array('Area.slug' => $geoIp['city'], 'Area.type' => 'city')
 		));
 		
-		pr($areasList);
-		
-		
-		
-		
+		foreach($areasList as $area) {
+			$areaPath = $this->Area->getPath($area['Area']['id']);
+			
+			if($areaPath[0]['Area']['slug'] == $geoIp['state']) {
+				$this->redirect(array('city' => $geoIp['city'], 'action' => 'city'));
+			}
+		}
 	}
 	
+	//If specific a city, this is default City home page.
 	public function city() {
-		pr($this->request);
-	}
-	
-
-	private function _setCity() {
-		
-		//Check $this->request->params['city'] first.
 		$this->city = $this->request->param('city');
 		
-		if(!empty($this->city))
-			return true;
-		
+		pr($this->city);
+		pr($this->city);
+		pr($this->city);
+	}
+	
+	//Check City from IP. If no IP match, return false;
+	private function _getGeo() {
 		//If request params does not set city, then, check it from Geoip Plugin.
 		App::uses('GeoIpLocation', 'GeoIp.Model');
 		$GeoIpLocation = new GeoIpLocation();
 		$ip = $this->request->clientIp(false);
 		$location = $GeoIpLocation->find($ip);
 		
-		//If GeoIP cannot find or is not in US, then set default IP.
-		if(!empty($location) && $location['GeoIpLocation']['country_code'] == 'US') {
-			$this->city = $location['GeoIpLocation']['city'];
-			$this->region = $location['GeoIpLocation']['region'];
+		//If geoIp cannot find or is not in US, then set default IP.
+		if(empty($location)) {
+			return false;
 		}
-
-		if(!empty($this->city))
-			return true;
-
-		//Set city to default value.
-		$geoip = Configure :: read('default.geoip.city');
 		
-		$this->Cookie->write('geo_info', $geoip);
-	}
-
-	//override redirect
-	public function redirect( $url, $status = NULL, $exit = true ) {
-		if (!isset($url['language']) && $this->Session->check('Config.language')) {
-		$url['language'] = $this->Session->read('Config.language');
-		}
-		parent::redirect($url,$status,$exit);
+		$geoIp['country'] = strtolower($location['GeoIpLocation']['country_code']);
+		$geoIp['state'] = strtolower($location['GeoIpLocation']['region']);
+		$geoIp['city'] = strtolower($location['GeoIpLocation']['city']);
+		
+		return $geoIp;
 	}
 }

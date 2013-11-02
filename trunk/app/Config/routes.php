@@ -28,9 +28,6 @@
  */
 	Router::connect('/', array('controller' => 'entry', 'action' => 'index'));
 	
-	//Cities list
-	Router::connect('/city', array('controller' => 'entry', 'action' => 'city'));
-	
 	//Users
 	Router::connect('/users', array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/users/:action/*', array('controller' => 'users'));
@@ -48,7 +45,7 @@
 
 	
 	//Roll for city profiles
-	Router::connect('/:city', array('controller' => 'entry', 'action' => 'index'));
+	Router::connect('/:city', array('controller' => 'entry', 'action' => 'city'));
 	Router::connect('/:city/:controller', array('action' => 'index'), array('city' => '[a-z]+'));
 	Router::connect('/:city/:controller/:action/*', array(), array('city' => '[a-z]+'));
 	
