@@ -2,16 +2,22 @@
 -- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Ö÷»ú: localhost
--- Éú³ÉÈÕÆÚ: 2013 Äê 11 ÔÂ 02 ÈÕ 07:23
--- ·şÎñÆ÷°æ±¾: 5.6.12-log
--- PHP °æ±¾: 5.4.12
+-- Host: localhost
+-- Generation Time: Dec 16, 2013 at 08:13 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
--- Êı¾İ¿â: `nalist`
+-- Database: `nalist`
 --
 CREATE DATABASE IF NOT EXISTS `nalist` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `nalist`;
@@ -19,7 +25,7 @@ USE `nalist`;
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `admin_users`
+-- Table structure for table `admin_users`
 --
 
 DROP TABLE IF EXISTS `admin_users`;
@@ -34,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- ×ª´æ±íÖĞµÄÊı¾İ `admin_users`
+-- Dumping data for table `admin_users`
 --
 
 INSERT INTO `admin_users` (`id`, `username`, `password`, `email`, `created`, `modified`) VALUES
@@ -43,7 +49,7 @@ INSERT INTO `admin_users` (`id`, `username`, `password`, `email`, `created`, `mo
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `areas`
+-- Table structure for table `areas`
 --
 
 DROP TABLE IF EXISTS `areas`;
@@ -61,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `areas` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
--- ×ª´æ±íÖĞµÄÊı¾İ `areas`
+-- Dumping data for table `areas`
 --
 
 INSERT INTO `areas` (`id`, `areaname`, `slug`, `type`, `parent_id`, `lft`, `rght`, `level`, `display_order`) VALUES
@@ -77,7 +83,7 @@ INSERT INTO `areas` (`id`, `areaname`, `slug`, `type`, `parent_id`, `lft`, `rght
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `categories`
+-- Table structure for table `categories`
 --
 
 DROP TABLE IF EXISTS `categories`;
@@ -92,24 +98,24 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- ×ª´æ±íÖĞµÄÊı¾İ `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`, `parent_id`, `lft`, `rght`) VALUES
-(1, '????¡À??????¡¥', '????¡À??????¡¥', NULL, 1, 10),
-(2, '??¡ä?¡ì????', '??¡ä?¡ì????', 1, 2, 3),
-(3, '?¡À??¡ì????', '?¡À??¡ì????', 1, 4, 5),
-(4, '????¡ì????', '????¡ì????', 1, 6, 7),
-(5, '??-?¡ì????/?¡ª£¤?¡ì????', '??-?¡ì????/?¡ª£¤?¡ì????', 1, 8, 9),
-(6, '?¡­?¨¨¡ä1???¨¨??', '?¡­?¨¨¡ä1???¨¨??', NULL, 11, 18),
-(7, '?¡­¡§¨¨?????¨¨??', '?¡­¡§¨¨?????¨¨??', 6, 12, 13),
-(8, '?¡­?¨¨?????¨¨??', '?¡­?¨¨?????¨¨??', 6, 14, 15),
-(9, '???¨¨?????', '???¨¨?????', 6, 16, 17);
+(1, 'Ã¦Ë†Â¿Ã¥Â±â€¹Ã¤Â¿Â¡Ã¦ÂÂ¯', 'Ã¦Ë†Â¿Ã¥Â±â€¹Ã¤Â¿Â¡Ã¦ÂÂ¯', NULL, 1, 10),
+(2, 'Ã¦â€¢Â´Ã§Â§Å¸Ã¦Ë†Â¿', 'Ã¦â€¢Â´Ã§Â§Å¸Ã¦Ë†Â¿', 1, 2, 3),
+(3, 'Ã¦Â±â€šÃ§Â§Å¸Ã¦Ë†Â¿', 'Ã¦Â±â€šÃ§Â§Å¸Ã¦Ë†Â¿', 1, 4, 5),
+(4, 'Ã¥ÂË†Ã§Â§Å¸Ã¦Ë†Â¿', 'Ã¥ÂË†Ã§Â§Å¸Ã¦Ë†Â¿', 1, 6, 7),
+(5, 'Ã§Å¸Â­Ã§Â§Å¸Ã¦Ë†Â¿/Ã¦â€”Â¥Ã§Â§Å¸Ã¦Ë†Â¿', 'Ã§Å¸Â­Ã§Â§Å¸Ã¦Ë†Â¿/Ã¦â€”Â¥Ã§Â§Å¸Ã¦Ë†Â¿', 1, 8, 9),
+(6, 'Ã¥â€¦ÂÃ¨Â´Â¹Ã¦â€¹â€ºÃ¨ÂËœ', 'Ã¥â€¦ÂÃ¨Â´Â¹Ã¦â€¹â€ºÃ¨ÂËœ', NULL, 11, 18),
+(7, 'Ã¥â€¦Â¨Ã¨ÂÅ’Ã¦â€¹â€ºÃ¨ÂËœ', 'Ã¥â€¦Â¨Ã¨ÂÅ’Ã¦â€¹â€ºÃ¨ÂËœ', 6, 12, 13),
+(8, 'Ã¥â€¦Â¼Ã¨ÂÅ’Ã¦â€¹â€ºÃ¨ÂËœ', 'Ã¥â€¦Â¼Ã¨ÂÅ’Ã¦â€¹â€ºÃ¨ÂËœ', 6, 14, 15),
+(9, 'Ã¦â€¹â€ºÃ¨ÂËœÃ¤Â¼Å¡', 'Ã¦â€¹â€ºÃ¨ÂËœÃ¤Â¼Å¡', 6, 16, 17);
 
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `categories_filters`
+-- Table structure for table `categories_filters`
 --
 
 DROP TABLE IF EXISTS `categories_filters`;
@@ -121,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `categories_filters` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- ×ª´æ±íÖĞµÄÊı¾İ `categories_filters`
+-- Dumping data for table `categories_filters`
 --
 
 INSERT INTO `categories_filters` (`id`, `category_id`, `filter_id`) VALUES
@@ -130,7 +136,7 @@ INSERT INTO `categories_filters` (`id`, `category_id`, `filter_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `filters`
+-- Table structure for table `filters`
 --
 
 DROP TABLE IF EXISTS `filters`;
@@ -144,16 +150,16 @@ CREATE TABLE IF NOT EXISTS `filters` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- ×ª´æ±íÖĞµÄÊı¾İ `filters`
+-- Dumping data for table `filters`
 --
 
 INSERT INTO `filters` (`id`, `key`, `title`, `type`, `rule`) VALUES
-(1, 'hire_type', '??o?¡ì??¨C1???', 'radio', '??¡ä?£¤¡ª??o?¡ì?,???¨¦¡ª¡ä??o?¡ì?,?o??????o?¡ì?');
+(1, 'hire_type', 'Ã¥â€¡ÂºÃ§Â§Å¸Ã¦â€“Â¹Ã¥Â¼Â', 'radio', 'Ã¦â€¢Â´Ã¥Â¥â€”Ã¥â€¡ÂºÃ§Â§Å¸,Ã¥Ââ€¢Ã©â€”Â´Ã¥â€¡ÂºÃ§Â§Å¸,Ã¥ÂºÅ Ã¤Â½ÂÃ¥â€¡ÂºÃ§Â§Å¸');
 
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `filter_options`
+-- Table structure for table `filter_options`
 --
 
 DROP TABLE IF EXISTS `filter_options`;
@@ -168,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `filter_options` (
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `groups`
+-- Table structure for table `groups`
 --
 
 DROP TABLE IF EXISTS `groups`;
@@ -182,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- ×ª´æ±íÖĞµÄÊı¾İ `groups`
+-- Dumping data for table `groups`
 --
 
 INSERT INTO `groups` (`id`, `group_name`, `permission`, `created`, `modified`) VALUES
@@ -191,7 +197,7 @@ INSERT INTO `groups` (`id`, `group_name`, `permission`, `created`, `modified`) V
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `info`
+-- Table structure for table `info`
 --
 
 DROP TABLE IF EXISTS `info`;
@@ -209,16 +215,16 @@ CREATE TABLE IF NOT EXISTS `info` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- ×ª´æ±íÖĞµÄÊı¾İ `info`
+-- Dumping data for table `info`
 --
 
 INSERT INTO `info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `description`, `status`, `created`, `modified`) VALUES
-(1, 3, 7, 1, '?¡ä???¡ë?????¡ã??o?¡­¡§¨¨?????¨¨?? 1', '?¡ä???¡ë?????¡ã??o?¡­¡§¨¨?????¨¨?? 1\r\n?¡ä???¡ë?????¡ã??o?¡­¡§¨¨?????¨¨?? 1?¡ä???¡ë?????¡ã??o?¡­¡§¨¨?????¨¨?? 1notempty', 1, '2013-10-22 23:22:58', '2013-10-22 23:23:08');
+(1, 3, 7, 1, 'Ã¦Â´â€ºÃ¦Ââ€°Ã§Å¸Â¶Ã¥Å“Â°Ã¥Å’ÂºÃ¥â€¦Â¨Ã¨ÂÅ’Ã¦â€¹â€ºÃ¨ÂËœ 1', 'Ã¦Â´â€ºÃ¦Ââ€°Ã§Å¸Â¶Ã¥Å“Â°Ã¥Å’ÂºÃ¥â€¦Â¨Ã¨ÂÅ’Ã¦â€¹â€ºÃ¨ÂËœ 1\r\nÃ¦Â´â€ºÃ¦Ââ€°Ã§Å¸Â¶Ã¥Å“Â°Ã¥Å’ÂºÃ¥â€¦Â¨Ã¨ÂÅ’Ã¦â€¹â€ºÃ¨ÂËœ 1Ã¦Â´â€ºÃ¦Ââ€°Ã§Å¸Â¶Ã¥Å“Â°Ã¥Å’ÂºÃ¥â€¦Â¨Ã¨ÂÅ’Ã¦â€¹â€ºÃ¨ÂËœ 1notempty', 1, '2013-10-22 23:22:58', '2013-10-22 23:23:08');
 
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `info_filters`
+-- Table structure for table `info_filters`
 --
 
 DROP TABLE IF EXISTS `info_filters`;
@@ -233,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `info_filters` (
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `info_meta`
+-- Table structure for table `info_meta`
 --
 
 DROP TABLE IF EXISTS `info_meta`;
@@ -248,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `info_meta` (
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `users`
+-- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
@@ -264,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- ×ª´æ±íÖĞµÄÊı¾İ `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `created`, `modified`) VALUES
@@ -273,7 +279,7 @@ INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `created
 -- --------------------------------------------------------
 
 --
--- ±íµÄ½á¹¹ `user_logs`
+-- Table structure for table `user_logs`
 --
 
 DROP TABLE IF EXISTS `user_logs`;
@@ -285,3 +291,7 @@ CREATE TABLE IF NOT EXISTS `user_logs` (
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

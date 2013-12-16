@@ -35,7 +35,8 @@ class EntryController extends AppController {
 			$areaPath = $this->Area->getPath($area['Area']['id']);
 			
 			if($areaPath[0]['Area']['slug'] == $geoIp['state']) {
-				$this->redirect(array('city' => $geoIp['city'], 'action' => 'city'));
+				//Redirect to Level 2
+				$this->redirect(array('city' => $areaPath[1]['Area']['slug'], 'action' => 'city'));
 			}
 		}
 	}
