@@ -8,7 +8,7 @@
 class Category extends AdminAppModel {
 
 	public $displayField = 'name';
-	public $actsAs = array('Admin.TreePlus');
+	public $actsAs = array('TreePlus');
 /**
  * Validation rules
  *
