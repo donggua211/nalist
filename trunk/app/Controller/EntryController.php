@@ -44,6 +44,8 @@ class EntryController extends AppController {
 	//If specific a city, this is default City home page.
 	public function city() {
 		$this->city = $this->request->param('city');
+		
+		pr($this->city);
 	}
 	
 	//Check City from IP. If no IP match, return false;

@@ -33,7 +33,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	//Set theme
-	public $theme = 'Taobao';
+	public $theme = 'Japan';
 	
 	public $components = array('DebugKit.Toolbar', 'Cookie' => array('name' => 'nalist'));
 }
