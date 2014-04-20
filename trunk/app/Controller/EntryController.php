@@ -12,40 +12,38 @@ class EntryController extends AppController {
 	
 	//Default List entry page. Will Check client IP. If no ip match, will show cities list.
 	public function index() {
+		$this->loadModel('Area');
+		
 		$geoIp = $this->_getGeo();
 		
 		//Will show city list, if can not get geoIP info
-		if($geoIp == false) {
-			return false;
-		}
-		
-		//If geoIp is not in US, show city list.
-		if($geoIp['country'] != 'us') {
-			return false;
-		}
-		
-		//Check geoIp from database.
-		$this->loadModel('Area');
-		$areasList = $this->Area->find('all', array(
-			'fields' => array('id', 'slug'),
-			 'conditions' => array('Area.slug' => $geoIp['city'], 'Area.type' => 'city')
-		));
-		
-		foreach($areasList as $area) {
-			$areaPath = $this->Area->getPath($area['Area']['id']);
+		if($geoIp != false && $geoIp['country'] == 'us') {
+			//Check geoIp from database.
+			$areasList = $this->Area->find('all', array(
+				'fields' => array('id', 'slug'),
+				 'conditions' => array('Area.slug' => $geoIp['city'], 'Area.type' => 'city')
+			));
 			
-			if($areaPath[0]['Area']['slug'] == $geoIp['state']) {
-				//Redirect to Level 2
-				$this->redirect(array('city' => $areaPath[1]['Area']['slug'], 'action' => 'city'));
+			foreach($areasList as $area) {
+				$areaPath = $this->Area->getPath($area['Area']['id']);
+				
+				if($areaPath[0]['Area']['slug'] == $geoIp['state']) {
+					//Redirect to Level 2
+					$this->redirect(array('city' => $areaPath[1]['Area']['slug'], 'action' => 'city'));
+				}
 			}
 		}
+		
+		//Show city List page
+		$areasList = $this->Area->generateTreePlusList();
+		
+		$this->set(compact('areasList'));
+		
 	}
 	
 	//If specific a city, this is default City home page.
 	public function city() {
 		$this->city = $this->request->param('city');
-		
-		pr($this->city);
 	}
 	
 	//Check City from IP. If no IP match, return false;
@@ -55,8 +53,7 @@ class EntryController extends AppController {
 		$GeoIpLocation = new GeoIpLocation();
 		$ip = $this->request->clientIp(false);
 		$location = $GeoIpLocation->find($ip);
-		pr($ip);
-		pr($location);
+		
 		//If geoIp cannot find or is not in US, then set default IP.
 		if(empty($location)) {
 			return false;
