@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2014-04-20 18:10-0700\n"
+"POT-Creation-Date: 2014-04-27 09:16-0700\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -112,11 +112,6 @@ msgstr ""
 #: Controller/CategoriesFiltersController.php:100
 #: Plugin/Admin/Controller/CategoriesFiltersController.php:99
 msgid "The categories filter could not be deleted. Please, try again."
-msgstr ""
-
-#: Controller/EntryController.php:42
-#: View/Themed/Japan/Layouts/default.ctp:28;73
-msgid "Home"
 msgstr ""
 
 #: Controller/FilterOptionsController.php:37;71;98
@@ -1848,6 +1843,10 @@ msgstr ""
 
 #: View/Infos/view.ctp:55
 msgid "Delete Info"
+msgstr ""
+
+#: View/Themed/Japan/Layouts/default.ctp:28;73
+msgid "Home"
 msgstr ""
 
 #: View/Themed/Japan/Layouts/default.ctp:30

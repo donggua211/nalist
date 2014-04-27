@@ -62,7 +62,7 @@ class ODSEA_Makepot {
 	 */
 	public function __construct() {
 		// Default path
-		$this->set_odsea_path( '../app' );
+		$this->set_odsea_path( '../../trunk/app' );
 
 		// All available projects with their settings
 		$this->projects = array(
