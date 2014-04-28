@@ -39,6 +39,7 @@ class EntryController extends AppController {
 		
 		$this->set(compact('areasList'));
 		
+		$this->layout = 'entry_index';
 	}
 	
 	//If specific a city, this is default City home page.
