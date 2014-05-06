@@ -28,9 +28,16 @@
  */
 	Router::connect('/', array('controller' => 'entry', 'action' => 'index'));
 	
+	//categories
+	Router::connect('/categories/:action/*', array('controller' => 'categories'));
+	
 	//Users
 	Router::connect('/users', array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/users/:action/*', array('controller' => 'users'));
+	
+	//Pages
+	Router::connect('/pages', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/pages/:action/*', array('controller' => 'pages'));
 	
 	
 /**

@@ -11,6 +11,11 @@
 			<?php echo h($category['Category']['name']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Slug'); ?></dt>
+		<dd>
+			<?php echo h($category['Category']['cat_slug']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
 			<?php echo h($category['Category']['description']); ?>

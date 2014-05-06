@@ -104,4 +104,12 @@ class CategoriesController extends AppController {
 			$this->Session->setFlash(__('The category could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+	
+	public function topMenu() {
+        if (empty($this->request->params['requested'])) {
+            throw new ForbiddenException();
+        }
+        return $this->Category->generateTreePlusList();
+    }
+}

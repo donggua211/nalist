@@ -2,10 +2,10 @@
 -- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Dec 16, 2013 at 08:13 PM
--- Server version: 5.6.12-log
--- PHP Version: 5.4.12
+-- 主机: localhost
+-- 生成日期: 2014 年 05 月 06 日 19:13
+-- 服务器版本: 5.6.12-log
+-- PHP 版本: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `nalist`
+-- 数据库: `nalist`
 --
 CREATE DATABASE IF NOT EXISTS `nalist` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `nalist`;
@@ -25,10 +25,9 @@ USE `nalist`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_users`
+-- 表的结构 `admin_users`
 --
 
-DROP TABLE IF EXISTS `admin_users`;
 CREATE TABLE IF NOT EXISTS `admin_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
@@ -40,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `admin_users`
+-- 转存表中的数据 `admin_users`
 --
 
 INSERT INTO `admin_users` (`id`, `username`, `password`, `email`, `created`, `modified`) VALUES
@@ -49,10 +48,9 @@ INSERT INTO `admin_users` (`id`, `username`, `password`, `email`, `created`, `mo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `areas`
+-- 表的结构 `areas`
 --
 
-DROP TABLE IF EXISTS `areas`;
 CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `areaname` varchar(50) NOT NULL,
@@ -67,11 +65,11 @@ CREATE TABLE IF NOT EXISTS `areas` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `areas`
+-- 转存表中的数据 `areas`
 --
 
 INSERT INTO `areas` (`id`, `areaname`, `slug`, `type`, `parent_id`, `lft`, `rght`, `level`, `display_order`) VALUES
-(1, 'California', 'ca', 'state', NULL, 1, 12, 1, 100),
+(1, 'California', 'california', 'state', NULL, 1, 12, 1, 100),
 (2, 'los angeles', 'losangeles', 'county', 1, 2, 9, 2, 100),
 (3, 'Walnut', 'walnut', 'city', 2, 3, 4, 3, 100),
 (4, 'Rowland Height', 'rowlandheight', 'city', 2, 5, 6, 3, 100),
@@ -83,13 +81,13 @@ INSERT INTO `areas` (`id`, `areaname`, `slug`, `type`, `parent_id`, `lft`, `rght
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- 表的结构 `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
+  `cat_slug` varchar(32) NOT NULL,
   `description` tinytext NOT NULL,
   `parent_id` int(11) DEFAULT NULL,
   `lft` int(11) NOT NULL,
@@ -98,27 +96,26 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `categories`
+-- 转存表中的数据 `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `description`, `parent_id`, `lft`, `rght`) VALUES
-(1, 'æˆ¿å±‹ä¿¡æ¯', 'æˆ¿å±‹ä¿¡æ¯', NULL, 1, 10),
-(2, 'æ•´ç§Ÿæˆ¿', 'æ•´ç§Ÿæˆ¿', 1, 2, 3),
-(3, 'æ±‚ç§Ÿæˆ¿', 'æ±‚ç§Ÿæˆ¿', 1, 4, 5),
-(4, 'åˆç§Ÿæˆ¿', 'åˆç§Ÿæˆ¿', 1, 6, 7),
-(5, 'çŸ­ç§Ÿæˆ¿/æ—¥ç§Ÿæˆ¿', 'çŸ­ç§Ÿæˆ¿/æ—¥ç§Ÿæˆ¿', 1, 8, 9),
-(6, 'å…è´¹æ‹›è˜', 'å…è´¹æ‹›è˜', NULL, 11, 18),
-(7, 'å…¨èŒæ‹›è˜', 'å…¨èŒæ‹›è˜', 6, 12, 13),
-(8, 'å…¼èŒæ‹›è˜', 'å…¼èŒæ‹›è˜', 6, 14, 15),
-(9, 'æ‹›è˜ä¼š', 'æ‹›è˜ä¼š', 6, 16, 17);
+INSERT INTO `categories` (`id`, `name`, `cat_slug`, `description`, `parent_id`, `lft`, `rght`) VALUES
+(1, 'æˆ¿å±‹ä¿¡æ¯', 'fangwu1', 'æˆ¿å±‹ä¿¡æ¯', NULL, 1, 10),
+(2, 'æ•´ç§Ÿæˆ¿', 'zhengzu', 'æ•´ç§Ÿæˆ¿', 1, 2, 3),
+(3, 'æ±‚ç§Ÿæˆ¿', 'qiuzu', 'æ±‚ç§Ÿæˆ¿', 1, 4, 5),
+(4, 'åˆç§Ÿæˆ¿', 'hezu', 'åˆç§Ÿæˆ¿', 1, 6, 7),
+(5, 'çŸ­ç§Ÿæˆ¿/æ—¥ç§Ÿæˆ¿', '', 'çŸ­ç§Ÿæˆ¿/æ—¥ç§Ÿæˆ¿', 1, 8, 9),
+(6, 'å…è´¹æ‹›è˜', '', 'å…è´¹æ‹›è˜', NULL, 11, 18),
+(7, 'å…¨èŒæ‹›è˜', '', 'å…¨èŒæ‹›è˜', 6, 12, 13),
+(8, 'å…¼èŒæ‹›è˜', '', 'å…¼èŒæ‹›è˜', 6, 14, 15),
+(9, 'æ‹›è˜ä¼š', '', 'æ‹›è˜ä¼š', 6, 16, 17);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories_filters`
+-- 表的结构 `categories_filters`
 --
 
-DROP TABLE IF EXISTS `categories_filters`;
 CREATE TABLE IF NOT EXISTS `categories_filters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) NOT NULL,
@@ -127,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `categories_filters` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `categories_filters`
+-- 转存表中的数据 `categories_filters`
 --
 
 INSERT INTO `categories_filters` (`id`, `category_id`, `filter_id`) VALUES
@@ -136,10 +133,9 @@ INSERT INTO `categories_filters` (`id`, `category_id`, `filter_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `filters`
+-- 表的结构 `filters`
 --
 
-DROP TABLE IF EXISTS `filters`;
 CREATE TABLE IF NOT EXISTS `filters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `key` varchar(50) NOT NULL,
@@ -150,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `filters` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `filters`
+-- 转存表中的数据 `filters`
 --
 
 INSERT INTO `filters` (`id`, `key`, `title`, `type`, `rule`) VALUES
@@ -159,10 +155,9 @@ INSERT INTO `filters` (`id`, `key`, `title`, `type`, `rule`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `filter_options`
+-- 表的结构 `filter_options`
 --
 
-DROP TABLE IF EXISTS `filter_options`;
 CREATE TABLE IF NOT EXISTS `filter_options` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `filter_id` int(11) NOT NULL,
@@ -174,10 +169,9 @@ CREATE TABLE IF NOT EXISTS `filter_options` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groups`
+-- 表的结构 `groups`
 --
 
-DROP TABLE IF EXISTS `groups`;
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_name` varchar(20) NOT NULL,
@@ -188,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `groups`
+-- 转存表中的数据 `groups`
 --
 
 INSERT INTO `groups` (`id`, `group_name`, `permission`, `created`, `modified`) VALUES
@@ -197,10 +191,9 @@ INSERT INTO `groups` (`id`, `group_name`, `permission`, `created`, `modified`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `info`
+-- 表的结构 `info`
 --
 
-DROP TABLE IF EXISTS `info`;
 CREATE TABLE IF NOT EXISTS `info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `area_id` int(11) NOT NULL,
@@ -215,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `info` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `info`
+-- 转存表中的数据 `info`
 --
 
 INSERT INTO `info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `description`, `status`, `created`, `modified`) VALUES
@@ -224,10 +217,9 @@ INSERT INTO `info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `descrip
 -- --------------------------------------------------------
 
 --
--- Table structure for table `info_filters`
+-- 表的结构 `info_filters`
 --
 
-DROP TABLE IF EXISTS `info_filters`;
 CREATE TABLE IF NOT EXISTS `info_filters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `info_id` int(11) NOT NULL,
@@ -239,10 +231,9 @@ CREATE TABLE IF NOT EXISTS `info_filters` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `info_meta`
+-- 表的结构 `info_meta`
 --
 
-DROP TABLE IF EXISTS `info_meta`;
 CREATE TABLE IF NOT EXISTS `info_meta` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `info_id` int(11) NOT NULL,
@@ -254,10 +245,9 @@ CREATE TABLE IF NOT EXISTS `info_meta` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- 表的结构 `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
@@ -270,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `users`
+-- 转存表中的数据 `users`
 --
 
 INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `created`, `modified`) VALUES
@@ -279,10 +269,9 @@ INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `created
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_logs`
+-- 表的结构 `user_logs`
 --
 
-DROP TABLE IF EXISTS `user_logs`;
 CREATE TABLE IF NOT EXISTS `user_logs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,

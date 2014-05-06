@@ -37,14 +37,13 @@ class EntryController extends AppController {
 		//Show city List page
 		$areasList = $this->Area->generateTreePlusList();
 		
+		//Set view.
 		$this->set(compact('areasList'));
-		
 		$this->layout = 'entry_index';
 	}
 	
 	//If specific a city, this is default City home page.
 	public function city() {
-		$this->city = $this->request->param('city');
 	}
 	
 	//Check City from IP. If no IP match, return false;

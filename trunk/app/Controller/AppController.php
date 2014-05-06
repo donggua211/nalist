@@ -36,6 +36,8 @@ class AppController extends Controller {
 	public $theme = 'Japan';
 	
 	public $components = array('DebugKit.Toolbar', 'Cookie' => array('name' => 'nalist'));
+	
+	public $helpers = array('Html' => array('className' => 'MyHtml'));
 
 	public function beforeFilter() {
 		Configure::write('Config.language', 'chi');

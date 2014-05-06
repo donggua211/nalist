@@ -1,0 +1,19 @@
+.logo-index-wrap {
+	float: left;
+}
+.logo-index-wrap .logo {
+	float: left;
+	padding-top: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.logo-index-wrap .logo h1 {
+	text-align: left;
+}
+.logo-index-wrap .logo h1 a {
+	text-decoration: none;
+	color: #333;
+	font-size: 28px;
+	font-weight: 700;
+	text-shadow: 1px 2px 1px rgba(255, 255, 255, 0.5);
+}

@@ -4,6 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('cat_slug'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('parent_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('lft'); ?></th>
@@ -14,6 +15,7 @@
 	<tr>
 		<td><?php echo h($category['Category']['id']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['name']); ?>&nbsp;</td>
+		<td><?php echo h($category['Category']['cat_slug']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['description']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['parent_id']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['lft']); ?>&nbsp;</td>

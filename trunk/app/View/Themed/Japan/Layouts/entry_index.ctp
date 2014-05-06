@@ -11,57 +11,59 @@
 <!--<![endif]-->
 	<head>
 		<?php echo $this->Html->charset(); ?>
-		<title><?php echo $title_for_layout; ?></title>
+		<title><?php echo $title_for_layout; ?> - <?php echo __('NA List'); ?></title>
 		<?php
 			echo $this->Html->css('style.css');
 			
 			echo $this->fetch('meta');
 			echo $this->fetch('css');
 			echo $this->fetch('script');
+			
 		?>
 	</head>
 	<body>
-		<div class="wrapper">
-			<div class="header">
-				<div class="header-bd">
-					<div class="logo">
-						<h1 class="site-title"><a href="home.php" rel="home"><?php echo __('NA List'); ?></a></h1>
-					</div>
-					<div class="search">
-						<form method="GET" id="searchForm" name="searchForm" action="pkg_search.php">
-							<fieldset>
-								<div class="search-box">
-									<div class="search-box-bd empty">
-										<input type="search" id="q" name="q" x-webkit-speech="" speech="" class="search-input" value="" accesskey="/">
-										<button type="submit"><?php echo __('Search'); ?></button>
-									</div>
-								</div>
-							</fieldset>
-						</form>
+		<div class="wrap">
+			<div class="hd-wrap">
+				<div class="hd-inner">
+					<nav class="topnav-wrap">
+						<ul class="topnav-inner">
+							<li><?php echo $this->Html->link(__('How To'), array('controller' => 'pages', 'action' => 'howto'));  ?></li>
+							<li><?php echo $this->Html->link(__('First Time'), array('controller' => 'pages', 'action' => 'first'));  ?></li>
+							<li><?php echo $this->Html->link(__('Sign In'), array('controller' => 'users', 'action' => 'signin'));  ?></li>
+							<li><?php echo $this->Html->link(__('Sign Up'), array('controller' => 'users', 'action' => 'signup'));  ?></li>
+						</ul>
+					</nav>
+					
+					<div class="logo-index-wrap">
+						<div class="logo">
+							<h1><?php echo $this->Html->link(__('NA List'), '/');  ?></h1>
+						</div>
 					</div>
 				</div>
-			</div><!-- #header -->
+			</div>
 
 
-			<div class="wrap">
-				<div class="layout clearfix">
-
-					<div class="main-wrap clearfix">
-		
-						<?php echo $this->fetch('content'); ?>
-					
-					</div><!-- #main-content -->
-				</div><!-- #layout -->
-			</div><!-- #wrap -->
+			<div class="contents-wrap">
+				<div class="content">
+					<?php echo $this->fetch('content'); ?>
+				</div>
+			</div>
 			
-			<div class="footer clearfix">
-				<a href="home.php"><?php echo __('Home'); ?></a>
-				<b>|</b>
-				<a href="first.php"><?php echo __('First Time'); ?></a>
-				<b>|</b>
-				<a href="howto.php"><?php echo __('How To'); ?></a>
-				<span><?php echo __('Powered By nalist.com'); ?></span>
-			</div><!-- #footer -->
-		</div><!-- #wrap -->
+			<div class="ft-wrap">
+				<div class="ft-inner">
+					<div class="ft-links cf">
+						<ul>
+							<li><?php echo $this->Html->link(__('How To'), array('controller' => 'pages', 'action' => 'howto'));  ?></li>
+							<li><?php echo $this->Html->link(__('First Time'), array('controller' => 'pages', 'action' => 'first'));  ?></li>
+							<li><?php echo $this->Html->link(__('Sign In'), array('controller' => 'users', 'action' => 'signin'));  ?></li>
+							<li><?php echo $this->Html->link(__('Sign Up'), array('controller' => 'users', 'action' => 'signup'));  ?></li>
+						</ul>
+					</div>
+					<div class="ft-copyright">
+						<?php echo $this->Html->link(__('"NA List" &copy; All right reserved!'), '/', array('target' => '_blank', 'escape' => false));  ?>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

@@ -1,82 +1,87 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--[if IE 7]>
-<html class="ie ie7" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<html class="ie ie7" lang="zh" xmlns="http://www.w3.org/1999/xhtml">
 <![endif]-->
 <!--[if IE 8]>
-<html class="ie ie8" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<html class="ie ie8" lang="zh" xmlns="http://www.w3.org/1999/xhtml">
 <![endif]-->
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
-<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml">
 <!--<![endif]-->
 	<head>
 		<?php echo $this->Html->charset(); ?>
-		<title><?php echo $title_for_layout; ?></title>
+		<title><?php echo $title_for_layout; ?> - <?php echo __('NA List'); ?></title>
 		<?php
 			echo $this->Html->css('style.css');
 			
 			echo $this->fetch('meta');
 			echo $this->fetch('css');
 			echo $this->fetch('script');
+			
 		?>
+		
 	</head>
 	<body>
-		<div class="wrapper">
-			<div class="top-nav" role="navigation">
-				<div class="top-nav-bd">
-					<ul class="right-ul">
-						<li><a href="home.php"><?php echo __('Home'); ?></a></li>
-						<li class="gap"></li>
-						<li><a href="logout.php"><?php echo __('Logout'); ?></a></li>
-					</ul>
-					<ul class="left-ul">
-						<li><a href="howto.php"><?php echo __('How To'); ?></a></li>
-						<li class="gap"></li>
-						<li><a href="first.php"><?php echo __('First Time'); ?></a></li>
-					</ul>
+		<div class="wrap">
+			<div class="hd-wrap">
+				<div class="hd-inner">
+					<nav class="topnav-wrap">
+						<ul class="topnav-inner">
+							<li><?php echo $this->Html->link(__('How To'), array('controller' => 'pages', 'action' => 'howto'));  ?></li>
+							<li><?php echo $this->Html->link(__('First Time'), array('controller' => 'pages', 'action' => 'first'));  ?></li>
+							<li><?php echo $this->Html->link(__('Sign In'), array('controller' => 'users', 'action' => 'signin'));  ?></li>
+							<li><?php echo $this->Html->link(__('Sign Up'), array('controller' => 'users', 'action' => 'signup'));  ?></li>
+						</ul>
+					</nav>
+					
+					<div class="logo-wrap">
+						<div class="logo">
+							<h1><?php echo $this->Html->link(__('NA List'), '/');  ?></h1><span class="separator">|</span><h2><?php echo $this->request->param('city');  ?></h2>
+						</div>
+					</div>
+					
+					
+					<nav class="hd-wrap-area-nav ">
+						<ul class="hd-inner-area-nav">
+							<?php
+							$topMenu = $this->requestAction('/categories/topMenu');
+							foreach ($topMenu as $val) {
+								echo '<li>';
+								
+								echo $this->Html->link('<span>'.$val['Category']['name'].'</span>', array('controller' => 'category', 'action' => '', $val['Category']['cat_slug']), array('escape' => false));
+								
+								echo '</li>';
+							}
+							?>
+						</ul>
+					</nav>
+
 				</div>
 			</div>
 
-			<div class="header">
-				<div class="header-bd">
-					<div class="logo">
-						<h1 class="site-title"><a href="home.php" rel="home"><?php echo __('NA List'); ?></a></h1>
+
+			<div class="contents-wrap">
+				<div class="content">
+					<?php echo $this->fetch('content'); ?>
+				</div>
+			</div>
+			
+			<div class="ft-wrap">
+				<div class="ft-inner">
+					<div class="ft-links cf">
+						<ul>
+							<li><?php echo $this->Html->link(__('How To'), array('controller' => 'pages', 'action' => 'howto'));  ?></li>
+							<li><?php echo $this->Html->link(__('First Time'), array('controller' => 'pages', 'action' => 'first'));  ?></li>
+							<li><?php echo $this->Html->link(__('Sign In'), array('controller' => 'users', 'action' => 'signin'));  ?></li>
+							<li><?php echo $this->Html->link(__('Sign Up'), array('controller' => 'users', 'action' => 'signup'));  ?></li>
+						</ul>
 					</div>
-					<div class="search">
-						<form method="GET" id="searchForm" name="searchForm" action="pkg_search.php">
-							<fieldset>
-								<div class="search-box">
-									<div class="search-box-bd empty">
-										<input type="search" id="q" name="q" x-webkit-speech="" speech="" class="search-input" value="" accesskey="/">
-										<button type="submit"><?php echo __('Search'); ?></button>
-									</div>
-								</div>
-							</fieldset>
-						</form>
+					<div class="ft-copyright">
+						<?php echo $this->Html->link(__('"NA List" &copy; All right reserved!'), '/', array('target' => '_blank', 'escape' => false));  ?>
 					</div>
 				</div>
-			</div><!-- #header -->
-
-
-			<div class="wrap">
-				<div class="layout clearfix">
-
-					<div class="main-wrap clearfix">
-		
-						<?php echo $this->fetch('content'); ?>
-					
-					</div><!-- #main-content -->
-				</div><!-- #layout -->
-			</div><!-- #wrap -->
-			
-			<div class="footer clearfix">
-				<a href="home.php"><?php echo __('Home'); ?></a>
-				<b>|</b>
-				<a href="first.php"><?php echo __('First Time'); ?></a>
-				<b>|</b>
-				<a href="howto.php"><?php echo __('How To'); ?></a>
-				<span><?php echo __('Powered By nalist.com'); ?></span>
-			</div><!-- #footer -->
+			</div>
 		</div><!-- #wrap -->
 	</body>
 </html>

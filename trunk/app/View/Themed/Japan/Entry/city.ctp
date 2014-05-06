@@ -1,3 +1,1 @@
-<?php
-
-echo 'entry -> city';
+<?php echo $this->Html->link('cat', array('controller' => 'cat', 'action' => 'index1'));  ?>
