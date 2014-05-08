@@ -44,6 +44,10 @@ class EntryController extends AppController {
 	
 	//If specific a city, this is default City home page.
 	public function city() {
+		$this->loadModel('Category');
+		
+		$categoryList = $this->Category->generateTreePlusList();
+		$this->set(compact('categoryList'));
 	}
 	
 	//Check City from IP. If no IP match, return false;

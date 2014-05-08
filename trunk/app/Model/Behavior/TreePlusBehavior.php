@@ -29,8 +29,8 @@ class TreePlusBehavior extends TreeBehavior {
 		$id = $Model->getInsertID();
 		
 		return $Model->updateAll(
-			array('Area.level' => count($Model->getPath($id))),
-			array('Area.id' => $id)
+			array($Model->name.'.level' => count($Model->getPath($id))),
+			array($Model->name.'.id' => $id)
 		);
 	}
 }

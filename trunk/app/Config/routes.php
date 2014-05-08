@@ -30,6 +30,7 @@
 	
 	//categories
 	Router::connect('/categories/:action/*', array('controller' => 'categories'));
+	Router::connect('/cat/*', array('controller' => 'categories', 'action' => 'one'));
 	
 	//Users
 	Router::connect('/users', array('controller' => 'users', 'action' => 'index'));
