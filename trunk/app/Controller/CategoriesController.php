@@ -32,10 +32,10 @@ class CategoriesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
-		if (!$this->Category->exists($id)) {
-			throw new NotFoundException(__('Invalid category'));
-		}
+	public function view($slug = null) {
+		
+		pr($this->request);
+
 		$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
 		$this->set('category', $this->Category->find('first', $options));
 	}
