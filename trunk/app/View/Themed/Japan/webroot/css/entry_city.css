@@ -21,7 +21,7 @@
 .mp-unique-sch-ttl a{
     color: #333333;
 }
-.mp-unique-sch-ttl a{
+.mp-unique-sch-ttl a:hover{
     color: #333333;
 }
 .mp-unique-sch-ttl-lnk, .mp-unique-sch-ttl-lnk:visited {
