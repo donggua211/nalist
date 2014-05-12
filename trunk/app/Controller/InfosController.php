@@ -33,6 +33,8 @@ class InfosController extends AppController {
  * @return void
  */
 	public function category($slug = null) {
+		$this->loadModel('Category');
+		
 		$city = $this->request->params['city'];
 		$cat_slug = $this->request->params['cat_slug'];
 		
