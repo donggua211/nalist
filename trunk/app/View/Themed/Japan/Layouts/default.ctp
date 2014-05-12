@@ -49,7 +49,7 @@
 							foreach ($topMenu as $val) {
 								echo '<li>';
 								
-								echo $this->Html->link('<span>'.$val['Category']['name'].'</span>', array('controller' => 'category', 'action' => '', $val['Category']['cat_slug']), array('escape' => false));
+								echo $this->Html->link('<span>'.$val['Category']['name'].'</span>', array('controller' => 'cat', 'action' => '/', $val['Category']['cat_slug']), array('escape' => false));
 								
 								echo '</li>';
 							}

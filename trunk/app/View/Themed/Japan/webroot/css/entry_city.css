@@ -21,9 +21,6 @@
     color: #333333;
 	text-decoration: none;
 }
-.category-entry-ttl a:hover{
-	text-decoration: underline;
-}
 .category-entry-ttl-lnk, .category-entry-ttl-lnk:visited {
     color: #0170B5;
     float: right;
