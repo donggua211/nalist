@@ -3,7 +3,6 @@ App::uses('AppModel', 'Model');
 /**
  * Filter Model
  *
- * @property FilterOption $FilterOption
  * @property Category $Category
  * @property Info $Info
  */
@@ -56,30 +55,6 @@ class Filter extends AppModel {
 			),
 		),
 	);
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-/**
- * hasMany associations
- *
- * @var array
- */
-	public $hasMany = array(
-		'FilterOption' => array(
-			'className' => 'FilterOption',
-			'foreignKey' => 'filter_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
-
 
 /**
  * hasAndBelongsToMany associations

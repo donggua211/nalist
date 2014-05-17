@@ -90,5 +90,10 @@ class Category extends AppModel {
 			'finderQuery' => '',
 		)
 	);
-
+	
+	public function getid_by_slug($slug) {
+		return $this->find('first', array(
+			'conditions' => array('Category.cat_slug' => $slug)
+		));
+	}
 }

@@ -44,39 +44,6 @@
 	</ul>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Filter Options'); ?></h3>
-	<?php if (!empty($filter['FilterOption'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Filter Id'); ?></th>
-		<th><?php echo __('Key'); ?></th>
-		<th><?php echo __('Value'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($filter['FilterOption'] as $filterOption): ?>
-		<tr>
-			<td><?php echo $filterOption['id']; ?></td>
-			<td><?php echo $filterOption['filter_id']; ?></td>
-			<td><?php echo $filterOption['key']; ?></td>
-			<td><?php echo $filterOption['value']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'filter_options', 'action' => 'view', $filterOption['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'filter_options', 'action' => 'edit', $filterOption['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'filter_options', 'action' => 'delete', $filterOption['id']), null, __('Are you sure you want to delete # %s?', $filterOption['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Filter Option'), array('controller' => 'filter_options', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
 	<h3><?php echo __('Related Categories'); ?></h3>
 	<?php if (!empty($filter['Category'])): ?>
 	<table cellpadding = "0" cellspacing = "0">

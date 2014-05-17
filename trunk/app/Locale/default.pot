@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2014-04-27 09:16-0700\n"
+"POT-Creation-Date: 2014-05-17 15:10-0700\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -64,11 +64,6 @@ msgstr ""
 msgid "The area could not be deleted. Please, try again."
 msgstr ""
 
-#: Controller/CategoriesController.php:37;71;98
-#: Plugin/Admin/Controller/CategoriesController.php:36;72;101
-msgid "Invalid category"
-msgstr ""
-
 #: Controller/CategoriesController.php:52;75
 #: Plugin/Admin/Controller/CategoriesController.php:51;76
 msgid "The category has been saved."
@@ -79,6 +74,11 @@ msgstr ""
 msgid "The category could not be saved. Please, try again."
 msgstr ""
 
+#: Controller/CategoriesController.php:71;98
+#: Plugin/Admin/Controller/CategoriesController.php:36;72;101
+msgid "Invalid category"
+msgstr ""
+
 #: Controller/CategoriesController.php:102
 #: Plugin/Admin/Controller/CategoriesController.php:105
 msgid "The category has been deleted."
@@ -87,56 +87,6 @@ msgstr ""
 #: Controller/CategoriesController.php:104
 #: Plugin/Admin/Controller/CategoriesController.php:107
 msgid "The category could not be deleted. Please, try again."
-msgstr ""
-
-#: Controller/CategoriesFiltersController.php:37;69;94
-#: Plugin/Admin/Controller/CategoriesFiltersController.php:36;68;93
-msgid "Invalid categories filter"
-msgstr ""
-
-#: Controller/CategoriesFiltersController.php:52;73
-#: Plugin/Admin/Controller/CategoriesFiltersController.php:51;72
-msgid "The categories filter has been saved."
-msgstr ""
-
-#: Controller/CategoriesFiltersController.php:55;76
-#: Plugin/Admin/Controller/CategoriesFiltersController.php:54;75
-msgid "The categories filter could not be saved. Please, try again."
-msgstr ""
-
-#: Controller/CategoriesFiltersController.php:98
-#: Plugin/Admin/Controller/CategoriesFiltersController.php:97
-msgid "The categories filter has been deleted."
-msgstr ""
-
-#: Controller/CategoriesFiltersController.php:100
-#: Plugin/Admin/Controller/CategoriesFiltersController.php:99
-msgid "The categories filter could not be deleted. Please, try again."
-msgstr ""
-
-#: Controller/FilterOptionsController.php:37;71;98
-#: Plugin/Admin/Controller/FilterOptionsController.php:36;70;97
-msgid "Invalid filter option"
-msgstr ""
-
-#: Controller/FilterOptionsController.php:52;75
-#: Plugin/Admin/Controller/FilterOptionsController.php:51;74
-msgid "The filter option has been saved."
-msgstr ""
-
-#: Controller/FilterOptionsController.php:55;78
-#: Plugin/Admin/Controller/FilterOptionsController.php:54;77
-msgid "The filter option could not be saved. Please, try again."
-msgstr ""
-
-#: Controller/FilterOptionsController.php:102
-#: Plugin/Admin/Controller/FilterOptionsController.php:101
-msgid "The filter option has been deleted."
-msgstr ""
-
-#: Controller/FilterOptionsController.php:104
-#: Plugin/Admin/Controller/FilterOptionsController.php:103
-msgid "The filter option could not be deleted. Please, try again."
 msgstr ""
 
 #: Controller/FiltersController.php:37;72;100
@@ -214,54 +164,9 @@ msgstr ""
 msgid "The info filter could not be deleted. Please, try again."
 msgstr ""
 
-#: Controller/InfoMetaController.php:37;71;98
-#: Plugin/Admin/Controller/InfoMetaController.php:36;70;97
-msgid "Invalid info metum"
-msgstr ""
-
-#: Controller/InfoMetaController.php:52;75
-#: Plugin/Admin/Controller/InfoMetaController.php:51;74
-msgid "The info metum has been saved."
-msgstr ""
-
-#: Controller/InfoMetaController.php:55;78
-#: Plugin/Admin/Controller/InfoMetaController.php:54;77
-msgid "The info metum could not be saved. Please, try again."
-msgstr ""
-
-#: Controller/InfoMetaController.php:102
-#: Plugin/Admin/Controller/InfoMetaController.php:101
-msgid "The info metum has been deleted."
-msgstr ""
-
-#: Controller/InfoMetaController.php:104
-#: Plugin/Admin/Controller/InfoMetaController.php:103
-msgid "The info metum could not be deleted. Please, try again."
-msgstr ""
-
-#: Controller/InfosController.php:37;74;104
+#: Controller/InfosController.php:61
 #: Plugin/Admin/Controller/InfosController.php:36;73;103
 msgid "Invalid info"
-msgstr ""
-
-#: Controller/InfosController.php:52;78
-#: Plugin/Admin/Controller/InfosController.php:51;77
-msgid "The info has been saved."
-msgstr ""
-
-#: Controller/InfosController.php:55;81
-#: Plugin/Admin/Controller/InfosController.php:54;80
-msgid "The info could not be saved. Please, try again."
-msgstr ""
-
-#: Controller/InfosController.php:108
-#: Plugin/Admin/Controller/InfosController.php:107
-msgid "The info has been deleted."
-msgstr ""
-
-#: Controller/InfosController.php:110
-#: Plugin/Admin/Controller/InfosController.php:109
-msgid "The info could not be deleted. Please, try again."
 msgstr ""
 
 #: Controller/UserLogsController.php:37;71;98
@@ -318,6 +223,22 @@ msgstr ""
 msgid "Invalid username or password, try again"
 msgstr ""
 
+#: Plugin/Admin/Controller/InfosController.php:51;77
+msgid "The info has been saved."
+msgstr ""
+
+#: Plugin/Admin/Controller/InfosController.php:54;80
+msgid "The info could not be saved. Please, try again."
+msgstr ""
+
+#: Plugin/Admin/Controller/InfosController.php:107
+msgid "The info has been deleted."
+msgstr ""
+
+#: Plugin/Admin/Controller/InfosController.php:109
+msgid "The info could not be deleted. Please, try again."
+msgstr ""
+
 #: Plugin/Admin/View/AdminUsers/add.ctp:4
 #: View/AdminUsers/add.ctp:4
 msgid "Add Admin User"
@@ -327,20 +248,14 @@ msgstr ""
 #: Plugin/Admin/View/AdminUsers/edit.ctp:12
 #: Plugin/Admin/View/Areas/add.ctp:15
 #: Plugin/Admin/View/Areas/edit.ctp:16
-#: Plugin/Admin/View/Categories/add.ctp:15
-#: Plugin/Admin/View/Categories/edit.ctp:16
-#: Plugin/Admin/View/CategoriesFilters/add.ctp:10
-#: Plugin/Admin/View/CategoriesFilters/edit.ctp:11
-#: Plugin/Admin/View/FilterOptions/add.ctp:11
-#: Plugin/Admin/View/FilterOptions/edit.ctp:12
+#: Plugin/Admin/View/Categories/add.ctp:16
+#: Plugin/Admin/View/Categories/edit.ctp:17
 #: Plugin/Admin/View/Filters/add.ctp:14
 #: Plugin/Admin/View/Filters/edit.ctp:15
 #: Plugin/Admin/View/Groups/add.ctp:10
 #: Plugin/Admin/View/Groups/edit.ctp:11
 #: Plugin/Admin/View/InfoFilters/add.ctp:11
 #: Plugin/Admin/View/InfoFilters/edit.ctp:12
-#: Plugin/Admin/View/InfoMeta/add.ctp:11
-#: Plugin/Admin/View/InfoMeta/edit.ctp:12
 #: Plugin/Admin/View/Infos/add.ctp:19
 #: Plugin/Admin/View/Infos/edit.ctp:20
 #: Plugin/Admin/View/UserLogs/add.ctp:11
@@ -353,18 +268,12 @@ msgstr ""
 #: View/Areas/edit.ctp:12
 #: View/Categories/add.ctp:14
 #: View/Categories/edit.ctp:15
-#: View/CategoriesFilters/add.ctp:10
-#: View/CategoriesFilters/edit.ctp:11
-#: View/FilterOptions/add.ctp:11
-#: View/FilterOptions/edit.ctp:12
 #: View/Filters/add.ctp:14
 #: View/Filters/edit.ctp:15
 #: View/Groups/add.ctp:10
 #: View/Groups/edit.ctp:11
 #: View/InfoFilters/add.ctp:11
 #: View/InfoFilters/edit.ctp:12
-#: View/InfoMeta/add.ctp:11
-#: View/InfoMeta/edit.ctp:12
 #: View/Infos/add.ctp:15
 #: View/Infos/edit.ctp:16
 #: View/UserLogs/add.ctp:11
@@ -380,16 +289,8 @@ msgstr ""
 #: Plugin/Admin/View/AdminUsers/view.ctp:37
 #: Plugin/Admin/View/Areas/index.ctp:12
 #: Plugin/Admin/View/Areas/view.ctp:40
-#: Plugin/Admin/View/Categories/index.ctp:11
-#: Plugin/Admin/View/Categories/view.ctp:50;89
-#: Plugin/Admin/View/CategoriesFilters/add.ctp:13
-#: Plugin/Admin/View/CategoriesFilters/edit.ctp:14
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:8;42
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:22
-#: Plugin/Admin/View/FilterOptions/add.ctp:14
-#: Plugin/Admin/View/FilterOptions/edit.ctp:15
-#: Plugin/Admin/View/FilterOptions/index.ctp:9;42
-#: Plugin/Admin/View/FilterOptions/view.ctp:27
+#: Plugin/Admin/View/Categories/index.ctp:12
+#: Plugin/Admin/View/Categories/view.ctp:55;94
 #: Plugin/Admin/View/Filters/index.ctp:10
 #: Plugin/Admin/View/Filters/view.ctp:40;75;115
 #: Plugin/Admin/View/Groups/index.ctp:10
@@ -398,10 +299,6 @@ msgstr ""
 #: Plugin/Admin/View/InfoFilters/edit.ctp:15
 #: Plugin/Admin/View/InfoFilters/index.ctp:9;44
 #: Plugin/Admin/View/InfoFilters/view.ctp:27
-#: Plugin/Admin/View/InfoMeta/add.ctp:14
-#: Plugin/Admin/View/InfoMeta/edit.ctp:15
-#: Plugin/Admin/View/InfoMeta/index.ctp:9;42
-#: Plugin/Admin/View/InfoMeta/view.ctp:27
 #: Plugin/Admin/View/Infos/index.ctp:14
 #: Plugin/Admin/View/Infos/view.ctp:61
 #: Plugin/Admin/View/UserLogs/add.ctp:14
@@ -422,14 +319,6 @@ msgstr ""
 #: View/Categories/edit.ctp:18
 #: View/Categories/index.ctp:11;44
 #: View/Categories/view.ctp:37;63;102
-#: View/CategoriesFilters/add.ctp:13
-#: View/CategoriesFilters/edit.ctp:14
-#: View/CategoriesFilters/index.ctp:8;42
-#: View/CategoriesFilters/view.ctp:22
-#: View/FilterOptions/add.ctp:14
-#: View/FilterOptions/edit.ctp:15
-#: View/FilterOptions/index.ctp:9;42
-#: View/FilterOptions/view.ctp:27
 #: View/Filters/add.ctp:17
 #: View/Filters/edit.ctp:18
 #: View/Filters/index.ctp:10;42
@@ -442,10 +331,6 @@ msgstr ""
 #: View/InfoFilters/edit.ctp:15
 #: View/InfoFilters/index.ctp:9;44
 #: View/InfoFilters/view.ctp:27
-#: View/InfoMeta/add.ctp:14
-#: View/InfoMeta/edit.ctp:15
-#: View/InfoMeta/index.ctp:9;42
-#: View/InfoMeta/view.ctp:27
 #: View/Infos/add.ctp:18
 #: View/Infos/edit.ctp:19
 #: View/Infos/index.ctp:14;56
@@ -481,12 +366,8 @@ msgstr ""
 #: Plugin/Admin/View/AdminUsers/index.ctp:24
 #: Plugin/Admin/View/Areas/index.ctp:26
 #: Plugin/Admin/View/Areas/view.ctp:56
-#: Plugin/Admin/View/Categories/index.ctp:24
-#: Plugin/Admin/View/Categories/view.ctp:66;101
-#: Plugin/Admin/View/CategoriesFilters/edit.ctp:17
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:22
-#: Plugin/Admin/View/FilterOptions/edit.ctp:18
-#: Plugin/Admin/View/FilterOptions/index.ctp:22
+#: Plugin/Admin/View/Categories/index.ctp:26
+#: Plugin/Admin/View/Categories/view.ctp:71;106
 #: Plugin/Admin/View/Filters/index.ctp:22
 #: Plugin/Admin/View/Filters/view.ctp:51;88;131
 #: Plugin/Admin/View/Groups/index.ctp:22
@@ -494,8 +375,6 @@ msgstr ""
 #: Plugin/Admin/View/Helper/CatHelper.php:30;60
 #: Plugin/Admin/View/InfoFilters/edit.ctp:18
 #: Plugin/Admin/View/InfoFilters/index.ctp:24
-#: Plugin/Admin/View/InfoMeta/edit.ctp:18
-#: Plugin/Admin/View/InfoMeta/index.ctp:22
 #: Plugin/Admin/View/Infos/index.ctp:36
 #: Plugin/Admin/View/Infos/view.ctp:73
 #: Plugin/Admin/View/UserLogs/edit.ctp:18
@@ -510,10 +389,6 @@ msgstr ""
 #: View/Categories/edit.ctp:21
 #: View/Categories/index.ctp:24
 #: View/Categories/view.ctp:79;114
-#: View/CategoriesFilters/edit.ctp:17
-#: View/CategoriesFilters/index.ctp:22
-#: View/FilterOptions/edit.ctp:18
-#: View/FilterOptions/index.ctp:22
 #: View/Filters/edit.ctp:21
 #: View/Filters/index.ctp:22
 #: View/Filters/view.ctp:66;103;146
@@ -522,8 +397,6 @@ msgstr ""
 #: View/Groups/view.ctp:68
 #: View/InfoFilters/edit.ctp:18
 #: View/InfoFilters/index.ctp:24
-#: View/InfoMeta/edit.ctp:18
-#: View/InfoMeta/index.ctp:22
 #: View/Infos/edit.ctp:22
 #: View/Infos/index.ctp:36
 #: View/Infos/view.ctp:90
@@ -540,14 +413,8 @@ msgstr ""
 #: Plugin/Admin/View/AdminUsers/view.ctp:40
 #: Plugin/Admin/View/Areas/index.ctp:26
 #: Plugin/Admin/View/Areas/view.ctp:56
-#: Plugin/Admin/View/Categories/index.ctp:24
-#: Plugin/Admin/View/Categories/view.ctp:66;101
-#: Plugin/Admin/View/CategoriesFilters/edit.ctp:17
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:22
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:25
-#: Plugin/Admin/View/FilterOptions/edit.ctp:18
-#: Plugin/Admin/View/FilterOptions/index.ctp:22
-#: Plugin/Admin/View/FilterOptions/view.ctp:30
+#: Plugin/Admin/View/Categories/index.ctp:26
+#: Plugin/Admin/View/Categories/view.ctp:71;106
 #: Plugin/Admin/View/Filters/index.ctp:22
 #: Plugin/Admin/View/Filters/view.ctp:51;88;131
 #: Plugin/Admin/View/Groups/index.ctp:22
@@ -556,9 +423,6 @@ msgstr ""
 #: Plugin/Admin/View/InfoFilters/edit.ctp:18
 #: Plugin/Admin/View/InfoFilters/index.ctp:24
 #: Plugin/Admin/View/InfoFilters/view.ctp:30
-#: Plugin/Admin/View/InfoMeta/edit.ctp:18
-#: Plugin/Admin/View/InfoMeta/index.ctp:22
-#: Plugin/Admin/View/InfoMeta/view.ctp:30
 #: Plugin/Admin/View/Infos/index.ctp:36
 #: Plugin/Admin/View/Infos/view.ctp:73
 #: Plugin/Admin/View/UserLogs/edit.ctp:18
@@ -575,12 +439,6 @@ msgstr ""
 #: View/Categories/edit.ctp:21
 #: View/Categories/index.ctp:24
 #: View/Categories/view.ctp:40;79;114
-#: View/CategoriesFilters/edit.ctp:17
-#: View/CategoriesFilters/index.ctp:22
-#: View/CategoriesFilters/view.ctp:25
-#: View/FilterOptions/edit.ctp:18
-#: View/FilterOptions/index.ctp:22
-#: View/FilterOptions/view.ctp:30
 #: View/Filters/edit.ctp:21
 #: View/Filters/index.ctp:22
 #: View/Filters/view.ctp:35;66;103;146
@@ -590,9 +448,6 @@ msgstr ""
 #: View/InfoFilters/edit.ctp:18
 #: View/InfoFilters/index.ctp:24
 #: View/InfoFilters/view.ctp:30
-#: View/InfoMeta/edit.ctp:18
-#: View/InfoMeta/index.ctp:22
-#: View/InfoMeta/view.ctp:30
 #: View/Infos/edit.ctp:22
 #: View/Infos/index.ctp:36
 #: View/Infos/view.ctp:55;90
@@ -613,17 +468,14 @@ msgstr ""
 #: Plugin/Admin/View/AdminUsers/index.ctp:22
 #: Plugin/Admin/View/Areas/index.ctp:24
 #: Plugin/Admin/View/Areas/view.ctp:54
-#: Plugin/Admin/View/Categories/index.ctp:22
-#: Plugin/Admin/View/Categories/view.ctp:64;99
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:20
-#: Plugin/Admin/View/FilterOptions/index.ctp:20
+#: Plugin/Admin/View/Categories/index.ctp:24
+#: Plugin/Admin/View/Categories/view.ctp:69;104
 #: Plugin/Admin/View/Filters/index.ctp:20
 #: Plugin/Admin/View/Filters/view.ctp:49;86;129
 #: Plugin/Admin/View/Groups/index.ctp:20
 #: Plugin/Admin/View/Groups/view.ctp:55
 #: Plugin/Admin/View/Helper/CatHelper.php:28;58
 #: Plugin/Admin/View/InfoFilters/index.ctp:22
-#: Plugin/Admin/View/InfoMeta/index.ctp:20
 #: Plugin/Admin/View/Infos/index.ctp:34
 #: Plugin/Admin/View/Infos/view.ctp:71
 #: Plugin/Admin/View/UserLogs/index.ctp:22
@@ -634,14 +486,11 @@ msgstr ""
 #: View/Areas/view.ctp:65
 #: View/Categories/index.ctp:22
 #: View/Categories/view.ctp:77;112
-#: View/CategoriesFilters/index.ctp:20
-#: View/FilterOptions/index.ctp:20
 #: View/Filters/index.ctp:20
 #: View/Filters/view.ctp:64;101;144
 #: View/Groups/index.ctp:20
 #: View/Groups/view.ctp:66
 #: View/InfoFilters/index.ctp:22
-#: View/InfoMeta/index.ctp:20
 #: View/Infos/index.ctp:34
 #: View/Infos/view.ctp:88
 #: View/UserLogs/index.ctp:22
@@ -653,17 +502,14 @@ msgstr ""
 #: Plugin/Admin/View/AdminUsers/index.ctp:23
 #: Plugin/Admin/View/Areas/index.ctp:25
 #: Plugin/Admin/View/Areas/view.ctp:55
-#: Plugin/Admin/View/Categories/index.ctp:23
-#: Plugin/Admin/View/Categories/view.ctp:65;100
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:21
-#: Plugin/Admin/View/FilterOptions/index.ctp:21
+#: Plugin/Admin/View/Categories/index.ctp:25
+#: Plugin/Admin/View/Categories/view.ctp:70;105
 #: Plugin/Admin/View/Filters/index.ctp:21
 #: Plugin/Admin/View/Filters/view.ctp:50;87;130
 #: Plugin/Admin/View/Groups/index.ctp:21
 #: Plugin/Admin/View/Groups/view.ctp:56
 #: Plugin/Admin/View/Helper/CatHelper.php:29;59
 #: Plugin/Admin/View/InfoFilters/index.ctp:23
-#: Plugin/Admin/View/InfoMeta/index.ctp:21
 #: Plugin/Admin/View/Infos/index.ctp:35
 #: Plugin/Admin/View/Infos/view.ctp:72
 #: Plugin/Admin/View/UserLogs/index.ctp:23
@@ -674,14 +520,11 @@ msgstr ""
 #: View/Areas/view.ctp:66
 #: View/Categories/index.ctp:23
 #: View/Categories/view.ctp:78;113
-#: View/CategoriesFilters/index.ctp:21
-#: View/FilterOptions/index.ctp:21
 #: View/Filters/index.ctp:21
 #: View/Filters/view.ctp:65;102;145
 #: View/Groups/index.ctp:21
 #: View/Groups/view.ctp:67
 #: View/InfoFilters/index.ctp:23
-#: View/InfoMeta/index.ctp:21
 #: View/Infos/index.ctp:35
 #: View/Infos/view.ctp:89
 #: View/UserLogs/index.ctp:23
@@ -692,25 +535,19 @@ msgstr ""
 
 #: Plugin/Admin/View/AdminUsers/index.ctp:32
 #: Plugin/Admin/View/Areas/index.ctp:34
-#: Plugin/Admin/View/Categories/index.ctp:32
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:30
-#: Plugin/Admin/View/FilterOptions/index.ctp:30
+#: Plugin/Admin/View/Categories/index.ctp:34
 #: Plugin/Admin/View/Filters/index.ctp:30
 #: Plugin/Admin/View/Groups/index.ctp:30
 #: Plugin/Admin/View/InfoFilters/index.ctp:32
-#: Plugin/Admin/View/InfoMeta/index.ctp:30
 #: Plugin/Admin/View/Infos/index.ctp:44
 #: Plugin/Admin/View/UserLogs/index.ctp:32
 #: Plugin/Admin/View/Users/index.ctp:36
 #: View/AdminUsers/index.ctp:32
 #: View/Areas/index.ctp:28
 #: View/Categories/index.ctp:32
-#: View/CategoriesFilters/index.ctp:30
-#: View/FilterOptions/index.ctp:30
 #: View/Filters/index.ctp:30
 #: View/Groups/index.ctp:30
 #: View/InfoFilters/index.ctp:32
-#: View/InfoMeta/index.ctp:30
 #: View/Infos/index.ctp:44
 #: View/UserLogs/index.ctp:32
 #: View/Users/index.ctp:36
@@ -719,25 +556,19 @@ msgstr ""
 
 #: Plugin/Admin/View/AdminUsers/index.ctp:37
 #: Plugin/Admin/View/Areas/index.ctp:39
-#: Plugin/Admin/View/Categories/index.ctp:37
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:35
-#: Plugin/Admin/View/FilterOptions/index.ctp:35
+#: Plugin/Admin/View/Categories/index.ctp:39
 #: Plugin/Admin/View/Filters/index.ctp:35
 #: Plugin/Admin/View/Groups/index.ctp:35
 #: Plugin/Admin/View/InfoFilters/index.ctp:37
-#: Plugin/Admin/View/InfoMeta/index.ctp:35
 #: Plugin/Admin/View/Infos/index.ctp:49
 #: Plugin/Admin/View/UserLogs/index.ctp:37
 #: Plugin/Admin/View/Users/index.ctp:41
 #: View/AdminUsers/index.ctp:37
 #: View/Areas/index.ctp:33
 #: View/Categories/index.ctp:37
-#: View/CategoriesFilters/index.ctp:35
-#: View/FilterOptions/index.ctp:35
 #: View/Filters/index.ctp:35
 #: View/Groups/index.ctp:35
 #: View/InfoFilters/index.ctp:37
-#: View/InfoMeta/index.ctp:35
 #: View/Infos/index.ctp:49
 #: View/UserLogs/index.ctp:37
 #: View/Users/index.ctp:41
@@ -746,25 +577,19 @@ msgstr ""
 
 #: Plugin/Admin/View/AdminUsers/index.ctp:39
 #: Plugin/Admin/View/Areas/index.ctp:41
-#: Plugin/Admin/View/Categories/index.ctp:39
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:37
-#: Plugin/Admin/View/FilterOptions/index.ctp:37
+#: Plugin/Admin/View/Categories/index.ctp:41
 #: Plugin/Admin/View/Filters/index.ctp:37
 #: Plugin/Admin/View/Groups/index.ctp:37
 #: Plugin/Admin/View/InfoFilters/index.ctp:39
-#: Plugin/Admin/View/InfoMeta/index.ctp:37
 #: Plugin/Admin/View/Infos/index.ctp:51
 #: Plugin/Admin/View/UserLogs/index.ctp:39
 #: Plugin/Admin/View/Users/index.ctp:43
 #: View/AdminUsers/index.ctp:39
 #: View/Areas/index.ctp:35
 #: View/Categories/index.ctp:39
-#: View/CategoriesFilters/index.ctp:37
-#: View/FilterOptions/index.ctp:37
 #: View/Filters/index.ctp:37
 #: View/Groups/index.ctp:37
 #: View/InfoFilters/index.ctp:39
-#: View/InfoMeta/index.ctp:37
 #: View/Infos/index.ctp:51
 #: View/UserLogs/index.ctp:39
 #: View/Users/index.ctp:43
@@ -793,25 +618,19 @@ msgstr ""
 
 #: Plugin/Admin/View/AdminUsers/view.ctp:4
 #: Plugin/Admin/View/Areas/view.ctp:4;31
-#: Plugin/Admin/View/Categories/view.ctp:4;41;84
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:4
-#: Plugin/Admin/View/FilterOptions/view.ctp:4
+#: Plugin/Admin/View/Categories/view.ctp:4;46;89
 #: Plugin/Admin/View/Filters/view.ctp:4;36;69;106
 #: Plugin/Admin/View/Groups/view.ctp:4;36
 #: Plugin/Admin/View/InfoFilters/view.ctp:4
-#: Plugin/Admin/View/InfoMeta/view.ctp:4
 #: Plugin/Admin/View/Infos/view.ctp:4;56
 #: Plugin/Admin/View/UserLogs/view.ctp:4
 #: Plugin/Admin/View/Users/view.ctp:4;47;90
 #: View/AdminUsers/view.ctp:4
 #: View/Areas/view.ctp:4;42
 #: View/Categories/view.ctp:4;54;97
-#: View/CategoriesFilters/view.ctp:4
-#: View/FilterOptions/view.ctp:4
 #: View/Filters/view.ctp:4;51;84;121
 #: View/Groups/view.ctp:4;47
 #: View/InfoFilters/view.ctp:4
-#: View/InfoMeta/view.ctp:4
 #: View/Infos/view.ctp:4;73
 #: View/UserLogs/view.ctp:4
 #: View/Users/view.ctp:4;61;104
@@ -847,7 +666,7 @@ msgstr ""
 
 #: Plugin/Admin/View/AdminUsers/view.ctp:24
 #: Plugin/Admin/View/Areas/view.ctp:38
-#: Plugin/Admin/View/Categories/view.ctp:48
+#: Plugin/Admin/View/Categories/view.ctp:53
 #: Plugin/Admin/View/Filters/view.ctp:113
 #: Plugin/Admin/View/Groups/view.ctp:19;41
 #: Plugin/Admin/View/Infos/view.ctp:39
@@ -866,7 +685,7 @@ msgstr ""
 
 #: Plugin/Admin/View/AdminUsers/view.ctp:29
 #: Plugin/Admin/View/Areas/view.ctp:39
-#: Plugin/Admin/View/Categories/view.ctp:49
+#: Plugin/Admin/View/Categories/view.ctp:54
 #: Plugin/Admin/View/Filters/view.ctp:114
 #: Plugin/Admin/View/Groups/view.ctp:24;42
 #: Plugin/Admin/View/Infos/view.ctp:44
@@ -917,7 +736,8 @@ msgid "Areaname"
 msgstr ""
 
 #: Plugin/Admin/View/Areas/view.ctp:14
-#: Plugin/Admin/View/Categories/view.ctp:19
+#: Plugin/Admin/View/Categories/view.ctp:24
+#: Plugin/Admin/View/Filters/view.ctp:72
 msgid "Parent id"
 msgstr ""
 
@@ -927,7 +747,7 @@ msgid "Display order"
 msgstr ""
 
 #: Plugin/Admin/View/Areas/view.ctp:27
-#: Plugin/Admin/View/Categories/view.ctp:37
+#: Plugin/Admin/View/Categories/view.ctp:42
 #: Plugin/Admin/View/Filters/view.ctp:102
 #: Plugin/Admin/View/Users/view.ctp:43
 #: View/Areas/view.ctp:38
@@ -938,7 +758,7 @@ msgid "Related Infos"
 msgstr ""
 
 #: Plugin/Admin/View/Areas/view.ctp:32
-#: Plugin/Admin/View/Categories/view.ctp:42
+#: Plugin/Admin/View/Categories/view.ctp:47
 #: Plugin/Admin/View/Filters/view.ctp:107
 #: Plugin/Admin/View/Users/view.ctp:48
 #: View/Areas/view.ctp:43
@@ -949,7 +769,7 @@ msgid "Area Id"
 msgstr ""
 
 #: Plugin/Admin/View/Areas/view.ctp:33
-#: Plugin/Admin/View/Categories/view.ctp:43
+#: Plugin/Admin/View/Categories/view.ctp:48
 #: Plugin/Admin/View/Filters/view.ctp:108
 #: Plugin/Admin/View/Users/view.ctp:49
 #: View/Areas/view.ctp:44
@@ -960,7 +780,7 @@ msgid "Category Id"
 msgstr ""
 
 #: Plugin/Admin/View/Areas/view.ctp:34
-#: Plugin/Admin/View/Categories/view.ctp:44
+#: Plugin/Admin/View/Categories/view.ctp:49
 #: Plugin/Admin/View/Filters/view.ctp:109
 #: Plugin/Admin/View/Users/view.ctp:50;91
 #: View/Areas/view.ctp:45
@@ -971,7 +791,7 @@ msgid "User Id"
 msgstr ""
 
 #: Plugin/Admin/View/Areas/view.ctp:35
-#: Plugin/Admin/View/Categories/view.ctp:45;86
+#: Plugin/Admin/View/Categories/view.ctp:50;91
 #: Plugin/Admin/View/Filters/view.ctp:14;110
 #: Plugin/Admin/View/Infos/view.ctp:24;58
 #: Plugin/Admin/View/Users/view.ctp:51
@@ -984,7 +804,7 @@ msgid "Title"
 msgstr ""
 
 #: Plugin/Admin/View/Areas/view.ctp:36
-#: Plugin/Admin/View/Categories/view.ctp:14;46
+#: Plugin/Admin/View/Categories/view.ctp:19;51
 #: Plugin/Admin/View/Filters/view.ctp:71;111
 #: Plugin/Admin/View/Infos/view.ctp:29
 #: Plugin/Admin/View/Users/view.ctp:52
@@ -997,7 +817,7 @@ msgid "Description"
 msgstr ""
 
 #: Plugin/Admin/View/Areas/view.ctp:37
-#: Plugin/Admin/View/Categories/view.ctp:47
+#: Plugin/Admin/View/Categories/view.ctp:52
 #: Plugin/Admin/View/Filters/view.ctp:112
 #: Plugin/Admin/View/Infos/view.ctp:34
 #: Plugin/Admin/View/Users/view.ctp:53
@@ -1010,16 +830,12 @@ msgid "Status"
 msgstr ""
 
 #: Plugin/Admin/View/Areas/view.ctp:65
-#: Plugin/Admin/View/Categories/view.ctp:75
+#: Plugin/Admin/View/Categories/view.ctp:80
 #: Plugin/Admin/View/Filters/view.ctp:140
 #: Plugin/Admin/View/InfoFilters/add.ctp:19
 #: Plugin/Admin/View/InfoFilters/edit.ctp:21
 #: Plugin/Admin/View/InfoFilters/index.ctp:48
 #: Plugin/Admin/View/InfoFilters/view.ctp:34
-#: Plugin/Admin/View/InfoMeta/add.ctp:19
-#: Plugin/Admin/View/InfoMeta/edit.ctp:21
-#: Plugin/Admin/View/InfoMeta/index.ctp:46
-#: Plugin/Admin/View/InfoMeta/view.ctp:34
 #: Plugin/Admin/View/Users/view.ctp:81
 #: View/Areas/add.ctp:19
 #: View/Areas/edit.ctp:21
@@ -1037,10 +853,6 @@ msgstr ""
 #: View/InfoFilters/edit.ctp:21
 #: View/InfoFilters/index.ctp:48
 #: View/InfoFilters/view.ctp:34
-#: View/InfoMeta/add.ctp:19
-#: View/InfoMeta/edit.ctp:21
-#: View/InfoMeta/index.ctp:46
-#: View/InfoMeta/view.ctp:34
 #: View/Infos/index.ctp:58
 #: View/Infos/view.ctp:57
 #: View/Users/add.ctp:22
@@ -1068,11 +880,9 @@ msgid "Categories"
 msgstr ""
 
 #: Plugin/Admin/View/Categories/view.ctp:2
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:9
 #: Plugin/Admin/View/Infos/view.ctp:14
 #: Plugin/Admin/View/Layouts/default.ctp:64
 #: View/Categories/view.ctp:2
-#: View/CategoriesFilters/view.ctp:9
 #: View/Infos/view.ctp:14
 msgid "Category"
 msgstr ""
@@ -1084,39 +894,41 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: Plugin/Admin/View/Categories/view.ctp:24
+#: Plugin/Admin/View/Categories/view.ctp:14
+msgid "Slug"
+msgstr ""
+
+#: Plugin/Admin/View/Categories/view.ctp:29
 #: Plugin/Admin/View/Filters/view.ctp:73
 #: View/Categories/view.ctp:24
 #: View/Filters/view.ctp:88
 msgid "Lft"
 msgstr ""
 
-#: Plugin/Admin/View/Categories/view.ctp:29
+#: Plugin/Admin/View/Categories/view.ctp:34
 #: Plugin/Admin/View/Filters/view.ctp:74
 #: View/Categories/view.ctp:29
 #: View/Filters/view.ctp:89
 msgid "Rght"
 msgstr ""
 
-#: Plugin/Admin/View/Categories/view.ctp:80
+#: Plugin/Admin/View/Categories/view.ctp:85
 #: Plugin/Admin/View/Infos/view.ctp:52
 #: View/Categories/view.ctp:93
 #: View/Infos/view.ctp:69
 msgid "Related Filters"
 msgstr ""
 
-#: Plugin/Admin/View/Categories/view.ctp:85
-#: Plugin/Admin/View/FilterOptions/view.ctp:14
+#: Plugin/Admin/View/Categories/view.ctp:90
 #: Plugin/Admin/View/Filters/view.ctp:9;38
 #: Plugin/Admin/View/Infos/view.ctp:57
 #: View/Categories/view.ctp:98
-#: View/FilterOptions/view.ctp:14
 #: View/Filters/view.ctp:9;53
 #: View/Infos/view.ctp:74
 msgid "Key"
 msgstr ""
 
-#: Plugin/Admin/View/Categories/view.ctp:87
+#: Plugin/Admin/View/Categories/view.ctp:92
 #: Plugin/Admin/View/Filters/view.ctp:19
 #: Plugin/Admin/View/Infos/view.ctp:59
 #: View/Categories/view.ctp:100
@@ -1125,7 +937,7 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: Plugin/Admin/View/Categories/view.ctp:88
+#: Plugin/Admin/View/Categories/view.ctp:93
 #: Plugin/Admin/View/Filters/view.ctp:24
 #: Plugin/Admin/View/Infos/view.ctp:60
 #: View/Categories/view.ctp:101
@@ -1134,15 +946,7 @@ msgstr ""
 msgid "Rule"
 msgstr ""
 
-#: Plugin/Admin/View/Categories/view.ctp:110
-#: Plugin/Admin/View/CategoriesFilters/add.ctp:20
-#: Plugin/Admin/View/CategoriesFilters/edit.ctp:22
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:48
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:31
-#: Plugin/Admin/View/FilterOptions/add.ctp:19
-#: Plugin/Admin/View/FilterOptions/edit.ctp:21
-#: Plugin/Admin/View/FilterOptions/index.ctp:46
-#: Plugin/Admin/View/FilterOptions/view.ctp:34
+#: Plugin/Admin/View/Categories/view.ctp:115
 #: Plugin/Admin/View/InfoFilters/add.ctp:21
 #: Plugin/Admin/View/InfoFilters/edit.ctp:23
 #: Plugin/Admin/View/InfoFilters/index.ctp:50
@@ -1152,14 +956,6 @@ msgstr ""
 #: View/Categories/edit.ctp:26
 #: View/Categories/index.ctp:50
 #: View/Categories/view.ctp:46;123
-#: View/CategoriesFilters/add.ctp:20
-#: View/CategoriesFilters/edit.ctp:22
-#: View/CategoriesFilters/index.ctp:48
-#: View/CategoriesFilters/view.ctp:31
-#: View/FilterOptions/add.ctp:19
-#: View/FilterOptions/edit.ctp:21
-#: View/FilterOptions/index.ctp:46
-#: View/FilterOptions/view.ctp:34
 #: View/Filters/index.ctp:44
 #: View/Filters/view.ctp:37
 #: View/InfoFilters/add.ctp:21
@@ -1171,204 +967,6 @@ msgstr ""
 #: View/Infos/index.ctp:66
 #: View/Infos/view.ctp:65;99
 msgid "New Filter"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/add.ctp:4
-#: View/CategoriesFilters/add.ctp:4
-msgid "Add Categories Filter"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/add.ctp:16
-#: Plugin/Admin/View/CategoriesFilters/edit.ctp:18
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:26
-#: View/CategoriesFilters/add.ctp:16
-#: View/CategoriesFilters/edit.ctp:18
-#: View/CategoriesFilters/view.ctp:26
-msgid "List Categories Filters"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/add.ctp:17
-#: Plugin/Admin/View/CategoriesFilters/edit.ctp:19
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:45
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:28
-#: View/Categories/add.ctp:20
-#: View/Categories/edit.ctp:22
-#: View/Categories/view.ctp:41
-#: View/CategoriesFilters/add.ctp:17
-#: View/CategoriesFilters/edit.ctp:19
-#: View/CategoriesFilters/index.ctp:45
-#: View/CategoriesFilters/view.ctp:28
-#: View/Filters/add.ctp:23
-#: View/Filters/edit.ctp:25
-#: View/Filters/index.ctp:47
-#: View/Filters/view.ctp:40
-#: View/Infos/add.ctp:24
-#: View/Infos/edit.ctp:26
-#: View/Infos/index.ctp:61
-#: View/Infos/view.ctp:60
-msgid "List Categories"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/add.ctp:18
-#: Plugin/Admin/View/CategoriesFilters/edit.ctp:20
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:46
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:29
-#: Plugin/Admin/View/Filters/view.ctp:97
-#: View/Categories/index.ctp:46
-#: View/Categories/view.ctp:42
-#: View/CategoriesFilters/add.ctp:18
-#: View/CategoriesFilters/edit.ctp:20
-#: View/CategoriesFilters/index.ctp:46
-#: View/CategoriesFilters/view.ctp:29
-#: View/Filters/add.ctp:24
-#: View/Filters/edit.ctp:26
-#: View/Filters/index.ctp:48
-#: View/Filters/view.ctp:41;112
-#: View/Infos/add.ctp:25
-#: View/Infos/edit.ctp:27
-#: View/Infos/index.ctp:62
-#: View/Infos/view.ctp:61
-msgid "New Category"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/add.ctp:19
-#: Plugin/Admin/View/CategoriesFilters/edit.ctp:21
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:47
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:30
-#: Plugin/Admin/View/FilterOptions/add.ctp:18
-#: Plugin/Admin/View/FilterOptions/edit.ctp:20
-#: Plugin/Admin/View/FilterOptions/index.ctp:45
-#: Plugin/Admin/View/FilterOptions/view.ctp:33
-#: Plugin/Admin/View/InfoFilters/add.ctp:20
-#: Plugin/Admin/View/InfoFilters/edit.ctp:22
-#: Plugin/Admin/View/InfoFilters/index.ctp:49
-#: Plugin/Admin/View/InfoFilters/view.ctp:35
-#: View/Categories/add.ctp:23
-#: View/Categories/edit.ctp:25
-#: View/Categories/index.ctp:49
-#: View/Categories/view.ctp:45
-#: View/CategoriesFilters/add.ctp:19
-#: View/CategoriesFilters/edit.ctp:21
-#: View/CategoriesFilters/index.ctp:47
-#: View/CategoriesFilters/view.ctp:30
-#: View/FilterOptions/add.ctp:18
-#: View/FilterOptions/edit.ctp:20
-#: View/FilterOptions/index.ctp:45
-#: View/FilterOptions/view.ctp:33
-#: View/Filters/add.ctp:20
-#: View/Filters/edit.ctp:22
-#: View/Filters/view.ctp:36
-#: View/InfoFilters/add.ctp:20
-#: View/InfoFilters/edit.ctp:22
-#: View/InfoFilters/index.ctp:49
-#: View/InfoFilters/view.ctp:35
-#: View/Infos/add.ctp:28
-#: View/Infos/edit.ctp:30
-#: View/Infos/index.ctp:65
-#: View/Infos/view.ctp:64
-msgid "List Filters"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/edit.ctp:4
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:24
-#: View/CategoriesFilters/edit.ctp:4
-#: View/CategoriesFilters/view.ctp:24
-msgid "Edit Categories Filter"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:2
-#: View/CategoriesFilters/index.ctp:2
-msgid "Categories Filters"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/index.ctp:44
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:27
-#: View/CategoriesFilters/index.ctp:44
-#: View/CategoriesFilters/view.ctp:27
-msgid "New Categories Filter"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:2
-#: View/CategoriesFilters/view.ctp:2
-msgid "Categories Filter"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:14
-#: Plugin/Admin/View/FilterOptions/view.ctp:9
-#: Plugin/Admin/View/Filters/view.ctp:2
-#: Plugin/Admin/View/InfoFilters/view.ctp:14
-#: Plugin/Admin/View/Layouts/default.ctp:73
-#: View/CategoriesFilters/view.ctp:14
-#: View/FilterOptions/view.ctp:9
-#: View/Filters/view.ctp:2
-#: View/InfoFilters/view.ctp:14
-msgid "Filter"
-msgstr ""
-
-#: Plugin/Admin/View/CategoriesFilters/view.ctp:25
-#: View/CategoriesFilters/view.ctp:25
-msgid "Delete Categories Filter"
-msgstr ""
-
-#: Plugin/Admin/View/FilterOptions/add.ctp:4
-#: View/FilterOptions/add.ctp:4
-msgid "Add Filter Option"
-msgstr ""
-
-#: Plugin/Admin/View/FilterOptions/add.ctp:17
-#: Plugin/Admin/View/FilterOptions/edit.ctp:19
-#: Plugin/Admin/View/FilterOptions/view.ctp:31
-#: View/FilterOptions/add.ctp:17
-#: View/FilterOptions/edit.ctp:19
-#: View/FilterOptions/view.ctp:31
-#: View/Filters/add.ctp:21
-#: View/Filters/edit.ctp:23
-#: View/Filters/index.ctp:45
-#: View/Filters/view.ctp:38
-msgid "List Filter Options"
-msgstr ""
-
-#: Plugin/Admin/View/FilterOptions/edit.ctp:4
-#: Plugin/Admin/View/FilterOptions/view.ctp:29
-#: View/FilterOptions/edit.ctp:4
-#: View/FilterOptions/view.ctp:29
-msgid "Edit Filter Option"
-msgstr ""
-
-#: Plugin/Admin/View/FilterOptions/index.ctp:2
-#: View/FilterOptions/index.ctp:2
-msgid "Filter Options"
-msgstr ""
-
-#: Plugin/Admin/View/FilterOptions/index.ctp:44
-#: Plugin/Admin/View/FilterOptions/view.ctp:32
-#: Plugin/Admin/View/Filters/view.ctp:60
-#: View/FilterOptions/index.ctp:44
-#: View/FilterOptions/view.ctp:32
-#: View/Filters/add.ctp:22
-#: View/Filters/edit.ctp:24
-#: View/Filters/index.ctp:46
-#: View/Filters/view.ctp:39;75
-msgid "New Filter Option"
-msgstr ""
-
-#: Plugin/Admin/View/FilterOptions/view.ctp:2
-#: View/FilterOptions/view.ctp:2
-msgid "Filter Option"
-msgstr ""
-
-#: Plugin/Admin/View/FilterOptions/view.ctp:19
-#: Plugin/Admin/View/Filters/view.ctp:39
-#: Plugin/Admin/View/InfoFilters/view.ctp:19
-#: View/FilterOptions/view.ctp:19
-#: View/Filters/view.ctp:54
-#: View/InfoFilters/view.ctp:19
-msgid "Value"
-msgstr ""
-
-#: Plugin/Admin/View/FilterOptions/view.ctp:30
-#: View/FilterOptions/view.ctp:30
-msgid "Delete Filter Option"
 msgstr ""
 
 #: Plugin/Admin/View/Filters/add.ctp:4
@@ -1387,6 +985,14 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
+#: Plugin/Admin/View/Filters/view.ctp:2
+#: Plugin/Admin/View/InfoFilters/view.ctp:14
+#: Plugin/Admin/View/Layouts/default.ctp:73
+#: View/Filters/view.ctp:2
+#: View/InfoFilters/view.ctp:14
+msgid "Filter"
+msgstr ""
+
 #: Plugin/Admin/View/Filters/view.ctp:32
 #: View/Filters/view.ctp:47
 msgid "Related Filter Options"
@@ -1397,16 +1003,38 @@ msgstr ""
 msgid "Filter Id"
 msgstr ""
 
+#: Plugin/Admin/View/Filters/view.ctp:39
+#: Plugin/Admin/View/InfoFilters/view.ctp:19
+#: View/Filters/view.ctp:54
+#: View/InfoFilters/view.ctp:19
+msgid "Value"
+msgstr ""
+
+#: Plugin/Admin/View/Filters/view.ctp:60
+#: View/Filters/add.ctp:22
+#: View/Filters/edit.ctp:24
+#: View/Filters/index.ctp:46
+#: View/Filters/view.ctp:39;75
+msgid "New Filter Option"
+msgstr ""
+
 #: Plugin/Admin/View/Filters/view.ctp:65
 #: View/Filters/view.ctp:80
 msgid "Related Categories"
 msgstr ""
 
-#: Plugin/Admin/View/Filters/view.ctp:72
-#: View/Areas/view.ctp:14
-#: View/Categories/view.ctp:19
-#: View/Filters/view.ctp:87
-msgid "Parentid"
+#: Plugin/Admin/View/Filters/view.ctp:97
+#: View/Categories/index.ctp:46
+#: View/Categories/view.ctp:42
+#: View/Filters/add.ctp:24
+#: View/Filters/edit.ctp:26
+#: View/Filters/index.ctp:48
+#: View/Filters/view.ctp:41;112
+#: View/Infos/add.ctp:25
+#: View/Infos/edit.ctp:27
+#: View/Infos/index.ctp:62
+#: View/Infos/view.ctp:61
+msgid "New Category"
 msgstr ""
 
 #: Plugin/Admin/View/Groups/add.ctp:4
@@ -1494,10 +1122,6 @@ msgstr ""
 #: Plugin/Admin/View/InfoFilters/edit.ctp:20
 #: Plugin/Admin/View/InfoFilters/index.ctp:47
 #: Plugin/Admin/View/InfoFilters/view.ctp:33
-#: Plugin/Admin/View/InfoMeta/add.ctp:18
-#: Plugin/Admin/View/InfoMeta/edit.ctp:20
-#: Plugin/Admin/View/InfoMeta/index.ctp:45
-#: Plugin/Admin/View/InfoMeta/view.ctp:33
 #: View/Areas/add.ctp:18
 #: View/Areas/edit.ctp:20
 #: View/Areas/index.ctp:43
@@ -1514,10 +1138,6 @@ msgstr ""
 #: View/InfoFilters/edit.ctp:20
 #: View/InfoFilters/index.ctp:47
 #: View/InfoFilters/view.ctp:33
-#: View/InfoMeta/add.ctp:18
-#: View/InfoMeta/edit.ctp:20
-#: View/InfoMeta/index.ctp:45
-#: View/InfoMeta/view.ctp:33
 #: View/Infos/add.ctp:21
 #: View/Infos/edit.ctp:23
 #: View/Infos/view.ctp:56
@@ -1526,6 +1146,28 @@ msgstr ""
 #: View/Users/index.ctp:53
 #: View/Users/view.ctp:50
 msgid "List Infos"
+msgstr ""
+
+#: Plugin/Admin/View/InfoFilters/add.ctp:20
+#: Plugin/Admin/View/InfoFilters/edit.ctp:22
+#: Plugin/Admin/View/InfoFilters/index.ctp:49
+#: Plugin/Admin/View/InfoFilters/view.ctp:35
+#: View/Categories/add.ctp:23
+#: View/Categories/edit.ctp:25
+#: View/Categories/index.ctp:49
+#: View/Categories/view.ctp:45
+#: View/Filters/add.ctp:20
+#: View/Filters/edit.ctp:22
+#: View/Filters/view.ctp:36
+#: View/InfoFilters/add.ctp:20
+#: View/InfoFilters/edit.ctp:22
+#: View/InfoFilters/index.ctp:49
+#: View/InfoFilters/view.ctp:35
+#: View/Infos/add.ctp:28
+#: View/Infos/edit.ctp:30
+#: View/Infos/index.ctp:65
+#: View/Infos/view.ctp:64
+msgid "List Filters"
 msgstr ""
 
 #: Plugin/Admin/View/InfoFilters/edit.ctp:4
@@ -1553,10 +1195,8 @@ msgid "Info Filter"
 msgstr ""
 
 #: Plugin/Admin/View/InfoFilters/view.ctp:9
-#: Plugin/Admin/View/InfoMeta/view.ctp:9
 #: Plugin/Admin/View/Infos/view.ctp:2
 #: View/InfoFilters/view.ctp:9
-#: View/InfoMeta/view.ctp:9
 #: View/Infos/view.ctp:2
 msgid "Info"
 msgstr ""
@@ -1564,59 +1204,6 @@ msgstr ""
 #: Plugin/Admin/View/InfoFilters/view.ctp:30
 #: View/InfoFilters/view.ctp:30
 msgid "Delete Info Filter"
-msgstr ""
-
-#: Plugin/Admin/View/InfoMeta/add.ctp:4
-#: View/InfoMeta/add.ctp:4
-msgid "Add Info Metum"
-msgstr ""
-
-#: Plugin/Admin/View/InfoMeta/add.ctp:17
-#: Plugin/Admin/View/InfoMeta/edit.ctp:19
-#: Plugin/Admin/View/InfoMeta/view.ctp:31
-#: View/InfoMeta/add.ctp:17
-#: View/InfoMeta/edit.ctp:19
-#: View/InfoMeta/view.ctp:31
-msgid "List Info Meta"
-msgstr ""
-
-#: Plugin/Admin/View/InfoMeta/edit.ctp:4
-#: Plugin/Admin/View/InfoMeta/view.ctp:29
-#: View/InfoMeta/edit.ctp:4
-#: View/InfoMeta/view.ctp:29
-msgid "Edit Info Metum"
-msgstr ""
-
-#: Plugin/Admin/View/InfoMeta/index.ctp:2
-#: View/InfoMeta/index.ctp:2
-msgid "Info Meta"
-msgstr ""
-
-#: Plugin/Admin/View/InfoMeta/index.ctp:44
-#: Plugin/Admin/View/InfoMeta/view.ctp:32
-#: View/InfoMeta/index.ctp:44
-#: View/InfoMeta/view.ctp:32
-msgid "New Info Metum"
-msgstr ""
-
-#: Plugin/Admin/View/InfoMeta/view.ctp:2
-#: View/InfoMeta/view.ctp:2
-msgid "Info Metum"
-msgstr ""
-
-#: Plugin/Admin/View/InfoMeta/view.ctp:14
-#: View/InfoMeta/view.ctp:14
-msgid "Meta Key"
-msgstr ""
-
-#: Plugin/Admin/View/InfoMeta/view.ctp:19
-#: View/InfoMeta/view.ctp:19
-msgid "Meta Value"
-msgstr ""
-
-#: Plugin/Admin/View/InfoMeta/view.ctp:30
-#: View/InfoMeta/view.ctp:30
-msgid "Delete Info Metum"
 msgstr ""
 
 #: Plugin/Admin/View/Infos/add.ctp:4
@@ -1815,12 +1402,39 @@ msgstr ""
 msgid "New Area"
 msgstr ""
 
+#: View/Areas/view.ctp:14
+#: View/Categories/view.ctp:19
+#: View/Filters/view.ctp:87
+msgid "Parentid"
+msgstr ""
+
 #: View/Areas/view.ctp:30
 msgid "Delete Area"
 msgstr ""
 
+#: View/Categories/add.ctp:20
+#: View/Categories/edit.ctp:22
+#: View/Categories/view.ctp:41
+#: View/Filters/add.ctp:23
+#: View/Filters/edit.ctp:25
+#: View/Filters/index.ctp:47
+#: View/Filters/view.ctp:40
+#: View/Infos/add.ctp:24
+#: View/Infos/edit.ctp:26
+#: View/Infos/index.ctp:61
+#: View/Infos/view.ctp:60
+msgid "List Categories"
+msgstr ""
+
 #: View/Categories/view.ctp:40
 msgid "Delete Category"
+msgstr ""
+
+#: View/Filters/add.ctp:21
+#: View/Filters/edit.ctp:23
+#: View/Filters/index.ctp:45
+#: View/Filters/view.ctp:38
+msgid "List Filter Options"
 msgstr ""
 
 #: View/Filters/view.ctp:35
@@ -1845,32 +1459,34 @@ msgstr ""
 msgid "Delete Info"
 msgstr ""
 
-#: View/Themed/Japan/Layouts/default.ctp:28;73
-msgid "Home"
-msgstr ""
-
-#: View/Themed/Japan/Layouts/default.ctp:30
-msgid "Logout"
-msgstr ""
-
-#: View/Themed/Japan/Layouts/default.ctp:33;77
-msgid "How To"
-msgstr ""
-
-#: View/Themed/Japan/Layouts/default.ctp:35;75
-msgid "First Time"
-msgstr ""
-
-#: View/Themed/Japan/Layouts/default.ctp:43
+#: View/Themed/Japan/Layouts/default.ctp:14;40
+#: View/Themed/Japan/Layouts/entry_index.ctp:14;39
 msgid "NA List"
 msgstr ""
 
-#: View/Themed/Japan/Layouts/default.ctp:51
-msgid "Search"
+#: View/Themed/Japan/Layouts/default.ctp:31;74
+#: View/Themed/Japan/Layouts/entry_index.ctp:30;56
+msgid "How To"
 msgstr ""
 
-#: View/Themed/Japan/Layouts/default.ctp:78
-msgid "Powered By nalist.com"
+#: View/Themed/Japan/Layouts/default.ctp:32;75
+#: View/Themed/Japan/Layouts/entry_index.ctp:31;57
+msgid "First Time"
+msgstr ""
+
+#: View/Themed/Japan/Layouts/default.ctp:33;76
+#: View/Themed/Japan/Layouts/entry_index.ctp:32;58
+msgid "Sign In"
+msgstr ""
+
+#: View/Themed/Japan/Layouts/default.ctp:34;77
+#: View/Themed/Japan/Layouts/entry_index.ctp:33;59
+msgid "Sign Up"
+msgstr ""
+
+#: View/Themed/Japan/Layouts/default.ctp:81
+#: View/Themed/Japan/Layouts/entry_index.ctp:63
+msgid "\"NA List\" &copy; All right reserved!"
 msgstr ""
 
 #: View/Users/view.ctp:45
@@ -1879,7 +1495,7 @@ msgstr ""
 
 #: Model/AdminUser.php:validation for field username;validation for field password
 #: Model/Area.php:validation for field areaname
-#: Model/Category.php:validation for field name;validation for field description
+#: Model/Category.php:validation for field name;validation for field cat_slug;validation for field description
 #: Model/Filter.php:validation for field key;validation for field title;validation for field type;validation for field rule
 #: Model/FilterOption.php:validation for field key;validation for field value
 #: Model/Group.php:validation for field group_name;validation for field permission
@@ -1898,7 +1514,6 @@ msgstr ""
 
 #: Model/Area.php:validation for field parent_id;validation for field display_order
 #: Model/CategoriesFilter.php:validation for field category_id;validation for field filter_id
-#: Model/Category.php:validation for field lft;validation for field rght
 #: Model/FilterOption.php:validation for field filter_id
 #: Model/Info.php:validation for field area_id;validation for field category_id;validation for field user_id;validation for field description;validation for field status
 #: Model/InfoFilter.php:validation for field info_id;validation for field filter_id
