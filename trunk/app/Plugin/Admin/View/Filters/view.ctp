@@ -69,7 +69,7 @@
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('Description'); ?></th>
-		<th><?php echo __('Parentid'); ?></th>
+		<th><?php echo __('Parent id'); ?></th>
 		<th><?php echo __('Lft'); ?></th>
 		<th><?php echo __('Rght'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
@@ -79,7 +79,7 @@
 			<td><?php echo $category['id']; ?></td>
 			<td><?php echo $category['name']; ?></td>
 			<td><?php echo $category['description']; ?></td>
-			<td><?php echo $category['parentid']; ?></td>
+			<td><?php echo $category['parent_id']; ?></td>
 			<td><?php echo $category['lft']; ?></td>
 			<td><?php echo $category['rght']; ?></td>
 			<td class="actions">
