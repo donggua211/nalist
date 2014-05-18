@@ -7,6 +7,8 @@ App::uses('AppModel', 'Model');
  * @property Filter $Filter
  */
 class Category extends AppModel {
+
+	public $displayField = 'name';
 	public $actsAs = array('TreePlus');
 /**
  * Validation rules
@@ -68,32 +70,13 @@ class Category extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
-
-/**
- * hasAndBelongsToMany associations
- *
- * @var array
- */
-	public $hasAndBelongsToMany = array(
-		'Filter' => array(
-			'className' => 'Filter',
-			'joinTable' => 'categories_filters',
-			'foreignKey' => 'category_id',
-			'associationForeignKey' => 'filter_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		)
-	);
+	
 	
 	public function getid_by_slug($slug) {
-		return $this->find('first', array(
+		$record = $this->find('first', array(
 			'conditions' => array('Category.cat_slug' => $slug)
 		));
+		
+		return $record['Category']['id'];
 	}
 }

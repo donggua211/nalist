@@ -51,32 +51,13 @@ class Filter extends AdminAppModel {
  *
  * @var array
  */
-	public $hasAndBelongsToMany = array(
+	public $belongsTo = array(
 		'Category' => array(
 			'className' => 'Admin.Category',
-			'joinTable' => 'categories_filters',
-			'foreignKey' => 'filter_id',
-			'associationForeignKey' => 'category_id',
-			'unique' => 'keepExisting',
+			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		),
-		'Info' => array(
-			'className' => 'Admin.Info',
-			'joinTable' => 'info_filters',
-			'foreignKey' => 'filter_id',
-			'associationForeignKey' => 'info_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
+			'order' => ''
 		)
 	);
 

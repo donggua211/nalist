@@ -82,8 +82,7 @@ class FiltersController extends AdminAppController {
 			$this->request->data = $this->Filter->find('first', $options);
 		}
 		$categories = $this->Filter->Category->find('list');
-		$infos = $this->Filter->Info->find('list');
-		$this->set(compact('categories', 'infos'));
+		$this->set(compact('categories'));
 	}
 
 /**

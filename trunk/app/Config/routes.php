@@ -32,7 +32,7 @@
 	Router::connect('/categories/:action/*', array('controller' => 'categories'));
 	
 	//Short of categories: cat.
-	Router::connect('/:city/cat/:cat_slug/*', array('controller' => 'infos', 'action' => 'category'));
+	Router::connect('/:city/cat/:cat_slug/*', array('controller' => 'infos', 'action' => 'index'));
 	
 	//Users
 	Router::connect('/users', array('controller' => 'users', 'action' => 'index'));

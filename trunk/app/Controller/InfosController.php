@@ -21,32 +21,21 @@ class InfosController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Info->recursive = 0;
-		$this->set('infos', $this->Paginator->paginate());
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function category($slug = null) {
 		$this->loadModel('Category');
 		$this->loadModel('Filter');
 		
 		$city = $this->request->params['city'];
 		$cat_slug = $this->request->params['cat_slug'];
 		
-		$categoryID = $this->Category->getid_by_slug($slug);
+		$categoryID = $this->Category->getid_by_slug($cat_slug);
 		
+		$options = array('conditions' => array('Filter.category_id' => $categoryID));
+		$filters = $this->Filter->find('all', $options);
 		
 		$options = array('conditions' => array('Info.category_id' => $categoryID));
-		$this->set('info', $this->Info->find('all', $options));
+		$infos = $this->Info->find('all', $options);
 		
-		$options = array('conditions' => array('Info.category_id' => $categoryID));
-		$this->set('info', $this->Info->find('all', $options));
+		$this->set(compact('infos', 'filters'));
 	}
 	
 /**

@@ -69,27 +69,4 @@ class Category extends AdminAppModel {
 			'counterQuery' => ''
 		)
 	);
-
-
-/**
- * hasAndBelongsToMany associations
- *
- * @var array
- */
-	public $hasAndBelongsToMany = array(
-		'Filter' => array(
-			'className' => 'Admin.Filter',
-			'joinTable' => 'categories_filters',
-			'foreignKey' => 'category_id',
-			'associationForeignKey' => 'filter_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		)
-	);
-
 }
