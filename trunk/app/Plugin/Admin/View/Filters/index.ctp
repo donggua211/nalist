@@ -3,6 +3,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('category_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('key'); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
 			<th><?php echo $this->Paginator->sort('type'); ?></th>
@@ -12,6 +13,9 @@
 	<?php foreach ($filters as $filter): ?>
 	<tr>
 		<td><?php echo h($filter['Filter']['id']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($filter['Category']['name'], array('controller' => 'categories', 'action' => 'view', $filter['Category']['id'])); ?>
+		</td>
 		<td><?php echo h($filter['Filter']['key']); ?>&nbsp;</td>
 		<td><?php echo h($filter['Filter']['title']); ?>&nbsp;</td>
 		<td><?php echo h($filter['Filter']['type']); ?>&nbsp;</td>

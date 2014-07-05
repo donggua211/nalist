@@ -33,9 +33,6 @@ class CategoriesController extends AppController {
  * @return void
  */
 	public function view($slug = null) {
-		
-		pr($this->request);
-
 		$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
 		$this->set('category', $this->Category->find('first', $options));
 	}
@@ -81,8 +78,6 @@ class CategoriesController extends AppController {
 			$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
 			$this->request->data = $this->Category->find('first', $options);
 		}
-		$filters = $this->Category->Filter->find('list');
-		$this->set(compact('filters'));
 	}
 
 /**
@@ -110,6 +105,6 @@ class CategoriesController extends AppController {
         if (empty($this->request->params['requested'])) {
             throw new ForbiddenException();
         }
-        return $this->Category->generateTreePlusList();
+        return $this->Category->find('list', array('fields'=>array('Category.cat_slug', 'Category.name')));
     }
 }

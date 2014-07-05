@@ -40,17 +40,8 @@
 						</ul>
 					</li>
 				</ul>
-				
-				<h3><?php echo __('Information'); ?></h3>
-				<ul>
-					<li><?php echo $this->Html->link(__('Information'), array('plugin' => 'admin', 'controller' => 'infos', 'action' => 'index')); ?></li>
-					<li class="sub-menu">
-						<ul>
-							<li><?php echo $this->Html->link(__('Information'), array('plugin' => 'admin', 'controller' => 'infos', 'action' => 'index')); ?> </li>
-							<li><?php echo $this->Html->link(__('New information'), array('plugin' => 'admin', 'controller' => 'infos', 'action' => 'add')); ?> </li>
-						</ul>
-					</li>
-				</ul>
+			
+				<h3><?php echo __('Area'); ?></h3>
 				<ul>
 					<li><?php echo $this->Html->link(__('Area'), array('plugin' => 'admin', 'controller' => 'areas', 'action' => 'index')); ?></li>
 					<li class="sub-menu">
@@ -60,6 +51,8 @@
 						</ul>
 					</li>
 				</ul>
+				
+				<h3><?php echo __('Information'); ?></h3>
 				<ul>
 					<li><?php echo $this->Html->link(__('Category'), array('plugin' => 'admin', 'controller' => 'categories', 'action' => 'index')); ?></li>
 					<li class="sub-menu">
@@ -75,6 +68,15 @@
 						<ul>
 							<li><?php echo $this->Html->link(__('filters'), array('plugin' => 'admin', 'controller' => 'filters', 'action' => 'index')); ?> </li>
 							<li><?php echo $this->Html->link(__('New filter'), array('plugin' => 'admin', 'controller' => 'filters', 'action' => 'add')); ?> </li>
+						</ul>
+					</li>
+				</ul>
+				<ul>
+					<li><?php echo $this->Html->link(__('Information'), array('plugin' => 'admin', 'controller' => 'infos', 'action' => 'index')); ?></li>
+					<li class="sub-menu">
+						<ul>
+							<li><?php echo $this->Html->link(__('Information'), array('plugin' => 'admin', 'controller' => 'infos', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New information'), array('plugin' => 'admin', 'controller' => 'infos', 'action' => 'add')); ?> </li>
 						</ul>
 					</li>
 				</ul>

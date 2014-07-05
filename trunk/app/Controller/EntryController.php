@@ -46,7 +46,7 @@ class EntryController extends AppController {
 	public function city() {
 		$this->loadModel('Category');
 		
-		$categoryList = $this->Category->generateTreePlusList();
+		$categoryList = $this->Category->find('list', array('fields'=>array('Category.cat_slug', 'Category.name')));
 		$this->set(compact('categoryList'));
 	}
 	

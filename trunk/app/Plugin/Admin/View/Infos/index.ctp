@@ -17,7 +17,7 @@
 	<tr>
 		<td><?php echo h($info['Info']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($info['Area']['id'], array('controller' => 'areas', 'action' => 'view', $info['Area']['id'])); ?>
+			<?php echo $this->Html->link($info['Area']['areaname'], array('controller' => 'areas', 'action' => 'view', $info['Area']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($info['Category']['name'], array('controller' => 'categories', 'action' => 'view', $info['Category']['id'])); ?>

@@ -6,9 +6,6 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('cat_slug'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
-			<th><?php echo $this->Paginator->sort('parent_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('lft'); ?></th>
-			<th><?php echo $this->Paginator->sort('rght'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($categories as $category): ?>
@@ -17,9 +14,6 @@
 		<td><?php echo h($category['Category']['name']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['cat_slug']); ?>&nbsp;</td>
 		<td><?php echo h($category['Category']['description']); ?>&nbsp;</td>
-		<td><?php echo h($category['Category']['parent_id']); ?>&nbsp;</td>
-		<td><?php echo h($category['Category']['lft']); ?>&nbsp;</td>
-		<td><?php echo h($category['Category']['rght']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $category['Category']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $category['Category']['id'])); ?>

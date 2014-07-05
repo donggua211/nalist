@@ -30,6 +30,7 @@
 	
 	//categories
 	Router::connect('/categories/:action/*', array('controller' => 'categories'));
+	Router::connect('/filters/:action/*', array('controller' => 'filters'));
 	
 	//Short of categories: cat.
 	Router::connect('/:city/cat/:cat_slug/*', array('controller' => 'infos', 'action' => 'index'));

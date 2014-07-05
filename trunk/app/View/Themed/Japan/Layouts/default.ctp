@@ -46,10 +46,11 @@
 						<ul class="hd-inner-area-nav">
 							<?php
 							$topMenu = $this->requestAction('/categories/topMenu');
-							foreach ($topMenu as $val) {
+							
+							foreach ($topMenu as $slug => $name) {
 								echo '<li>';
 								
-								echo $this->Html->link('<span>'.$val['Category']['name'].'</span>', array('controller' => 'cat', 'action' => '/', $val['Category']['cat_slug']), array('escape' => false));
+								echo $this->Html->link('<span>'.$name.'</span>', array('controller' => 'cat', 'action' => '/', $slug), array('escape' => false));
 								
 								echo '</li>';
 							}

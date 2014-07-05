@@ -9,7 +9,6 @@ App::uses('AppModel', 'Model');
 class Category extends AppModel {
 
 	public $displayField = 'name';
-	public $actsAs = array('TreePlus');
 /**
  * Validation rules
  *

@@ -7,8 +7,7 @@
 		echo $this->Form->input('title');
 		echo $this->Form->input('type');
 		echo $this->Form->input('rule');
-		echo $this->Form->input('Category');
-		echo $this->Form->input('Info');
+		echo $this->Form->input('category_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

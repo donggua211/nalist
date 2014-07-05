@@ -55,7 +55,7 @@ class InfosController extends AdminAppController {
 			}
 		}
 		$areas = $this->Info->Area->generateTreeList(null, null, null, '---');
-		$categories = $this->Info->Category->generateTreeList(null, null, null, '---');
+		$categories = $this->Info->Category->find('list');
 		$users = $this->Info->User->find('list', array('fields' => array('User.id', 'User.username')));
 		$filters = $this->Info->Filter->find('list');
 		$this->set(compact('areas', 'categories', 'users', 'filters'));
