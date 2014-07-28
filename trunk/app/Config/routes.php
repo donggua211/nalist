@@ -24,11 +24,27 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/', array('controller' => 'entry', 'action' => 'index'));
+	
+	//categories
+	Router::connect('/categories/:action/*', array('controller' => 'categories'));
+	Router::connect('/filters/:action/*', array('controller' => 'filters'));
+	
+	//Short of categories: cat.
+	Router::connect('/:city/cat/:cat_slug/*', array('controller' => 'infos', 'action' => 'index'));
+	
+	//Users
+	Router::connect('/users', array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/users/:action/*', array('controller' => 'users'));
+	
+	//Pages
+	Router::connect('/pages', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/pages/:action/*', array('controller' => 'pages'));
+	
+	
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
@@ -36,6 +52,12 @@
  */
 	CakePlugin::routes();
 
+	
+	//Roll for city profiles
+	Router::connect('/:city', array('controller' => 'entry', 'action' => 'city'));
+	Router::connect('/:city/:controller', array('action' => 'index'), array('city' => '[a-z]+'));
+	Router::connect('/:city/:controller/:action/*', array(), array('city' => '[a-z]+'));
+	
 /**
  * Load the CakePHP default routes. Only remove this if you do not want to use
  * the built-in default routes.
