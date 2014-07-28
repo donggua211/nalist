@@ -3,18 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 05 月 08 日 15:21
+-- 生成日期: 2014 年 07 月 28 日 19:23
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- 数据库: `nalist`
@@ -92,10 +86,6 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` varchar(32) NOT NULL,
   `cat_slug` varchar(32) NOT NULL,
   `description` tinytext NOT NULL,
-  `parent_id` int(11) DEFAULT NULL,
-  `lft` int(11) NOT NULL,
-  `rght` int(11) NOT NULL,
-  `level` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
@@ -103,40 +93,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- 转存表中的数据 `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `cat_slug`, `description`, `parent_id`, `lft`, `rght`, `level`) VALUES
-(1, 'æˆ¿å±‹ä¿¡æ¯', 'fangwu', 'æˆ¿å±‹ä¿¡æ¯', NULL, 1, 10, 1),
-(2, 'æ•´ç§Ÿæˆ¿', 'zhengzu', 'æ•´ç§Ÿæˆ¿', 1, 2, 3, 2),
-(3, 'æ±‚ç§Ÿæˆ¿', 'qiuzu', 'æ±‚ç§Ÿæˆ¿', 1, 4, 5, 2),
-(4, 'åˆç§Ÿæˆ¿', 'hezu', 'åˆç§Ÿæˆ¿', 1, 6, 7, 2),
-(5, 'çŸ­ç§Ÿæˆ¿/æ—¥ç§Ÿæˆ¿', 'duanzu', 'çŸ­ç§Ÿæˆ¿/æ—¥ç§Ÿæˆ¿', 1, 8, 9, 2),
-(6, 'æ‹›è˜', 'zhaopin', 'å…è´¹æ‹›è˜', NULL, 11, 18, 1),
-(7, 'å…¨èŒæ‹›è˜', 'quanzhizhaopin', 'å…¨èŒæ‹›è˜', 6, 12, 13, 2),
-(8, 'å…¼èŒæ‹›è˜', 'jianzhizhaopin', 'å…¼èŒæ‹›è˜', 6, 14, 15, 2),
-(9, 'æ‹›è˜ä¼š', 'zhaopinhui', 'æ‹›è˜ä¼š', 6, 16, 17, 2),
-(10, 'äºŒæ‰‹è½¦', 'ershouche', 'äºŒæ‰‹è½¦', NULL, 19, 20, 1);
-
--- --------------------------------------------------------
-
---
--- 表的结构 `categories_filters`
---
-
-DROP TABLE IF EXISTS `categories_filters`;
-CREATE TABLE IF NOT EXISTS `categories_filters` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category_id` int(11) NOT NULL,
-  `filter_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- 转存表中的数据 `categories_filters`
---
-
-INSERT INTO `categories_filters` (`id`, `category_id`, `filter_id`) VALUES
-(1, 2, 1),
-(2, 1, 1),
-(3, 10, 1);
+INSERT INTO `categories` (`id`, `name`, `cat_slug`, `description`) VALUES
+(1, 'æˆ¿å±‹ä¿¡æ¯', 'fangwu', 'æˆ¿å±‹ä¿¡æ¯'),
+(6, 'æ‹›è˜', 'zhaopin', 'å…è´¹æ‹›è˜'),
+(10, 'äºŒæ‰‹è½¦', 'ershouche', 'äºŒæ‰‹è½¦');
 
 -- --------------------------------------------------------
 
@@ -147,34 +107,21 @@ INSERT INTO `categories_filters` (`id`, `category_id`, `filter_id`) VALUES
 DROP TABLE IF EXISTS `filters`;
 CREATE TABLE IF NOT EXISTS `filters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
   `key` varchar(50) NOT NULL,
   `title` varchar(150) NOT NULL,
-  `type` enum('select','radio','checkbox','input','') NOT NULL,
-  `rule` tinytext NOT NULL,
+  `type` enum('select','radio','checkbox','input','number') NOT NULL,
+  `rule` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `filters`
 --
 
-INSERT INTO `filters` (`id`, `key`, `title`, `type`, `rule`) VALUES
-(1, 'hire_type', 'å‡ºç§Ÿæ–¹å¼', 'radio', 'æ•´å¥—å‡ºç§Ÿ,å•é—´å‡ºç§Ÿ,åºŠä½å‡ºç§Ÿ');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `filter_options`
---
-
-DROP TABLE IF EXISTS `filter_options`;
-CREATE TABLE IF NOT EXISTS `filter_options` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `filter_id` int(11) NOT NULL,
-  `key` varchar(100) NOT NULL,
-  `value` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+INSERT INTO `filters` (`id`, `category_id`, `key`, `title`, `type`, `rule`) VALUES
+(1, 1, 'rent_type', 'å‡ºç§Ÿæ–¹å¼', 'radio', 'æ•´å¥—å‡ºç§Ÿ,å•é—´å‡ºç§Ÿ,åºŠä½å‡ºç§Ÿ'),
+(2, 1, 'rent_fee', 'ç§Ÿé‡‘', 'number', '');
 
 -- --------------------------------------------------------
 
@@ -224,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `info` (
 --
 
 INSERT INTO `info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `description`, `status`, `created`, `modified`) VALUES
-(1, 3, 7, 1, 'æ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜', 'æ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜\r\næ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜ 1\r\næ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜ 2', 1, '2013-10-22 23:22:58', '2014-05-07 21:29:12');
+(1, 3, 1, 1, 'æ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜', 'æ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜\r\næ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜ 1\r\næ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜ 2', 1, '2013-10-22 23:22:58', '2014-07-25 23:18:57');
 
 -- --------------------------------------------------------
 
@@ -239,27 +186,29 @@ CREATE TABLE IF NOT EXISTS `info_filters` (
   `filter_id` int(11) NOT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `info_filters`
 --
 
 INSERT INTO `info_filters` (`id`, `info_id`, `filter_id`, `value`) VALUES
-(1, 1, 1, '');
+(1, 1, 1, ''),
+(3, 1, 2, '');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `info_meta`
+-- 表的结构 `user_logs`
 --
 
-DROP TABLE IF EXISTS `info_meta`;
-CREATE TABLE IF NOT EXISTS `info_meta` (
+DROP TABLE IF EXISTS `user_logs`;
+CREATE TABLE IF NOT EXISTS `user_logs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `info_id` int(11) NOT NULL,
-  `meta_key` varchar(100) NOT NULL,
-  `meta_value` text NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `action` varchar(100) NOT NULL,
+  `memo` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -287,23 +236,3 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `created`, `modified`) VALUES
 (1, 1, 'donggua211', 'woaibaicai', 'donggua211@qq.com', '2013-10-19 00:46:34', '2013-10-19 00:46:34');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `user_logs`
---
-
-DROP TABLE IF EXISTS `user_logs`;
-CREATE TABLE IF NOT EXISTS `user_logs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `action` varchar(100) NOT NULL,
-  `memo` varchar(255) NOT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
