@@ -3,12 +3,18 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 07 月 28 日 19:23
+-- 生成日期: 2014 年 08 月 13 日 06:31
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- 数据库: `nalist`
@@ -25,11 +31,10 @@ USE `nalist`;
 DROP TABLE IF EXISTS `admin_users`;
 CREATE TABLE IF NOT EXISTS `admin_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL,
-  `password` char(40) NOT NULL,
+  `user_name` varchar(20) NOT NULL,
+  `password` char(32) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
@@ -37,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 -- 转存表中的数据 `admin_users`
 --
 
-INSERT INTO `admin_users` (`id`, `username`, `password`, `email`, `created`, `modified`) VALUES
-(1, 'admin', '99d6267aad181f6b138b16537d7773778be741b5', 'donggua211@qq.com', '2013-10-17 23:14:39', '2013-10-17 23:14:39');
+INSERT INTO `admin_users` (`id`, `user_name`, `password`, `email`, `add_time`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'donggua211@qq.com', '2013-10-17 23:14:39');
 
 -- --------------------------------------------------------
 
@@ -83,9 +88,11 @@ INSERT INTO `areas` (`id`, `areaname`, `slug`, `type`, `parent_id`, `lft`, `rght
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
+  `parent_id` int(11) NOT NULL,
+  `category_name` varchar(32) NOT NULL,
   `cat_slug` varchar(32) NOT NULL,
   `description` tinytext NOT NULL,
+  `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
@@ -93,10 +100,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- 转存表中的数据 `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `cat_slug`, `description`) VALUES
-(1, 'æˆ¿å±‹ä¿¡æ¯', 'fangwu', 'æˆ¿å±‹ä¿¡æ¯'),
-(6, 'æ‹›è˜', 'zhaopin', 'å…è´¹æ‹›è˜'),
-(10, 'äºŒæ‰‹è½¦', 'ershouche', 'äºŒæ‰‹è½¦');
+INSERT INTO `categories` (`id`, `parent_id`, `category_name`, `cat_slug`, `description`, `add_time`) VALUES
+(1, 0, '房屋', 'fangwu', 'æˆ¿å±‹ä¿¡æ¯', '0000-00-00 00:00:00'),
+(6, 0, '招聘', 'zhaopin', 'å…è´¹æ‹›è˜', '0000-00-00 00:00:00'),
+(10, 1, '二手房', 'ershouche', 'äºŒæ‰‹è½¦', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -236,3 +243,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `created`, `modified`) VALUES
 (1, 1, 'donggua211', 'woaibaicai', 'donggua211@qq.com', '2013-10-19 00:46:34', '2013-10-19 00:46:34');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
