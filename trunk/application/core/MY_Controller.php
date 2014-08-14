@@ -1,12 +1,24 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Front_Controller extends CI_Controller {
+class MY_Controller extends CI_Controller {
+	public $template_data = array();
+	
 	function __construct() {
 		parent::__construct();
+		
+		$this->load->model('site_config_model');
 	}
 }
 
-class Admin_Controller extends CI_Controller {
+class Front_Controller extends MY_Controller {
+	function __construct() {
+		parent::__construct();
+		
+		$this->template_data['site_name'] = $this->site_config_model->get_config('site_name');
+	}
+}
+
+class Admin_Controller extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
@@ -20,6 +32,8 @@ class Admin_Controller extends CI_Controller {
 		
 		//Load helper
 		$this->load->helper('admin/template');
+		
+		$this->template_data['site_name'] = $this->site_config_model->get_config('site_name').'管理页面';
 	}
 	
 	/*

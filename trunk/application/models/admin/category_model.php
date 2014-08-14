@@ -1,14 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Category_model extends CI_Model {
+class Category_model extends MY_Model {
 
 	var $cache_key = 'category_list';
 	
 	public function __construct() {
 		parent::__construct();
 		
-		//Load Driver
-		$this->load->driver('cache', array('adapter' => 'file'));
+		
 	}
 	
 	function add($data) {
@@ -17,7 +16,7 @@ class Category_model extends CI_Model {
 		$fields['add_time'] = date('Y-m-d H:i:s');
 		
 		if($this->db->insert('categories', $fields)) {
-			$this->cache_update();
+			$this->category_cache_update();
 			
 			return true;
 		} else {
@@ -33,7 +32,7 @@ class Category_model extends CI_Model {
 		$this->db->where('id', $id);
 		
 		if($this->db->update('categories', $update_field)) {
-			$this->cache_update();
+			$this->category_cache_update();
 			
 			return true;
 		} else {
@@ -41,16 +40,7 @@ class Category_model extends CI_Model {
 		}
 	}
 	
-	private function cache_get() {
-		$category_list = $this->cache->get($this->cache_key);
-		if(empty($category_list)) {
-			$category_list = array();
-		}
-		
-		return $category_list;
-	}
-	
-	private function cache_update() {
+	private function category_cache_update() {
 		$sql = "SELECT * FROM {$this->db->dbprefix('categories')}
 				ORDER BY parent_id ASC";
 		$query = $this->db->query($sql);
@@ -64,7 +54,7 @@ class Category_model extends CI_Model {
 			$category_list = array_2_tree($category_list);
 		}
 		
-		$this->cache->save($this->cache_key, $category_list, 24 * 60 *60 * 365);
+		$this->cache_update($category_list);
 		return $category_list;
 	}
 	
@@ -73,7 +63,7 @@ class Category_model extends CI_Model {
 		$category_list = $this->cache_get();
 		
 		if(empty($category_list)) {
-			$category_list = $this->cache_update();
+			$category_list = $this->category_cache_update();
 		}
 		
 		return $category_list;
@@ -94,7 +84,7 @@ class Category_model extends CI_Model {
 	
 	public function remove($id) {
 		$this->_deep_remove($id);
-		$this->cache_update();
+		$this->category_cache_update();
 		return true;
 	}
 	

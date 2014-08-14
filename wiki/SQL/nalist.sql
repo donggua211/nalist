@@ -3,18 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 08 月 13 日 06:31
+-- 生成日期: 2014 年 08 月 14 日 06:48
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- 数据库: `nalist`
@@ -206,6 +200,27 @@ INSERT INTO `info_filters` (`id`, `info_id`, `filter_id`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `site_configs`
+--
+
+DROP TABLE IF EXISTS `site_configs`;
+CREATE TABLE IF NOT EXISTS `site_configs` (
+  `config_id` int(11) NOT NULL AUTO_INCREMENT,
+  `config_name` varchar(255) NOT NULL,
+  `config_value` text NOT NULL,
+  PRIMARY KEY (`config_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `site_configs`
+--
+
+INSERT INTO `site_configs` (`config_id`, `config_name`, `config_value`) VALUES
+(1, 'site_name', '北美同城');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `user_logs`
 --
 
@@ -243,7 +258,3 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `created`, `modified`) VALUES
 (1, 1, 'donggua211', 'woaibaicai', 'donggua211@qq.com', '2013-10-19 00:46:34', '2013-10-19 00:46:34');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
