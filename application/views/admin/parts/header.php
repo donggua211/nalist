@@ -12,7 +12,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="content-script-type" content="Javascript" />
-	<title><?php $page_title = isset($page_title) ? $page_title : ''; template_page_title($page_title); ?></title>
+	<title><?php $page_title = isset($page_title) ? $page_title : ''; template_page_title($site_name, $page_title); ?></title>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-2.1.1.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.cookie.js"></script>
 	
@@ -45,7 +45,7 @@
 <div class="header">
 	<div class="header-bd">
 		<div class="logo">
-			<h1 class="site-title"><a href="home.php" rel="home">Max美国代购管理</a></h1>
+			<h1 class="site-title"><a href="home.php" rel="home"><?php echo $site_name; ?></a></h1>
 		</div>
 	</div>
 </div><!-- #header -->

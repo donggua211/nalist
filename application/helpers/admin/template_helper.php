@@ -87,10 +87,7 @@ function template_nav_menu() {
 	return true;
 }
 
-function template_page_title($page_title = '', $seperator = ' | ' ) {
-	//@TODO: Set site_name at site_config.
-	$site_name = '北美同城';
-	
+function template_page_title($site_name, $page_title = '', $seperator = ' | ' ) {
 	if(empty($page_title)) {
 		$site_nav = get_admin_site_nav();
 		if(!empty($site_nav)) {
