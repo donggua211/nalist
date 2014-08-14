@@ -67,7 +67,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'nalist',
+		'database' => 'nalist_ace',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
