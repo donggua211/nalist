@@ -10,8 +10,10 @@ class Category_model extends MY_Model {
 		
 	}
 	
-	function add($data) {
+	public function add($data) {
 		$fields['category_name'] = $data['category_name'];
+		$fields['category_slug'] = $data['category_slug'];
+		$fields['description'] = $data['description'];
 		$fields['parent_id'] = $data['parent_id'];
 		$fields['add_time'] = date('Y-m-d H:i:s');
 		
@@ -24,7 +26,7 @@ class Category_model extends MY_Model {
 		}
 	}
 	
-	function update($id, $update_field = array()) {
+	public function update($id, $update_field = array()) {
 		if(empty($update_field)) {
 			return true;
 		}

@@ -60,31 +60,36 @@ class Category extends Admin_Controller {
 		}
 		
 		if(isset($_POST) && !empty($_POST)) {
-			foreach($_POST as $key => $val) {
-				if(in_array($key, array('submit'))) {
-					continue;
-				}
-				
-				if(in_array($key, array('parent_id'))) {
-					$data[$key] = intval($this->input->post($key));
-				} else {
-					$data[$key] = $this->input->post($key);
-				}
-			}
-			
-			$update_field = array();
-			foreach($data as $key => $val) {
-				if(($val != $catetory_info[$key])) {
-					$update_field[$key] = $val;
-				}
-			}
-			
-			if($this->category_model->update($id, $update_field)) {
-				$data['message']['ok'] = '更新成功! ';
-				show_result_page($data['message'], 'admin/category');
+			if(isset($_POST['remove']) && !empty($_POST['remove'])) {
+				$this->remove($id);
 				return true;
 			} else {
-				$data['message']['error'] = '分类添加失败, 请重试.';
+				foreach($_POST as $key => $val) {
+					if(in_array($key, array('submit', 'remove'))) {
+						continue;
+					}
+					
+					if(in_array($key, array('parent_id'))) {
+						$data[$key] = intval($this->input->post($key));
+					} else {
+						$data[$key] = $this->input->post($key);
+					}
+				}
+				
+				$update_field = array();
+				foreach($data as $key => $val) {
+					if(($val != $catetory_info[$key])) {
+						$update_field[$key] = $val;
+					}
+				}
+				
+				if($this->category_model->update($id, $update_field)) {
+					$data['message']['ok'] = '更新成功! ';
+					show_result_page($data['message'], 'admin/category');
+					return true;
+				} else {
+					$data['message']['error'] = '分类添加失败, 请重试.';
+				}
 			}
 		} else {
 			$data = $catetory_info;

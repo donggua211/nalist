@@ -68,7 +68,7 @@ function _template_tree_deep($array, $display_field, $selected = '', $depth = 0)
 	foreach($array as $key => $val) {
 		$prefix = '';
 		for($i = 1; $i < $depth; $i++) {
-			$prefix .= '　　';
+			$prefix .= ($i == 1 ? '┗' : '').'━';
 		}
 		echo '<option value="'.$key.'" '.($selected ==  $key ? 'SELECTED' : '').' >'.$prefix.$val[$display_field].'</option>';
 		
@@ -83,11 +83,13 @@ function template_tree_list($array, $display_field, $option_links = false, $dept
 	foreach($array as $key => $val) {
 		$prefix = '';
 		for($i = 1; $i < $depth; $i++) {
-			$prefix .= '— ';
+			$prefix .= ($i == 1 ? '┗' : '').'━';
 		}
 		echo '<tr>';
+		$index = 0;
 		foreach($display_field as $display_key) {
-			echo "<td>$prefix{$val[$display_key]}</td>\n";
+			echo "<td>".($index == 0 ? $prefix : '')."{$val[$display_key]}</td>\n";
+			$index ++;
 		}
 		
 		if($option_links !== FALSE && is_array($option_links)) {
