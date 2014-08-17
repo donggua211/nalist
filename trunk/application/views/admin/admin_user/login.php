@@ -2,7 +2,7 @@
 	<div class="header">
 		<div class="header-bd">
 			<div class="logo">
-				<h1 class="site-title"><a href="home.php" rel="home">Max美国代购管理</a></h1>
+				<h1 class="site-title"><a href="home.php" rel="home"><?php echo $site_name; ?></a></h1>
 			</div>
 		</div>
 	</div><!-- #header -->

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 08 月 14 日 06:48
+-- 生成日期: 2014 年 08 月 17 日 17:37
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -84,20 +84,20 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) NOT NULL,
   `category_name` varchar(32) NOT NULL,
-  `cat_slug` varchar(32) NOT NULL,
+  `category_slug` varchar(32) NOT NULL,
   `description` tinytext NOT NULL,
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- 转存表中的数据 `categories`
 --
 
-INSERT INTO `categories` (`id`, `parent_id`, `category_name`, `cat_slug`, `description`, `add_time`) VALUES
-(1, 0, '房屋', 'fangwu', 'æˆ¿å±‹ä¿¡æ¯', '0000-00-00 00:00:00'),
-(6, 0, '招聘', 'zhaopin', 'å…è´¹æ‹›è˜', '0000-00-00 00:00:00'),
-(10, 1, '二手房', 'ershouche', 'äºŒæ‰‹è½¦', '0000-00-00 00:00:00');
+INSERT INTO `categories` (`id`, `parent_id`, `category_name`, `category_slug`, `description`, `add_time`) VALUES
+(1, 0, '房屋', 'fangwu', '房屋', '0000-00-00 00:00:00'),
+(6, 0, '招聘', 'zhaopin', '招聘', '0000-00-00 00:00:00'),
+(12, 1, '租房', 'zufang', '租房', '2014-08-17 16:51:51');
 
 -- --------------------------------------------------------
 
@@ -221,22 +221,6 @@ INSERT INTO `site_configs` (`config_id`, `config_name`, `config_value`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `user_logs`
---
-
-DROP TABLE IF EXISTS `user_logs`;
-CREATE TABLE IF NOT EXISTS `user_logs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `action` varchar(100) NOT NULL,
-  `memo` varchar(255) NOT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `users`
 --
 
@@ -258,3 +242,19 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `created`, `modified`) VALUES
 (1, 1, 'donggua211', 'woaibaicai', 'donggua211@qq.com', '2013-10-19 00:46:34', '2013-10-19 00:46:34');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_logs`
+--
+
+DROP TABLE IF EXISTS `user_logs`;
+CREATE TABLE IF NOT EXISTS `user_logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `action` varchar(100) NOT NULL,
+  `memo` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

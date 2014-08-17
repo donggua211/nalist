@@ -21,9 +21,9 @@ $(function() {
 	});
 	
 	$( "input[name='remove']" ).click(function() {
-		return confirm("确定删除？");
+		return confirm("确定删除吗？");
 	});
 	$( ".remove" ).click(function() {
-		return confirm("确定删除？");
+		return confirm("确定删除吗？");
 	});
 });
