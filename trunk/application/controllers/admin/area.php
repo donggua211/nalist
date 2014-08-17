@@ -1,16 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Category extends Admin_Controller {
+class Area extends Admin_Controller {
 	
 	public function __construct() {
 		parent::__construct();
 		
-		$this->load->model('admin/category_model');
+		$this->load->model('admin/area_model');
 	}
 	
 	public function index() {
-		$data['category_list'] = $this->category_model->tree();
-		$this->load->admin_template('category/index', $data);
+		$data['area_list'] = $this->area_model->tree();
+		$this->load->admin_template('area/index', $data);
 	}
 	
 	public function add() {
@@ -27,14 +27,14 @@ class Category extends Admin_Controller {
 				}
 			}
 			
-			if(empty($data['category_name'])) {
+			if(empty($data['area_name'])) {
 				$data['message']['error'] = '名称不能为空.';
-			} elseif(empty($data['category_slug'])) {
+			} elseif(empty($data['area_slug'])) {
 				$data['message']['error'] = 'Slug不能为空.';
 			} else {
-				if($this->category_model->add($data)) {
+				if($this->area_model->add($data)) {
 					$data['message']['ok'] = '添加成功! ';
-					show_result_page($data['message'], 'admin/category');
+					show_result_page($data['message'], 'admin/area');
 					return true;
 				} else {
 					$data['message']['error'] = '添加失败, 请重试.';
@@ -42,22 +42,22 @@ class Category extends Admin_Controller {
 			}
 		}
 		
-		$data['category_list'] = $this->category_model->tree();
-		$this->load->admin_template('category/add', $data);
+		$data['area_list'] = $this->area_model->tree();
+		$this->load->admin_template('area/add', $data);
 	}
 	
 	public function edit($id = 0) {
 		$id = $this->input->get_post('id') ? $this->input->get_post('id') : $id;
 		if($id <= 0) {
 			$data['message']['error'] = '您输入的页面不存在, 请返回重试! ';
-			show_result_page($data['message'], 'admin/category');
+			show_result_page($data['message'], 'admin/area');
 			return false;
 		}
 		
-		$catetory_info = $this->category_model->one($id);
+		$catetory_info = $this->area_model->one($id);
 		if(empty($catetory_info)) {
 			$data['message']['error'] = '您输入的页面不存在, 请返回重试! ';
-			show_result_page($data['message'], 'admin/category');
+			show_result_page($data['message'], 'admin/area');
 			return false;
 		}
 		
@@ -85,11 +85,12 @@ class Category extends Admin_Controller {
 					}
 				}
 				
+				
 				if(isset($update_field['parent_id']) && $update_field['parent_id'] == $id) {
 					$data['message']['error'] = '不能选择自己为父级.';
-				} elseif($this->category_model->update($id, $update_field)) {
+				} elseif($this->area_model->update($id, $update_field)) {
 					$data['message']['ok'] = '更新成功! ';
-					show_result_page($data['message'], 'admin/category');
+					show_result_page($data['message'], 'admin/area');
 					return true;
 				} else {
 					$data['message']['error'] = '分类添加失败, 请重试.';
@@ -99,32 +100,32 @@ class Category extends Admin_Controller {
 			$data = $catetory_info;
 		}
 		
-		$data['category_list'] = $this->category_model->tree();
-		$this->load->admin_template('category/edit', $data);
+		$data['area_list'] = $this->area_model->tree();
+		$this->load->admin_template('area/edit', $data);
 	}
 
 	function remove($id = 0) {
 		$id = $this->input->get_post('id') ? $this->input->get_post('id') : $id;
 		if($id <= 0) {
 			$data['message']['error'] = '您输入的页面不存在, 请返回重试! ';
-			show_result_page($data['message'], 'admin/category');
+			show_result_page($data['message'], 'admin/area');
 			return false;
 		}
 		
-		$catetory_info = $this->category_model->one($id);
+		$catetory_info = $this->area_model->one($id);
 		if(empty($catetory_info)) {
 			$data['message']['error'] = '您输入的页面不存在, 请返回重试! ';
-			show_result_page($data['message'], 'admin/category');
+			show_result_page($data['message'], 'admin/area');
 			return false;
 		}
 		
-		if($this->category_model->remove($id)) {
+		if($this->area_model->remove($id)) {
 			$data['message']['ok'] = '删除成功! ';
 		} else {
 			$data['message']['error'] = '删除失败, 请重试.';
 		}
 		
-		show_result_page($data['message'], 'admin/category');
+		show_result_page($data['message'], 'admin/area');
 		return true;
 	}
 }
