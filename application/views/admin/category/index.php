@@ -1,4 +1,4 @@
-<h2 class="title">商品分类</h2>
+<h2 class="title">城市列表</h2>
 
 <div class="main-content">
 	<div class="act_list_box">
