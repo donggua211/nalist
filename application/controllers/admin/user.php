@@ -1,16 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Area extends Admin_Controller {
+class User extends Admin_Controller {
 	
 	public function __construct() {
 		parent::__construct();
 		
-		$this->load->model('admin/area_model');
+		$this->load->model('admin/user_model');
+		$this->load->model('admin/group_model');
 	}
 	
 	public function index() {
-		$data['area_list'] = $this->area_model->tree();
-		$this->load->admin_template('area/index', $data);
+		$data['user_list'] = $this->user_model->all();
+		$this->load->admin_template('user/index', $data);
 	}
 	
 	public function add() {
@@ -20,21 +21,25 @@ class Area extends Admin_Controller {
 					continue;
 				}
 				
-				if(in_array($key, array('parent_id'))) {
+				if(in_array($key, array('group_id'))) {
 					$data[$key] = intval($this->input->post($key));
 				} else {
 					$data[$key] = $this->input->post($key);
 				}
 			}
 			
-			if(empty($data['area_name'])) {
-				$data['message']['error'] = '名称不能为空.';
-			} elseif(empty($data['area_slug'])) {
-				$data['message']['error'] = 'Slug不能为空.';
+			if(empty($data['user_name'])) {
+				$data['message']['error'] = '用户名不能为空.';
+			} elseif(empty($data['password'])) {
+				$data['message']['error'] = '密码不能为空.';
+			}  elseif(empty($data['email'])) {
+				$data['message']['error'] = 'Email不能为空.';
+			} elseif(empty($data['group_id'])) {
+				$data['message']['error'] = '必须选择分组.';
 			} else {
-				if($this->area_model->add($data)) {
+				if($this->user_model->add($data)) {
 					$data['message']['ok'] = '添加成功! ';
-					show_result_page($data['message'], 'admin/area');
+					show_result_page($data['message'], 'admin/user');
 					return true;
 				} else {
 					$data['message']['error'] = '添加失败, 请重试.';
@@ -42,22 +47,23 @@ class Area extends Admin_Controller {
 			}
 		}
 		
-		$data['area_list'] = $this->area_model->tree();
-		$this->load->admin_template('area/add', $data);
+		$data['group_list'] = $this->group_model->all();
+		$data['user_list'] = $this->user_model->all();
+		$this->load->admin_template('user/add', $data);
 	}
 	
 	public function edit($id = 0) {
 		$id = $this->input->get_post('id') ? $this->input->get_post('id') : $id;
 		if($id <= 0) {
 			$data['message']['error'] = '您输入的页面不存在, 请返回重试! ';
-			show_result_page($data['message'], 'admin/area');
+			show_result_page($data['message'], 'admin/user');
 			return false;
 		}
 		
-		$area_info = $this->area_model->one($id);
-		if(empty($area_info)) {
+		$user_info = $this->user_model->one($id);
+		if(empty($user_info)) {
 			$data['message']['error'] = '您输入的页面不存在, 请返回重试! ';
-			show_result_page($data['message'], 'admin/area');
+			show_result_page($data['message'], 'admin/user');
 			return false;
 		}
 		
@@ -71,8 +77,10 @@ class Area extends Admin_Controller {
 						continue;
 					}
 					
-					if(in_array($key, array('parent_id'))) {
+					if(in_array($key, array('group_id'))) {
 						$data[$key] = intval($this->input->post($key));
+					} elseif(in_array($key, array('password'))) {
+						$data[$key] = md5($this->input->post($key));
 					} else {
 						$data[$key] = $this->input->post($key);
 					}
@@ -80,52 +88,52 @@ class Area extends Admin_Controller {
 				
 				$update_field = array();
 				foreach($data as $key => $val) {
-					if(($val != $area_info[$key])) {
+					if(($val != $user_info[$key])) {
 						$update_field[$key] = $val;
 					}
 				}
 				
-				
-				if(isset($update_field['parent_id']) && $update_field['parent_id'] == $id) {
-					$data['message']['error'] = '不能选择自己为父级.';
-				} elseif($this->area_model->update($id, $update_field)) {
+				if(empty($data['group_id'])) {
+					$data['message']['error'] = '必须选择分组.';
+				} elseif($this->user_model->update($id, $update_field)) {
 					$data['message']['ok'] = '更新成功! ';
-					show_result_page($data['message'], 'admin/area');
+					show_result_page($data['message'], 'admin/user');
 					return true;
 				} else {
 					$data['message']['error'] = '分类添加失败, 请重试.';
 				}
 			}
 		} else {
-			$data = $area_info;
+			$data = $user_info;
 		}
 		
-		$data['area_list'] = $this->area_model->tree();
-		$this->load->admin_template('area/edit', $data);
+		$data['group_list'] = $this->group_model->all();
+		$data['user_list'] = $this->user_model->all();
+		$this->load->admin_template('user/edit', $data);
 	}
 
 	function remove($id = 0) {
 		$id = $this->input->get_post('id') ? $this->input->get_post('id') : $id;
 		if($id <= 0) {
 			$data['message']['error'] = '您输入的页面不存在, 请返回重试! ';
-			show_result_page($data['message'], 'admin/area');
+			show_result_page($data['message'], 'admin/user');
 			return false;
 		}
 		
-		$area_info = $this->area_model->one($id);
-		if(empty($area_info)) {
+		$user_info = $this->user_model->one($id);
+		if(empty($user_info)) {
 			$data['message']['error'] = '您输入的页面不存在, 请返回重试! ';
-			show_result_page($data['message'], 'admin/area');
+			show_result_page($data['message'], 'admin/user');
 			return false;
 		}
 		
-		if($this->area_model->remove($id)) {
+		if($this->user_model->remove($id)) {
 			$data['message']['ok'] = '删除成功! ';
 		} else {
 			$data['message']['error'] = '删除失败, 请重试.';
 		}
 		
-		show_result_page($data['message'], 'admin/area');
+		show_result_page($data['message'], 'admin/user');
 		return true;
 	}
 }

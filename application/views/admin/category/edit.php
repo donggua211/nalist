@@ -4,11 +4,11 @@
 	<div class="edit-form main-content">
 		<ul>
 			<li>
-				<label for="bangumiid">分类名称:</label>
+				<label for="category_name">分类名称:</label>
 				<p><input type="text" value="<?php echo isset($category_name) ? $category_name : ''; ?>"  name="category_name"></p>
 			</li>
 			<li>
-				<label for="bangumiid">分类 Slug:</label>
+				<label for="category_slug">分类 Slug:</label>
 				<p><input type="text" value="<?php echo isset($category_slug) ? $category_slug : ''; ?>"  name="category_slug"></p>
 			</li>
 			<li>

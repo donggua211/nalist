@@ -6,8 +6,6 @@ class Area_model extends MY_Model {
 	
 	public function __construct() {
 		parent::__construct();
-		
-		
 	}
 	
 	public function add($data) {
@@ -80,7 +78,7 @@ class Area_model extends MY_Model {
 		if ($query->num_rows() > 0) {
 			return $query->row_array();
 		} else {
-			return false;
+			return array();
 		}
 	}
 	
