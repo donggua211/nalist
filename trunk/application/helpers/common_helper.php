@@ -52,7 +52,20 @@ function array_2_tree(&$array) {
 /*
  Common Template Functions
 */
-function template_tree_select($array, $display_field, $selected = '', $top_option = FALSE, $select_id = 'parent_id') {
+function template_select($array, $display_field, $selected = '', $select_id, $top_option = FALSE) {
+	echo '<select name="'.$select_id.'">';
+		if($top_option !== FALSE) {
+			echo '<option value="">'.$top_option.'</option>';
+		}
+		
+		foreach($array as $key => $val) {
+			echo '<option value="'.$key.'" '.($selected ==  $key ? 'SELECTED' : '').' >'.$val[$display_field].'</option>';
+		}
+		
+	echo '</select>';
+}
+
+function template_tree_select($array, $display_field, $selected = '', $select_id = 'parent_id', $top_option = FALSE) {
 	echo '<select name="'.$select_id.'">';
 		if($top_option !== FALSE) {
 			echo '<option value="">'.$top_option.'</option>';

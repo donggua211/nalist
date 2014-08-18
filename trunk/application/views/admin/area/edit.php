@@ -4,11 +4,11 @@
 	<div class="edit-form main-content">
 		<ul>
 			<li>
-				<label for="bangumiid">城市名称:</label>
+				<label for="area_name">城市名称:</label>
 				<p><input type="text" value="<?php echo isset($area_name) ? $area_name : ''; ?>"  name="area_name"></p>
 			</li>
 			<li>
-				<label for="bangumiid">城市 Slug:</label>
+				<label for="area_slug">城市 Slug:</label>
 				<p><input type="text" value="<?php echo isset($area_slug) ? $area_slug : ''; ?>"  name="area_slug"></p>
 			</li>
 			<li>

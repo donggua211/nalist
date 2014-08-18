@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 08 月 17 日 17:37
+-- 生成日期: 2014 年 08 月 18 日 06:32
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -48,30 +48,27 @@ INSERT INTO `admin_users` (`id`, `user_name`, `password`, `email`, `add_time`) V
 DROP TABLE IF EXISTS `areas`;
 CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `areaname` varchar(50) NOT NULL,
-  `slug` varchar(50) NOT NULL,
+  `area_name` varchar(50) NOT NULL,
+  `area_slug` varchar(50) NOT NULL,
   `type` enum('state','county','city','town') NOT NULL,
-  `parent_id` int(11) DEFAULT NULL,
-  `lft` int(11) NOT NULL,
-  `rght` int(11) NOT NULL,
-  `level` tinyint(4) NOT NULL DEFAULT '1',
+  `parent_id` int(11) NOT NULL,
   `display_order` int(11) NOT NULL DEFAULT '100',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- 转存表中的数据 `areas`
 --
 
-INSERT INTO `areas` (`id`, `areaname`, `slug`, `type`, `parent_id`, `lft`, `rght`, `level`, `display_order`) VALUES
-(1, 'California', 'california', 'state', NULL, 1, 12, 1, 100),
-(2, 'los angeles', 'losangeles', 'county', 1, 2, 9, 2, 100),
-(3, 'Walnut', 'walnut', 'city', 2, 3, 4, 3, 100),
-(4, 'Rowland Height', 'rowlandheight', 'city', 2, 5, 6, 3, 100),
-(5, 'Diamond Bar', 'diamondbar', 'city', 2, 7, 8, 3, 100),
-(6, 'New York', 'ny', 'state', NULL, 13, 16, 1, 100),
-(7, 'walnut', 'walnut', 'city', 6, 14, 15, 2, 100),
-(8, 'Walnut', 'walnut', 'county', 1, 10, 11, 2, 100);
+INSERT INTO `areas` (`id`, `area_name`, `area_slug`, `type`, `parent_id`, `display_order`) VALUES
+(1, 'California', 'california', 'state', 0, 100),
+(2, 'los angeles', 'losangeles', 'county', 1, 100),
+(3, 'Walnut', 'walnut', 'city', 2, 100),
+(5, 'Diamond Bar', 'diamondbar', 'city', 2, 100),
+(6, 'New York1', 'ny', 'state', 0, 100),
+(7, 'walnut', 'walnut', 'city', 6, 100),
+(8, 'Walnut', 'walnut', 'county', 1, 100),
+(9, 'Time Squair', 'time_squair', 'city', 7, 100);
 
 -- --------------------------------------------------------
 
@@ -135,8 +132,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_name` varchar(20) NOT NULL,
   `permission` tinytext NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
@@ -144,8 +140,8 @@ CREATE TABLE IF NOT EXISTS `groups` (
 -- 转存表中的数据 `groups`
 --
 
-INSERT INTO `groups` (`id`, `group_name`, `permission`, `created`, `modified`) VALUES
-(1, 'normal', 'all', '2013-10-19 00:45:34', '2013-10-19 00:46:09');
+INSERT INTO `groups` (`id`, `group_name`, `permission`, `add_time`) VALUES
+(1, 'normal', 'all', '2013-10-19 00:45:34');
 
 -- --------------------------------------------------------
 
@@ -228,20 +224,21 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
-  `username` varchar(20) NOT NULL,
+  `user_name` varchar(20) NOT NULL,
   `password` char(40) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `add_time` datetime NOT NULL,
+  `modified_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `users`
 --
 
-INSERT INTO `users` (`id`, `group_id`, `username`, `password`, `email`, `created`, `modified`) VALUES
-(1, 1, 'donggua211', 'woaibaicai', 'donggua211@qq.com', '2013-10-19 00:46:34', '2013-10-19 00:46:34');
+INSERT INTO `users` (`id`, `group_id`, `user_name`, `password`, `email`, `add_time`, `modified_time`) VALUES
+(1, 1, 'donggua211', 'woaibaicai', 'donggua211@qq.com', '2013-10-19 00:46:34', '2013-10-19 00:46:34'),
+(2, 1, 'woaibaicai', 'e19347e1c3ca0c0b97de5fb3b690855a', 'baicai1115@qq.com', '2014-08-18 06:29:02', '2014-08-18 06:31:30');
 
 -- --------------------------------------------------------
 
