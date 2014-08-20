@@ -13,7 +13,7 @@
 			</li>
 			<li>
 				<label>父级:</label>
-				<p><?php template_tree_select($category_list, 'category_name', $parent_id, '无'); ?></p>
+				<p><?php template_tree_select($category_list, 'category_name', $parent_id, 'parent_id', '无'); ?></p>
 			</li>
 			<li class="textarea off">
 				<label>简介:</label>
