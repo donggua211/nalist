@@ -2461,3 +2461,116 @@ section[role="banner"] {
 @media screen and (min-width: 960px) {
 	
 }
+
+
+
+.filter-option-wrap {
+	margin: 10px auto;
+	padding: 10px;
+	width: 500px;
+	border: 1px solid #d6c881;
+	border-radius: 5px;
+}
+.filter-option-subtitle {
+	border-bottom: 2px solid #ffcb00;
+    margin-bottom: 8px;
+	position: relative;
+}
+.filter-option-subtitle span {
+	background: url("../image/admin/widget-ttl-icon.gif") no-repeat 5px 0;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 35px;
+	font-size: 12px;
+    font-weight: 700;
+	width: 385px;
+}
+span.filter-option-subtitle-p {
+	background-position: 5px -30px;
+}
+.filter-option-list {
+    border-top: 1px solid #ccc;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    width: 100%;
+}
+.filter-option-list dl {
+    border-top: 1px solid #ccc;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    width: 100%;
+}
+.filter-option-list dl:first-child {
+    border-top: 0 none;
+}
+.filter-option-list dl dt {
+    background-color: #fefacd;
+    border: 1px solid #f8f2bb;
+    border-radius: 3px;
+    display: table-cell;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px;
+    vertical-align: top;
+}
+.filter-option-list dl dt  {
+	width: 100px;
+}
+.filter-option-list dl input {
+	width: 80px;
+}
+.filter-option-list dl dd {
+    display: table-cell;
+    padding: 3px 0 3px 10px;
+    vertical-align: middle;
+}
+.filter-option-list dl dd.list-value {
+    width: 285px;
+}
+.filter-option-list dl dd.list-value input{
+    width: 265px;
+}
+.filter-option-list input[type="text"] {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    padding: 2px 6px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+.filter-option-list input[type="text"]:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+.filter-option-button {
+	text-align: center;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+}
+.filter-option-button a{
+	font-size: 12px;
+    padding: 5px 15px 5px 30px;
+	height: 25px;
+    line-height: 25px;
+	border-radius: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    border: 1px solid #c4c2ba;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px #fff inset;
+    color: #333;
+    text-decoration: none;
+    text-shadow: 0 1px 1px #fff;
+}
+.filter-option-button a:hover {
+    opacity: 0.75;
+}
+.filter-option-button .add-option {
+	background: url(../image/admin/add.gif) no-repeat 5px center ;
+}
+.filter-option-button .remove-option {
+	background: url(../image/admin/remove.gif) no-repeat 5px center ;
+}

@@ -2,16 +2,16 @@
 -- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- 主机: localhost
--- 生成日期: 2014 年 08 月 18 日 06:32
--- 服务器版本: 5.6.12-log
--- PHP 版本: 5.4.12
+-- Host: localhost
+-- Generation Time: Jan 01, 2015 at 11:55 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- 数据库: `nalist`
+-- Database: `nalist`
 --
 CREATE DATABASE IF NOT EXISTS `nalist` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `nalist`;
@@ -19,7 +19,7 @@ USE `nalist`;
 -- --------------------------------------------------------
 
 --
--- 表的结构 `admin_users`
+-- Table structure for table `admin_users`
 --
 
 DROP TABLE IF EXISTS `admin_users`;
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `admin_users`
+-- Dumping data for table `admin_users`
 --
 
 INSERT INTO `admin_users` (`id`, `user_name`, `password`, `email`, `add_time`) VALUES
@@ -42,7 +42,7 @@ INSERT INTO `admin_users` (`id`, `user_name`, `password`, `email`, `add_time`) V
 -- --------------------------------------------------------
 
 --
--- 表的结构 `areas`
+-- Table structure for table `areas`
 --
 
 DROP TABLE IF EXISTS `areas`;
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `areas` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- 转存表中的数据 `areas`
+-- Dumping data for table `areas`
 --
 
 INSERT INTO `areas` (`id`, `area_name`, `area_slug`, `type`, `parent_id`, `display_order`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `areas` (`id`, `area_name`, `area_slug`, `type`, `parent_id`, `displ
 -- --------------------------------------------------------
 
 --
--- 表的结构 `categories`
+-- Table structure for table `categories`
 --
 
 DROP TABLE IF EXISTS `categories`;
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
--- 转存表中的数据 `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `parent_id`, `category_name`, `category_slug`, `description`, `add_time`) VALUES
@@ -99,32 +99,48 @@ INSERT INTO `categories` (`id`, `parent_id`, `category_name`, `category_slug`, `
 -- --------------------------------------------------------
 
 --
--- 表的结构 `filters`
+-- Table structure for table `filters`
 --
 
 DROP TABLE IF EXISTS `filters`;
 CREATE TABLE IF NOT EXISTS `filters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) NOT NULL,
-  `key` varchar(50) NOT NULL,
-  `title` varchar(150) NOT NULL,
-  `type` enum('select','radio','checkbox','input','number') NOT NULL,
-  `rule` text,
+  `filter_key` varchar(50) NOT NULL,
+  `filter_name` varchar(150) NOT NULL,
+  `type` enum('select','radio','checkbox','text','number') NOT NULL,
+  `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- 转存表中的数据 `filters`
+-- Dumping data for table `filters`
 --
 
-INSERT INTO `filters` (`id`, `category_id`, `key`, `title`, `type`, `rule`) VALUES
-(1, 1, 'rent_type', 'å‡ºç§Ÿæ–¹å¼', 'radio', 'æ•´å¥—å‡ºç§Ÿ,å•é—´å‡ºç§Ÿ,åºŠä½å‡ºç§Ÿ'),
-(2, 1, 'rent_fee', 'ç§Ÿé‡‘', 'number', '');
+INSERT INTO `filters` (`id`, `category_id`, `filter_key`, `filter_name`, `type`, `add_time`) VALUES
+(2, 1, 'rent_fee', '租金', 'number', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `groups`
+-- Table structure for table `filter_options`
+--
+
+DROP TABLE IF EXISTS `filter_options`;
+CREATE TABLE IF NOT EXISTS `filter_options` (
+  `option_id` int(11) NOT NULL AUTO_INCREMENT,
+  `filter_id` int(11) NOT NULL,
+  `option_name` varchar(50) NOT NULL,
+  `option_value` varchar(50) NOT NULL,
+  `display_order` int(11) NOT NULL DEFAULT '100',
+  `add_time` datetime NOT NULL,
+  PRIMARY KEY (`option_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `groups`
 --
 
 DROP TABLE IF EXISTS `groups`;
@@ -134,19 +150,20 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `permission` tinytext NOT NULL,
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `groups`
+-- Dumping data for table `groups`
 --
 
 INSERT INTO `groups` (`id`, `group_name`, `permission`, `add_time`) VALUES
-(1, 'normal', 'all', '2013-10-19 00:45:34');
+(1, 'normal', 'all', '2013-10-19 00:45:34'),
+(2, 'admin', 'admin', '2014-12-26 00:09:08');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `info`
+-- Table structure for table `info`
 --
 
 DROP TABLE IF EXISTS `info`;
@@ -164,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `info` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `info`
+-- Dumping data for table `info`
 --
 
 INSERT INTO `info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `description`, `status`, `created`, `modified`) VALUES
@@ -173,7 +190,7 @@ INSERT INTO `info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `descrip
 -- --------------------------------------------------------
 
 --
--- 表的结构 `info_filters`
+-- Table structure for table `info_filters`
 --
 
 DROP TABLE IF EXISTS `info_filters`;
@@ -186,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `info_filters` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- 转存表中的数据 `info_filters`
+-- Dumping data for table `info_filters`
 --
 
 INSERT INTO `info_filters` (`id`, `info_id`, `filter_id`, `value`) VALUES
@@ -196,7 +213,7 @@ INSERT INTO `info_filters` (`id`, `info_id`, `filter_id`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `site_configs`
+-- Table structure for table `site_configs`
 --
 
 DROP TABLE IF EXISTS `site_configs`;
@@ -208,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `site_configs` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `site_configs`
+-- Dumping data for table `site_configs`
 --
 
 INSERT INTO `site_configs` (`config_id`, `config_name`, `config_value`) VALUES
@@ -217,7 +234,7 @@ INSERT INTO `site_configs` (`config_id`, `config_name`, `config_value`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `users`
+-- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
@@ -233,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `group_id`, `user_name`, `password`, `email`, `add_time`, `modified_time`) VALUES
@@ -243,7 +260,7 @@ INSERT INTO `users` (`id`, `group_id`, `user_name`, `password`, `email`, `add_ti
 -- --------------------------------------------------------
 
 --
--- 表的结构 `user_logs`
+-- Table structure for table `user_logs`
 --
 
 DROP TABLE IF EXISTS `user_logs`;

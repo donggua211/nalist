@@ -45,7 +45,7 @@
 <div class="header">
 	<div class="header-bd">
 		<div class="logo">
-			<h1 class="site-title"><a href="home.php" rel="home"><?php echo $site_name; ?></a></h1>
+			<h1 class="site-title"><a href="<?php echo site_url('admin'); ?>" rel="home"><?php echo $site_name; ?></a></h1>
 		</div>
 	</div>
 </div><!-- #header -->
