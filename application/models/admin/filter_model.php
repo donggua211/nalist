@@ -14,7 +14,7 @@ class Filter_model extends MY_Model {
 		$fields['add_time'] = date('Y-m-d H:i:s');
 		
 		if($this->db->insert('filters', $fields)) {
-			return true;
+			return $this->db->insert_id();
 		} else {
 			return false;
 		}
@@ -63,7 +63,12 @@ class Filter_model extends MY_Model {
 	}
 	
 	public function remove($id) {
-		return $this->db->delete('filters', array('id' => $id)); 
+		if($this->db->delete('filters', array('id' => $id))) {
+			 $this->db->delete('filter_options', array('filter_id' => $id));
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 ?>
