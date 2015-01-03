@@ -79,8 +79,10 @@ class User extends Admin_Controller {
 					
 					if(in_array($key, array('group_id'))) {
 						$data[$key] = intval($this->input->post($key));
-					} elseif(in_array($key, array('password'))) {
-						$data[$key] = md5($this->input->post($key));
+					} elseif($key == 'password') {
+						if(!empty($val)) {
+							$data[$key] = md5($this->input->post($key));
+						}
 					} else {
 						$data[$key] = $this->input->post($key);
 					}

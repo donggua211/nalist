@@ -361,7 +361,7 @@ h2.title {
 	border-right: 1px solid #dfdfdf;
 	border-top: 1px solid #dfdfdf;
 }
-h2.sub-title {
+.sub-title {
 	margin: 10px 0;
 	display: inline-block;
 	height: 25px;
@@ -389,6 +389,18 @@ div.sub-title {
 	z-index: 1;
 	font-size: 14px;
 	color: #444;
+}
+.title-style1 {
+	color: #e8352e;
+	background: #fae4e3;
+}
+.title-style2 {
+	color: #b37d09;
+	background: #faeccc;
+}
+.title-style3 {
+	color: #488000;
+	background: #f0f4cf;
 }
 
 /* Home */

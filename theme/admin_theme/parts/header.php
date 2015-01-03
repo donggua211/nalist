@@ -13,11 +13,11 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="content-script-type" content="Javascript" />
 	<title><?php $page_title = isset($page_title) ? $page_title : ''; template_page_title($site_name, $page_title); ?></title>
-	<script type="text/javascript" src="<?php echo __THEME_URI__; ?>asset/js/jquery-2.1.1.js"></script>
-	<script type="text/javascript" src="<?php echo __THEME_URI__; ?>asset/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="<?php echo __THEME_URI__; ?>assets/js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="<?php echo __THEME_URI__; ?>assets/js/jquery.cookie.js"></script>
 	
-	<link rel="stylesheet" href="<?php echo __THEME_URI__; ?>asset/admin_style.css" type="text/css" media="all" />
-	<script type="text/javascript" src="<?php echo __THEME_URI__; ?>asset/js/admin.js"></script>
+	<link rel="stylesheet" href="<?php echo __THEME_URI__; ?>assets/admin_style.css" type="text/css" media="all" />
+	<script type="text/javascript" src="<?php echo __THEME_URI__; ?>assets/js/admin.js"></script>
 </head>
 
 <body>

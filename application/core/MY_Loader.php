@@ -29,9 +29,7 @@ class MY_Loader extends CI_Loader {
 		
 		$vars = array_merge($CI->template_data, $vars);
 		
-		$content  = $this->view('parts/header', $vars, $return);
-        $content .= $this->view($template_name, $vars, $return);
-        $content .= $this->view('parts/footer', $vars, $return);
+        $content = $this->view($template_name, $vars, $return);
 
         if ($return) {
             return $content;

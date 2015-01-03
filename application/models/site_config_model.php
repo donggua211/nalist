@@ -38,6 +38,10 @@ class Site_config_model extends MY_Model {
 		return TRUE;
 	}
 	
+	function get_all_config() {
+		return $this->config;
+	}
+	
 	function get_config($config_name) {
 		if(array_key_exists($config_name, $this->config)) {
 			return $this->config[$config_name];
@@ -52,10 +56,19 @@ class Site_config_model extends MY_Model {
 		}
 		
 		foreach($update_field as $key => $val){
-			$this->db->where('config_name', $key);
-			$this->db->update('site_configs', array('config_value' => $val));
+			if($this->get_config($key) === FALSE) {
+				$fields = array(
+					'config_name' => $key,
+					'config_value' => $val,
+				);
+				$this->db->insert('site_configs', $fields);
+			} else {
+				$this->db->where('config_name', $key);
+				$this->db->update('site_configs', array('config_value' => $val));
+			}
 		}
 		
+		$this->site_config_cache_update();
 		return true;
 	}
 }
