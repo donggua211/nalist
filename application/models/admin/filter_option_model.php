@@ -10,6 +10,7 @@ class Filter_option_model extends MY_Model {
 		$fields['filter_id'] = $data['filter_id'];
 		$fields['option_name'] = $data['option_name'];
 		$fields['option_value'] = $data['option_value'];
+		$fields['display_order'] = $data['display_order'];
 		$fields['add_time'] = date('Y-m-d H:i:s');
 		
 		if($this->db->insert('filter_options', $fields)) {

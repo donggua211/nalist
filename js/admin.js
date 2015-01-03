@@ -5,11 +5,11 @@ $(function() {
 		$( this ).next().toggleClass( "hide" );
 		
 		if ($(this).next().is(':visible')) {
-			$.cookie($(this).attr('id'), 'expanded');
+			$.cookie($(this).attr('id'), 'expanded', {path: '/'});
 		}
 
 		if ($(this).next().is(':hidden')) {
-			$.cookie($(this).attr('id'), 'collapsed');
+			$.cookie($(this).attr('id'), 'collapsed', {path: '/'});
 		}
 	});
 	$("h3.menu-bar").each(function() {

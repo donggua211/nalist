@@ -27,10 +27,17 @@
 				<div class="filter-option-button"><a class="add-option">New</a></div>
 			</div>
 			<div class="filter-option-list">
+				<dl> 
+					<dt>Option Name</dt>
+					<dd class="list-value">Option Value</dd>
+					<dd class="list-value">Display Order</dd>
+					<dd class="filter-option-button">Remove</dd>
+				</dl>
 				<?php foreach($option_list as $val): ?>
 				<dl> 
 					<dt><?php echo $val['option_name']; ?></dt>
 					<dd class="list-value"><?php echo $val['option_value']; ?></dd>
+					<dd class="list-value"><?php echo $val['display_order']; ?></dd>
 					<dd class="filter-option-button"><a id="<?php echo $val['option_id']; ?>" class="remove-option" onClick="return remove_option(this);">remove</a></dd>
 				</dl>
 				<?php endforeach; ?>
@@ -52,7 +59,7 @@
 	//ready function
 	$(document).ready(function(){
 		$( ".add-option" ).click(function() {
-			var html = '<dl><dt><input name="option_name[]" type="text"></dt><dd class="list-value"><input name="option_value[]" type="text"></dd><dd class="filter-option-button"><a class="remove-option" onClick="return remove_option(this);" id="">remove</a></dd></dl>';
+			var html = '<dl><dt><input name="option_name[]" type="text"></dt><dd class="list-value"><input name="option_value[]" type="text"></dd><dd class="list-value"><input name="display_order[]" type="text" value="100"></dd><dd class="filter-option-button"><a class="remove-option" onClick="return remove_option(this);" id="">remove</a></dd></dl>';
 			
 			$(html).appendTo(".filter-option-list").hide().fadeIn().find('input:first').focus();
 			

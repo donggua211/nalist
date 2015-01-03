@@ -2515,7 +2515,7 @@ span.filter-option-subtitle-p {
     vertical-align: top;
 }
 .filter-option-list dl dt  {
-	width: 100px;
+	width: 120px;
 }
 .filter-option-list dl input {
 	width: 80px;
@@ -2526,10 +2526,10 @@ span.filter-option-subtitle-p {
     vertical-align: middle;
 }
 .filter-option-list dl dd.list-value {
-    width: 285px;
+    width: 120px;
 }
 .filter-option-list dl dd.list-value input{
-    width: 265px;
+    width: 100px;
 }
 .filter-option-list input[type="text"] {
     background-color: #fff;
