@@ -31,6 +31,9 @@ class Admin_User extends Admin_Controller {
 				$admin_id = $this->admin_user_model->check_login($data['user_name'], $data['password']);
 				
 				if($admin_id > 0) {
+					$this->session->sess_expiration = 60 * 60 * 24;
+					$this->session->sess_expire_on_close = TRUE;
+					
 					$session_data = array('admin_id' => $admin_id);
 					$this->session->set_userdata($session_data);
 					
