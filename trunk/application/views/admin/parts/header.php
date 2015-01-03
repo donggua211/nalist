@@ -33,11 +33,9 @@
 			<li><a href="<?php echo site_url('admin/admin_user/logout'); ?>">退出</a></li>
 		</ul>
 		<ul class="left-ul">
-			<li><a href="<?php echo site_url('admin/product'); ?>">商品列表</a></li>
+			<li><a href="<?php echo site_url('admin/info'); ?>">信息列表</a></li>
 			<li class="gap"></li>
-			<li><a href="<?php echo site_url('admin/user'); ?>">顾客列表</a></li>
-			<li class="gap"></li>
-			<li><a href="<?php echo site_url('admin/order'); ?>">订单列表</a></li>
+			<li><a href="<?php echo site_url('admin/area'); ?>">城市列表</a></li>
 		</ul>
 	</div>
 </div>

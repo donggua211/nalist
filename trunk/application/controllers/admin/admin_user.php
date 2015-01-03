@@ -55,4 +55,39 @@ class Admin_User extends Admin_Controller {
 		$this->session->sess_destroy();
 		redirect('admin/admin_user/login');
 	}
+	
+	
+	public function password() {
+		if(isset($_POST) && !empty($_POST)) {
+			foreach($_POST as $key => $val) {
+				if(in_array($key, array('submit'))) {
+					continue;
+				}
+				
+				$data[$key] = $this->input->post($key);
+			}
+			
+			$admin_id = $this->session->userdata('admin_id');
+			if($data['password_new'] != $data['password_new_c']) {
+				$data['message']['error'] = '2次新密码输入一样, 请返回重试.';
+			} elseif(!$this->admin_user_model->check_password($admin_id, $data['password'])) {
+				$data['message']['error'] = '旧密码输入有误!';
+			} else {
+				$update_field = array(
+					'password' => md5($data['password_new']),
+				);
+				if($this->admin_user_model->update($admin_id, $update_field)) {
+					$data['message']['ok'] = '更新成功! ';
+					show_result_page($data['message'], 'admin/home');
+					return true;
+				} else {
+					$data['message']['error'] = '更新失败, 请重试.';
+				}
+			}
+		} else {
+			$data = array();
+		}
+		
+		$this->load->admin_template('admin_user/password', $data);
+	}
 }

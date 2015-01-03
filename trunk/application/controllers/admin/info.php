@@ -5,7 +5,9 @@ class Info extends Admin_Controller {
 	public function __construct() {
 		parent::__construct();
 		
+		$this->load->model('admin/area_model');
 		$this->load->model('admin/category_model');
+		$this->load->model('admin/user_model');
 		$this->load->model('admin/info_model');
 	}
 	
@@ -28,12 +30,14 @@ class Info extends Admin_Controller {
 				}
 			}
 			
-			if(empty($data['info_name'])) {
-				$data['message']['error'] = '过滤器名称不能为空.';
-			} elseif(empty($data['info_key'])) {
-				$data['message']['error'] = '过滤器Key不能为空.';
+			if(empty($data['title'])) {
+				$data['message']['error'] = 'Title不能为空.';
 			} elseif(empty($data['category_id'])) {
-				$data['message']['error'] = '必须选择一个分类.';
+				$data['message']['error'] = '必须选择一个Category.';
+			} elseif(empty($data['area_id'])) {
+				$data['message']['error'] = '必须选择一个Area.';
+			} elseif(empty($data['user_id'])) {
+				$data['message']['error'] = '必须选择一个User.';
 			} else {
 				if($this->info_model->add($data)) {
 					$data['message']['ok'] = '添加成功! ';
@@ -46,7 +50,8 @@ class Info extends Admin_Controller {
 		}
 		
 		$data['category_list'] = $this->category_model->tree();
-		$data['info_list'] = $this->info_model->all();
+		$data['area_list'] = $this->area_model->tree();
+		$data['user_list'] = $this->user_model->all();
 		$this->load->admin_template('info/add', $data);
 	}
 	
@@ -90,7 +95,7 @@ class Info extends Admin_Controller {
 					show_result_page($data['message'], 'admin/info');
 					return true;
 				} else {
-					$data['message']['error'] = '分类添加失败, 请重试.';
+					$data['message']['error'] = '添加失败, 请重试.';
 				}
 			}
 		} else {
@@ -98,7 +103,8 @@ class Info extends Admin_Controller {
 		}
 		
 		$data['category_list'] = $this->category_model->tree();
-		$data['info_list'] = $this->info_model->all();
+		$data['area_list'] = $this->area_model->tree();
+		$data['user_list'] = $this->user_model->all();
 		$this->load->admin_template('info/edit', $data);
 	}
 

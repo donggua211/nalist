@@ -40,15 +40,21 @@ class Filter extends Admin_Controller {
 				if(!empty($id)) {
 					//Update filter option.
 					if(isset($_POST['option_name'])) {
-						foreach($_POST['option_name'] as $key => $val) {
-							if(empty($_POST['option_name'][$key]) || empty($_POST['option_value'][$key])) {
+						$option_name_arr = $this->input->post('option_name');
+						$option_value_arr = $this->input->post('option_value');
+						$display_order_arr = $this->input->post('display_order');
+						
+						foreach($option_name_arr as $key => $val) {
+							if(empty($option_name_arr[$key]) || empty($option_value_arr[$key])) {
 								continue;
 							}
 							
+							$display_order = !empty($display_order_arr[$key]) ? $display_order_arr[$key] : 100;
 							$option_data = array(
 								'filter_id' => $id,
-								'option_name' => $_POST['option_name'][$key],
-								'option_value' => $_POST['option_value'][$key],
+								'option_name' => $option_name_arr[$key],
+								'option_value' => $option_value_arr[$key],
+								'display_order' => $display_order,
 							);
 							$this->filter_option_model->add($option_data);
 						}
@@ -89,7 +95,7 @@ class Filter extends Admin_Controller {
 				return true;
 			} else {
 				foreach($_POST as $key => $val) {
-					if(in_array($key, array('submit', 'remove', 'option_name', 'option_value'))) {
+					if(in_array($key, array('submit', 'remove', 'option_name', 'option_value', 'display_order'))) {
 						continue;
 					}
 					
@@ -106,15 +112,21 @@ class Filter extends Admin_Controller {
 				if($this->filter_model->update($id, $update_field)) {
 					//Update filter option.
 					if(isset($_POST['option_name'])) {
-						foreach($_POST['option_name'] as $key => $val) {
-							if(empty($_POST['option_name'][$key]) || empty($_POST['option_value'][$key])) {
+						$option_name_arr = $this->input->post('option_name');
+						$option_value_arr = $this->input->post('option_value');
+						$display_order_arr = $this->input->post('display_order');
+						
+						foreach($option_name_arr as $key => $val) {
+							if(empty($option_name_arr[$key]) || empty($option_value_arr[$key])) {
 								continue;
 							}
 							
+							$display_order = !empty($display_order_arr[$key]) ? $display_order_arr[$key] : 100;
 							$option_data = array(
 								'filter_id' => $id,
-								'option_name' => $_POST['option_name'][$key],
-								'option_value' => $_POST['option_value'][$key],
+								'option_name' => $option_name_arr[$key],
+								'option_value' => $option_value_arr[$key],
+								'display_order' => $display_order,
 							);
 							$this->filter_option_model->add($option_data);
 						}

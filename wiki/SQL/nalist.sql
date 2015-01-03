@@ -1,20 +1,18 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 3.4.10.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 01, 2015 at 11:55 PM
--- Server version: 5.6.12-log
--- PHP Version: 5.4.12
+-- Generation Time: Jan 03, 2015 at 12:20 AM
+-- Server version: 5.5.20
+-- PHP Version: 5.3.10
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
 -- Database: `nalist`
 --
-CREATE DATABASE IF NOT EXISTS `nalist` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `nalist`;
 
 -- --------------------------------------------------------
 
@@ -37,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `user_name`, `password`, `email`, `add_time`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'donggua211@qq.com', '2013-10-17 23:14:39');
+(1, 'admin', '6512bd43d9caa6e02c990b0a82652dca', 'donggua211@qq.com', '2013-10-17 23:14:39');
 
 -- --------------------------------------------------------
 
@@ -111,14 +109,14 @@ CREATE TABLE IF NOT EXISTS `filters` (
   `type` enum('select','radio','checkbox','text','number') NOT NULL,
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `filters`
 --
 
 INSERT INTO `filters` (`id`, `category_id`, `filter_key`, `filter_name`, `type`, `add_time`) VALUES
-(2, 1, 'rent_fee', '租金', 'number', '0000-00-00 00:00:00');
+(4, 12, 'rent_type', '租房种类', '', '2015-01-02 23:02:28');
 
 -- --------------------------------------------------------
 
@@ -135,7 +133,15 @@ CREATE TABLE IF NOT EXISTS `filter_options` (
   `display_order` int(11) NOT NULL DEFAULT '100',
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`option_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `filter_options`
+--
+
+INSERT INTO `filter_options` (`option_id`, `filter_id`, `option_name`, `option_value`, `display_order`, `add_time`) VALUES
+(7, 4, 'duanzu', '1', 100, '2015-01-02 23:02:28'),
+(8, 4, 'rizu', '2', 1, '2015-01-02 23:02:29');
 
 -- --------------------------------------------------------
 
@@ -175,17 +181,18 @@ CREATE TABLE IF NOT EXISTS `info` (
   `title` varchar(30) NOT NULL,
   `description` mediumtext NOT NULL,
   `status` tinyint(4) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `add_time` datetime NOT NULL,
+  `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `info`
 --
 
-INSERT INTO `info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `description`, `status`, `created`, `modified`) VALUES
-(1, 3, 1, 1, 'æ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜', 'æ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜\r\næ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜ 1\r\næ´›æ‰çŸ¶åœ°åŒºå…¨èŒæ‹›è˜ 2', 1, '2013-10-22 23:22:58', '2014-07-25 23:18:57');
+INSERT INTO `info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `description`, `status`, `add_time`, `update_date`) VALUES
+(1, 9, 12, 2, '测试的信息', '描述 描述1', 0, '2013-10-22 23:22:58', '2015-01-02 23:51:41'),
+(2, 3, 6, 2, '测试的信息 22', 'user_iduser_iduser_id', 1, '2015-01-02 23:51:03', '2015-01-02 23:51:03');
 
 -- --------------------------------------------------------
 
