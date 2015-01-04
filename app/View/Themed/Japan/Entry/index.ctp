@@ -13,4 +13,4 @@ $this->Html->css('entry_index', null, array('inline' => false));
 		</ul>
 	</div>
 <?php endforeach; ?>
-</ul>
+</div>
