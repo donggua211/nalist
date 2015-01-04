@@ -1,17 +1,18 @@
-<?php if(!isset($header_silent) || $header_silent == FALSE): ?>
-
-			</div><!-- #main-content -->
-		</div><!-- #main .wrapper -->
-	</div><!-- #layout -->
-</div><!-- #wrap -->
-
-<div class="footer clearfix">
-	<a href="<?php echo site_url('admin/home'); ?>">首页</a>
-	<b>|</b>
-	<a href="<?php echo site_url('admin/admin_user/logout'); ?>">退出</a>
-	<span>Powered by 熊猫爸爸</span>
-</div><!-- #footer -->
-<?php endif; ?>
-
-</body>
+			<div class="ft-wrap">
+				<div class="ft-inner">
+					<div class="ft-links cf">
+						<ul>
+							<li><a href="<?php echo site_url('page/howto'); ?>">如何使用</a></li>
+							<li><a href="<?php echo site_url('page/first'); ?>">第一次使用</a></li>
+							<li><a href="<?php echo site_url('user/login'); ?>">登录</a></li>
+							<li><a href="<?php echo site_url('user/logout'); ?>">退出</a></li>
+						</ul>
+					</div>
+					<div class="ft-copyright">
+						<?php echo $site_name; ?> &copy; All right reserved!
+					</div>
+				</div>
+			</div>
+		</div><!-- #wrap -->
+	</body>
 </html>
