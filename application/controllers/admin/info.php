@@ -5,10 +5,10 @@ class Info extends Admin_Controller {
 	public function __construct() {
 		parent::__construct();
 		
-		$this->load->model('admin/area_model');
-		$this->load->model('admin/category_model');
-		$this->load->model('admin/user_model');
-		$this->load->model('admin/info_model');
+		$this->load->model('area_model');
+		$this->load->model('category_model');
+		$this->load->model('user_model');
+		$this->load->model('info_model');
 	}
 	
 	public function index() {

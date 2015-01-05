@@ -5,9 +5,9 @@ class Filter extends Admin_Controller {
 	public function __construct() {
 		parent::__construct();
 		
-		$this->load->model('admin/category_model');
-		$this->load->model('admin/filter_model');
-		$this->load->model('admin/filter_option_model');
+		$this->load->model('category_model');
+		$this->load->model('filter_model');
+		$this->load->model('filter_option_model');
 	}
 	
 	public function index() {

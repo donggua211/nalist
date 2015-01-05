@@ -49,6 +49,19 @@ function array_2_tree(&$array) {
 	return $map[0]['children'];
 }
 
+function generate_slug($title) {
+	$title = strtolower($title);
+	$title = preg_replace('/&.+?;/', '', $title); // kill entities
+	$title = str_replace('.', '-', $title);
+	
+	$title = preg_replace('/[^%a-z0-9 _-]/', '', $title);
+	$title = preg_replace('/\s+/', '-', $title);
+	$title = preg_replace('|-+|', '-', $title);
+	$title = trim($title, '-');
+
+	return $title;
+}
+
 /*
  Common Template Functions
 */

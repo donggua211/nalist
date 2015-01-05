@@ -5,7 +5,7 @@ class Admin_User extends Admin_Controller {
 	public function __construct() {
 		parent::__construct();
 		
-		$this->load->model('admin/admin_user_model');
+		$this->load->model('admin_user_model');
 	}
 	
 	public function index() {
