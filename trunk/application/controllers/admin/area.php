@@ -5,7 +5,7 @@ class Area extends Admin_Controller {
 	public function __construct() {
 		parent::__construct();
 		
-		$this->load->model('admin/area_model');
+		$this->load->model('area_model');
 	}
 	
 	public function index() {
@@ -29,9 +29,10 @@ class Area extends Admin_Controller {
 			
 			if(empty($data['area_name'])) {
 				$data['message']['error'] = '名称不能为空.';
-			} elseif(empty($data['area_slug'])) {
-				$data['message']['error'] = 'Slug不能为空.';
 			} else {
+				if(empty($data['area_slug'])) {
+					$data['area_slug'] = generate_slug($data['area_name']);
+				}
 				if($this->area_model->add($data)) {
 					$data['message']['ok'] = '添加成功! ';
 					show_result_page($data['message'], 'admin/area');

@@ -5,8 +5,8 @@ class User extends Admin_Controller {
 	public function __construct() {
 		parent::__construct();
 		
-		$this->load->model('admin/user_model');
-		$this->load->model('admin/group_model');
+		$this->load->model('user_model');
+		$this->load->model('group_model');
 	}
 	
 	public function index() {

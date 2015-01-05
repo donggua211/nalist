@@ -7,7 +7,7 @@ class Admin_api extends Admin_Controller {
 	}
 	
 	public function filter_remove() {
-		$this->load->model('admin/filter_option_model');
+		$this->load->model('filter_option_model');
 		
 		$option_id = $this->input->get_post('option_id');
 		
