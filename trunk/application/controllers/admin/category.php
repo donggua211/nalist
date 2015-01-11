@@ -29,15 +29,20 @@ class Category extends Admin_Controller {
 			
 			if(empty($data['category_name'])) {
 				$data['message']['error'] = '名称不能为空.';
-			} elseif(empty($data['category_slug'])) {
-				$data['message']['error'] = 'Slug不能为空.';
+			} elseif(empty($data['category_display_name'])) {
+				$data['message']['error'] = '显示名称不能为空.';
 			} else {
-				if($this->category_model->add($data)) {
-					$data['message']['ok'] = '添加成功! ';
-					show_result_page($data['message'], 'admin/category');
-					return true;
+				$data['category_slug'] = generate_slug($data['category_name']);
+				if($this->category_model->check_slug_exist($data['category_slug'])) {
+					$data['message']['error'] = "名称对应的Slug({$data['category_slug']})已经存在.";
 				} else {
-					$data['message']['error'] = '添加失败, 请重试.';
+					if($this->category_model->add($data)) {
+						$data['message']['ok'] = '添加成功! ';
+						show_result_page($data['message'], 'admin/category');
+						return true;
+					} else {
+						$data['message']['error'] = '添加失败, 请重试.';
+					}
 				}
 			}
 		}
@@ -85,8 +90,14 @@ class Category extends Admin_Controller {
 					}
 				}
 				
+				if(isset($update_field['category_name'])) {
+					$update_field['category_slug'] = generate_slug($update_field['category_name']);
+				}
+				
 				if(isset($update_field['parent_id']) && $update_field['parent_id'] == $id) {
 					$data['message']['error'] = '不能选择自己为父级.';
+				} elseif(isset($update_field['category_slug']) && $this->category_model->check_slug_exist($update_field['category_slug'], $id)) {
+					$data['message']['error'] = "名称对应的Slug({$update_field['category_slug']})已经存在.";
 				} elseif($this->category_model->update($id, $update_field)) {
 					$data['message']['ok'] = '更新成功! ';
 					show_result_page($data['message'], 'admin/category');

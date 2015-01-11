@@ -20,6 +20,12 @@
 		<link rel="stylesheet" href="<?php echo __THEME_URI__; ?>assets/js/jquery-ui/jquery-ui-1.10.3.custom.min.css" type="text/css" media="all" />
 	</head>
 	<body>
+		<div class="hd-wrap-keywords">
+			<div class="hd-inner-keywords">
+				<p class="hd-keywords">
+					様々な条件のアルバイト/バイト/パートの仕事/求人を探すなら【タウンワーク】</p>
+			</div>
+		</div>
 		<div class="wrap">
 			<div class="hd-wrap">
 				<div class="hd-inner">
@@ -34,8 +40,53 @@
 					
 					<div class="logo-index-wrap">
 						<div class="logo">
-							<h1><a href="<?php echo site_url('home'); ?>" rel="home"><?php echo $site_name; ?></a></h1>
+							<h1>
+								<a href="<?php echo site_url('home'); ?>" rel="home"><?php echo $site_name; ?></a>
+							</h1>
+							<?php if(isset($city_slug) && !empty($city_slug)): ?>
+							<span>|</span>
+							<h2>
+								<a href="<?php echo site_url('home'); ?>" rel="home" class="sub-title"><?php echo $city_info['area_display_name']; ?></a>
+							</h2>
+							<?php endif;?>
 						</div>
+						
+						<?php if(isset($city_slug) && !empty($city_slug)): ?>
+						<div class="btn-wrap-site-change">
+							<a href="<?php echo site_url('city', false); ?>" class="grd-l-gray btn-site-change">更换城市</a>
+						</div>
+						<?php endif;?>
 					</div>
+					
+					<div class="hd-wrap-mymenu">
+						<nav class="hd-inner-mymenu">
+							<ul>
+								<li>
+									<span class="mp-ico-free">免费!</span>
+									<div class="btn-wrap">
+										<a href="javascript:void(0);" class="grd-gray hd-btn-usermenu jsc-jump-link" data-jump-param="rlsMvBefore,?accd=11&amp;svos=PCNEWENTRY001">会員登録</a>
+									</div>
+								</li>
+								<li class="hd-btn-wrap-keep">
+									<div class="btn-wrap">
+										<a href="javascript:void(0);" class="grd-gray hd-btn-keep ico-arrow-b jsc-jump-link" data-jump-param="keepList,">キープ<span>(<span id="jsi-kept-num">0</span>)</span></a></div>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					
+					<?php if(isset($city_slug) && !empty($city_slug)): ?>
+					<div class="hd-container">
+						<nav class="hd-wrap-area-nav">
+							<ul class="hd-inner-area-nav">
+								<?php foreach($city_info['neighbor'] as $val): ?>
+								<li>
+									<a href="<?php echo site_url($val['area_slug'], false); ?>" <?php echo ($val['area_slug'] == $city_slug) ? 'class="current"' : ''; ?>><span><?php echo $val['area_display_name']; ?></span></a>
+								</li>
+								<?php endforeach; ?>
+							</ul>
+						</nav>
+					</div>
+					<?php endif;?>
 				</div>
 			</div>

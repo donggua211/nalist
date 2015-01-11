@@ -1,18 +1,26 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 03, 2015 at 12:20 AM
--- Server version: 5.5.20
--- PHP Version: 5.3.10
+-- Generation Time: Jan 11, 2015 at 08:51 AM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `nalist`
 --
+CREATE DATABASE IF NOT EXISTS `nalist` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `nalist`;
 
 -- --------------------------------------------------------
 
@@ -35,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `user_name`, `password`, `email`, `add_time`) VALUES
-(1, 'admin', '6512bd43d9caa6e02c990b0a82652dca', 'donggua211@qq.com', '2013-10-17 23:14:39');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'donggua211@qq.com', '2013-10-17 23:14:39');
 
 -- --------------------------------------------------------
 
@@ -47,26 +55,33 @@ DROP TABLE IF EXISTS `areas`;
 CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `area_name` varchar(50) NOT NULL,
+  `area_display_name` varchar(50) NOT NULL,
   `area_slug` varchar(50) NOT NULL,
   `type` enum('state','county','city','town') NOT NULL,
   `parent_id` int(11) NOT NULL,
   `display_order` int(11) NOT NULL DEFAULT '100',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `areas`
 --
 
-INSERT INTO `areas` (`id`, `area_name`, `area_slug`, `type`, `parent_id`, `display_order`) VALUES
-(1, 'California', 'california', 'state', 0, 100),
-(2, 'los angeles', 'losangeles', 'county', 1, 100),
-(3, 'Walnut', 'walnut', 'city', 2, 100),
-(5, 'Diamond Bar', 'diamondbar', 'city', 2, 100),
-(6, 'New York1', 'ny', 'state', 0, 100),
-(7, 'walnut', 'walnut', 'city', 6, 100),
-(8, 'Walnut', 'walnut', 'county', 1, 100),
-(9, 'Time Squair', 'time_squair', 'city', 7, 100);
+INSERT INTO `areas` (`id`, `area_name`, `area_display_name`, `area_slug`, `type`, `parent_id`, `display_order`) VALUES
+(1, 'California', '加州', 'california', 'state', 0, 5),
+(2, 'Los Angeles', '洛杉矶', 'los-angeles', 'county', 1, 10),
+(3, 'Walnut', '核桃市', 'walnut', 'city', 2, 100),
+(5, 'Diamond Bar', '钻石吧', 'diamond-bar', 'city', 2, 100),
+(6, 'New York', '纽约市', 'new-york', 'state', 0, 100),
+(7, 'Brooklyn', '布鲁克林', 'brooklyn', 'city', 6, 100),
+(10, 'Roseme', 'Roseme', 'roseme', 'city', 2, 100),
+(11, 'Long Beach', '长滩', 'long-beach', 'city', 2, 100),
+(12, 'Pico Rivera', 'Pico Rivera', 'pico-rivera', 'city', 2, 100),
+(13, 'San Gabriel', '圣盖博', 'san-gabriel', 'city', 2, 100),
+(14, 'Orange County', '橙县', 'orange-county', 'county', 1, 100),
+(15, 'San Diego', '圣地亚哥', 'san-diego', 'county', 1, 20),
+(16, 'Queens', ' 王后区', 'queens', 'city', 6, 100),
+(17, 'Manhattan', '曼哈顿', 'manhattan', 'city', 6, 100);
 
 -- --------------------------------------------------------
 
@@ -79,20 +94,28 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) NOT NULL,
   `category_name` varchar(32) NOT NULL,
+  `category_display_name` varchar(32) NOT NULL,
   `category_slug` varchar(32) NOT NULL,
   `description` tinytext NOT NULL,
+  `display_order` int(11) NOT NULL DEFAULT '100',
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `parent_id`, `category_name`, `category_slug`, `description`, `add_time`) VALUES
-(1, 0, '房屋', 'fangwu', '房屋', '0000-00-00 00:00:00'),
-(6, 0, '招聘', 'zhaopin', '招聘', '0000-00-00 00:00:00'),
-(12, 1, '租房', 'zufang', '租房', '2014-08-17 16:51:51');
+INSERT INTO `categories` (`id`, `parent_id`, `category_name`, `category_display_name`, `category_slug`, `description`, `display_order`, `add_time`) VALUES
+(1, 0, 'fangwu', '房屋', 'fangwu', '房屋', 100, '0000-00-00 00:00:00'),
+(6, 0, 'zhaopin', '招聘', 'zhaopin', '招聘', 1, '0000-00-00 00:00:00'),
+(12, 1, 'zufang', '租房', 'zufang', '租房', 100, '2014-08-17 16:51:51'),
+(13, 1, 'zhengzu', '整租', 'zhengzu', '整租', 100, '2015-01-10 23:05:28'),
+(14, 1, 'hezu', '合租', 'hezu', '合租', 100, '2015-01-10 23:05:40'),
+(15, 1, 'qiuzu', '求租', 'qiuzu', '求租', 100, '2015-01-10 23:05:59'),
+(16, 1, 'shangpuchuzu', '商铺出租', 'shangpuchuzu', '商铺出租', 100, '2015-01-10 23:06:13'),
+(17, 1, 'shangpuchushou', '商铺出售', 'shangpuchushou', '商铺出售', 100, '2015-01-10 23:06:29'),
+(18, 6, 'baochizhu', '包吃住专区', 'baochizhu', '包吃住专区', 10, '2015-01-10 23:09:03');
 
 -- --------------------------------------------------------
 
@@ -262,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `group_id`, `user_name`, `password`, `email`, `add_time`, `modified_time`) VALUES
 (1, 1, 'donggua211', 'woaibaicai', 'donggua211@qq.com', '2013-10-19 00:46:34', '2013-10-19 00:46:34'),
-(2, 1, 'woaibaicai', 'e19347e1c3ca0c0b97de5fb3b690855a', 'baicai1115@qq.com', '2014-08-18 06:29:02', '2014-08-18 06:31:30');
+(2, 1, 'woaibaicai', 'e19347e1c3ca0c0b97de5fb3b690855a', 'baicai1115@qq.com', '2014-08-18 06:29:02', '2015-01-05 05:05:58');
 
 -- --------------------------------------------------------
 
@@ -279,3 +302,7 @@ CREATE TABLE IF NOT EXISTS `user_logs` (
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

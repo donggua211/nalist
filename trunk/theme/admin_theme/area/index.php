@@ -12,6 +12,7 @@
 			<thead>
 				<tr>
 				  <td>城市名称</td>
+				  <td>城市显示名称</td>
 				  <td>城市 Slug</td>
 				  <td>城市种类</td>
 				  <td>表示顺序</td>
@@ -20,7 +21,7 @@
 			</thead>
 			<tbody>
 				<?php 
-				$display_field = array('area_name', 'area_slug', 'type', 'display_order');
+				$display_field = array('area_name', 'area_display_name', 'area_slug', 'type', 'display_order');
 				$option_links = array(
 					array('text' => '编辑', 'uri' => 'admin/area/edit'), 
 					array('text' => '删除', 'uri' => 'admin/area/remove', 'class' => 'remove')

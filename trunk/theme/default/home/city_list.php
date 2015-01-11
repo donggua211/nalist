@@ -5,10 +5,10 @@
 		<div class="city-list-wrap">
 		<?php $index = 0; foreach($area_list as $top_level): ?>
 			<div class="city-list-box city-list-box-style<?php echo $index; ?>">
-				<h2><a href="<?php echo site_url('city/'.$top_level['area_slug']); ?>"><?php echo $top_level['area_name']; ?></a></h2>
+				<h2><a href="<?php echo site_url($top_level['area_slug']); ?>"><?php echo $top_level['area_display_name']; ?></a></h2>
 				<ul>
 				<?php foreach($top_level['children'] as $sub_level): ?>
-					<li><a href="<?php echo site_url('city/'.$sub_level['area_slug']); ?>"><?php echo $sub_level['area_name']; ?></a></li>
+					<li><a href="<?php echo site_url($sub_level['area_slug']); ?>"><?php echo $sub_level['area_display_name']; ?></a></li>
 				<?php endforeach; ?>
 				</ul>
 			</div>
