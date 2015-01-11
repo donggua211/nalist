@@ -8,12 +8,20 @@
 				<p><input type="text" value="<?php echo isset($category_name) ? $category_name : ''; ?>"  name="category_name"></p>
 			</li>
 			<li>
+				<label for="category_display_name">分类显示名称:</label>
+				<p><input type="text" value="<?php echo isset($category_display_name) ? $category_display_name : ''; ?>"  name="category_display_name"></p>
+			</li>
+			<li>
 				<label for="category_slug">分类 Slug:</label>
-				<p><input type="text" value="<?php echo isset($category_slug) ? $category_slug : ''; ?>"  name="category_slug"></p>
+				<p><?php echo isset($category_slug) ? $category_slug : ''; ?></p>
 			</li>
 			<li>
 				<label>父级:</label>
 				<p><?php template_tree_select($category_list, 'category_name', $parent_id, 'parent_id', '无'); ?></p>
+			</li>
+			<li>
+				<label>表示顺序:</label>
+				<p><input type="text" value="<?php echo isset($display_order) ? $display_order : '100'; ?>"  name="display_order"></p>
 			</li>
 			<li class="textarea off">
 				<label>简介:</label>

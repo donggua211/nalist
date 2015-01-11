@@ -30,15 +30,17 @@ class Area extends Admin_Controller {
 			if(empty($data['area_name'])) {
 				$data['message']['error'] = '名称不能为空.';
 			} else {
-				if(empty($data['area_slug'])) {
-					$data['area_slug'] = generate_slug($data['area_name']);
-				}
-				if($this->area_model->add($data)) {
-					$data['message']['ok'] = '添加成功! ';
-					show_result_page($data['message'], 'admin/area');
-					return true;
+				$data['area_slug'] = generate_slug($data['area_name']);
+				if($this->area_model->check_slug_exist($data['area_slug'])) {
+					$data['message']['error'] = "名称对应的Slug({$data['area_slug']})已经存在.";
 				} else {
-					$data['message']['error'] = '添加失败, 请重试.';
+					if($this->area_model->add($data)) {
+						$data['message']['ok'] = '添加成功! ';
+						show_result_page($data['message'], 'admin/area');
+						return true;
+					} else {
+						$data['message']['error'] = '添加失败, 请重试.';
+					}
 				}
 			}
 		}
@@ -86,9 +88,14 @@ class Area extends Admin_Controller {
 					}
 				}
 				
+				if(isset($update_field['area_name'])) {
+					$update_field['area_slug'] = generate_slug($update_field['area_name']);
+				}
 				
 				if(isset($update_field['parent_id']) && $update_field['parent_id'] == $id) {
 					$data['message']['error'] = '不能选择自己为父级.';
+				} elseif(isset($update_field['area_slug']) && $this->area_model->check_slug_exist($update_field['area_slug'], $id)) {
+					$data['message']['error'] = "名称对应的Slug({$update_field['area_slug']})已经存在.";
 				} elseif($this->area_model->update($id, $update_field)) {
 					$data['message']['ok'] = '更新成功! ';
 					show_result_page($data['message'], 'admin/area');

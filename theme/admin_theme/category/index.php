@@ -1,4 +1,4 @@
-<h2 class="title">城市列表</h2>
+<h2 class="title">分类列表</h2>
 
 <div class="main-content">
 	<div class="act_list_box">
@@ -12,13 +12,15 @@
 			<thead>
 				<tr>
 				  <td>分类名称</td>
+				  <td>分类显示名称</td>
 				  <td>分类 Slug</td>
+				  <td>表示顺序</td>
 				  <td class="operation">操作</td>
 				</tr>
 			</thead>
 			<tbody>
 				<?php 
-				$display_field = array('category_name', 'category_slug');
+				$display_field = array('category_name', 'category_display_name', 'category_slug', 'display_order');
 				$option_links = array(
 					array('text' => '编辑', 'uri' => 'admin/category/edit'), 
 					array('text' => '删除', 'uri' => 'admin/category/remove', 'class' => 'remove')

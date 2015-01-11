@@ -41,6 +41,38 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
+//City List
+$route['city'] = 'home/city_list';
+
+
+//Set router for City.
+if(file_exists(FCPATH.'.area_route')) {
+	$content = file_get_contents(FCPATH.'.area_route');
+	if (!empty($content)) {
+		$route_setting = explode(',', $content);
+		
+		//Category
+		$category_setting = array();
+		if(file_exists(FCPATH.'.category_route')) {
+			$category_content = file_get_contents(FCPATH.'.category_route');
+			if (!empty($category_content)) {
+				$category_setting = explode(',', $category_content);
+			}
+		}
+		
+		foreach($route_setting as $val) {
+			$route[$val] = 'home/index/'.$val;
+			$route[$val.'/([^\/]+)'] = '$1/index/'.$val;
+			
+			foreach($category_setting as $val2) {
+				$route[$val.'/'.$val2] = 'info/info_list/'.$val2.'/'.$val;
+				$route[$val.'/'.$val2.'/(:any)'] = 'info/info_list/'.$val2.'/$1/'.$val;
+			}
+			
+			$route[$val.'/(:any)'] = '$1/'.$val;
+		}
+	}
+}
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
