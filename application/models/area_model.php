@@ -58,7 +58,7 @@ class Area_model extends MY_Model {
 		$fields['display_order'] = $data['display_order'];
 		
 		if($this->db->insert('areas', $fields)) {
-			$this->on_update();
+			$this->area_cache_update();
 			
 			return true;
 		} else {
@@ -74,7 +74,7 @@ class Area_model extends MY_Model {
 		$this->db->where('id', $id);
 		
 		if($this->db->update('areas', $update_field)) {
-			$this->on_update();
+			$this->area_cache_update();
 			
 			return true;
 		} else {
@@ -116,7 +116,7 @@ class Area_model extends MY_Model {
 	
 	public function remove($id) {
 		$this->_deep_remove($id);
-		$this->on_update();
+		$this->area_cache_update();
 		
 		return true;
 	}
@@ -139,11 +139,6 @@ class Area_model extends MY_Model {
 		return true;
 	}
 	
-	
-	private function on_update() {
-		$this->area_cache_update();
-	}
-	
 	private function area_cache_update() {
 		$sql = "SELECT * FROM {$this->db->dbprefix('areas')}
 				ORDER BY parent_id ASC, display_order ASC";
@@ -157,7 +152,7 @@ class Area_model extends MY_Model {
 				$slug_array[] = $val['area_slug'];
 				
 				self::$area_list['nav'][$val['area_slug']] = $val;
-				self::$area_list['nav'][$val['area_slug']]['parent'] = $this->track_parent($query->result_array(), $val['id']);
+				self::$area_list['nav'][$val['area_slug']]['parent'] = array_reverse($this->track_parent($query->result_array(), $val['id']));
 				self::$area_list['nav'][$val['area_slug']]['neighbor'] = $this->track_neighbor($query->result_array(), $val['parent_id']);
 				
 			}

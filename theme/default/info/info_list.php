@@ -7,11 +7,20 @@
 				<nav class="breadcrumbs-wrap">
 					<ul class="breadcrumbs-lst">
 						<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-							<a href="/?arc=1" itemprop="url"><span itemprop="title">首页</span></a>
+							<a href="<?php echo site_url('home'); ?>" itemprop="url"><span itemprop="title">首页</span></a>
 						</li>
+						<?php foreach($city_info['parent'] as $val) : ?>
 						<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-							<a href="/ibaraki/" itemprop="url"><span itemprop="title"><?php echo  $city_info['area_display_name']; ?></span></a>
+							<a href="<?php echo  site_url($val['area_slug'], false); ?>" itemprop="url"><span itemprop="title"><?php echo  $val['area_display_name']; ?></span></a>
 						</li>
+						<?php endforeach; ?>
+						
+						<?php foreach($category_info['parent'] as $val) : ?>
+						<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+							<a href="<?php echo  site_url($val['category_slug']); ?>" itemprop="url"><span itemprop="title"><?php echo  $val['category_display_name']; ?></span></a>
+						</li>
+						<?php endforeach; ?>
+						
 						<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
 							<span itemprop="title">搜索结果</span>
 						</li>
