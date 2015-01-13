@@ -4,7 +4,7 @@
 	<div class="content">
 		<div class="category-list">
 		<?php $index = 0; foreach($category_list as $top_level): ?>
-			<div class="category-entry clearfix">
+			<div class="category-entry cf">
 				<div class="category-entry-ttl">
 					<a href="<?php echo site_url($top_level['category_slug']); ?>"><?php echo $top_level['category_display_name']; ?></a>
 					<div class="category-entry-ttl-lnk"><a href="<?php echo site_url($top_level['category_slug']); ?>">全部一览</a></div>

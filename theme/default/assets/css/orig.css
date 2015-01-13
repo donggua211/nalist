@@ -6283,3 +6283,2084 @@ label.input-arrow-down {
     border-top: 1px solid #CCC;
     padding-top: 10px;
 }
+
+
+
+
+
+
+@charset "utf-8";
+
+/***** MPコンテンツ用CSS *****/
+
+/* 共通_非推奨ブラウザ注意用、Cookie OFF/js OFF用 */
+.mp-header-alert-wrap {
+	background: #ffca00;
+	padding-top: 9px;
+	padding-bottom: 5px;
+}
+
+.mp-header-alert {
+	background: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+}
+
+/* 共通_共通フッターインクルード */
+.mp-ft-link-lst-wrap {
+	box-shadow: 0 1px 0 0 #ffda4d;
+	border-bottom: 1px solid #e5b500;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 20px;
+	width: 960px;
+}
+
+.mp-ft-link-lst-inner {
+	margin-top:20px;
+}
+
+.mp-ft-link-lst-inner:first-child {
+	margin-top:0;
+}
+
+.mp-ft-link-lst-ttl,
+.mp-ft-link-lst-wrap a:link,
+.mp-ft-link-lst-wrap a:visited,
+.mp-ft-link-lst-wrap a:hover,
+.mp-ft-link-lst-wrap a:active {
+	color: #3f3f3f;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+}
+
+.mp-ft-link-lst-ttl {
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.mp-ft-area-link-lst > li {
+	float: left;
+	margin-bottom: 2px;
+	margin-right: 30px;
+	width:400px;
+}
+
+.mp-ft-link-lst > li,
+.mp-ft-area-link-lst-inner > dt,
+.mp-ft-area-link-lst-inner > dd {
+	box-shadow: 1px 0 0 0 #ffda4d;
+	border-right: 1px solid #e5b500;
+	float: left;
+	font-size: 10px;
+	font-weight: bold;
+	margin-top:2px;
+	margin-bottom:2px;
+}
+
+.mp-ft-area-link-lst-inner > dt {
+	padding-right: 5px;
+	margin-right: 5px;
+	width:65px;
+}
+
+.mp-ft-link-lst > li,
+.mp-ft-area-link-lst-inner > dd {
+	padding-right: 8px;
+	padding-left: 8px;
+}
+
+.mp-ft-link-lst > li:first-child {
+	padding-left: 0;
+}
+
+/* 全国トップ・版トップ_ページ見出しインクルード */
+.mp-top-ttl-catch {
+	margin-top: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	display: block;
+}
+
+.mp-top-ttl-caption {
+	margin-top: 17px;
+	font-size: 14px;
+	line-height: 1.3;
+	font-weight: bold;
+	display: block;
+}
+
+.mp-top-ttl-caption-txt {
+	margin-top: 10px;
+}
+
+.baloon-img-top {
+	bottom: -25px;
+	left: 40px;
+}
+.baloon-img-kantou {
+	bottom: 5px;
+	left: 325px;
+}
+.baloon-img-kansai {
+	bottom: 5px;
+	left: 330px;
+}
+.baloon-img-toukai {
+	bottom: 5px;
+	left: 320px;
+}
+.baloon-img-touhoku {
+	bottom: 5px;
+	left: 320px;
+}
+.baloon-img-koushinnetsu {
+	bottom: 5px;
+	left: 330px;
+}
+.baloon-img-chugoku {
+	bottom: 5px;
+	left: 320px;
+}
+.baloon-img-shikoku {
+	bottom: 5px;
+	left: 330px;
+}
+.baloon-img-kyuushu {
+	bottom: 5px;
+	left: 320px;
+}
+.state-main-sch-wrap {
+	height: 360px;
+}
+
+.baloon-img-kantou>img,
+.baloon-img-kansai>img,
+.baloon-img-chugoku>img {
+	width: 80%;
+	height: auto;
+}
+.baloon-img-touhoku>img,
+.baloon-img-kyuushu>img {
+	width: 85%;
+	height: auto;
+}
+.baloon-img-koushinnetsu>img,
+.baloon-img-shikoku>img {
+	width: 95%;
+	height: auto;
+}
+
+/* 全国トップ・都道府県トップ_人気エリアを選択インクルード */
+.mp-popular-area-box,
+.mp-popular-area-box-wrap {
+	border: 2px solid #ffca00;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+	background: #ffffff;
+}
+
+.mp-popular-area-box {
+	margin-top: 10px;
+}
+
+.mp-popular-area-ttl {
+	border-radius: 6px 6px 0 0;
+	background: #fff2a9;
+	line-height: 25px;
+	padding-left: 10px;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+/* 版トップ_人気エリアを選択インクルード */
+.mp-popular-area-wrap {
+	overflow: hidden;
+	width: 934px;
+	padding-right: 11px;
+	padding-bottom: 11px;
+	padding-left: 11px;
+}
+
+.mp-popular-area-inner {
+	margin-top: -4px;
+	margin-bottom: 5px;
+	margin-left: -20px;
+}
+
+.mp-popular-area-lst-ttl {
+	border-bottom: solid 1px #B5B2B2;
+	padding-bottom: 2px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.mp-popular-area-lst {
+	width: 298px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 15px;
+}
+
+.mp-popular-area-lst.pref-shizuoka {
+	height: 70px;
+}
+
+.mp-popular-area-lnk-lst li,
+.mp-popular-station-lnk-lst li {
+	float: left;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+.mp-top-contents-box-wrap {
+	margin-top: 20px;
+	border-top: dotted 1px #cccccc;
+	padding-right: 9px;
+	padding-left: 9px;
+}
+
+.mp-other-site-bnr-lst-wrap {
+	width: 642px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mp-other-site-bnr-lst {
+	width: 652px;
+}
+
+.mp-other-site-bnr-lst li {
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.mp-other-site-bnr-lst li img {
+	border: 1px solid #cccCCC;
+}
+
+/* 全国トップ・都道府県トップ_お知らせリンクインクルード */
+.mp-top-topics-wrap {
+	background: #fff2a9;
+	border: 2px solid #ffca00; 
+	border-radius: 8px;
+	margin-top: 8px;
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+	padding-left: 4px;
+	position: relative;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.mp-area-top-topics-wrap {
+	border: 2px solid #ffca00;
+	border-radius: 8px;
+	margin-top: 8px;
+	padding-top: 1px;
+	padding-right: 4px;
+	padding-bottom: 1px;
+	padding-left: 4px;
+	position: relative;
+}
+
+.mp-top-topics-inner {
+	background: #ffffff;
+	border-radius: 5px;
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 7px;
+	padding-left: 50px;
+	vertical-align: middle;
+	line-height: 1.4;
+	color: #f46d33;
+}
+
+.mp-top-topics-inner li {
+	text-indent: -1em;
+	padding-left: 1em;
+	margin-top: 5px;
+}
+
+.mp-top-topics-inner a {
+	color: #f46d33;
+}
+
+.mp-top-ico-info:before {
+	content:"";
+	background: #f8895d;
+	background-position: 9px -3295px;
+	border-radius: 4px;
+	display: block;
+	position: absolute;
+	left: 6px;
+	width: 35px;
+	height: 26px;
+	line-height: 1;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.mp-top-ico-info:after {
+	border: 5px solid transparent;
+	border-left: 5px solid #f8895d;
+	content:"";
+	width: 0;
+	height: 0;
+	position: absolute;
+	top:14px;
+	left: 41px;
+}
+
+.mp-area-top-topics-wrap .mp-top-ico-info:after {
+	top: 11px;
+}
+
+.mp-top-topics-txt {
+	width: 413px;
+}
+
+.mp-top-topics-l-txt {
+	width: 585px;
+}
+
+.mp-top-topics-state-txt {
+	width: 619px;
+}
+
+/* 全国トップ・版トップ・都道府県トップ_コンテンツ系インクルード */
+.mp-top-guide-lst li:after {
+	content: ""; display: block; clear: both; height: 0; visibility: hidden;
+}
+
+.mp-top-main-contents-wrap,
+.mp-area-main-contents-wrap {
+	padding-bottom: 8px;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mp-area-main-contents-wrap {
+	margin-top: 10px;
+}
+
+.mp-top-main-contents-wrap {
+	margin-top: 30px;
+}
+
+.mp-top-contents-wrap,
+.mp-inc-service-contents-wrap {
+	background: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.mp-top-contents-wrap {
+	margin-top: 20px;
+	padding-top: 20px;
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-bottom: 20px;
+}
+
+.mp-inc-service-contents-wrap {
+	margin-top: 30px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	border: solid 1px #dcdada;
+}
+
+.mp-service-contents-ttl {
+	background: #fff2a9;
+	border-radius: 4px;
+	padding-top: 7px;
+	padding-right: 8px;
+	padding-bottom: 7px;
+	padding-left: 8px;
+	font-size: 13px;
+}
+
+.mp-inc-bnr-lst {
+	margin-left: -20px;
+	margin-top: -20px;
+}
+
+.mp-top-bnr-lst {
+	display: table;
+	width: auto;
+	margin-top: -15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mp-inc-bnr-lst > li {
+	margin-top: 20px;
+	margin-left: 20px;
+	float: left;
+}
+
+.mp-top-bnr-lst > li {
+	float: left;
+	margin-top: 15px;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 446px;
+}
+
+.mp-inc-bnr-lst > li {
+	width: 312px;
+}
+
+.mp-top-bnr-img {
+	float: left;
+	width: 140px;
+}
+
+.closeup-img{
+	width:140px;
+}
+
+.mp-top-bnr-txt-wrap,
+.mp-inc-bnr-txt-wrap {
+	float: left;
+	margin-left: 10px;
+}
+
+.mp-top-bnr-txt-wrap {
+	width: 296px;
+}
+
+.mp-inc-bnr-txt-wrap {
+	width: 172px;
+}
+
+.closeup-text{
+	width:296px;
+}
+
+.mp-top-contents-inner {
+	overflow: hidden;
+	border-bottom: dotted 1px #cccccc;
+	padding-top: 15px;
+	padding-right: 9px;
+	padding-bottom: 15px;
+	padding-left: 9px;
+}
+
+.mp-top-contents-inner:last-child{
+	border-bottom:none;
+}
+
+.mp-big-bnr-wrap {
+	overflow: hidden;
+	padding-top: 15px;
+	text-align: center;
+}
+
+.mp-big-bnr-lst > li{
+	margin-top:15px;
+}
+
+.mp-big-bnr-lst > li:first-child{
+	margin-top:0;
+}
+
+.mp-top-course-lst {
+	width: 170px;
+	float: left;
+}
+
+.mp-inc-course-lst {
+	width: 140px;
+	float: left;
+}
+
+.mp-top-course-lst li,
+.mp-top-guide-lst li,
+.mp-inc-course-lst li,
+.mp-inc-guide-lst li {
+	margin-top: 15px;
+}
+
+.mp-top-course-lst li:first-child,
+.mp-top-guide-lst li:first-child,
+.mp-inc-course-lst li:first-child {
+	margin-top: 0;
+}
+
+.mp-inc-guide-lst li {
+	float: left;
+	width: 247px;
+}
+
+.mp-top-course-ico,
+.mp-top-guide-ico,
+.mp-inc-course-ico,
+.mp-inc-guide-ico {
+	float: left;
+	width: 35px;
+}
+
+.mp-top-course-txt,
+.mp-top-guide-txt,
+.mp-inc-course-txt,
+.mp-inc-guide-txt {
+	float: left;
+	line-height: 35px;
+	margin-left: 10px;
+}
+
+.mp-inc-guide-txt {
+	width: 202px;
+}
+
+.mp-top-course-txt {
+	width: 125px;
+}
+
+.mp-top-guide-txt {
+	width: 219px;
+}
+
+.mp-inc-course-txt {
+	width: 95px;
+}
+
+.mp-top-guide-lst,
+.mp-inc-guide-lst {
+	margin-left: 10px;
+	float: left;
+}
+
+.mp-top-guide-lst {
+	width: 264px;
+}
+
+.mp-inc-guide-lst {
+	width: 494px;
+	margin-top: -15px;
+}
+
+.mp-service-box-wrap {
+	width: 453px;
+	margin-left: 15px;
+	float: left;
+}
+
+.mp-service-box-inner {
+	margin-top: 15px;
+	border-top: dotted 1px #cccccc;
+	padding-top: 5px;
+}
+
+.mp-service-box-inner:first-child {
+	margin-top: 0;
+	border-top: none;
+}
+
+.mp-service-box-ico {
+	float: left;
+	width: 30px;
+	text-align: center;
+}
+
+.mp-service-box-txt-wrap,
+.mp-inc-service-box-txt {
+	float: left;
+	margin-left: 10px;
+	padding-top: 3px;
+}
+
+.mp-service-box-txt-wrap {
+	width: 413px;
+}
+
+.mp-inc-service-box-txt {
+	width: 277px;
+}
+
+.mp-service-box-ttl {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.mp-service-box-btn-wrap {
+	margin-top: 10px;
+}
+
+.mp-service-box-btn-wrap > li {
+	float: left;
+	margin-left: 10px;
+}
+
+.mp-inc-service-box-btn > li {
+	float: left;
+	margin-right: 6px;
+	margin-top: 6px;
+}
+
+.mp-service-box-btn-wrap > li:first-child {
+	margin-left: 0;
+}
+
+.mp-service-box-contents-inner {
+	margin-top: 10px;
+}
+
+.mp-service-box-contents-inner:first-child {
+	margin-top: 0;
+	border-top: none;
+}
+
+.mp-service-box-contents-ico {
+	float: left;
+	width: 40px;
+	text-align: center;
+}
+
+.mp-service-box-contents-txt {
+	float: left;
+	width: 368px;
+	margin-left: 5px;
+	padding-top: 10px;
+}
+
+.mp-inc-two-column-wrap {
+	width: 654px;
+	margin-left: -10px;
+}
+
+.mp-inc-two-column-inner {
+	float: left;
+	width: 317px;
+	margin-left: 10px;
+}
+
+.mp-inc-service-box-btn a {
+	border-radius: 5px;
+	cursor: pointer;
+	display: table-cell;
+	font-size: 11px;
+	font-weight: bold;
+	height: 23px;
+	padding-left: 5px;
+	padding-right: 16px;
+	vertical-align: middle;
+	width: 107px;
+}
+
+.mp-inc-service-box-btn a:after {
+	background-image: url(../img/spt/i.png);
+	background-position: 0 -226px;
+	content: "";
+	height: 14px;
+	margin-top: -7px;
+	position: absolute;
+	right: 7px;
+	top: 50%;
+	width: 11px;
+}
+
+.mp-inc-service-box-contents {
+	float: left;
+	width: 232px;
+	margin-left: 5px;
+	padding-top: 3px;
+}
+
+.mp-inc-info-box-wrap {
+	background: url(../img_mp/inc-bottom-toiawasearea.png) left top no-repeat;
+	width: 448px;
+	height: 94px;
+	position: relative;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mp-inc-info-box-wrap img {
+	position: absolute;
+	right: 10px;
+	top: 40px;
+}
+
+.mp-group-link {
+	margin:10px;
+	font-size:10px;
+}
+
+/* 全国トップ・版トップ_人気の条件検索インクルード　*/
+.mp-unique-sch {
+	margin-top: 20px;
+}
+
+.mp-unique-sch:first-child {
+	margin-top: 0;
+}
+
+.mp-unique-sch-ttl {
+	background: #fff2a9;
+	border-radius: 4px;
+	padding-top: 7px;
+	padding-right: 8px;
+	padding-bottom: 7px;
+	padding-left: 8px;
+}
+
+.mp-unique-sch-ttl-txt {
+	float: left;
+}
+
+.mp-unique-sch-ttl-lnk,
+.mp-unique-sch-ttl-lnk:visited {
+	color: #0170b5;
+	font-weight: bold;
+	float: right;
+}
+
+.mp-unique-sch-ttl-lnk:hover,
+.mp-unique-sch-ttl-lnk:active {
+	color: #4295cb;
+	font-weight: bold;
+}
+
+.mp-unique-sch-lst {
+	margin-top: 10px;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.mp-unique-sch-lst-ttl,
+.mp-unique-sch-lst-ttl:visited {
+	color: #0170b5;
+	text-decoration: underline;
+	margin-top: 7px;
+}
+
+.mp-unique-sch-lst-ttl:hover,
+.mp-unique-sch-lst-ttl:active {
+	color: #4295cb;
+}
+
+.mp-unique-sch-lst li {
+	width: 105px;
+	float: left;
+	margin-left: 10px;
+}
+
+.mp-site-discription {
+	margin-top: 30px;
+	margin-left: 9px;
+	margin-right: 9px;
+	border-radius: 5px;
+	border: solid 1px #b4b4b4;
+	padding: 11px;
+	font-size: 11px;
+}
+
+.mp-site-discription-txt {
+	margin-top: 3px;
+}
+
+/*　版トップ_人気の条件検索インクルード */
+.mp-unique-sch-tbl-wrap {
+	margin-top: 10px;
+	margin-right: 9px;
+	margin-left: 9px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	border-radius: 5px;
+	padding-right: 3px;
+	padding-left: 3px;
+	background: #ffffff;
+}
+
+.mp-unique-sch-tbl-inner {
+	position: relative;
+	display: table;
+	width: 100%;
+	border-top: 1px solid #CCCCCC;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.mp-unique-sch-tbl-inner:first-child {
+	border-top: none;
+}
+
+.mp-unique-sch-tbl-inner > dt {
+	display: table-cell;
+	background: #fefacd;
+	font-size: 12px;
+	font-weight: bold;
+	width: 80px;
+	padding-top: 7px;
+	padding-right: 0;
+	padding-bottom: 7px;
+	padding-left: 8px;
+	vertical-align: top;
+	border: 1px solid #f8f2bb;
+	border-radius: 3px;
+}
+
+.mp-unique-sch-tbl-inner > dd {
+	display: table-cell;
+	vertical-align: middle;
+	padding-bottom: 10px;
+}
+
+.mp-unique-sch-table-lst li {
+	float: left;
+	margin-left: 10px;
+	width: 200px;
+	padding-top: 10px;
+}
+
+/* 都道府県トップ_人気のワードインクルード */
+.mp-word-popular-wrap {
+	display: table;
+	padding-bottom: 5px;
+}
+
+.mp-word-popular-lst li {
+	float: left;
+	font-size: 10px;
+	margin-left: 8px;
+	line-height: 22px;
+	display: table-cell;
+	vertical-align: top;
+}
+
+.mp-word-popular-ttl-wrap {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.mp-word-popular-ttl {
+	position: relative;
+	background: #f36b3d;
+	width: 69px;
+	height: 22px;
+	line-height: 22px;
+	color: #ffffff;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 10px;
+}
+
+.mp-word-popular-ttl:after {
+	left: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(255, 255, 255, 0);
+	border-left-color: #f36b3d;
+	top: 50%;
+	margin-top: -3px;
+}
+
+/* 都道府県トップ */
+.mp-panel-lst-data-txt li {
+	float: left;
+	margin-left: 11px;
+}
+
+/* 都道府県トップ_SEOコンテンツ枠インクルード */
+.mp-sch-contents-box-wrap {
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	border-radius: 5px;
+	border: solid 1px #dcdada;
+	margin-top: 30px;
+	background: #ffffff;
+}
+
+.mp-contents-box-ft-lnk {
+	border-top: 1px solid #dfd9c5;
+	padding-top: 5px;
+	padding-right: 11px;
+	padding-bottom: 5px;
+	padding-left: 11px;
+	border-radius: 0 0 5px 5px ;
+	text-align: right;
+}
+
+/* 都道府県トップ_おすすめ求人下インクルード */
+.mp-big-bnr-contents-wrap {
+	margin-top: 20px;
+}
+
+.mp-big-bnr-contents-lst > li {
+	margin-top: 15px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	border-radius: 5px;
+	border: solid 1px #dcdada;
+	background: #ffffff;
+}
+
+.mp-big-bnr-contents-lst > li:first-child {
+	margin-top: 0;
+}
+
+/*
+	共通で使うクラス
+*/
+
+.mp-cnt-box{
+	margin-top:10px;
+}
+
+.mp-jb-img-wrap {
+	margin-top:40px;
+	text-align: center;
+}
+
+.mp-txt-em{
+	font-weight: bold;
+}
+.mp-txt-caution {
+	color: #e94200;
+	font-weight: bold;
+}
+
+/* 全国トップ */
+.bnr-spot-wrap{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+/* 告知インクルード SCPNOTICE.html 都道府県トップ用 */
+.contents-main-wrap > .top-txt-wrap > .top-txt-inner{
+	width:100%;
+}
+/* 告知インクルード SCPNOTICE.html 全国トップ */
+.contents-wrap > .top-txt-wrap{
+	padding-bottom: 0;
+}
+
+/* 告知インクルード SCPNOTICE.html 装飾 */
+.top-txt-container {
+	background-color: #fff2a9;
+	border: 2px solid #ffca00;
+	border-radius: 8px;
+	font-weight: bold;
+	padding-top: 7px;
+	padding-right: 7px;
+	padding-bottom: 7px;
+	padding-left: 14px;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.top-txt-lst > li{
+	margin-top:4px;
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+.top-txt-lst > li:first-child{
+	margin-top: 0;
+}
+
+.top-txt-container a:link,
+.top-txt-container a:visited {
+	color: #0170b5;
+	text-decoration: underline;
+}
+
+.top-txt-container a:hover,
+.top-txt-container a:active {
+	color: #4295cb;
+}
+
+.mp-notice-txt-red {
+	color: #e64300;
+}
+
+/* 都道府県トップお役立ちコンテンツ */
+.mp-service-box-btn:after,
+.mp-bnr-lst:after,
+.mp-course-lst li:after,
+.mp-guide-lst li:after,
+.mp-two-column-wrap:after,
+.mp-two-column-inner:after,
+.mp-top-bnr-lst:after,
+.mp-top-bnr-lst li:after,
+.mp-career-contents-head:after,
+.mp-career-contents-link-lst:after,
+.mp-btn-sns-list:after
+ { content: ""; display: block; clear: both; height: 0; visibility: hidden; }
+
+.mp-service-contents-wrap {
+	margin-top: 30px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	background: #ffffff;
+	border-radius: 8px;
+	border: solid 1px #dcdada;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.mp-contents-wrap {
+	overflow: hidden;
+	border-bottom: dotted 1px #cccccc;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 7px;
+	padding-left: 7px;
+}
+
+.mp-two-column-wrap {
+	width: 654px;
+	margin-left: -10px;
+}
+
+.mp-two-column-inner {
+	float: left;
+	width: 317px;
+	margin-left: 10px;
+}
+
+.mp-bnr-lst{
+	margin-left: -20px;
+	margin-top: -20px;
+}
+
+.mp-bnr-lst > li {
+	margin-top: 20px;
+	margin-left: 20px;
+	float: left;
+}
+
+.mp-bnr-lst > li {
+	width: 312px;
+}
+
+.top-bnr-img {
+	float: left;
+	width: 130px;
+}
+
+.mp-bnr-txt-wrap {
+	float: left;
+	margin-left: 10px;
+	width: 172px;
+}
+
+.mp-course-lst {
+	width: 140px;
+	float: left;
+}
+
+.mp-course-lst li,
+.mp-guide-lst li {
+	margin-top: 15px;
+}
+
+.mp-course-lst li:first-child {
+	margin-top: 0;
+}
+
+.mp-course-ico,
+.mp-guide-ico {
+	float: left;
+	width: 35px;
+}
+
+.mp-course-txt,
+.mp-guide-txt {
+	float: left;
+	line-height: 35px;
+	margin-left: 10px;
+}
+
+.mp-course-txt {
+	width: 95px;
+}
+
+.mp-guide-lst {
+	width: 494px;
+	margin-top: -15px;
+	margin-left: 10px;
+	float: left;
+}
+
+.mp-guide-lst li {
+	float: left;
+	width: 247px;
+}
+
+.mp-guide-txt {
+	width: 202px;
+}
+
+.service-box-ico {
+	float: left;
+	width: 30px;
+	text-align: center;
+}
+
+.mp-service-box-txt {
+	width: 277px;
+}
+
+.mp-service-box-txt {
+	float: left;
+	margin-left: 10px;
+	padding-top: 3px;
+}
+
+.service-box-ttl {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.mp-service-box-btn > li {
+	float: left;
+	margin-right: 6px;
+	margin-top: 6px;
+}
+
+.mp-service-box-btn a {
+	border-radius: 5px;
+	cursor: pointer;
+	display: table-cell;
+	font-size: 11px;
+	font-weight: bold;
+	height: 23px;
+	padding-left: 5px;
+	padding-right: 16px;
+	vertical-align: middle;
+	width: 107px;
+}
+
+.mp-service-box-btn a:after {
+	background-image: url(../img/spt/i.png);
+	background-position: 0 -226px;
+	content: "";
+	height: 14px;
+	margin-top: -7px;
+	position: absolute;
+	right: 7px;
+	top: 50%;
+	width: 11px;
+}
+
+.service-box-contents-inner {
+	margin-top: 10px;
+}
+
+.service-box-contents-ico {
+	float: left;
+	width: 40px;
+	text-align: center;
+}
+
+.mp-service-box-contents {
+	float: left;
+	width: 232px;
+	margin-left: 5px;
+	padding-top: 10px;
+}
+
+.mp-info-box-ttl {
+	background: #FFF2A9;
+	border-radius: 4px;
+	padding-top: 7px;
+	padding-right: 8px;
+	padding-bottom: 7px;
+	padding-left: 8px;
+	font-size: 13px;
+}
+
+.mp-info-box-wrap {
+	margin-top: 10px;	
+}
+
+.mp-info-box-inner {
+	display: table;
+	width: 100%;
+}
+
+.mp-info-box-inner-text {
+	display: table-cell;
+	vertical-align: top;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.mp-info-box-inner-btn {
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.mp-info-box-inner-btn a {
+	display: block;
+}
+
+.mp-hw-bnr {
+	padding-top: 15px;
+	padding-right: 9px;
+	padding-bottom: 15px;
+	padding-left: 9px;
+	text-align: center;
+}
+
+.mp-hw-bnr a {
+	display: inline-block;
+}
+
+.mp-hw-merit-lst {
+	display: table;
+	width: 100%;
+}
+
+.mp-hw-merit-lst > li {
+	display: table-cell;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 33.333%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.mp-hw-merit-lst-ttl {
+	text-align: center;
+	font-size: 13px;
+}
+
+.mp-hw-merit-txt {
+	margin-top: 10px;
+}
+
+.mp-career-contents-wrap {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 7px;
+	padding-left: 7px;
+}
+
+.mp-career-contents-logo {
+	float: left;
+}
+
+.mp-career-contents-caption {
+	float: right;
+}
+
+.mp-career-contents-link-lst {
+	margin-top: 10px;
+	margin-left: -10px;
+}
+
+.mp-career-contents-link-lst li {
+	float: left;
+	margin-top: 5px;
+	margin-left: 10px;
+	width: 317px;
+}
+
+.mp-btn-sns-list-wrap {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 7px;
+	padding-left: 7px;
+}
+
+.mp-btn-sns-list {
+	margin-left: -6px;	
+}
+
+.mp-btn-sns-list li {
+	float: left;
+	margin-left: 6px;
+}
+
+.mp-btn-sns {
+	width: 112px;
+	height: 45px;
+	font-size: 10px;
+	font-weight: bold;
+	display: block;
+	border-radius: 5px;
+	line-height: 1.3;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	position: relative;
+}
+
+.mp-btn-sns:after {
+	background-repeat: no-repeat;
+	content: "";
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.mp-btn-sns-app:after {
+	background-image: url(../../include/img/foot_app.png);
+	display: block;
+	width: 40px;
+	height: 38px;
+}
+
+.mp-btn-sns-twitter:after {
+	background-image: url(../../include/img/foot_twitter.png);
+	display: block;
+	width: 63px;
+	height: 47px;
+}
+
+.mp-btn-sns-fb:after {
+	background-image: url(../../include/img/foot_fb.png);
+	display: block;
+	width: 68px;
+	height: 47px;
+}
+
+.mp-btn-sns-gp:after {
+	background-image: url(../../include/img/foot_g_plus.png);
+	display: block;
+	width: 64px;
+	height: 45px;
+}
+
+.mp-btn-sns-joboob:after {
+	background-image: url(../../include/img/foot_joboob.png);
+	display: block;
+	width: 56px;
+	height: 46px;
+}
+
+/* エラー画面　エリアリンクclass */
+.mp-err-area-link-lst:after,
+.mp-err-area-link-lst-inner:after
+ { content: ""; display: block; clear: both; height: 0; visibility: hidden; }
+
+.mp-err-area-link-wrap {
+	margin-top:10px;
+}
+
+.mp-err-area-link-lst {
+	margin-top:20px;
+}
+
+.mp-err-area-link-lst > li {
+	float: left;
+	margin-bottom: 5px;
+	margin-right: 30px;
+	width:450px;
+}
+
+.mp-err-link-lst > li,
+.mp-err-area-link-lst-inner > dt,
+.mp-err-area-link-lst-inner > dd {
+	border-right: 1px dotted #999999;
+	float: left;
+	font-weight: bold;
+	margin-top:2px;
+	margin-bottom:2px;
+	height:17px;
+	overflow: hidden;
+}
+
+.mp-err-area-link-lst-inner > dt {
+	padding-right: 3px;
+	margin-right: 3px;
+	width:77px;
+}
+
+.mp-err-link-lst > li,
+.mp-err-area-link-lst-inner > dd {
+	padding-right: 8px;
+	padding-left: 7px;
+}
+
+.mp-err-area-link-lst a:link,
+.mp-err-area-link-lst a:active,
+.mp-err-area-link-lst a:hover,
+.mp-err-area-link-lst a:visited {
+	color: #333333;
+	text-decoration: underline;
+}
+
+/* 他のcssから移動してきたもの */
+.mp-simple-txt-box {
+	margin-top: 30px;
+}
+
+.mp-info-caution-wrap {
+	margin-top: 20px;
+	padding-bottom: 5px;
+	line-height: 20px;
+}
+
+.mp-error-img-wrap {
+	margin-top: 40px;
+	text-align: center;
+}
+
+.mp-mm-stop-message {
+	margin-top: 50px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.mp-mm-stop-btn-wrap {
+	margin-top: 50px;
+}
+
+/*　サイドメニュー　バナーインクルード */
+
+.mp-side-box-wrap {
+	margin-top: 10px;
+	text-align: center;
+}
+
+/* 条件メール登録 インクルード */
+
+.mp-entry-terms-mail-head {
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.mp-entry-terms-mail-list {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.mp-entry-terms-mail-link {
+	text-align: right;
+	width: 415px;
+}
+
+/* 応募入力　メール登録説明 インクルード */
+
+.mp-entry-terms-mailmaga-list {
+	margin-left: 10px;
+}
+
+.mp-entry-terms-mailmaga-link {
+	text-align: right;
+	margin-right: 5px;
+}
+
+/* 北海道　Wバナー */
+
+.mp-closeup-bnr-lst:after { content: ""; display: block; clear: both; height: 0; visibility: hidden; }
+
+.mp-closeup-bnr-lst-wrap {
+	margin-top: 15px;
+	padding-right: 7px;
+	padding-left: 7px;
+}
+
+.mp-closeup-bnr-lst {
+	margin-left: -20px;
+	overflow: hidden;
+}
+
+.mp-closeup-bnr-lst > li {
+	margin-left: 20px;
+	float: left;
+	overflow: hidden;
+	width: 312px;
+}
+
+.mp-closeup-bnr-img {
+	float: left;
+	width: 140px;
+}
+
+.mp-closeup-bnr-img a {
+	display: block;
+}
+
+.mp-closeup-bnr-txt-wrap {
+	float: left;
+	margin-left: 10px;
+	width: 162px;
+}
+
+/* Chrome Print対応 */
+.free-word-sch {
+	background-color: #ffffff;
+}
+
+.job-lst-small,
+.job-lst-small > li {
+	background-color: #ffffff;
+}
+
+.job-lst-box-wrap {
+	background-color: #ffffff;
+}
+
+.intro-box {
+	background-color: #ffffff;
+}
+
+.job-detail-box-wrap {
+	background: #ffffff;
+}
+
+.contents-box-wrap,
+.contents-box-single-wrap,
+.contents-box-tbl-wrap {
+	background-color: #ffffff;
+}
+
+.sch-panel-wrap {
+	background-color: #ffffff;
+}
+
+.contents-tbl-wrap {
+	background: #ffffff;
+}
+
+.job-csl-box-lst > li {
+	background-color: #ffffff;
+}
+
+/* 都道府県（関東・関西）TOP include三分割対応 */
+.mp-fac-contents-wrap {
+	margin-top: 30px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	background: #ffffff;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border: solid 1px #dcdada;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom: none;
+}
+
+.mp-other-site-wrap {
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	background: #ffffff;
+	border: solid 1px #dcdada;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	margin-top: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+/* 応募完了レコメンド */
+
+.mp-txt-h2-rec-cst {
+	background-color: #9dd8ff;
+	border-bottom: 1px solid #7eccff;
+	border-top: 1px solid #7eccff;
+	box-shadow: 0 2px 1px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.1);
+	color: #333333;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.mp-txt-h2-rec-cst-inner {
+	border-top: 1px solid #ffffff;
+	display: block;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.mp-completion-info-wrap {
+	width: 440px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+.mp-completion-info-txt,
+.mp-completion-info-img {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.mp-completion-info-txt {
+	width: 290px;
+}
+
+.mp-completion-txt {
+	margin-top: 20px;
+}
+
+/* ぴったり！条件検索インクルード */
+
+.mp-condition-search-wrap {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.mp-condition-search-wrap p {
+	font-weight: bold;
+}
+
+.mp-condition-search {
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: #fef8b5;
+}
+
+.mp-condition-search-btn-wrap {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mp-btn-terms-w {
+	width: auto;
+	height: 50px;
+	font-size: 16px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+.mp-btn-terms-w:after {
+	position: absolute;
+	content:"";
+	background-image: url(../img/spt/i.png) !important;
+	background-repeat: no-repeat;
+	background-position: 0 -684px;
+	width: 8px;
+	height: 11px;
+	margin-top: -5px;
+	top: 50%;
+	right: 13px;
+}
+
+.mp-btn-navi-match:before {
+	position: absolute;
+	content:"";
+	background-image: url(../img/spt/i.png) !important;
+	background-repeat: no-repeat;
+	background-position: 0 -2970px;
+	width: 72px;
+	height: 41px;
+	top: 4px;
+	left: 80px;
+}
+
+.mp-btn-navi-match span {
+	font-size: 18px;
+}
+
+/* RID用スタイル追記 */
+
+.mp-top-txt-wrap {
+	background: #ffffff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.mp-top-txt-inner {
+	background: #ffffff;
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+}
+
+.mp-rid-user-txt-wrap {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.mp-ease-input-txt-wrap {
+	margin-top: 10px;
+}
+.mp-rid-user-wrap {
+	margin-top: 20px;
+}
+
+.mp-ico-new {
+	background-color: #f66b34;
+	color: #ffffff;
+	font-size: 10px;
+	padding-top: 3px;
+	padding-bottom: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
+	position: absolute;
+	top: 1px;
+	left: 12px;
+	line-height: 1;
+	z-index: 10;
+}
+
+.mp-ico-free {
+	background-color: #f66b34;
+	color: #ffffff;
+	font-size: 12px;
+	padding-top: 4px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+	position: absolute;
+	top: -2px;
+	left: 12px;
+	line-height: 1;
+	z-index: 10;
+}
+
+.mp-rid-withdrawal-txt-wrap {
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 555px;
+}
+
+.mp-newentry-bnr-wrap {
+	width: 678px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 0;
+}
+
+.mt50 {
+	margin-top: 50px;
+}
+
+/*-------------------------------------------------------------------------
+0716ENH SEO都道府県トップ テキスト増量
+-------------------------------------------------------------------------*/
+.l-yellow-area-ttl {
+	display: block;
+	background: #fbf5df;
+	height: 28px;
+	line-height: 28px;
+	padding-left: 11px;
+	border-top: 1px solid #dfd9c5;
+	border-bottom: 1px solid #dfd9c5;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/* 【20140910案件】indeed流入検索インクルード Aパターン */
+
+.mp-inflow-layout-a .mp-btn-navi-match:before {
+	left: 20px;
+}
+
+.mp-inflow-layout-a .mp-condition-search {
+	display: table;
+	width: 100%;
+}
+
+.mp-inflow-layout-a .mp-add-txt-wrap {
+	display: table-cell;
+	width: 350px;
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 15px;
+	line-height: 1;
+}
+
+.mp-inflow-layout-a .mp-condition-search-btn-wrap {
+	width: 300px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.mp-inflow-layout-a .mp-btn-terms-w {
+	padding-left: 20px;
+}
+
+.mp-inflow-layout-a .b {
+	margin: 0 2px;
+}
+.mp-inflow-layout-a .mp-condition-search-wrap {
+	display: table-cell;
+	width: 310px;
+	vertical-align: middle;
+}
+
+/* 【20140910案件】indeed流入検索インクルード Bパターン */
+
+.mp-inflow-layout-b .mp-btn-navi-match:before {
+	left: 20px;
+}
+
+.mp-inflow-layout-b .mp-condition-search {
+	display: table;
+	width: 100%;
+}
+
+.mp-inflow-layout-b .mp-add-txt-wrap {
+	display: table-cell;
+	width: 520px;
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 16px;
+	line-height: 1;
+}
+
+.mp-inflow-layout-b .mp-condition-search-btn-wrap {
+	width: 130px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.mp-inflow-layout-b .mp-btn-terms-w {
+	padding-left: 20px;
+}
+
+.mp-inflow-layout-b .b {
+	margin-right: 2px;
+	margin-left: 2px;
+}
+.mp-inflow-layout-b .mp-condition-search-wrap {
+	display: table-cell;
+	width: 140px;
+	vertical-align: middle;
+}
+/* 全国、都道府県TOPにTWM記事コンテンツリンク追加 */
+.mp-contents-area-ttl {
+	position: relative;
+	padding-left: 25px;
+	margin-bottom: 10px;
+}
+
+.mp-contents-area-ttl span {
+	margin-right: 15px;
+}
+
+.mp-contents-area-ttl:before {
+	position: absolute;
+	content:"■";
+	color: #fcbe00;
+	font-size: 20px;
+	vertical-align: middle;
+	top: -5px;
+	left: 0;
+}
+
+.article-link-wrap dl {
+ 	margin-top: 10px;
+ 	padding-left: 16px;
+}
+
+.article-link-lst li {
+	display: inline-block;
+	width: 195px;
+	margin-top: 5px;
+	margin-right: 10px;
+	vertical-align: top;
+}
+
+/* メールキャンペーン メール登録導線include */
+.mp-mailcamp-txt {
+	color: #e64300;
+	font-size: 12px;
+	font-weight: bold; 
+	margin-left: 15px;
+}
+
+.mp-mailcamp-txt span {
+	font-size: 11px;
+	font-weight: normal; 
+	margin-left: 10px;
+}
+
+.mp-summary-tbl-wrap {
+	margin-top: 40px;
+}
+
+.mp-summary-tbl {
+	background-color: #fff;
+	border-top: 1px solid #231815;
+	border-left: 1px solid #231815;
+	width: 960px;
+	font-size: 24px;
+}
+
+.mp-summary-tbl th {
+	border-right: 1px solid #231815;
+	border-bottom: 1px solid #231815;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 15px;
+	width: 150px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.mp-summary-tbl td {
+	border-right: 1px solid #231815;
+	border-bottom: 1px solid #231815;
+	font-size: 12px;
+	font-weight: normal;
+	padding: 10px 15px;
+}
+
+.mp-summary-tbl td ul {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.mp-summary-tbl td li {
+	text-indent: -1em;
+	padding-left: 1em;
+}
+
+.mp-summary-tbl caption {
+	text-align: left;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+/* メールキャンペーン メール登録完了include */
+.mp-mail-inputlink-wap {
+	width: 616px;
+	margin: 30px auto 0;
+}
+.mp-mail-inputlink-txt {
+	color: #e64300;
+	font-weight: bold;
+	font-size: 14px;
+}
+.mp-mail-inputlink {
+	margin-top: 5px;
+	text-align: center;
+	border: solid 1px #cccccc;
+	padding: 2px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	width: 610px;
+}
+.mp-mail-inputlink-notes {
+	color: #e64300;
+	font-size: 11px;
+	margin-top: 6px;
+}
+/* キープ機能吹き出しインクルード */
+.mp-keep-balloon-wrap {
+	margin-top: 8px;
+}
+
+.mp-keep-balloon {
+	background-color: #757575;
+	border-radius: 8px;
+	font-size: 12px;
+	color: #FFFFFF;
+	width: 400px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 55px;
+	padding-right: 10px;
+	position: relative;
+}
+
+.mp-keep-balloon-txt {
+	color: #FFD225;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.mp-keep-balloon:before {
+	content: "";
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAApCAMAAACFghBKAAAAZlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMAAAAQEBBAQEBgYGCAgICfn5+/v7/v7+8gICD///9QUFCvr68wMDBwcHCPj4/f39/Pz88OFxh3AAAAEXRSTlMAECAwQFBgcICPn6+/z9/v7+/5YNgAAAGjSURBVHhejZDbkqsgFAWJGiWCYRZ38Jb8/0+OmvGMBY51+sEXm91Vi/yjrB+ct7Qif3NrOgQ1GT1C1Mmvx31TKsohp3fc8Ab06FAhRbmmADXEXyz2atlwyNlrsd3i0P6g9d0aaFoBqdfnXpGNu5CHaw5cAKG3r/gh7PkWJu54Y2Z3OG5BdhoRrJuNjTmh3aWKdgDCl1CZNKAgRdVQyoBR22GE6kJmKUYIRVDKWP95Zoz7Ed77Om4dphRTPGPG/LE031aAjVegJisU7wtpwI1sMHmhTXyflMH8acnmOOlknXN2nBLJrsGdouECCzpt94wktPmiHvdEup1MYp4k4RFihqTpKbGdssdVHIrEqqVfpJecL4OsXyQ9jtH9WuMjtTqzFnpn8dqlN8rUglt66DV03Jk6cmbFQanhEKRnVoJH9R/WAJIh5mz4Lrf4lFqa5VYjU0vR3CrgUutBcnifF3Oq9JgV5AQ++njES8puqVRz/GjeLAyvaIDMYhBPOWxDCc45AB14FnyKglAou87ZLKWyZvyeWWWxfhjk1AMFuaZo+BPJnt9hk1U1TUP09QAAAABJRU5ErkJggg==);
+	background-repeat: no-repeat;
+	width: 37px;
+	height: 41px;
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	margin-top: -20px;
+}
+
+.mp-keep-balloon-detail-wrap {
+	display: none;
+}
+
+.mp-keep-balloon-detail {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.mp-keep-balloon-detail:after {
+	left: 70px;
+}
+
+.mp-keep-balloon-lst {
+	margin-right: 0;
+	margin-left: auto;
+}
+
+.mp-keep-balloon-lst:after {
+	right: 200px;
+}
+
+/* ジョブーブからのアドバイスインクルード */
+
+.mp-app-completion-keep {
+	padding-top: 12px;
+	padding-right: 12px;
+	padding-bottom: 12px;
+	padding-left: 12px;
+	margin-top: 15px;
+	background: #fff3ed;
+}
+
+.mp-app-completion-keep-inner {
+	padding-left: 50px;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAApCAMAAACFghBKAAAAZlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMAAAAQEBBAQEBgYGCAgICfn5+/v7/v7+8gICD///9QUFCvr68wMDBwcHCPj4/f39/Pz88OFxh3AAAAEXRSTlMAECAwQFBgcICPn6+/z9/v7+/5YNgAAAGjSURBVHhejZDbkqsgFAWJGiWCYRZ38Jb8/0+OmvGMBY51+sEXm91Vi/yjrB+ct7Qif3NrOgQ1GT1C1Mmvx31TKsohp3fc8Ab06FAhRbmmADXEXyz2atlwyNlrsd3i0P6g9d0aaFoBqdfnXpGNu5CHaw5cAKG3r/gh7PkWJu54Y2Z3OG5BdhoRrJuNjTmh3aWKdgDCl1CZNKAgRdVQyoBR22GE6kJmKUYIRVDKWP95Zoz7Ed77Om4dphRTPGPG/LE031aAjVegJisU7wtpwI1sMHmhTXyflMH8acnmOOlknXN2nBLJrsGdouECCzpt94wktPmiHvdEup1MYp4k4RFihqTpKbGdssdVHIrEqqVfpJecL4OsXyQ9jtH9WuMjtTqzFnpn8dqlN8rUglt66DV03Jk6cmbFQanhEKRnVoJH9R/WAJIh5mz4Lrf4lFqa5VYjU0vR3CrgUutBcnifF3Oq9JgV5AQ++njES8puqVRz/GjeLAyvaIDMYhBPOWxDCc45AB14FnyKglAou87ZLKWyZvyeWWWxfhjk1AMFuaZo+BPJnt9hk1U1TUP09QAAAABJRU5ErkJggg==);
+	background-repeat: no-repeat;
+}
+
+.mp-app-completion-keep-ttl {
+	font-weight: bold;
+	font-size: 17px;
+	color: #f75b50;
+}
+
+.mp-app-completion-keep-ttl {
+	border-bottom: 1px solid #ff6600; 
+}
+
+.mp-app-completion-keep-detail {
+	border-top: 1px solid #dddddd;
+	padding-top: 5px;
+}
+
+.mp-app-completion-keep-detail span {
+	font-weight: bold;
+	font-size: 17px;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+.mp-app-completion-notice {
+	color: #f75b50;
+}
+
+/* 応募完了キープリストインクルード */
