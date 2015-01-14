@@ -42,7 +42,7 @@ class Front_Controller extends MY_Controller {
 		if(!($this->router->class == 'home' && $this->router->method == 'city_list')) {
 			$this->city_slug = $this->uri->rsegment($this->uri->total_rsegments());
 			
-			if(!$this->area_model->check_city($this->city_slug)) {
+			if(!$this->area_model->check_slug($this->city_slug)) {
 				$this->city_slug = '';
 			}
 			
@@ -58,7 +58,7 @@ class Front_Controller extends MY_Controller {
 					//Will show city list, if can not get geo_info info
 					if($geo_info != false && strtolower($geo_info['country_code']) == 'us') {
 						$this->city_slug = generate_slug($geo_info['city']);
-						if(!$this->area_model->check_city($this->city_slug)) {
+						if(!$this->area_model->check_slug($this->city_slug)) {
 							$this->city_slug = '';
 						}else {
 							redirect(uri_string());

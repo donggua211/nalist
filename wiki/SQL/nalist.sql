@@ -3,18 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 11, 2015 at 08:51 AM
+-- Generation Time: Jan 14, 2015 at 08:09 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `nalist`
@@ -68,15 +62,15 @@ CREATE TABLE IF NOT EXISTS `areas` (
 --
 
 INSERT INTO `areas` (`id`, `area_name`, `area_display_name`, `area_slug`, `type`, `parent_id`, `display_order`) VALUES
-(1, 'California', '加州', 'california', 'state', 0, 5),
+(1, 'California', '加州', 'california', 'state', 0, 50),
 (2, 'Los Angeles', '洛杉矶', 'los-angeles', 'county', 1, 10),
 (3, 'Walnut', '核桃市', 'walnut', 'city', 2, 100),
 (5, 'Diamond Bar', '钻石吧', 'diamond-bar', 'city', 2, 100),
 (6, 'New York', '纽约市', 'new-york', 'state', 0, 100),
 (7, 'Brooklyn', '布鲁克林', 'brooklyn', 'city', 6, 100),
-(10, 'Roseme', 'Roseme', 'roseme', 'city', 2, 100),
+(10, 'Roseme', ' 柔似蜜', 'roseme', 'city', 2, 100),
 (11, 'Long Beach', '长滩', 'long-beach', 'city', 2, 100),
-(12, 'Pico Rivera', 'Pico Rivera', 'pico-rivera', 'city', 2, 100),
+(12, 'Pico Rivera', 'Pico Rivera城', 'pico-rivera', 'city', 2, 100),
 (13, 'San Gabriel', '圣盖博', 'san-gabriel', 'city', 2, 100),
 (14, 'Orange County', '橙县', 'orange-county', 'county', 1, 100),
 (15, 'San Diego', '圣地亚哥', 'san-diego', 'county', 1, 20),
@@ -100,22 +94,23 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `display_order` int(11) NOT NULL DEFAULT '100',
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `parent_id`, `category_name`, `category_display_name`, `category_slug`, `description`, `display_order`, `add_time`) VALUES
-(1, 0, 'fangwu', '房屋', 'fangwu', '房屋', 100, '0000-00-00 00:00:00'),
-(6, 0, 'zhaopin', '招聘', 'zhaopin', '招聘', 1, '0000-00-00 00:00:00'),
+(1, 0, 'fangwu', '房屋', 'fangwu', '房屋', 1, '0000-00-00 00:00:00'),
+(6, 0, 'zhaopin', '招聘', 'zhaopin', '招聘', 5, '0000-00-00 00:00:00'),
 (12, 1, 'zufang', '租房', 'zufang', '租房', 100, '2014-08-17 16:51:51'),
 (13, 1, 'zhengzu', '整租', 'zhengzu', '整租', 100, '2015-01-10 23:05:28'),
 (14, 1, 'hezu', '合租', 'hezu', '合租', 100, '2015-01-10 23:05:40'),
 (15, 1, 'qiuzu', '求租', 'qiuzu', '求租', 100, '2015-01-10 23:05:59'),
 (16, 1, 'shangpuchuzu', '商铺出租', 'shangpuchuzu', '商铺出租', 100, '2015-01-10 23:06:13'),
 (17, 1, 'shangpuchushou', '商铺出售', 'shangpuchushou', '商铺出售', 100, '2015-01-10 23:06:29'),
-(18, 6, 'baochizhu', '包吃住专区', 'baochizhu', '包吃住专区', 10, '2015-01-10 23:09:03');
+(18, 6, 'baochizhu', '包吃住专区', 'baochizhu', '包吃住专区', 10, '2015-01-10 23:09:03'),
+(20, 6, 'jianzhi', '兼职', 'jianzhi', '兼职', 100, '2015-01-12 08:28:18');
 
 -- --------------------------------------------------------
 
@@ -132,14 +127,16 @@ CREATE TABLE IF NOT EXISTS `filters` (
   `type` enum('select','radio','checkbox','text','number') NOT NULL,
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `filters`
 --
 
 INSERT INTO `filters` (`id`, `category_id`, `filter_key`, `filter_name`, `type`, `add_time`) VALUES
-(4, 12, 'rent_type', '租房种类', '', '2015-01-02 23:02:28');
+(5, 1, 'tingshi', '厅室', 'radio', '2015-01-14 07:54:50'),
+(6, 12, 'fangshi', '方式', 'radio', '2015-01-14 08:03:54'),
+(7, 12, 'fee', '租金', 'number', '2015-01-14 08:04:34');
 
 -- --------------------------------------------------------
 
@@ -156,15 +153,21 @@ CREATE TABLE IF NOT EXISTS `filter_options` (
   `display_order` int(11) NOT NULL DEFAULT '100',
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`option_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `filter_options`
 --
 
 INSERT INTO `filter_options` (`option_id`, `filter_id`, `option_name`, `option_value`, `display_order`, `add_time`) VALUES
-(7, 4, 'duanzu', '1', 100, '2015-01-02 23:02:28'),
-(8, 4, 'rizu', '2', 1, '2015-01-02 23:02:29');
+(9, 5, '一室', 'r1', 100, '2015-01-14 07:54:50'),
+(10, 5, '两室', 'r2', 100, '2015-01-14 07:54:50'),
+(11, 5, '三室', 'r3', 100, '2015-01-14 07:54:50'),
+(12, 5, '四室', 'r4', 100, '2015-01-14 07:54:50'),
+(13, 5, '四室以上', 'r5', 100, '2015-01-14 07:54:50'),
+(14, 6, '整套出租', 'whole', 100, '2015-01-14 08:03:54'),
+(15, 6, '单间出租', 'single', 100, '2015-01-14 08:03:55'),
+(16, 6, '床位出租', 'bed', 100, '2015-01-14 08:03:55');
 
 -- --------------------------------------------------------
 
@@ -214,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `info` (
 --
 
 INSERT INTO `info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `description`, `status`, `add_time`, `update_date`) VALUES
-(1, 9, 12, 2, '测试的信息', '描述 描述1', 0, '2013-10-22 23:22:58', '2015-01-02 23:51:41'),
+(1, 2, 12, 2, '测试的信息', '描述 描述1', 0, '2013-10-22 23:22:58', '2015-01-14 03:16:31'),
 (2, 3, 6, 2, '测试的信息 22', 'user_iduser_iduser_id', 1, '2015-01-02 23:51:03', '2015-01-02 23:51:03');
 
 -- --------------------------------------------------------
@@ -302,7 +305,3 @@ CREATE TABLE IF NOT EXISTS `user_logs` (
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

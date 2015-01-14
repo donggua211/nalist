@@ -13,7 +13,7 @@
 			</li>
 			<li>
 				<label>父级:</label>
-				<p><?php template_tree_select($category_list, 'category_name', '', 'parent_id', '无'); ?></p>
+				<p><?php template_tree_select($category_list, 'category_display_name', '', 'parent_id', '无'); ?></p>
 			</li>
 			<li>
 				<label>表示顺序:</label>

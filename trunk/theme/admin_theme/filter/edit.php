@@ -9,7 +9,7 @@
 			</li>
 			<li>
 				<label for="filter_key">分类:</label>
-				<p><?php template_tree_select($category_list, 'category_name', $category_id, 'category_id', '请选择'); ?></p>
+				<p><?php template_tree_select($category_list, 'category_display_name', $category_id, 'category_id', '请选择'); ?></p>
 			</li>
 			<li>
 				<label for="filter_key">过滤器Key:</label>

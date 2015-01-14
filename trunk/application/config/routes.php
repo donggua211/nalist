@@ -46,15 +46,15 @@ $route['city'] = 'home/city_list';
 
 
 //Set router for City.
-if(file_exists(FCPATH.'.area_route')) {
-	$content = file_get_contents(FCPATH.'.area_route');
+if(file_exists(FCPATH.'.route_area_list')) {
+	$content = file_get_contents(FCPATH.'.route_area_list');
 	if (!empty($content)) {
 		$route_setting = explode(',', $content);
 		
 		//Category
 		$category_setting = array();
-		if(file_exists(FCPATH.'.category_route')) {
-			$category_content = file_get_contents(FCPATH.'.category_route');
+		if(file_exists(FCPATH.'.route_category_list')) {
+			$category_content = file_get_contents(FCPATH.'.route_category_list');
 			if (!empty($category_content)) {
 				$category_setting = explode(',', $category_content);
 			}
