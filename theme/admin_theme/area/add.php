@@ -13,7 +13,7 @@
 			</li>
 			<li>
 				<label>父级:</label>
-				<p><?php template_tree_select($area_list, 'area_name', '', 'parent_id', '无'); ?></p>
+				<p><?php template_tree_select($area_list, 'area_display_name', '', 'parent_id', '无'); ?></p>
 			</li>
 			<li>
 				<label>城市的种类:</label>

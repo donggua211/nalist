@@ -16,7 +16,7 @@ class Site_config extends Admin_Controller {
 				$data[$key] = $this->input->post($key);
 			}
 			
-			$site_config = $this->site_config_model->get_all_config();
+			$site_config = $this->site_config_model->all();
 			$update_field = array();
 			foreach($data as $key => $val) {
 				if((!isset($site_config[$key]) || $val != $site_config[$key])) {
@@ -33,7 +33,7 @@ class Site_config extends Admin_Controller {
 			show_result_page($data['message'], 'admin/site_config');
 			return true;
 		} else {
-			$data = $this->site_config_model->get_all_config();
+			$data = $this->site_config_model->all();
 			$data['themes'] = $this->_get_all_theme();
 			$this->load->admin_template('site_config/index', $data);
 		}
