@@ -9,7 +9,7 @@ class Site_config_model extends Cache_Model {
         parent::__construct();
     }
 	
-	private function cache_update() {
+	public function cache_update() {
 		$sql = "SELECT * FROM {$this->db->dbprefix('site_configs')}";
 		$query = $this->db->query($sql);
 		

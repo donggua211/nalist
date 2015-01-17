@@ -83,7 +83,7 @@ class TREE_Model extends Cache_Model {
 	}
 	
 	public function remove($id) {
-		$this->_deep_remove($this->table, $id);
+		$this->_deep_remove($id);
 		$this->cache_update();
 		return true;
 	}
@@ -128,6 +128,13 @@ class TREE_Model extends Cache_Model {
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $val) {
 				$this->data_list['tree'][$val['id']] = $val;
+				
+				$child_id = $this->_context_child_id($query->result_array(), $val['id']);
+				array_unshift($child_id, $val['id']);
+				$this->data_list['single'][$val['id']] = $val;
+				$this->data_list['single'][$val['id']]['context_parent_id'] = implode(',', $this->_context_parent_id($query->result_array(), $val['id']));
+				$this->data_list['single'][$val['id']]['context_child_id'] = implode(',', $child_id);
+				
 				$slug_array[] = $val[$this->slug_key];
 				
 				$this->data_list['nav'][$val[$this->slug_key]] = $val;
@@ -139,10 +146,41 @@ class TREE_Model extends Cache_Model {
 			$this->data_list['tree'] = array_2_tree($this->data_list['tree']);
 		}
 		
-		file_put_contents($this->route_conf_file, implode(',', $slug_array));
+		if(!empty($slug_array)) {
+			file_put_contents($this->route_conf_file, implode(',', $slug_array));
+		}
 		
 		$this->cache_save($this->data_list);
 		return $this->data_list;
+	}
+	
+	private function _context_child_id($array, $id, $result = array()) {
+		foreach($array as $val) {
+			if($val['parent_id'] != $id) {
+				continue;
+			}
+			
+			$result[] = $val['id'];
+			$result = $this->_context_child_id($array, $val['id'], $result);
+		}
+		
+		return $result;
+	}
+	
+	private function _context_parent_id($array, $id, $result = array()) {
+		foreach($array as $val) {
+			if($val['id'] != $id) {
+				continue;
+			}
+			
+			$result[] = $val['id'];
+			
+			if($val['parent_id'] == '0') {
+				return $result;
+			} else {
+				return $this->_context_parent_id($array, $val['parent_id'], $result);
+			}
+		}
 	}
 	
 	private function _track_parent($array, $id, $result = array()) {
@@ -160,6 +198,7 @@ class TREE_Model extends Cache_Model {
 			}
 		}
 	}
+	
 	private function _track_neighbor($array, $parent_id) {
 		$result = array();
 		foreach($array as $val) {
