@@ -45,7 +45,7 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'localhost';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
@@ -63,6 +63,22 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+
+$db['enkj']['hostname'] = 'localhost';
+$db['enkj']['username'] = 'a0122091853';
+$db['enkj']['password'] = '98389573';
+$db['enkj']['database'] = 'a0122091853';
+$db['enkj']['dbdriver'] = 'mysql';
+$db['enkj']['dbprefix'] = '';
+$db['enkj']['pconnect'] = TRUE;
+$db['enkj']['db_debug'] = TRUE;
+$db['enkj']['cache_on'] = FALSE;
+$db['enkj']['cachedir'] = '';
+$db['enkj']['char_set'] = 'utf8';
+$db['enkj']['dbcollat'] = 'utf8_general_ci';
+$db['enkj']['swap_pre'] = '';
+$db['enkj']['autoinit'] = TRUE;
+$db['enkj']['stricton'] = FALSE;
 
 
 /* End of file database.php */
