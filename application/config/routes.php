@@ -53,9 +53,9 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//City List
-$route['city'] = 'home/city_list';
-
+//Page
+$route['city'] = 'page/city_list';
+$route['lang/(:any)'] = 'page/lang_switch/$1';
 
 //Set router for City.
 if(file_exists(FCPATH.'.route_area_list')) {

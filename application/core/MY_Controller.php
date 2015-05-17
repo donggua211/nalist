@@ -16,6 +16,7 @@ class MY_Controller extends CI_Controller {
 class Front_Controller extends MY_Controller {
 	public $city_slug = '';
 	public $theme = '';
+	public $language = '';
 	
 	function __construct() {
 		parent::__construct();
@@ -39,7 +40,7 @@ class Front_Controller extends MY_Controller {
 		}
 		
 		//Check City
-		if(!($this->router->class == 'home' && $this->router->method == 'city_list')) {
+		if(!($this->router->class == 'page')) {
 			$this->city_slug = $this->uri->rsegment($this->uri->total_rsegments());
 			
 			if(!$this->area_model->check_slug($this->city_slug)) {
@@ -75,8 +76,19 @@ class Front_Controller extends MY_Controller {
 			$this->template_data['city_info'] = $this->area_model->get_one_by_slug($this->city_slug);
 		}
 		
+		//Set Language
+		$this->language = $this->session->userdata('language');
+        if(!$this->language) {
+			$this->language = $this->config->item('language');
+			$this->session->set_userdata('language', $this->language);
+        }
+		
 		//Set template_data
 		$this->template_data['site_name'] = $this->site_config_model->get_config('site_name');
+		
+		//Language File
+		$this->lang->load('common', $this->language);
+		$this->lang->load('parts', $this->language);
 	}
 }
 
