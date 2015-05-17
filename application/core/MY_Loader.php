@@ -14,14 +14,14 @@ class MY_Loader extends CI_Loader {
 		$CI = & get_instance();
 		
 		$vars = array_merge($CI->template_data, $vars);
-
-		$content  = $this->view('parts/header', $vars, $return);
-        $content .= $this->view($template_name, $vars, $return);
-        $content .= $this->view('parts/footer', $vars, $return);
-
+		
         if ($return) {
-            return $content;
-        }
+			return $this->view($template_name, $vars, $return);
+        } else {
+			$this->view('parts/header', $vars, $return);
+			$this->view($template_name, $vars, $return);
+			$this->view('parts/footer', $vars, $return);
+		}
     }
 	
     public function front_template($template_name, $vars = array(), $return = FALSE) {
@@ -29,10 +29,10 @@ class MY_Loader extends CI_Loader {
 		
 		$vars = array_merge($CI->template_data, $vars);
 		
-        $content = $this->view($template_name, $vars, $return);
-
         if ($return) {
-            return $content;
-        }
+            return $this->view($template_name, $vars, $return);
+        } else {
+			$content = $this->view($template_name, $vars, $return);
+		}
     }
 }
