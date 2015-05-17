@@ -31,10 +31,10 @@
 				<div class="hd-inner">
 					<nav class="topnav-wrap">
 						<ul class="topnav-inner">
-							<li><a href="<?php echo site_url('page/howto'); ?>">如何使用</a></li>
-							<li><a href="<?php echo site_url('page/first'); ?>">第一次使用</a></li>
-							<li><a href="<?php echo site_url('user/login'); ?>">登录</a></li>
-							<li><a href="<?php echo site_url('user/logout'); ?>">退出</a></li>
+							<li><a href="<?php echo site_url('page/howto'); ?>"><?php echo lang('parts.how_to_use'); ?></a></li>
+							<li><a href="<?php echo site_url('page/first'); ?>"><?php echo lang('parts.first_use'); ?></a></li>
+							<li><a href="<?php echo site_url('user/login'); ?>"><?php echo lang('parts.login'); ?></a></li>
+							<li><a href="<?php echo site_url('user/logout'); ?>"><?php echo lang('parts.logout'); ?></a></li>
 						</ul>
 					</nav>
 					
@@ -53,7 +53,7 @@
 						
 						<?php if(isset($city_slug) && !empty($city_slug)): ?>
 						<div class="btn-wrap-site-change">
-							<a href="<?php echo site_url('city', false); ?>" class="grd-l-gray btn-site-change">更换城市</a>
+							<a href="<?php echo site_url('city', false); ?>" class="grd-l-gray btn-site-change"><?php echo lang('parts.change_city'); ?></a>
 						</div>
 						<?php endif;?>
 					</div>
@@ -62,14 +62,14 @@
 						<nav class="hd-inner-mymenu">
 							<ul>
 								<li>
-									<span class="mp-ico-free">免费!</span>
+									<span class="mp-ico-free"><?php echo lang('parts.free'); ?></span>
 									<div class="btn-wrap">
-										<a href="javascript:void(0);" class="grd-gray hd-btn-usermenu jsc-jump-link" data-jump-param="rlsMvBefore,?accd=11&amp;svos=PCNEWENTRY001">会員登録</a>
+										<a href="javascript:void(0);" class="grd-gray hd-btn-usermenu jsc-jump-link" data-jump-param="rlsMvBefore,?accd=11&amp;svos=PCNEWENTRY001"><?php echo lang('parts.login'); ?></a>
 									</div>
 								</li>
 								<li class="hd-btn-wrap-keep">
 									<div class="btn-wrap">
-										<a href="javascript:void(0);" class="grd-gray hd-btn-keep ico-arrow-b jsc-jump-link" data-jump-param="keepList,">キープ<span>(<span id="jsi-kept-num">0</span>)</span></a></div>
+										<a href="javascript:void(0);" class="grd-gray hd-btn-keep ico-arrow-b jsc-jump-link" data-jump-param="keepList,"><?php echo lang('parts.favorites'); ?><span>(<span id="jsi-kept-num">0</span>)</span></a></div>
 								</li>
 							</ul>
 						</nav>
