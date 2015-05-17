@@ -37,8 +37,8 @@ class User_model extends MY_Model {
 	}
 	
 	public function all() {
-		$sql = "SELECT users.*, groups.group_name, groups.permission FROM {$this->db->dbprefix('users')}
-				LEFT JOIN groups ON groups.id = users.group_id
+		$sql = "SELECT users.*, groups.group_name, groups.permission FROM {$this->db->dbprefix('users')} as users
+				LEFT JOIN {$this->db->dbprefix('groups')} as groups ON groups.id = users.group_id
 				ORDER BY add_time DESC";
 		$query = $this->db->query($sql);
 		
@@ -53,8 +53,8 @@ class User_model extends MY_Model {
 	}
 	
 	public function one($id) {
-		$sql = "SELECT users.*, groups.group_name, groups.permission FROM {$this->db->dbprefix('users')}
-				LEFT JOIN groups ON groups.id = users.group_id
+		$sql = "SELECT users.*, groups.group_name, groups.permission FROM {$this->db->dbprefix('users')} as users
+				LEFT JOIN {$this->db->dbprefix('groups')} as groups ON groups.id = users.group_id
 				WHERE users.id = '$id'
 				LIMIT 1";
 		$query = $this->db->query($sql);

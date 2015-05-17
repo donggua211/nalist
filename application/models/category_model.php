@@ -47,9 +47,7 @@ class Category_model extends TREE_Model {
 		}
 	}
 	
-	public function one($id) {
-		pr($this->data_list['single'][$id]);
-		
+	public function one($id) {		
 		$sql = "SELECT * FROM {$this->db->dbprefix('categories')}
 				WHERE id = '$id'
 				LIMIT 1";
