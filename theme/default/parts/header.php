@@ -13,11 +13,15 @@
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo site_url('rss');?>" />
 		
 		<link href="<?php echo __THEME_URI__; ?>assets/css/style.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="<?php echo __THEME_URI__; ?>assets/js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="<?php echo __THEME_URI__; ?>assets/js/common.js"></script>
+		<script type="text/javascript" src="<?php echo __THEME_URI__; ?>assets/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="<?php echo __THEME_URI__; ?>assets/js/frontend.js"></script>
 		
-		<script type="text/javascript" src="<?php echo __THEME_URI__; ?>assets/js/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
-		<link rel="stylesheet" href="<?php echo __THEME_URI__; ?>assets/js/jquery-ui/jquery-ui-1.10.3.custom.min.css" type="text/css" media="all" />
+		<script type="text/javascript" src="<?php echo __THEME_URI__; ?>assets/js/jquery-ui/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="<?php echo __THEME_URI__; ?>assets/js/jquery-ui/jquery-ui.min.css" type="text/css" media="all" />
+		
+		<script>
+			var base_url = '<?php echo base_url(); ?>';
+		</script>
 	</head>
 	<body>
 		<div class="hd-wrap-keywords">
@@ -31,6 +35,14 @@
 				<div class="hd-inner">
 					<nav class="topnav-wrap">
 						<ul class="topnav-inner">
+							<li>
+								<select id="switch_language">
+									<option selected="selected" value=""><?php echo lang('parts.switch_language'); ?></option>
+									<option value="zh_CN"><?php echo lang('parts.lang_zh_CN'); ?></option>
+									<option value="zh_TW"><?php echo lang('parts.lang_zh_TW'); ?></option>
+									<option value="english"><?php echo lang('parts.lang_english'); ?></option>
+								</select>
+							</li>
 							<li><a href="<?php echo site_url('page/howto'); ?>"><?php echo lang('parts.how_to_use'); ?></a></li>
 							<li><a href="<?php echo site_url('page/first'); ?>"><?php echo lang('parts.first_use'); ?></a></li>
 							<li><a href="<?php echo site_url('user/login'); ?>"><?php echo lang('parts.login'); ?></a></li>
