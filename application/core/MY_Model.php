@@ -15,10 +15,10 @@ class Cache_Model extends MY_Model {
 		$this->load->driver('cache', array('adapter' => 'file'));
 		
 		//Get frin Cache first.
-		$this->data_list = $this->cache_get();
+		$this->cache_get();
 		
 		if(empty($this->data_list)) {
-			$this->data_list = $this->cache_update();
+			$this->cache_update();
 		}
 	}
 	
@@ -31,12 +31,12 @@ class Cache_Model extends MY_Model {
 			show_error('You must $this->cache_key to use cache in MY_Model.');
 		}
 		
-		$cache_array = $this->cache->get($this->cache_key);
-		if(empty($cache_array)) {
-			$cache_array = array();
+		$this->data_list = $this->cache->get($this->cache_key);
+		if(empty($this->data_list)) {
+			$this->data_list = array();
 		}
 		
-		return $cache_array;
+		return $this->data_list;
 	}
 	
 	public function cache_save($cache_array) {
@@ -54,13 +54,13 @@ class TREE_Model extends Cache_Model {
 	public $slug_list = array();
 	
 	function __construct() {
-		parent::__construct();
-		
 		if(empty($this->table) || empty($this->slug_key)) {
 			show_error('You must $this->table and $this->slug_key to use Tree_Model.');
 		}
 		
 		$this->route_conf_file = FCPATH.'.route_'.$this->cache_key;
+		
+		parent::__construct();
 	}
 	
 	public function tree() {

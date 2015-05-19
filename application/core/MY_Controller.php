@@ -112,6 +112,11 @@ class Admin_Controller extends MY_Controller {
 		$this->load->set_theme(THEMEPATH . $this->theme);
 		define('__THEME_URI__', base_url() . THEMEPATH . $this->theme . '/');
 		
+		//Load user defined function is function.php is exist;
+		if(file_exists( THEMEPATH . $this->theme . '/function.php')) {
+			include_once(THEMEPATH . $this->theme . '/function.php');
+		}
+		
 		//Load helper
 		$this->load->helper('admin/template');
 		

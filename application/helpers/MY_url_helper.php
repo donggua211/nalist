@@ -1,4 +1,5 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 function site_url($uri = '', $prefix_city = TRUE) {
 	$CI =& get_instance();

@@ -54,4 +54,18 @@ class Site_config extends Admin_Controller {
 		}
 		return $result;
 	}
+	
+	public function reset() {
+		$this->load->model('area_model');
+		$this->load->model('category_model');
+		
+		
+		$this->area_model->cache_update();
+		$this->category_model->cache_update();
+		
+		$data['message']['ok'] = '系统重置成功!';
+		
+		show_result_page($data['message'], 'admin');
+		return true;
+	}
 }
