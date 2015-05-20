@@ -2033,6 +2033,7 @@ a:hover, a:active {
     display: inline-block;
     letter-spacing: normal;
     line-height: 2;
+	margin-right: 10px;
 }
 .panel-free-word-sch .free-word-txtfield {
     background-position: 8px -2480px;

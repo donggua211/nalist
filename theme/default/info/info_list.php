@@ -7,7 +7,7 @@
 				<nav class="breadcrumbs-wrap">
 					<ul class="breadcrumbs-lst">
 						<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-							<a href="<?php echo site_url('home'); ?>" itemprop="url"><span itemprop="title">首页</span></a>
+							<a href="<?php echo site_url('home'); ?>" itemprop="url"><span itemprop="title"><?php echo lang('home'); ?></span></a>
 						</li>
 						<?php foreach($city_info['parent'] as $val) : ?>
 						<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
@@ -22,7 +22,7 @@
 						<?php endforeach; ?>
 						
 						<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-							<span itemprop="title">搜索结果</span>
+							<span itemprop="title"><?php echo lang('info.search_result'); ?></span>
 						</li>
 					</ul>
 				</nav>
@@ -30,60 +30,38 @@
 					<span class="contents-hd-update-date"><?php echo date('Y年m月d日'); ?></span>更新！全国总共<span class="contents-hd-update-count">375,765</span>件
 				</p>
 			</div>
-		
-		
-			<div class="top-txt-wrap">
-				<div class="top-txt-inner">
-					<div class="top-txt-container">
-						<ul class="top-txt-lst">
-							<li class="mp-notice-txt-red">・人類初!? 無重力で調査バイト！宇宙とファッションの『<a href="/twc/info/super/index.html?svos=SCP01030101inforarejob201501">激レアバイト</a>』を1/26まで募集中！</li>
-							<li>・【メルマガ登録キャンペーン実施中】抽選で500円のQUOカードが当たる!!&nbsp;詳しくは<a href="/twc/info/mailcamp/index.html?svos=SCP01030101mailcaminfo2014" target="_blank">コチラ</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
 			
 			<div class="contents-box-tbl-wrap" id="jsi-sch-panel-wrapper" data-init-srch-btn="true">
-                <dl class="panel-tbl-wrap">
-                    <dt>雇用形態</dt>
-                    <dd id="jsi-employment-select">
-                        <form name="joSrchRsltListActionForm" id="emcForm" method="get" action="/joSrchRsltList/" autocomplete="off"><ul class="small-area-tbl-btn">
-                                <li>
-                                        <input type="checkbox" class="cndLmtList-employ-select" name="emc" value="01" id="01">
-                                        <a href="javascript:void(0);" class="jsc-jump-link" data-jump-param="tokyo,jc_010,emc_01,">アルバイト</a></li>
-                                <li>
-                                        <input type="checkbox" class="cndLmtList-employ-select" name="emc" value="06" id="06">
-                                        <a href="javascript:void(0);" class="jsc-jump-link" data-jump-param="tokyo,jc_010,emc_06,">パート</a></li>
-                                <li>
-                                        <input type="checkbox" class="cndLmtList-employ-select" name="emc" value="04" id="04">
-                                        <a href="javascript:void(0);" class="jsc-jump-link" data-jump-param="tokyo,jc_010,emc_04,">正社員</a></li>
-                                <li>
-                                        <input type="checkbox" class="cndLmtList-employ-select" name="emc" value="03" id="03">
-                                        <a href="javascript:void(0);" class="jsc-jump-link" data-jump-param="tokyo,jc_010,emc_03,">契約社員</a></li>
-                                <li>
-                                        <input type="checkbox" class="cndLmtList-employ-select" name="emc" value="02" id="02">
-                                        <a href="/tokyo/jc_010/emc_02/">派遣社員</a></li>
-                                <li>
-                                        <input type="checkbox" class="cndLmtList-employ-select" name="emc" value="05" id="05">
-                                        <a href="javascript:void(0);" class="jsc-jump-link" data-jump-param="tokyo,jc_010,emc_05,">その他</a></li>
-                                </ul>
-                            <div class="btn-wrap panel-btn-right">
-                                <input type="submit" value="絞り込む" class="grd-blue btn-blue-h30 jsc-employment-btn">
-                            </div>
-                            <input type="hidden" name="ac" value="041"><input type="hidden" name="jc" value="010"></form>
-					</dd>
-                </dl>
-                <dl class="panel-tbl-wrap panel-free-word-sch">
-                    <dt>フリーワード</dt>
-                    <dd id="jsi-freeword">
-						<form name="joSrchRsltListActionForm" id="fwForm" method="get" action="/joSrchRsltList/" autocomplete="off"><input type="text" name="fw" value="" id="textfield000" class="free-word-txtfield placeholder jsc-max-length-limit jsc-freeword-field jsc-need-alert jsc-placeholder" data-placeholder="例) 日払い、短期、新宿区" data-alert-message="条件を1つ以上選択してください。" data-maxlength="25" maxlength="25">
+				<dl class="panel-tbl-wrap">
+					<dt><?php echo $category_info['direct_parent']['category_display_name']; ?></dt>
+					<dd id="jsi-employment-select">
+						<ul class="small-area-tbl-btn">
+							<?php foreach($category_info['neighbor'] as $val) : ?>
+							<li>
+								<?php if($val['id'] == $category_info['id']) : ?>
+									<?php echo  $val['category_display_name']; ?>
+								<?php else: ?>
+									<a href="<?php echo  site_url($val['category_slug']); ?>" class="jsc-jump-link" data-jump-param="tokyo,jc_010,emc_01,"><?php echo  $val['category_display_name']; ?></a>
+								<?php endif; ?>
+							</li>
+							<?php endforeach; ?>
+						</ul>
 						<div class="btn-wrap panel-btn-right">
-						<input type="submit" value="絞り込む" class="grd-blue btn-blue-h30 jsc-freeword-btn">
+							<input type="submit" value="絞り込む" class="grd-blue btn-blue-h30 jsc-employment-btn">
 						</div>
-						</form>
 					</dd>
-                </dl>
-            </div>
+				</dl>
+				<dl class="panel-tbl-wrap panel-free-word-sch">
+				<dt>フリーワード</dt>
+				<dd id="jsi-freeword">
+				<form name="joSrchRsltListActionForm" id="fwForm" method="get" action="/joSrchRsltList/" autocomplete="off"><input type="text" name="fw" value="" id="textfield000" class="free-word-txtfield placeholder jsc-max-length-limit jsc-freeword-field jsc-need-alert jsc-placeholder" data-placeholder="例) 日払い、短期、新宿区" data-alert-message="条件を1つ以上選択してください。" data-maxlength="25" maxlength="25">
+				<div class="btn-wrap panel-btn-right">
+				<input type="submit" value="絞り込む" class="grd-blue btn-blue-h30 jsc-freeword-btn">
+				</div>
+				</form>
+				</dd>
+				</dl>
+			</div>
 			
 			<div class="job-cassette-lst-wrap">
 				<div class="display-num-wrap">

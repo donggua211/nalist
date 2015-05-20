@@ -139,7 +139,9 @@ class TREE_Model extends Cache_Model {
 				$slug_array[] = $val[$this->slug_key];
 				
 				$this->data_list['nav'][$val[$this->slug_key]] = $val;
+				$this->data_list['nav'][$val[$this->slug_key]]['direct_parent'] = $this->_set_direct_parent($query->result_array(), $val['parent_id']);
 				$this->data_list['nav'][$val[$this->slug_key]]['parent'] = array_reverse($this->_track_parent($query->result_array(), $val['id']));
+				$this->data_list['nav'][$val[$this->slug_key]]['child'] = $this->_track_child($query->result_array(), $val['id']);
 				$this->data_list['nav'][$val[$this->slug_key]]['neighbor'] = $this->_track_neighbor($query->result_array(), $val['parent_id']);
 				
 			}
@@ -200,6 +202,17 @@ class TREE_Model extends Cache_Model {
 		}
 	}
 	
+	private function _track_child($array, $id) {
+		$result = array();
+		foreach($array as $val) {
+			if($val['parent_id'] == $id) {
+				$result[] = $val;
+			}
+		}
+		
+		return $result;
+	}
+	
 	private function _track_neighbor($array, $parent_id) {
 		$result = array();
 		foreach($array as $val) {
@@ -209,5 +222,20 @@ class TREE_Model extends Cache_Model {
 		}
 		
 		return $result;
+	}
+	
+	private function _set_direct_parent($array, $parent_id) {
+		if($parent_id == 0) {
+			return array();
+		}
+		
+		foreach($array as $val) {
+			if($val['id'] == $parent_id) {
+				return $val;
+				break;
+			}
+		}
+		
+		return  array();
 	}
 }

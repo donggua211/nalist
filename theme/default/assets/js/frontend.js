@@ -4,7 +4,7 @@ $(function() {
 		var lang = $(this).val();
 		
 		if(lang != '') {
-			window.location.href = base_url + 'lang/' + lang;
+			window.location.href = base_url + 'lang/' + lang + '?url=' + encodeURIComponent(current_url);
 		}
 	});
 });

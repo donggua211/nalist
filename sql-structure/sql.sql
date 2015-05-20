@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 19, 2015 at 02:28 PM
+-- Generation Time: May 20, 2015 at 06:11 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -142,8 +142,8 @@ CREATE TABLE IF NOT EXISTS `nalist_filters` (
 
 INSERT INTO `nalist_filters` (`id`, `category_id`, `filter_key`, `filter_name`, `type`, `add_time`) VALUES
 (5, 1, 'tingshi', '厅室', 'radio', '2015-01-14 07:54:50'),
-(6, 12, 'fangshi', '方式', 'radio', '2015-01-14 08:03:54'),
-(7, 12, 'fee', '租金', 'number', '2015-01-14 08:04:34');
+(6, 1, 'fangshi', '方式', 'radio', '2015-01-14 08:03:54'),
+(7, 13, 'fee', '租金', 'number', '2015-01-14 08:04:34');
 
 -- --------------------------------------------------------
 
@@ -224,8 +224,8 @@ CREATE TABLE IF NOT EXISTS `nalist_info` (
 --
 
 INSERT INTO `nalist_info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `description`, `status`, `add_time`, `update_date`) VALUES
-(1, 2, 12, 2, '测试的信息', '描述 描述1', 0, '2013-10-22 23:22:58', '2015-01-14 03:16:31'),
-(2, 3, 6, 2, '测试的信息 22', 'user_iduser_iduser_id', 1, '2015-01-02 23:51:03', '2015-01-02 23:51:03');
+(1, 2, 13, 1, '测试的信息', '描述 描述1', 1, '2013-10-22 23:22:58', '2015-05-20 03:59:22'),
+(2, 3, 13, 1, '测试的信息 22', 'user_iduser_iduser_id', 1, '2015-01-02 23:51:03', '2015-05-20 03:59:06');
 
 -- --------------------------------------------------------
 
@@ -287,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `nalist_users` (
   `add_time` datetime NOT NULL,
   `modified_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `nalist_users`

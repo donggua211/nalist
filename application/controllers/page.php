@@ -17,8 +17,9 @@ class Page extends Front_Controller {
 		$language = ($language != "") ? $language : $this->config->item('language');
 		$this->session->set_userdata('language', $language);
 		
-		if ($this->agent->is_referral()) {
-			$redirect_url = $this->agent->referrer();
+		$redirect_url = $this->input->get('url');
+		if (!empty($redirect_url)) {
+			$redirect_url = urldecode($redirect_url);
 		} else {
 			$redirect_url = site_url();
 		}
