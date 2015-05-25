@@ -32,7 +32,7 @@ class Filter extends Admin_Controller {
 			
 			if(empty($data['filter_name'])) {
 				$data['message']['error'] = '过滤器名称不能为空.';
-			} elseif(empty($data['filter_key'])) {
+			} elseif(empty($data['filter_slug'])) {
 				$data['message']['error'] = '过滤器Key不能为空.';
 			} elseif(empty($data['category_id'])) {
 				$data['message']['error'] = '必须选择一个分类.';
@@ -100,7 +100,11 @@ class Filter extends Admin_Controller {
 						continue;
 					}
 					
-					$data[$key] = $this->input->post($key);
+					if($key == 'filter_display_order') {
+						$data['display_order'] = $this->input->post($key);
+					} else {
+						$data[$key] = $this->input->post($key);
+					}
 				}
 				
 				$update_field = array();

@@ -74,7 +74,7 @@ class Front_Controller extends MY_Controller {
 			}
 			
 			$this->template_data['city_slug'] = $this->city_slug;
-			$this->template_data['city_info'] = $this->area_model->get_one_by_slug($this->city_slug);
+			$this->template_data['city_info'] = $this->area_model->get_nav_by_slug($this->city_slug);
 		}
 		
 		//Set Language

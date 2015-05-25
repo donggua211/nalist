@@ -1412,6 +1412,9 @@ a:hover.triangle-button{
 	background: #FEFBD3;
 	color: red;
 }
+.edit-form .auto-height li {
+	height: auto;
+}
 
 /* edit-table */
 .edit-table {
@@ -2585,4 +2588,10 @@ span.filter-option-subtitle-p {
 }
 .filter-option-button .remove-option {
 	background: url(image/remove.gif) no-repeat 5px center ;
+}
+
+.category-list  li{
+	display: inline-block;
+	margin-right: 20px;
+
 }

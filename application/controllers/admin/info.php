@@ -10,6 +10,7 @@ class Info extends Admin_Controller {
 		$this->load->model('category_model');
 		$this->load->model('user_model');
 		$this->load->model('info_model');
+		$this->load->model('filter_model');
 	}
 	
 	public function index() {
@@ -17,7 +18,7 @@ class Info extends Admin_Controller {
 		$this->load->admin_template('info/index', $data);
 	}
 	
-	public function add() {
+	public function add($category_id = '') {
 		if(isset($_POST) && !empty($_POST)) {
 			foreach($_POST as $key => $val) {
 				if(in_array($key, array('submit'))) {
@@ -40,7 +41,13 @@ class Info extends Admin_Controller {
 			} elseif(empty($data['user_id'])) {
 				$data['message']['error'] = '必须选择一个User.';
 			} else {
-				if($this->info_model->add($data)) {
+				$info_id = $this->info_model->add($data);
+				if($info_id) {
+					//Update option
+					foreach($data['options'] as $slug => $value) {
+						$this->info_model->update_insert_info_filters($info_id, $slug, $value);
+					}
+					
 					$data['message']['ok'] = '添加成功! ';
 					show_result_page($data['message'], 'admin/info');
 					return true;
@@ -50,10 +57,18 @@ class Info extends Admin_Controller {
 			}
 		}
 		
-		$data['category_list'] = $this->category_model->tree();
-		$data['area_list'] = $this->area_model->tree();
-		$data['user_list'] = $this->user_model->all();
-		$this->load->admin_template('info/add', $data);
+		if(empty($category_id)) {
+			$data['category_list'] = $this->category_model->tree();
+			$this->load->admin_template('info/add1', $data);
+		} else {
+			$category_info = $this->category_model->get_single_by_id($category_id);
+			
+			$data['filter_list'] = $this->filter_model->get_filter_by_categories($category_info['context_parent_id']);
+			$data['area_list'] = $this->area_model->tree();
+			$data['user_list'] = $this->user_model->all();
+			$data['category_id'] = $category_id;
+			$this->load->admin_template('info/add2', $data);
+		}
 	}
 	
 	public function edit($id = 0) {
@@ -86,12 +101,21 @@ class Info extends Admin_Controller {
 				
 				$update_field = array();
 				foreach($data as $key => $val) {
+					if(in_array($key, array('options'))) {
+						continue;
+					}
+					
 					if(($val != $info_info[$key])) {
 						$update_field[$key] = $val;
 					}
 				}
 				
 				if($this->info_model->update($id, $update_field)) {
+					//Update option
+					foreach($data['options'] as $slug => $value) {
+						$this->info_model->update_insert_info_filters($id, $slug, $value);
+					}
+					
 					$data['message']['ok'] = '更新成功! ';
 					show_result_page($data['message'], 'admin/info');
 					return true;
@@ -103,7 +127,9 @@ class Info extends Admin_Controller {
 			$data = $info_info;
 		}
 		
-		$data['category_list'] = $this->category_model->tree();
+		$category_info = $this->category_model->get_single_by_id($info_info['category_id']);
+			
+		$data['filter_list'] = $this->filter_model->get_filter_by_categories($category_info['context_parent_id']);
 		$data['area_list'] = $this->area_model->tree();
 		$data['user_list'] = $this->user_model->all();
 		$this->load->admin_template('info/edit', $data);

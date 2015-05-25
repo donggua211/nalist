@@ -15,6 +15,7 @@
 				  <td>过滤器Key</td>
 				  <td>分类名</td>
 				  <td>过滤器Type</td>
+				  <td>表示顺序</td>
 				  <td class="operation">操作</td>
 				</tr>
 			</thead>
@@ -22,9 +23,10 @@
 			<?php foreach($filter_list as $val): ?>
 				<tr>
 					<td><?php echo $val['filter_name']; ?></td>
-					<td><?php echo $val['filter_key']; ?></td>
+					<td><?php echo $val['filter_slug']; ?></td>
 					<td><?php echo $val['category_name']; ?></td>
 					<td><?php echo $val['type']; ?></td>
+					<td><?php echo $val['display_order']; ?></td>
 					<td class="center">
 						<a href="<?php echo site_url('admin/filter/edit/'.$val['id']); ?>">编辑</a> | 
 						<a class="remove" href="<?php echo site_url('admin/filter/remove/'.$val['id']); ?>">删除</a>

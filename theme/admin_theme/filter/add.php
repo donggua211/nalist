@@ -8,12 +8,16 @@
 				<p><input type="text" value="<?php echo isset($filter_name) ? $filter_name : ''; ?>"  name="filter_name"></p>
 			</li>
 			<li>
-				<label for="filter_key">分类:</label>
+				<label for="category">分类:</label>
 				<p><?php template_tree_select($category_list, 'category_display_name', '', 'category_id', '请选择'); ?></p>
 			</li>
 			<li>
-				<label for="filter_key">过滤器Key:</label>
-				<p><input type="text" value="<?php echo isset($filter_key) ? $filter_key : ''; ?>"  name="filter_key"></p>
+				<label for="filter_slug">过滤器Key:</label>
+				<p><input type="text" value="<?php echo isset($filter_slug) ? $filter_slug : ''; ?>"  name="filter_slug"></p>
+			</li>
+			<li>
+				<label>表示顺序:</label>
+				<p><input type="text" value="<?php echo isset($display_order) ? $display_order : '100'; ?>"  name="filter_display_order"></p>
 			</li>
 			<li class="off">
 				<label for="type">过滤器Type:</label>

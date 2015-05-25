@@ -8,10 +8,6 @@
 				<p><input type="text" value="<?php echo isset($title) ? $title : ''; ?>"  name="title"></p>
 			</li>
 			<li>
-				<label for="category_id">Category:</label>
-				<p><?php template_tree_select($category_list, 'category_name', '', 'category_id', '请选择'); ?></p>
-			</li>
-			<li>
 				<label for="area_id">Area:</label>
 				<p><?php template_tree_select($area_list, 'area_name', '', 'area_id', '请选择'); ?></p>
 			</li>
@@ -30,8 +26,45 @@
 					<input type="radio" <?php echo (isset($status) && $status == '0') ? 'CHECKED' : ''; ?> value="0" name="status">Inactive
 				</p>
 			</li>
+		</ul>
+		
+		<h2 class="sub-title">Filter Options</h2>
+		<ul class="auto-height">
+			<?php foreach($filter_list as $val): ?>
+			
+			<li class="long-line">
+				<label for="user_id"><?php echo $val['filter_name']; ?>:</label>
+				<p>
+				<?php
+				switch($val['type']) {
+					case 'select':
+						echo '<select name="options['.$val['filter_id'].']" >';
+						foreach($val['options'] as $option) {
+							echo '<option value="'.$option['option_value'].'" > '.$option['option_name'];
+						}
+						echo '</select>';
+						break;
+					case 'radio':
+					case 'checkbox':
+						foreach($val['options'] as $option) {
+							echo '<input type="'.$val['type'].'" name="options['.$val['filter_id'].']" value="'.$option['option_value'].'" > '.$option['option_name'].' ';
+						}
+						break;
+					case 'text':
+					case 'number':
+					default:
+						echo '<input type="'.$val['type'].'" name="options['.$val['filter_id'].']" value="" >';
+						break;
+				}
+				?>
+				</p>
+			</li>
+			
+			
+			<?php endforeach; ?>
 			<li class="button">
 				<span class="label-like">&nbsp;</span>
+				<input type="hidden" value="<?php echo $category_id; ?>"  name="category_id">
 				<input type="submit" value="　添加　"  name="submit" class="submit-button">
 			</li>
 		</ul>

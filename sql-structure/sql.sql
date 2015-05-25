@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 20, 2015 at 06:11 AM
+-- Generation Time: May 25, 2015 at 12:13 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `nalist_categories` (
   `display_order` int(11) NOT NULL DEFAULT '100',
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `nalist_categories`
@@ -107,17 +107,9 @@ INSERT INTO `nalist_categories` (`id`, `parent_id`, `category_name`, `category_d
 (15, 1, 'qiuzu', '求租', 'qiuzu', '求租', 100, '2015-01-10 23:05:59'),
 (16, 1, 'shangpuchuzu', '商铺出租', 'shangpuchuzu', '商铺出租', 100, '2015-01-10 23:06:13'),
 (17, 1, 'shangpuchushou', '商铺出售', 'shangpuchushou', '商铺出售', 100, '2015-01-10 23:06:29'),
-(21, 0, 'c', 'c', 'c', 'c', 100, '2015-01-15 07:29:24'),
-(22, 21, 'c 1', 'c 1', 'c-1', '', 100, '2015-01-15 07:29:36'),
-(23, 21, 'c 2', 'c 2', 'c-2', '', 100, '2015-01-15 07:29:48'),
-(24, 21, 'c 3', 'c 3', 'c-3', '', 100, '2015-01-15 07:29:58'),
-(25, 22, 'c 1-1', 'c 1-1', 'c-1-1', '', 100, '2015-01-15 07:30:14'),
-(26, 22, 'c 1-2', 'c 1-2', 'c-1-2', 'c 1-2', 100, '2015-01-15 07:30:27'),
-(27, 22, 'c 1-3', 'c 1-3', 'c-1-3', '', 100, '2015-01-15 07:30:38'),
-(28, 25, 'c 1-1-1', 'c 1-1-1', 'c-1-1-1', '', 100, '2015-01-15 07:30:51'),
-(29, 25, 'c 1-1-2', 'c 1-1-2', 'c-1-1-2', '', 100, '2015-01-15 07:31:02'),
-(30, 28, 'c 1-1-1-1', 'c 1-1-1-1', 'c-1-1-1-1', '1', 100, '2015-01-15 07:31:27'),
-(31, 28, 'c 1-1-1-2', 'c 1-1-1-2', 'c-1-1-1-2', '0', 100, '2015-01-15 07:31:42');
+(32, 0, 'qiche', '汽车买卖', 'qiche', '', 100, '2015-05-23 23:58:21'),
+(33, 32, 'ershouche', '二手车', 'ershouche', '', 100, '2015-05-23 23:59:03'),
+(34, 32, 'xinche', '新车', 'xinche', '', 100, '2015-05-23 23:59:25');
 
 -- --------------------------------------------------------
 
@@ -129,21 +121,23 @@ DROP TABLE IF EXISTS `nalist_filters`;
 CREATE TABLE IF NOT EXISTS `nalist_filters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) NOT NULL,
-  `filter_key` varchar(50) NOT NULL,
+  `filter_slug` varchar(50) NOT NULL,
   `filter_name` varchar(150) NOT NULL,
   `type` enum('select','radio','checkbox','text','number') NOT NULL,
+  `display_order` int(11) NOT NULL DEFAULT '1000',
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `nalist_filters`
 --
 
-INSERT INTO `nalist_filters` (`id`, `category_id`, `filter_key`, `filter_name`, `type`, `add_time`) VALUES
-(5, 1, 'tingshi', '厅室', 'radio', '2015-01-14 07:54:50'),
-(6, 1, 'fangshi', '方式', 'radio', '2015-01-14 08:03:54'),
-(7, 13, 'fee', '租金', 'number', '2015-01-14 08:04:34');
+INSERT INTO `nalist_filters` (`id`, `category_id`, `filter_slug`, `filter_name`, `type`, `display_order`, `add_time`) VALUES
+(5, 1, 'tingshi', '厅室', 'radio', 2, '2015-01-14 07:54:50'),
+(6, 1, 'fangshi', '方式', 'checkbox', 3, '2015-01-14 08:03:54'),
+(7, 1, 'fee', '租金', 'number', 1, '2015-01-14 08:04:34'),
+(8, 1, 'square', '面积', 'select', 2, '2015-05-24 23:56:03');
 
 -- --------------------------------------------------------
 
@@ -160,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `nalist_filter_options` (
   `display_order` int(11) NOT NULL DEFAULT '100',
   `add_time` datetime NOT NULL,
   PRIMARY KEY (`option_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `nalist_filter_options`
@@ -174,7 +168,9 @@ INSERT INTO `nalist_filter_options` (`option_id`, `filter_id`, `option_name`, `o
 (13, 5, '四室以上', 'r5', 100, '2015-01-14 07:54:50'),
 (14, 6, '整套出租', 'whole', 100, '2015-01-14 08:03:54'),
 (15, 6, '单间出租', 'single', 100, '2015-01-14 08:03:55'),
-(16, 6, '床位出租', 'bed', 100, '2015-01-14 08:03:55');
+(16, 6, '床位出租', 'bed', 100, '2015-01-14 08:03:55'),
+(17, 8, '10-20', '20', 1, '2015-05-24 23:56:03'),
+(18, 8, '20-30', '30', 2, '2015-05-24 23:56:03');
 
 -- --------------------------------------------------------
 
@@ -217,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `nalist_info` (
   `add_time` datetime NOT NULL,
   `update_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `nalist_info`
@@ -225,7 +221,8 @@ CREATE TABLE IF NOT EXISTS `nalist_info` (
 
 INSERT INTO `nalist_info` (`id`, `area_id`, `category_id`, `user_id`, `title`, `description`, `status`, `add_time`, `update_date`) VALUES
 (1, 2, 13, 1, '测试的信息', '描述 描述1', 1, '2013-10-22 23:22:58', '2015-05-20 03:59:22'),
-(2, 3, 13, 1, '测试的信息 22', 'user_iduser_iduser_id', 1, '2015-01-02 23:51:03', '2015-05-20 03:59:06');
+(2, 3, 13, 1, '测试的信息 22', 'user_iduser_iduser_id', 1, '2015-01-02 23:51:03', '2015-05-20 03:59:06'),
+(8, 5, 13, 1, ' 四惠房子', '四惠房子四惠房子四惠房子四惠房子四惠房子四惠房子四惠房子四惠房子四惠房子四惠房子四惠房子四惠房子', 1, '2015-05-24 23:54:25', '2015-05-24 23:54:25');
 
 -- --------------------------------------------------------
 
@@ -240,15 +237,17 @@ CREATE TABLE IF NOT EXISTS `nalist_info_filters` (
   `filter_id` int(11) NOT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `nalist_info_filters`
 --
 
 INSERT INTO `nalist_info_filters` (`id`, `info_id`, `filter_id`, `value`) VALUES
-(1, 1, 1, ''),
-(3, 1, 2, '');
+(1, 8, 7, '2001'),
+(2, 8, 5, 'r3'),
+(3, 8, 8, '30'),
+(4, 8, 6, 'whole,single');
 
 -- --------------------------------------------------------
 

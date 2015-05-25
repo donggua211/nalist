@@ -63,7 +63,23 @@ class Info_model extends MY_Model {
 		$query = $this->db->query($sql);
 		
 		if ($query->num_rows() > 0) {
-			return $query->row_array();
+			$info_result = $query->row_array();
+			
+			//Get filter info
+			$sql = "SELECT * FROM {$this->db->dbprefix('info_filters')} as info_filters
+					WHERE info_id = '$id'";
+			$query = $this->db->query($sql);
+			
+			if ($query->num_rows() > 0) {
+				$filter_result = $query->result_array();
+				foreach($filter_result as $val) {
+					$info_result['filter'][$val['filter_id']] = $val['value'];
+				}
+			} else {
+				$info_result['filter'] = array();
+			}
+			
+			return $info_result;
 		} else {
 			return array();
 		}
@@ -75,6 +91,33 @@ class Info_model extends MY_Model {
 			return true;
 		} else {
 			return false;
+		}
+	}
+	
+	public function update_insert_info_filters($info_id, $filter_id, $value) {
+		$sql = "SELECT id FROM {$this->db->dbprefix('info_filters')} as info_filters
+				WHERE info_id = '$info_id'
+				AND filter_id = '$filter_id'
+				LIMIT 1";
+		$query = $this->db->query($sql);
+		
+		if(is_array($value)) {
+			$value = implode(',', $value);
+		}
+		
+		if ($query->num_rows() == 0) {
+			$insert_field = array();
+			$insert_field['info_id'] = $info_id;
+			$insert_field['filter_id'] = $filter_id;
+			$insert_field['value'] = $value;
+			return $this->db->insert('info_filters', $insert_field);
+		} else {
+			$update_field = $where= array();
+			$update_field['value'] = $value;
+			
+			$where['info_id'] = $info_id;
+			$where['filter_id'] = $filter_id;
+			return $this->db->update('info_filters', $update_field, $where);
 		}
 	}
 }

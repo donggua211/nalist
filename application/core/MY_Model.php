@@ -67,8 +67,12 @@ class TREE_Model extends Cache_Model {
 		return $this->data_list['tree'];
 	}
 	
-	public function get_one_by_slug($slug) {
+	public function get_nav_by_slug($slug) {
 		return ($this->data_list['nav'][$slug]);
+	}
+	
+	public function get_single_by_id($id) {
+		return ($this->data_list['single'][$id]);
 	}
 	
 	public function check_slug($slug) {
@@ -143,7 +147,6 @@ class TREE_Model extends Cache_Model {
 				$this->data_list['nav'][$val[$this->slug_key]]['parent'] = array_reverse($this->_track_parent($query->result_array(), $val['id']));
 				$this->data_list['nav'][$val[$this->slug_key]]['child'] = $this->_track_child($query->result_array(), $val['id']);
 				$this->data_list['nav'][$val[$this->slug_key]]['neighbor'] = $this->_track_neighbor($query->result_array(), $val['parent_id']);
-				
 			}
 			
 			$this->data_list['tree'] = array_2_tree($this->data_list['tree']);
