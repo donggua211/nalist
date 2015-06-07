@@ -51,15 +51,51 @@
 						</div>
 					</dd>
 				</dl>
+				
+				<?php foreach($filter_info as $val) : ?>
+				<dl class="panel-tbl-wrap">
+					<dt><?php echo $val['filter_name']; ?></dt>
+					<dd id="jsi-employment-select">
+						
+						<?php
+						switch($val['type']) {
+							case 'select':
+							case 'radio':
+							case 'checkbox':
+								echo '<ul class="small-area-tbl-btn">';
+								foreach($val['options'] as $option) {
+									echo '<li>';
+									
+									if(isset($filter[$val['id']]) && $filter[$val['id']] == $option['option_value'] ? 'SELECTED' : '') {
+										echo $option['option_name'];
+									} else {
+										echo '<a href="" class="jsc-jump-link" data-jump-param="tokyo,jc_010,emc_01,">'.$option['option_name'].'</a>';
+									}
+									
+									echo '</li>';
+								}
+								echo '</ul>';
+								break;
+							case 'text':
+							case 'number':
+							default:
+								echo '<input type="'.$val['type'].'" name="options['.$val['id'].']" value="'.(isset($filter[$val['id']]) ? $filter[$val['id']] : '').'" >';
+								break;
+						}
+						?>
+					</dd>
+				</dl>
+				<?php endforeach; ?>
+				
 				<dl class="panel-tbl-wrap panel-free-word-sch">
-				<dt>フリーワード</dt>
-				<dd id="jsi-freeword">
-				<form name="joSrchRsltListActionForm" id="fwForm" method="get" action="/joSrchRsltList/" autocomplete="off"><input type="text" name="fw" value="" id="textfield000" class="free-word-txtfield placeholder jsc-max-length-limit jsc-freeword-field jsc-need-alert jsc-placeholder" data-placeholder="例) 日払い、短期、新宿区" data-alert-message="条件を1つ以上選択してください。" data-maxlength="25" maxlength="25">
-				<div class="btn-wrap panel-btn-right">
-				<input type="submit" value="絞り込む" class="grd-blue btn-blue-h30 jsc-freeword-btn">
-				</div>
-				</form>
-				</dd>
+					<dt>フリーワード</dt>
+					<dd id="jsi-freeword">
+						<form name="joSrchRsltListActionForm" id="fwForm" method="get" action="/joSrchRsltList/" autocomplete="off"><input type="text" name="fw" value="" id="textfield000" class="free-word-txtfield placeholder jsc-max-length-limit jsc-freeword-field jsc-need-alert jsc-placeholder" data-placeholder="例) 日払い、短期、新宿区" data-alert-message="条件を1つ以上選択してください。" data-maxlength="25" maxlength="25">
+						<div class="btn-wrap panel-btn-right">
+							<input type="submit" value="絞り込む" class="grd-blue btn-blue-h30 jsc-freeword-btn">
+						</div>
+						</form>
+					</dd>
 				</dl>
 			</div>
 			

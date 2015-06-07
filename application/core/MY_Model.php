@@ -68,11 +68,11 @@ class TREE_Model extends Cache_Model {
 	}
 	
 	public function get_nav_by_slug($slug) {
-		return ($this->data_list['nav'][$slug]);
+		return ($this->data_list['list_slug'][$slug]);
 	}
 	
 	public function get_single_by_id($id) {
-		return ($this->data_list['single'][$id]);
+		return ($this->data_list['list_id'][$id]);
 	}
 	
 	public function check_slug($slug) {
@@ -136,17 +136,18 @@ class TREE_Model extends Cache_Model {
 				
 				$child_id = $this->_context_child_id($query->result_array(), $val['id']);
 				array_unshift($child_id, $val['id']);
-				$this->data_list['single'][$val['id']] = $val;
-				$this->data_list['single'][$val['id']]['context_parent_id'] = implode(',', $this->_context_parent_id($query->result_array(), $val['id']));
-				$this->data_list['single'][$val['id']]['context_child_id'] = implode(',', $child_id);
+				
+				$this->data_list['list_id'][$val['id']] = $val;
+				$this->data_list['list_id'][$val['id']]['context_parent_id'] = implode(',', $this->_context_parent_id($query->result_array(), $val['id']));
+				$this->data_list['list_id'][$val['id']]['context_child_id'] = implode(',', $child_id);
+				$this->data_list['list_id'][$val['id']]['direct_parent'] = $this->_set_direct_parent($query->result_array(), $val['parent_id']);
+				$this->data_list['list_id'][$val['id']]['parent'] = array_reverse($this->_track_parent($query->result_array(), $val['id']));
+				$this->data_list['list_id'][$val['id']]['child'] = $this->_track_child($query->result_array(), $val['id']);
+				$this->data_list['list_id'][$val['id']]['neighbor'] = $this->_track_neighbor($query->result_array(), $val['parent_id']);
+				
+				$this->data_list['list_slug'][$val[$this->slug_key]] = $this->data_list['list_id'][$val['id']];
 				
 				$slug_array[] = $val[$this->slug_key];
-				
-				$this->data_list['nav'][$val[$this->slug_key]] = $val;
-				$this->data_list['nav'][$val[$this->slug_key]]['direct_parent'] = $this->_set_direct_parent($query->result_array(), $val['parent_id']);
-				$this->data_list['nav'][$val[$this->slug_key]]['parent'] = array_reverse($this->_track_parent($query->result_array(), $val['id']));
-				$this->data_list['nav'][$val[$this->slug_key]]['child'] = $this->_track_child($query->result_array(), $val['id']);
-				$this->data_list['nav'][$val[$this->slug_key]]['neighbor'] = $this->_track_neighbor($query->result_array(), $val['parent_id']);
 			}
 			
 			$this->data_list['tree'] = array_2_tree($this->data_list['tree']);
