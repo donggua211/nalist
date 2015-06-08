@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `nalist_info_meta` (
   `meta_value` longtext,
   PRIMARY KEY (`id`),
   KEY `info_id` (`info_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `nalist_info_meta`
