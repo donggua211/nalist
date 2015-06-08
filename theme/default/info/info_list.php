@@ -1,5 +1,5 @@
 <?php get_header(array('meta_title' => $category_info['category_display_name'] . ' | ' . $city_info['area_display_name']));?>
-
+<?php pr($filter_options); ?>
 <div class="contents-wrap">
 	<div class="content">
 		<div class="contents-main-wrap">
@@ -17,7 +17,7 @@
 						
 						<?php foreach($category_info['parent'] as $val) : ?>
 						<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-							<a href="<?php echo  site_url($val['category_slug']); ?>" itemprop="url"><span itemprop="title"><?php echo  $val['category_display_name']; ?></span></a>
+							<a href="<?php echo  ($val['parent_id'] == 0) ? site_url($city_slug, false) : site_url($val['category_slug']); ?>" itemprop="url"><span itemprop="title"><?php echo  $val['category_display_name']; ?></span></a>
 						</li>
 						<?php endforeach; ?>
 						
@@ -46,13 +46,15 @@
 							</li>
 							<?php endforeach; ?>
 						</ul>
-						<div class="btn-wrap panel-btn-right">
-							<input type="submit" value="絞り込む" class="grd-blue btn-blue-h30 jsc-employment-btn">
-						</div>
 					</dd>
 				</dl>
 				
 				<?php foreach($filter_info as $val) : ?>
+				<?php
+				if($val['type'] == 'text' || $val['type'] == 'number') {
+					continue;
+				}
+				?>
 				<dl class="panel-tbl-wrap">
 					<dt><?php echo $val['filter_name']; ?></dt>
 					<dd id="jsi-employment-select">
@@ -69,7 +71,7 @@
 									if(isset($filter[$val['id']]) && $filter[$val['id']] == $option['option_value'] ? 'SELECTED' : '') {
 										echo $option['option_name'];
 									} else {
-										echo '<a href="" class="jsc-jump-link" data-jump-param="tokyo,jc_010,emc_01,">'.$option['option_name'].'</a>';
+										echo '<a href="'.site_url($category_slug.'/'.$option['option_value']).'" class="jsc-jump-link" data-jump-param="tokyo,jc_010,emc_01,">'.$option['option_name'].'</a>';
 									}
 									
 									echo '</li>';
@@ -79,7 +81,6 @@
 							case 'text':
 							case 'number':
 							default:
-								echo '<input type="'.$val['type'].'" name="options['.$val['id'].']" value="'.(isset($filter[$val['id']]) ? $filter[$val['id']] : '').'" >';
 								break;
 						}
 						?>
@@ -122,7 +123,7 @@
 				</div>
 			</div>
 			
-			
+			<?php pr($filter_list); ?>
 			
 			<div class="job-lst-cassette-wrap">
 				<div class="job-lst-box-wrap">

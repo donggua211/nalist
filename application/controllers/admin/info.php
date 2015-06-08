@@ -11,6 +11,7 @@ class Info extends Admin_Controller {
 		$this->load->model('user_model');
 		$this->load->model('info_model');
 		$this->load->model('filter_model');
+		$this->load->model('meta_model');
 	}
 	
 	public function index() {
@@ -41,11 +42,21 @@ class Info extends Admin_Controller {
 			} elseif(empty($data['user_id'])) {
 				$data['message']['error'] = '必须选择一个User.';
 			} else {
+				//Update option
+				$options = array();
+				foreach($data['options'] as $option_id => $value) {
+					if(is_array($value)) {
+						$value = implode(',', $value);
+					}
+					$options[] = $option_id.'-'.$value;
+				}
+				$data['filters'] = implode(';', $options);
+				
 				$info_id = $this->info_model->add($data);
 				if($info_id) {
-					//Update option
-					foreach($data['options'] as $slug => $value) {
-						$this->info_model->update_insert_info_filters($info_id, $slug, $value);
+					//Update Mete
+					foreach($data['meta'] as $meta_id => $value) {
+						$this->info_model->update_insert_info_meta($info_id, $meta_id, $value);
 					}
 					
 					$data['message']['ok'] = '添加成功! ';
@@ -64,6 +75,7 @@ class Info extends Admin_Controller {
 			$category_info = $this->category_model->get_single_by_id($category_id);
 			
 			$data['filter_list'] = $this->filter_model->get_filter_by_categories($category_info['context_parent_id']);
+			$data['meta_list'] = $this->meta_model->get_meta_by_categories($category_info['context_parent_id']);
 			$data['area_list'] = $this->area_model->tree();
 			$data['user_list'] = $this->user_model->all();
 			$data['category_id'] = $category_id;
@@ -99,9 +111,19 @@ class Info extends Admin_Controller {
 					$data[$key] = $this->input->post($key);
 				}
 				
+				//Update option
+				$options = array();
+				foreach($data['options'] as $option_id => $value) {
+					if(is_array($value)) {
+						$value = implode(',', $value);
+					}
+					$options[] = $option_id.'-'.$value;
+				}
+				$data['filters'] = implode(';', $options);
+				
 				$update_field = array();
 				foreach($data as $key => $val) {
-					if(in_array($key, array('options'))) {
+					if(in_array($key, array('options', 'meta'))) {
 						continue;
 					}
 					
@@ -112,8 +134,8 @@ class Info extends Admin_Controller {
 				
 				if($this->info_model->update($id, $update_field)) {
 					//Update option
-					foreach($data['options'] as $slug => $value) {
-						$this->info_model->update_insert_info_filters($id, $slug, $value);
+					foreach($data['meta'] as $meta_id => $value) {
+						$this->info_model->update_insert_info_meta($id, $meta_id, $value);
 					}
 					
 					$data['message']['ok'] = '更新成功! ';
@@ -130,6 +152,7 @@ class Info extends Admin_Controller {
 		$category_info = $this->category_model->get_single_by_id($info_info['category_id']);
 			
 		$data['filter_list'] = $this->filter_model->get_filter_by_categories($category_info['context_parent_id']);
+		$data['meta_list'] = $this->meta_model->get_meta_by_categories($category_info['context_parent_id']);
 		$data['area_list'] = $this->area_model->tree();
 		$data['user_list'] = $this->user_model->all();
 		$this->load->admin_template('info/edit', $data);

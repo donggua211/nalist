@@ -9,7 +9,7 @@ class Filter_model extends MY_Model {
 	
 	public function add($data) {
 		$fields['category_id'] = $data['category_id'];
-		$fields['filter_id'] = $data['filter_id'];
+		$fields['filter_slug'] = $data['filter_slug'];
 		$fields['filter_name'] = $data['filter_name'];
 		$fields['type'] = $data['type'];
 		$fields['display_order'] = $data['filter_display_order'];

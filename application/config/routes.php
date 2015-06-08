@@ -78,7 +78,7 @@ if(file_exists(FCPATH.'.route_area_list')) {
 			
 			foreach($category_setting as $val2) {
 				$route[$val.'/'.$val2] = 'info/info_list/'.$val2.'/'.$val;
-				$route[$val.'/'.$val2.'/(:any)'] = 'info/info_list/'.$val2.'/$1/'.$val;
+				$route[$val.'/'.$val2.'/(.+)'] = 'info/info_list/'.$val2.'/$1/'.$val;
 			}
 			
 			$route[$val.'/(:any)'] = '$1/'.$val;

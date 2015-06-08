@@ -40,7 +40,7 @@
 					case 'select':
 						echo '<select name="options['.$val['id'].']" >';
 						foreach($val['options'] as $option) {
-							echo '<option value="'.$option['option_value'].'" '.(isset($filter[$val['id']]) && $filter[$val['id']] == $option['option_value'] ? 'SELECTED' : '').' > '.$option['option_name'];
+							echo '<option value="'.$option['option_value'].'" '.(isset($filters[$val['id']]) && $filters[$val['id']] == $option['option_value'] ? 'SELECTED' : '').' > '.$option['option_name'];
 						}
 						echo '</select>';
 						break;
@@ -53,14 +53,17 @@
 							}
 							
 							$checked = false;
-							if(isset($filter[$val['id']]) && !empty($filter[$val['id']])) {
+							if(isset($filters[$val['id']]) && !empty($filters[$val['id']])) {
 								if($val['type'] == 'checkbox') {
-									$checked_array = explode(',', $filter[$val['id']]);
-									if(in_array($option['option_value'], $checked_array)) {
+									if(!is_array($filters[$val['id']])) {
+										$filters[$val['id']] = (array)$filters[$val['id']];
+									}
+									
+									if(in_array($option['option_value'], $filters[$val['id']])) {
 										$checked = true;
 									}
 								} else {
-									if($filter[$val['id']] == $option['option_value']) {
+									if($filters[$val['id']] == $option['option_value']) {
 										$checked = true;
 									}
 								}
@@ -72,15 +75,26 @@
 					case 'text':
 					case 'number':
 					default:
-						echo '<input type="'.$val['type'].'" name="options['.$val['id'].']" value="'.(isset($filter[$val['id']]) ? $filter[$val['id']] : '').'" >';
+						echo '<input type="'.$val['type'].'" name="options['.$val['id'].']" value="'.(isset($filters[$val['id']]) ? $filters[$val['id']] : '').'" >';
 						break;
 				}
 				?>
 				</p>
 			</li>
-			
-			
 			<?php endforeach; ?>
+		</ul>
+		
+		<h2 class="sub-title">Mets</h2>
+		<ul class="auto-height">
+			<?php foreach($meta_list as $val): ?>
+			<li class="long-line">
+				<label for="user_id"><?php echo $val['meta_name']; ?>:</label>
+				<p><input type="text" name="meta[<?php echo $val['id']; ?>]" value="<?php echo (isset($meta[$val['id']]) ? $meta[$val['id']] : ''); ?>" ></p>
+			</li>
+			<?php endforeach; ?>
+		</ul>
+		
+		<ul>
 			<li class="button">
 				<span class="label-like">&nbsp;</span>
 				<input type="submit" value="　编辑　" name="submit" class="submit-button">

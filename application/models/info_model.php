@@ -13,6 +13,7 @@ class Info_model extends MY_Model {
 		$fields['user_id'] = $data['user_id'];
 		$fields['title'] = $data['title'];
 		$fields['description'] = $data['description'];
+		$fields['filters'] = $data['filters'];
 		$fields['status'] = $data['status'];
 		$fields['add_time'] = date('Y-m-d H:i:s');
 		$fields['update_date'] = date('Y-m-d H:i:s');
@@ -65,18 +66,27 @@ class Info_model extends MY_Model {
 		if ($query->num_rows() > 0) {
 			$info_result = $query->row_array();
 			
-			//Get filter info
-			$sql = "SELECT * FROM {$this->db->dbprefix('info_filters')} as info_filters
+			$filters = array();
+			$tmp_filter = explode(';', $info_result['filters']);
+			foreach($tmp_filter as $value) {
+				list($filter_id, $tmp_value) = explode('-', $value);
+				$tmp_value = explode(',', $tmp_value);
+				$filters[$filter_id] = count($tmp_value) > 1 ? $tmp_value : $tmp_value[0];
+			}
+			$info_result['filters'] = $filters;
+			
+			//Get meta info
+			$sql = "SELECT * FROM {$this->db->dbprefix('info_meta')} as info_meta
 					WHERE info_id = '$id'";
 			$query = $this->db->query($sql);
 			
 			if ($query->num_rows() > 0) {
-				$filter_result = $query->result_array();
-				foreach($filter_result as $val) {
-					$info_result['filter'][$val['filter_id']] = $val['value'];
+				$meta_result = $query->result_array();
+				foreach($meta_result as $val) {
+					$info_result['meta'][$val['meta_id']] = $val['meta_value'];
 				}
 			} else {
-				$info_result['filter'] = array();
+				$info_result['meta'] = array();
 			}
 			
 			return $info_result;
@@ -87,38 +97,38 @@ class Info_model extends MY_Model {
 	
 	public function remove($id) {
 		if($this->db->delete('info', array('id' => $id))) {
-			 $this->db->delete('info_filters', array('info_id' => $id));
+			 $this->db->delete('info_meta', array('info_id' => $id));
 			return true;
 		} else {
 			return false;
 		}
 	}
 	
-	public function update_insert_info_filters($info_id, $filter_id, $value) {
-		$sql = "SELECT id FROM {$this->db->dbprefix('info_filters')} as info_filters
+	public function update_insert_info_meta($info_id, $meta_id, $value) {
+		$sql = "SELECT id FROM {$this->db->dbprefix('info_meta')} as info_meta
 				WHERE info_id = '$info_id'
-				AND filter_id = '$filter_id'
+				AND meta_id = '$meta_id'
 				LIMIT 1";
 		$query = $this->db->query($sql);
-		
-		if(is_array($value)) {
-			$value = implode(',', $value);
-		}
 		
 		if ($query->num_rows() == 0) {
 			$insert_field = array();
 			$insert_field['info_id'] = $info_id;
-			$insert_field['filter_id'] = $filter_id;
-			$insert_field['value'] = $value;
-			return $this->db->insert('info_filters', $insert_field);
+			$insert_field['meta_id'] = $meta_id;
+			$insert_field['meta_value'] = $value;
+			return $this->db->insert('info_meta', $insert_field);
 		} else {
 			$update_field = $where= array();
-			$update_field['value'] = $value;
+			$update_field['meta_value'] = $value;
 			
 			$where['info_id'] = $info_id;
-			$where['filter_id'] = $filter_id;
-			return $this->db->update('info_filters', $update_field, $where);
+			$where['meta_id'] = $meta_id;
+			return $this->db->update('info_meta', $update_field, $where);
 		}
+	}
+	
+	function get_info($filter, $type = 'result', $field = '*', $row_count = 0, $offset = 0, $order_by = '') {
+		
 	}
 }
 ?>

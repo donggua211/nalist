@@ -38,7 +38,7 @@
 				<?php
 				switch($val['type']) {
 					case 'select':
-						echo '<select name="options['.$val['filter_id'].']" >';
+						echo '<select name="options['.$val['id'].']" >';
 						foreach($val['options'] as $option) {
 							echo '<option value="'.$option['option_value'].'" > '.$option['option_name'];
 						}
@@ -47,21 +47,31 @@
 					case 'radio':
 					case 'checkbox':
 						foreach($val['options'] as $option) {
-							echo '<input type="'.$val['type'].'" name="options['.$val['filter_id'].']" value="'.$option['option_value'].'" > '.$option['option_name'].' ';
+							echo '<input type="'.$val['type'].'" name="options['.$val['id'].']" value="'.$option['option_value'].'" > '.$option['option_name'].' ';
 						}
 						break;
 					case 'text':
 					case 'number':
 					default:
-						echo '<input type="'.$val['type'].'" name="options['.$val['filter_id'].']" value="" >';
+						echo '<input type="'.$val['type'].'" name="options['.$val['id'].']" value="" >';
 						break;
 				}
 				?>
 				</p>
 			</li>
-			
-			
 			<?php endforeach; ?>
+		</ul>
+		
+		<h2 class="sub-title">Mets</h2>
+		<ul class="auto-height">
+			<?php foreach($meta_list as $val): ?>
+			<li class="long-line">
+				<label for="user_id"><?php echo $val['meta_name']; ?>:</label>
+				<p><input type="text" name="meta[<?php echo $val['id']; ?>]" value="" ></p>
+			</li>
+			<?php endforeach; ?>
+		</ul>
+		<ul>
 			<li class="button">
 				<span class="label-like">&nbsp;</span>
 				<input type="hidden" value="<?php echo $category_id; ?>"  name="category_id">
