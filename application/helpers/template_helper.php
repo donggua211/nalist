@@ -43,34 +43,27 @@ function get_sidebar($id = '', $data = array()) {
 
 
 //URL
-function pack_fileter_url($page, $filter, $base_url = '') {
-	if(empty($filter))
-		return '';
+function pack_fileter($category_slug, $filter, $page = '') {
+	$filter_string = '';
 	
-	$temp = array();
-	foreach($filter as $key => $val)
-	{
-		if(empty($val) && ($val === FALSE))
-			continue;
-		
-		if($key == 'page') {
-			continue;
+	if(!empty($filter)) {
+		ksort($filter);
+		$filter_str = implode('', $filter);
+	}
+	
+	$base_url = $category_slug;
+
+	if(!empty($filter_str)) {
+		$base_url .= '/'.$filter_str;
+	}
+	
+	if(!empty($page) && $page > 0) {
+		if(strpos($base_url, 'page') !== false) {
+			$base_url = preg_replace('/page.*+/', 'page'.$page , $base_url);
+		} else {
+			$base_url .= '/page'.$page;
 		}
-		
-		$temp[] = $key.'='.$val;
 	}
 	
-	if(empty($base_url)) {
-		$base_url = uri_string();
-	}
-	
-	if(strpos($base_url, 'page') !== false) {
-		$base_url = preg_replace('/page.*+/', 'page'.$page , $base_url);
-	} else {
-		$base_url .= '/page'.$page;
-	}
-	
-	
-	$filter_string = !empty($temp) ? '?'.implode('&', $temp) : '';
-	return site_url($base_url).$filter_string;
+	return site_url($base_url);
 }

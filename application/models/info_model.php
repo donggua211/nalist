@@ -16,7 +16,7 @@ class Info_model extends MY_Model {
 		$fields['filters'] = $data['filters'];
 		$fields['status'] = $data['status'];
 		$fields['add_time'] = date('Y-m-d H:i:s');
-		$fields['update_date'] = date('Y-m-d H:i:s');
+		$fields['update_time'] = date('Y-m-d H:i:s');
 		
 		if($this->db->insert('info', $fields)) {
 			return $this->db->insert_id();
@@ -30,7 +30,7 @@ class Info_model extends MY_Model {
 			return true;
 		}
 		
-		$update_field['update_date'] = date('Y-m-d H:i:s');
+		$update_field['update_time'] = date('Y-m-d H:i:s');
 		$this->db->where('id', $id);
 		if($this->db->update('info', $update_field)) {
 			return true;
@@ -128,7 +128,45 @@ class Info_model extends MY_Model {
 	}
 	
 	function get_info($filter, $type = 'result', $field = '*', $row_count = 0, $offset = 0, $order_by = '') {
+		$where = '';
+		if (isset($filter['keyword']) && $filter['keyword'] != '') {
+			$where.=" AND ((title like '%{$filter['keyword']}%') OR (description like '%{$filter['keyword']}%'))";
+		}
+		if (isset($filter['filter_options']) && !empty($filter['filter_options'])) {
+			foreach($filter['filter_options'] as $option) {
+				$where.=" AND filters like '%{$option}%'";
+			}
+		}
 		
+		if($type == 'count') {
+			$field = "COUNT(*) as total";
+		}
+		
+		$sql = "SELECT ".$field."  FROM {$this->db->dbprefix('info')} as info ";
+	
+		if(!empty($where)) {
+			$sql .= substr_replace($where, ' WHERE ', 0, strpos($where, 'AND') + 3);
+		}
+		if(!empty($order_by)) {
+			$sql .= " ORDER BY $order_by ";
+		}
+		if ($type != 'count' AND !empty($row_count)) {
+			$sql .= " LIMIT $offset, $row_count";
+		}
+		
+		$query = $this->db->query($sql);
+		if($type == 'count') {
+			$result = $query->row_array();
+			return $result['total'];
+		}
+		else {
+			if ($query->num_rows() > 0) {
+				return $query->result_array();
+			} else {
+				return array();
+			}
+			
+		}
 	}
 }
 ?>

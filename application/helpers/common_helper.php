@@ -2,80 +2,38 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 //page nav function
-function page_nav($total, $pagesize, $current_page)
-{
-	$total_page = floor( $total / $pagesize);
+function page_nav($total, $pagesize, $current_page) {
+	$total_page = ceil( $total / $pagesize);
+	if ( $total_page == 0 ) $total_page = 1;
 	if( $current_page > $total_page ) $current_page = $total_page;
 	if( $current_page < 1 ) $current_page = 1;
 
 	$page_nav = array();	
 	$page_nav['total'] = $total;
-	$page_nav['total_page'] = ($total_page == 0) ? 1 : $total_page;
-	$page_nav['last_page'] = ($total_page == 0) ? 1 : $total_page;
+	$page_nav['total_page'] = $total_page;
+	$page_nav['last_page'] = $total_page;
 	$page_nav['start'] = ( $current_page - 1 ) * $pagesize;
-	$page_nav['end'] = ($current_page == $page_nav['total_page']) ? $pagesize * 2: $pagesize;
-	$page_nav['next'] = ( $current_page < $total_page ) ? $current_page + 1 : $total_page;
-	$page_nav['previous'] = ( $current_page > 1 ) ? $current_page - 1 : 1;
+	$page_nav['end'] = ($current_page == $page_nav['last_page']) ? $total : $page_nav['start'] + $pagesize;
+	
+	if( $current_page < $total_page ){
+		$page_nav['next'] = $current_page + 1;
+	}
+	if( $current_page > 1 ){
+		$page_nav['previous'] = $current_page - 1;
+	}
 	$page_nav['current_page'] = $current_page;
 	$page_nav['pagesize'] = $pagesize;
 
-	//record start num. different from start, which is mysql record start num
-	$page_nav['r_start'] = ($page_nav['start'] + 1);
-	$page_nav['r_end'] = ( $page_nav['current_page'] == $page_nav['total_page'] ) ? $page_nav['total'] : $page_nav['start'] + $page_nav['pagesize'];
-	if($page_nav['r_end'] == 0) $page_nav['r_start']= 0;
-	
-	return $page_nav;
+	return $page_nav;	
 }
 
-//Parse URL filter string into array.
-//$type: the type of each value, can be: int, string, date
-//$default: default value of each value.
-function parse_filter($filter_config = array())
-{
-	if(empty($filter_config))
-		return array();
+function parse_page($page = '') {
+	if(empty($page))
+		return '';
 	
-	$result = array();
-	$CI =& get_instance();
-	foreach($filter_config as $key => $config)
-	{
-		$type = $config['type'];
-		$default = $config['default'];
-		
-		$value = $CI->input->get_post($key, TRUE);
-		
-		//if val is '' and default val is '', then skip. else, set value to default
-		if($value == '')
-		{
-			if($default == '')
-				continue;
-			else
-				$value = $default;
-		}
-		
-		
-		switch($type)
-		{
-			case 'int':
-				if(!is_numeric($value))
-					continue 2;
-				$value = intval($value);
-				break;
-			case 'double':
-				if(!is_numeric($value))
-					continue 2;
-				break;
-			case 'string':
-				$value = trim($value);
-				break;
-			case 'date':
-				if(!check_date($value))
-					continue 2;
-				break;
-		}
-		
-		$result[$key] = $value;
-	}
+	$pattern = '|\d+|';
+	preg_match_all($pattern, $page, $match);
+	$result = isset($match[0][0]) ? intval($match[0][0]) : '';
 	
 	return $result;
 }
