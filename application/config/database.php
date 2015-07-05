@@ -104,3 +104,24 @@ $db['enkj'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+$db['aliyun'] = array(
+	'dsn'	=> '',
+	'hostname' => 'sdm16807027.my3w.com',
+	'username' => 'sdm16807027',
+	'password' => 'woaibaicai',
+	'database' => 'sdm16807027_db',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => 'nalist_',
+	'pconnect' => FALSE,
+	'db_debug' => TRUE,
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
