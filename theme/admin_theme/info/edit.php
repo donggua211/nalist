@@ -84,7 +84,7 @@
 			<?php endforeach; ?>
 		</ul>
 		
-		<h2 class="sub-title">Mets</h2>
+		<h2 class="sub-title">Metas</h2>
 		<ul class="auto-height">
 			<?php foreach($meta_list as $val): ?>
 			<li class="long-line">
